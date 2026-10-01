@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nisha Shetty Brand Sheet</title>
+<meta name="description" content="Brand identity v0.2 for Nisha Shetty (Prototype 26), the owner-approved state of 1 Oct 2026: Wordmark A 700, monogram, colour, type and the Cue Card device. Not yet approved by Nisha.">
+<link rel="icon" href="logo/monogram.svg" type="image/svg+xml">
+<link rel="stylesheet" href="tokens.css">
+<style>
+  @font-face { font-family: "Rozha Sheet"; src: url("fonts/rozha-latin-sheet-only.woff2") format("woff2"); font-display: swap; }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--ns-white); color: var(--ns-ink); font-family: var(--ns-text); font-size: 1.0625rem; line-height: 1.55; }
+  img { display: block; max-width: 100%; height: auto; }
+  .wrap { width: min(1280px, 100% - 32px); margin-inline: auto; }
+  section { padding-block: clamp(48px, 7vw, 96px); border-top: 1px solid var(--ns-rule); }
+  .tint { background: var(--ns-blush); }
+  h2 { margin: 0 0 .4rem; font-family: var(--ns-display); font-weight: 800; font-stretch: 75%; text-transform: uppercase; font-size: clamp(2.4rem, 6vw, 4.5rem); line-height: .9; }
+  h3 { margin: 0 0 .5rem; font-family: var(--ns-display); font-weight: 700; font-stretch: 87.5%; font-size: 1.35rem; line-height: 1.1; }
+  p { margin: 0 0 .8rem; max-width: 62ch; }
+  .lede { font-size: 1.15rem; color: var(--ns-ink-soft); }
+  .num { color: var(--ns-red); }
+  .tag { display: inline-block; font-family: var(--ns-display); font-weight: 600; font-stretch: 87.5%; font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; padding: .3rem .55rem; border-radius: 4px; background: var(--ns-blush); color: var(--ns-red-deep); }
+  .tag--rec { background: var(--ns-red); color: var(--ns-white); }
+  .tag--flag { background: #FFF1C9; color: #5C4200; }
+  .small { font-size: .875rem; color: var(--ns-ink-soft); }
+  .grid { display: grid; gap: clamp(16px, 2.5vw, 32px); }
+  @media (min-width: 900px) { .g2 { grid-template-columns: 1fr 1fr; } .g3 { grid-template-columns: repeat(3, 1fr); } .g4 { grid-template-columns: repeat(4, 1fr); } .g-7-5 { grid-template-columns: 7fr 5fr; } }
+  @media (min-width: 600px) and (max-width: 899px) { .g4, .g3 { grid-template-columns: 1fr 1fr; } }
+  .panel { border-radius: 10px; padding: clamp(20px, 3vw, 36px); background: var(--ns-white); border: 1px solid var(--ns-rule); }
+  .panel--red { background: var(--ns-red); border-color: var(--ns-red); color: var(--ns-white); }
+  .panel--ink { background: var(--ns-ink); border-color: var(--ns-ink); color: var(--ns-white); }
+  .panel--blush { background: var(--ns-blush); border-color: var(--ns-blush); }
+  figure { margin: 0; }
+  figcaption { margin-top: .5rem; font-size: .8125rem; line-height: 1.4; color: var(--ns-ink-soft); }
+  code { font-family: ui-monospace, Consolas, monospace; font-size: .85em; }
+
+  /* Top bar */
+  .bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding-block: 16px; }
+  .bar__id { display: flex; align-items: center; gap: 12px; }
+  .bar__id img { width: 40px; height: 40px; }
+
+  /* Hero */
+  .hero { padding-block: clamp(32px, 5vw, 64px) clamp(48px, 7vw, 96px); border-top: 0; }
+  .hero__grid { display: grid; gap: 32px; align-items: center; }
+  @media (min-width: 900px) { .hero__grid { grid-template-columns: 1.25fr 1fr; gap: 56px; } }
+  .hero__mark { width: 100%; max-width: 720px; }
+  .hero__photo { position: relative; border-radius: 10px; overflow: hidden; aspect-ratio: 4 / 5; }
+  .hero__photo img { width: 100%; height: 100%; object-fit: cover; }
+  .hero__photo .ns-card { position: absolute; left: 6%; bottom: 7%; }
+
+  /* Directions */
+  .dir { display: grid; gap: 18px; align-content: start; }
+  .dir__stage { display: grid; place-items: center; min-height: 200px; border-radius: 10px; background: var(--ns-white); border: 1px solid var(--ns-rule); padding: 28px; }
+  .dir__stage img { width: 100%; max-width: 460px; }
+  .dir ul { margin: 0; padding-left: 1.1rem; }
+  .dir li { margin-bottom: .35rem; }
+  .dir--alt .dir__stage { background: #FBFAF9; }
+  .pros b { color: var(--ns-red-deep); }
+
+  /* Variants */
+  .variant { display: grid; place-items: center; min-height: 180px; border-radius: 10px; padding: 28px; }
+  .variant img { width: 100%; max-width: 380px; }
+  .variant--photo { position: relative; overflow: hidden; padding: 0; min-height: 260px; }
+  .variant--photo > img.bg { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: 50% 30%; }
+  .variant--photo::after { content: ""; position: absolute; inset: auto 0 0 0; height: 55%; background: linear-gradient(transparent, rgba(27, 20, 22, .55)); }
+  .variant--photo > img.mark { position: absolute; z-index: 1; left: 24px; right: 24px; bottom: 22px; width: auto; max-width: 300px; }
+  .mono-ink { color: var(--ns-ink); }
+  .mono-svg { width: 100%; max-width: 380px; aspect-ratio: 819.7 / 108; background: currentColor; -webkit-mask: url("logo/wordmark-a-700.svg") center / contain no-repeat; mask: url("logo/wordmark-a-700.svg") center / contain no-repeat; }
+
+  /* Clear space diagram */
+  .clear { position: relative; display: inline-block; padding: 24px; outline: 1px dashed var(--ns-red); outline-offset: 0; background: repeating-linear-gradient(45deg, transparent 0 6px, rgba(224, 16, 42, .06) 6px 12px); }
+  .clear img { width: min(420px, 70vw); background: var(--ns-white); }
+  .clear__x { position: absolute; top: 4px; left: 6px; font-size: .75rem; color: var(--ns-red-deep); font-weight: 600; }
+
+  /* Monogram sizes */
+  .sizes { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 22px; }
+  .sizes figure { text-align: center; }
+  .sizes figcaption { margin-top: 6px; }
+  .favtab { display: flex; align-items: center; gap: 8px; max-width: 280px; padding: 8px 12px; border-radius: 8px 8px 0 0; background: #EDE7E5; font-size: .8125rem; }
+  .favtab img { width: 16px; height: 16px; }
+
+  /* Colour */
+  .sw { border-radius: 10px; overflow: hidden; border: 1px solid var(--ns-rule); background: var(--ns-white); }
+  .sw__chip { height: 120px; display: flex; align-items: flex-end; padding: 12px 14px; font-family: var(--ns-display); font-weight: 800; font-stretch: 75%; font-size: 1.6rem; text-transform: uppercase; line-height: 1; }
+  .sw__meta { padding: 12px 14px 14px; font-size: .875rem; line-height: 1.4; }
+  .sw__meta b { display: block; font-size: 1rem; }
+  .share { display: flex; height: 28px; border-radius: 6px; overflow: hidden; margin-top: 16px; }
+  .share span { display: block; }
+  table { width: 100%; border-collapse: collapse; font-size: .9375rem; }
+  th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--ns-rule); vertical-align: middle; }
+  th { font-family: var(--ns-display); font-weight: 600; font-stretch: 87.5%; font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ns-ink-soft); }
+  .pair { display: inline-flex; align-items: center; justify-content: center; min-width: 4.5rem; padding: 6px 10px; border-radius: 6px; font-weight: 600; border: 1px solid var(--ns-rule); }
+  .ok { color: #11632F; font-weight: 600; }
+  .lim { color: #8A5A00; font-weight: 600; }
+  .no { color: var(--ns-red-deep); font-weight: 600; }
+  .table-scroll { overflow-x: auto; }
+
+  /* Type */
+  .spec-display { font-family: var(--ns-display); font-weight: 800; font-stretch: 75%; text-transform: uppercase; font-size: clamp(3rem, 9vw, 7.5rem); line-height: .86; margin: 0 0 18px; }
+  .spec-deva { font-family: var(--ns-display); font-weight: 800; font-stretch: 75%; font-size: clamp(2.4rem, 6vw, 4.5rem); line-height: 1.15; margin: 0 0 6px; }
+  .spec-text { font-family: var(--ns-text); font-size: 1.125rem; }
+  .spec-row { display: grid; gap: 4px 24px; padding-block: 14px; border-bottom: 1px solid var(--ns-rule); }
+  @media (min-width: 700px) { .spec-row { grid-template-columns: 180px 1fr; align-items: baseline; } }
+  .spec-row .k { font-size: .8125rem; color: var(--ns-ink-soft); }
+
+  /* Device */
+  .evid { display: grid; gap: 14px; grid-template-columns: repeat(2, 1fr); }
+  @media (min-width: 900px) { .evid { grid-template-columns: repeat(4, 1fr); } }
+  .evid img { border-radius: 8px; aspect-ratio: 4 / 5; object-fit: cover; width: 100%; }
+  .anatomy { position: relative; display: grid; place-items: center; min-height: 340px; border-radius: 10px; background: var(--ns-blush); padding: 40px 24px; }
+  .anatomy .ns-card { width: min(300px, 80%); }
+  .anatomy__note { position: absolute; font-size: .75rem; line-height: 1.3; color: var(--ns-red-deep); max-width: 11rem; }
+  .an-1 { top: 16px; left: 16px; } .an-2 { top: 16px; right: 16px; text-align: right; } .an-3 { bottom: 16px; left: 16px; } .an-4 { bottom: 16px; right: 16px; text-align: right; }
+  .app-photo { position: relative; border-radius: 10px; overflow: hidden; aspect-ratio: 4 / 5; }
+  .app-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; }
+  .app-photo .ns-card { position: absolute; right: 6%; bottom: 6%; width: min(14rem, 62%); }
+  .cta-demo { display: flex; flex-wrap: wrap; gap: 28px; align-items: center; padding: 34px 28px; border-radius: 10px; background: var(--ns-white); border: 1px solid var(--ns-rule); }
+  .textlink { color: var(--ns-red-deep); font-weight: 600; text-underline-offset: 3px; }
+  /* Sound control (rev 2): ink on a white chip, sitting on the media. Never cobalt, never a pill. */
+  .hear { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 16px; border-radius: var(--ns-card-radius); background: var(--ns-white); color: var(--ns-ink); font-family: var(--ns-display); font-weight: 700; font-size: 1rem; line-height: 1; text-decoration: none; box-shadow: 0 2px 10px rgba(27, 20, 22, .2); }
+  .hear .tri { width: 0; height: 0; border-block: 7px solid transparent; border-left: 11px solid currentColor; }
+  .sound-demo { position: relative; border-radius: 10px; overflow: hidden; aspect-ratio: 4 / 5; max-height: 340px; background: var(--ns-blush); }
+  .sound-demo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 42%; }
+  .sound-demo .hear { position: absolute; left: 12px; bottom: 12px; }
+  .focus-demo { outline: 3px solid var(--ns-cobalt); outline-offset: 6px; border-radius: 4px; }
+  .cta-states { display: flex; flex-wrap: wrap; gap: 28px 36px; align-items: center; }
+  .cta-states figure { display: grid; gap: 10px; justify-items: start; }
+  .ns-cta.is-hover::before, .ns-cta.focus-demo::before { transform: rotate(var(--ns-cta-tilt)); background: var(--ns-red-deep); }
+
+  /* Application: the approved first screen (Option B, PHASE-35), a reduced sample */
+  .ob { border-radius: 12px; overflow: hidden; border: 1px solid var(--ns-rule); background: var(--ns-white); box-shadow: 0 30px 60px -40px rgba(27, 20, 22, .5); }
+  .ob__nav { display: flex; align-items: center; gap: 18px; padding: 12px 20px; border-bottom: 1px solid var(--ns-rule); }
+  .ob__nav img { width: 34px; height: 34px; margin-right: auto; }
+  .ob__nav span { font-family: var(--ns-display); font-weight: 600; font-stretch: 87.5%; text-transform: uppercase; letter-spacing: .12em; font-size: .6875rem; }
+  .ob__body { padding: clamp(16px, 3vw, 32px); }
+  .ob__wm { width: 100%; margin: 8px 0 18px; }
+  .ob__row { display: grid; gap: 16px; }
+  .ob__words { display: grid; align-content: space-between; gap: 18px; }
+  .ob__nouns { font-family: var(--ns-display); font-weight: 800; font-stretch: 75%; text-transform: uppercase; line-height: .95; font-size: clamp(1.75rem, 3.4vw, 3rem); margin: 0; max-width: none; }
+  .ob__nouns i { font-style: normal; color: var(--ns-red); }
+  .ob__panel { position: relative; border-radius: var(--ns-card-radius); overflow: hidden; aspect-ratio: 4 / 5; background: var(--ns-blush); }
+  .ob__panel img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 42%; }
+  .ob__panel .hear { position: absolute; left: 10px; bottom: 10px; }
+  .ob__still { position: relative; }
+  .ob__still > div:first-child { border-radius: var(--ns-card-radius); overflow: hidden; aspect-ratio: 9 / 16; }
+  .ob__still img { width: 100%; height: 100%; object-fit: cover; object-position: 52% 50%; }
+  .ob__still .ns-card { position: absolute; right: -10px; top: 18px; width: min(11rem, 92%); padding: .6rem .8rem; }
+  .ob__still .ns-card__place { font-size: 1.9rem; }
+  .ob__label { margin-top: 8px; font-size: .8125rem; color: var(--ns-ink-soft); }
+  @media (min-width: 900px) { .ob__row { grid-template-columns: 1.15fr .9fr .62fr; gap: 28px; align-items: start; } .ob__media { display: contents; } }
+  @media (max-width: 899px) {
+    .ob__media { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 10px; }
+    .ob__panel { aspect-ratio: auto; height: 300px; }
+    .ob__still > div:first-child { height: 300px; aspect-ratio: auto; }
+    .ob__still .ns-card { width: 8.5rem; right: -6px; top: -6px; padding: .45rem .6rem; }
+    .ob__still .ns-card__place { font-size: 1.5rem; }
+    .ob__still .ns-card__meta { font-size: .6875rem; white-space: nowrap; }
+    .ob__panel .hear { top: 10px; bottom: auto; }
+  }
+  .mock { border-radius: 12px; overflow: hidden; border: 1px solid var(--ns-rule); background: var(--ns-white); box-shadow: 0 30px 60px -40px rgba(27, 20, 22, .5); }
+  .mock__nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 20px; border-bottom: 1px solid var(--ns-rule); }
+  .mock__nav img { height: 18px; width: auto; }
+  .mock__nav .ns-cta { min-height: 40px; padding: .55rem 1rem; font-size: .9375rem; }
+  .mock__body { display: grid; }
+  @media (min-width: 900px) { .mock__body { grid-template-columns: 1fr 1fr; } }
+  .mock__copy { padding: clamp(24px, 4vw, 48px); display: grid; align-content: center; gap: 18px; }
+  .mock__copy .ns-display { font-size: clamp(2.8rem, 6vw, 5rem); margin: 0; }
+  .mock__copy .ns-display span { color: var(--ns-red); }
+  .mock__media { position: relative; min-height: 360px; background: var(--ns-blush); }
+  .mock__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+  .mock__media .hear { position: absolute; left: 16px; bottom: 16px; }
+
+  /* Do / don't */
+  .dd { display: grid; gap: 10px; }
+  .dd__vis { position: relative; display: grid; place-items: center; height: 170px; border-radius: 10px; overflow: hidden; background: var(--ns-white); border: 1px solid var(--ns-rule); }
+  .dd__vis img { max-width: 80%; }
+  .dd__badge { position: absolute; z-index: 2; top: 10px; left: 10px; font-family: var(--ns-display); font-weight: 700; font-size: .8125rem; padding: 3px 8px; border-radius: 4px; }
+  .dd--do .dd__badge { background: #DDF3E3; color: #11632F; }
+  .dd--dont .dd__badge { background: var(--ns-red); color: var(--ns-white); }
+  .dd--dont .dd__vis::after { content: ""; position: absolute; z-index: 1; inset: 0; background: linear-gradient(to top right, transparent calc(50% - 1.5px), rgba(224, 16, 42, .85) calc(50% - 1.5px), rgba(224, 16, 42, .85) calc(50% + 1.5px), transparent calc(50% + 1.5px)); }
+  .gold-bad { width: 78%; aspect-ratio: 819.7 / 108; background: linear-gradient(90deg, #8a6420, #f3d27a, #a77b2a); -webkit-mask: url("logo/wordmark-a-700.svg") center / contain no-repeat; mask: url("logo/wordmark-a-700.svg") center / contain no-repeat; }
+  .stretch-bad { width: 80%; transform: scaleX(1.45); }
+  .fan { position: relative; width: 150px; height: 100px; }
+  .fan i { position: absolute; inset: 0; border-radius: 6px; background: var(--ns-white); border: 1px solid var(--ns-rule); box-shadow: 0 6px 14px -6px rgba(0, 0, 0, .3); }
+  .fan i:nth-child(1) { transform: rotate(-16deg); } .fan i:nth-child(2) { transform: rotate(-4deg); } .fan i:nth-child(3) { transform: rotate(10deg); background: var(--ns-red); }
+  .dd__vis--photo img.bg { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: 50% 25%; }
+  .face-card { position: absolute; top: 18%; left: 36%; width: 34%; aspect-ratio: 3 / 2; border-radius: 4px; background: var(--ns-white); transform: rotate(-3deg); box-shadow: var(--ns-card-shadow); }
+  .src { font-size: .8125rem; color: var(--ns-ink-soft); }
+  .src li { margin-bottom: .3rem; }
+  footer { padding-block: 40px 64px; border-top: 1px solid var(--ns-rule); }
+</style>
+</head>
+<body>
+
+<header class="wrap bar">
+  <div class="bar__id">
+    <img src="logo/monogram.svg" alt="" width="40" height="40">
+    <div>
+      <div class="ns-label">Brand identity · v0.2 · Prototype 26</div>
+      <div class="small">1 Oct 2026 · owner-approved state (PHASE-35)</div>
+    </div>
+  </div>
+  <span class="tag tag--flag">Approved by the project owner for P26. Not yet approved by Nisha</span>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div>
+      <span class="tag tag--rec">Approved · Wordmark A 700, “Cue”</span>
+      <h1 style="margin:22px 0 26px"><img class="hero__mark" src="logo/wordmark-a-700.svg" alt="Nisha Shetty" width="820" height="108"></h1>
+      <p class="lede">Her name in poster capitals (Bold 700, 79% width), closed with a small red cue card. The same card becomes the monogram, the main button and the one graphic device. Four parts and one red make the system.</p>
+      <p class="small">Built from her own evidence: the capital-letter name on her 2026 “HOSTING IN” posters, the cue cards she holds on stage, and the saturated red she wears to host.</p>
+    </div>
+    <figure class="hero__photo">
+      <img src="img/surat-red-portrait.jpg" alt="Nisha Shetty in a red pantsuit, smiling, at the Birla Opus partner meet in Surat." width="1100" height="1375">
+      <div class="ns-card" data-flick>
+        <span class="ns-card__kicker">Recently</span>
+        <span class="ns-card__place">Surat</span>
+        <span class="ns-card__meta">Birla Opus · Aug 2026</span>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<section class="tint" id="directions">
+  <div class="wrap">
+    <h2>Two directions</h2>
+    <p class="lede">Both are drawn from her own past devices. A is recommended.</p>
+    <div class="grid g2" style="margin-top:28px">
+      <article class="dir">
+        <div class="dir__stage"><img src="logo/wordmark-a-700.svg" alt="Direction A wordmark: NISHA SHETTY in condensed capitals with a red cue-card tab" width="820" height="108"></div>
+        <div><span class="tag tag--rec">A · Cue · approved (700 weight)</span></div>
+        <h3>Condensed capitals and a red cue card</h3>
+        <ul class="pros">
+          <li><b>Hers:</b> continues the capital-letter name of her 2026 posters (New Zealand, South Korea) and the cue cards seen across a decade of her stage photos.</li>
+          <li><b>Energy:</b> bold, narrow capitals read in under a second and hold at 18&nbsp;px in a header. The 700 weight was chosen over 800: less “broadcast”, same letter height.</li>
+          <li><b>One system:</b> the red card is also the monogram, the button and the device. One ownable detail: the shared crossbar on “TT”.</li>
+          <li><b>Bilingual:</b> the same family draws her name in Devanagari.</li>
+        </ul>
+      </article>
+      <article class="dir dir--alt">
+        <div class="dir__stage"><img src="logo/wordmark-b.svg" alt="Direction B wordmark: Nisha Shetty in a high-contrast serif with a red dot over the i" width="1036" height="160"></div>
+        <div><span class="tag">B · Mic-dot · alternative</span></div>
+        <h3>A serif masthead with her mic dot</h3>
+        <ul class="pros">
+          <li><b>Hers:</b> revives her own idea of a microphone standing in for the “i”, seen on her 2016 name card and her 2019 logo.</li>
+          <li><b>Against:</b> the hairlines break up at small sizes, and a fashion-magazine serif pulls toward the lifestyle register that Phase 24 removed.</li>
+          <li><b>Against:</b> it is quieter than the brief's “bold, confident, energetic”, and closer to P24's serif look.</li>
+          <li><b>Open:</b> we do not know if she has retired her 2019 logo (question for Nisha).</li>
+        </ul>
+      </article>
+    </div>
+    <div class="grid g3" style="margin-top:28px">
+      <figure><img src="img/ev-poster-2026.jpg" alt="Her 2026 poster: NISHA SHETTY HOSTING IN South Korea." width="560" height="700" style="border-radius:8px"><figcaption>Her poster, Sep 2026 (<code>Dc3uPIwIJ4G</code>). Capital-letter name and “HOSTING IN”. [V]</figcaption></figure>
+      <figure><img src="img/ev-logo-2019.jpg" alt="Her 2019 gold monogram logo with SMILE TALK INSPIRE." width="560" height="560" style="border-radius:8px"><figcaption>Her 2019 logo (<code>BzDw6K0A0RA</code>). N/S interlock, mic-head dot. Used to about 2022. [V]</figcaption></figure>
+      <figure><img src="img/ev-namecard-2016.jpg" alt="Her 2016 name card with a microphone as the letter i and the line The ZING of your event." width="640" height="400" style="border-radius:8px"><figcaption>Her 2016 name card (<code>BI75NIDgP1L</code>). A microphone as the “i”. [V]</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="wordmark">
+  <div class="wrap">
+    <h2>Wordmark <span class="num">A</span></h2>
+    <p class="lede">Hand-built from Anek Devanagari Bold 700 at 79% width (+0.02em tracking), converted to outlines. No font is needed to show it. The earlier ExtraBold 800 cut stays on file but is not used.</p>
+    <div class="grid g4" style="margin-top:28px">
+      <figure><div class="variant panel"><img src="logo/wordmark-a-700.svg" alt="Primary wordmark on white" width="820" height="108"></div><figcaption><b>Primary.</b> Ink and red on white or blush. <code>wordmark-a-700.svg</code></figcaption></figure>
+      <figure><div class="variant panel--red" style="border-radius:10px"><img src="logo/wordmark-a-on-red.svg" alt="Wordmark in white on red with an ink card" width="844" height="108"></div><figcaption><b>On red.</b> White name, ink card. <span class="tag tag--flag">Shown in the 800 cut: the 700 on-red file is still to build</span></figcaption></figure>
+      <figure><div class="variant variant--photo"><img class="bg" src="img/surat-stage.jpg" alt="" width="1100" height="1375"><img class="mark" src="logo/wordmark-a-700-reverse.svg" alt="Wordmark reversed in white over a photo" width="820" height="108"></div><figcaption><b>On photos.</b> All white, over a darkened lower edge only.</figcaption></figure>
+      <figure><div class="variant panel mono-ink"><div class="mono-svg" role="img" aria-label="Single-colour wordmark"></div></div><figcaption><b>One colour.</b> <code>currentColor</code>, for print, embossing and partner sheets (file: <code>wordmark-a-700-mono.svg</code>).</figcaption></figure>
+    </div>
+    <div class="grid g2" style="margin-top:36px; align-items:start">
+      <div>
+        <h3>Clear space and minimum size</h3>
+        <div class="clear"><span class="clear__x">½ cap height</span><img src="logo/wordmark-a-700.svg" alt="Wordmark with its clear-space zone" width="820" height="108"></div>
+        <p class="small" style="margin-top:12px">Keep half the cap height clear on every side. Smallest use: 96&nbsp;px wide on screen, 25&nbsp;mm in print. Below that, use the monogram.</p>
+      </div>
+      <div>
+        <h3>Devanagari companion</h3>
+        <div class="panel" style="display:grid;place-items:center;min-height:170px"><img src="logo/wordmark-a-deva.svg" alt="निशा शेट्टी wordmark in Devanagari with the red cue card" width="740" height="160" style="width:100%;max-width:360px"></div>
+        <p class="small" style="margin-top:12px">For Hindi pages and print. Same family, same red card. <span class="tag tag--flag">Spelling “निशा शेट्टी” to be confirmed by Nisha</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tint" id="monogram">
+  <div class="wrap grid g2" style="align-items:center">
+    <div>
+      <h2>Monogram</h2>
+      <p class="lede">“NS” on a red cue card, tilted as a card is in her hand. It is the favicon, the social avatar and the sign-off on video.</p>
+      <div class="sizes" style="margin-top:24px">
+        <figure><img src="logo/monogram.svg" alt="Monogram at 96 pixels" width="96" height="96"><figcaption>96</figcaption></figure>
+        <figure><img src="logo/monogram.svg" alt="Monogram at 48 pixels" width="48" height="48"><figcaption>48</figcaption></figure>
+        <figure><img src="logo/monogram.svg" alt="Monogram at 32 pixels" width="32" height="32"><figcaption>32</figcaption></figure>
+        <figure><img src="logo/monogram.svg" alt="Monogram at 16 pixels" width="16" height="16"><figcaption>16</figcaption></figure>
+        <figure><img src="logo/monogram-on-red.svg" alt="Monogram in reverse, white card on red" width="96" height="96" style="background:var(--ns-red);border-radius:12px"><figcaption>on red</figcaption></figure>
+      </div>
+      <div class="favtab" style="margin-top:22px"><img src="logo/monogram.svg" alt="" width="16" height="16"> Nisha Shetty · Presenter</div>
+    </div>
+    <div class="panel" style="display:grid;place-items:center"><img src="logo/monogram.svg" alt="Nisha Shetty monogram: NS on a tilted red card" width="512" height="512" style="width:min(340px,80%)"></div>
+  </div>
+</section>
+
+<section id="colour">
+  <div class="wrap">
+    <h2>Colour</h2>
+    <p class="lede">Light and white first, then one red, taken from the red she wears most to host. At most one red field per screen besides the cue cards. Cobalt is the focus ring only; gold is a decorative hairline only.</p>
+    <div class="grid g4" style="margin-top:28px">
+      <div class="sw"><div class="sw__chip" style="background:var(--ns-red);color:#fff">Stage Red</div><div class="sw__meta"><b>#E0102A</b>CTA, cue cards, colour fields. White text on it: 4.91.</div></div>
+      <div class="sw"><div class="sw__chip" style="background:var(--ns-ink);color:#fff">Ink</div><div class="sw__meta"><b>#1B1416</b>Text and wordmark. A warm near-black, never pure black.</div></div>
+      <div class="sw"><div class="sw__chip" style="background:var(--ns-white);color:var(--ns-ink);border-bottom:1px solid var(--ns-rule)">White</div><div class="sw__meta"><b>#FFFFFF</b>The base. Most of every screen.</div></div>
+      <div class="sw"><div class="sw__chip" style="background:var(--ns-blush);color:var(--ns-red-deep)">Blush</div><div class="sw__meta"><b>#FDEDE8</b>Tinted bands and panels. Keeps the page light, not cold.</div></div>
+      <div class="sw"><div class="sw__chip" style="background:var(--ns-red-deep);color:#fff">Red Deep</div><div class="sw__meta"><b>#A50E1F</b>Hover and pressed. Small red text on blush.</div></div>
+      <div class="sw"><div class="sw__chip" style="background:var(--ns-ink-soft);color:#fff">Ink Soft</div><div class="sw__meta"><b>#5B5055</b>Secondary text and captions.</div></div>
+      <div class="sw"><div class="sw__chip" style="background:var(--ns-cobalt);color:#fff">Cobalt</div><div class="sw__meta"><b>#2337D6</b>Focus ring only (3&nbsp;px, 4–6&nbsp;px offset). No cobalt buttons, chips or pills.</div></div>
+      <div class="sw"><div class="sw__chip" style="background:var(--ns-gold);color:var(--ns-ink)">Sequin Gold</div><div class="sw__meta"><b>#C99A3E</b>Decorative hairlines only. Never text on white (2.57).</div></div>
+    </div>
+    <p class="small" style="margin-top:22px">Share of a typical screen, photos excluded:</p>
+    <div class="share" role="img" aria-label="White 62 percent, blush 15, ink 12, red 10, cobalt focus ring only, gold 0.5">
+      <span style="flex:62;background:#fff;border:1px solid var(--ns-rule)"></span><span style="flex:15;background:var(--ns-blush)"></span><span style="flex:12;background:var(--ns-ink)"></span><span style="flex:10;background:var(--ns-red)"></span><span style="flex:.5;background:var(--ns-cobalt)"></span><span style="flex:.5;background:var(--ns-gold)"></span>
+    </div>
+    <h3 style="margin-top:40px">Contrast pairs (WCAG 2.2)</h3>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Pair</th><th>Text on background</th><th>Ratio</th><th>Use</th></tr></thead>
+        <tbody>
+          <tr><td><span class="pair" style="background:var(--ns-red);color:#fff">Aa</span></td><td>White on Stage Red</td><td>4.91</td><td class="ok">AA all text: the CTA</td></tr>
+          <tr><td><span class="pair" style="background:#fff;color:var(--ns-red)">Aa</span></td><td>Stage Red on White</td><td>4.91</td><td class="ok">AA all text</td></tr>
+          <tr><td><span class="pair" style="background:var(--ns-blush);color:var(--ns-red)">Aa</span></td><td>Stage Red on Blush</td><td>4.32</td><td class="lim">Large text only (24&nbsp;px+, or 19&nbsp;px bold)</td></tr>
+          <tr><td><span class="pair" style="background:var(--ns-blush);color:var(--ns-red-deep)">Aa</span></td><td>Red Deep on Blush</td><td>6.88</td><td class="ok">AA all text</td></tr>
+          <tr><td><span class="pair" style="background:#fff;color:var(--ns-ink)">Aa</span></td><td>Ink on White</td><td>18.13</td><td class="ok">AAA body</td></tr>
+          <tr><td><span class="pair" style="background:var(--ns-blush);color:var(--ns-ink)">Aa</span></td><td>Ink on Blush</td><td>15.93</td><td class="ok">AAA body</td></tr>
+          <tr><td><span class="pair" style="background:#fff;color:var(--ns-ink-soft)">Aa</span></td><td>Ink Soft on White</td><td>7.71</td><td class="ok">AAA</td></tr>
+          <tr><td><span class="pair" style="outline:3px solid var(--ns-cobalt);outline-offset:3px">Aa</span></td><td>Cobalt ring on White</td><td>8.11</td><td class="ok">Focus ring only (non-text, 3:1 needed)</td></tr>
+          <tr><td><span class="pair" style="background:var(--ns-red);color:var(--ns-ink)">Aa</span></td><td>Ink on Stage Red</td><td>3.69</td><td class="lim">Large text and graphics only</td></tr>
+          <tr><td><span class="pair" style="background:#fff;color:var(--ns-gold)">Aa</span></td><td>Gold on White</td><td>2.57</td><td class="no">Never for text</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="tint" id="type">
+  <div class="wrap">
+    <h2>Type</h2>
+    <p class="lede">Two Ek Type families, both OFL, both with Devanagari, self-hosted as woff2.</p>
+    <div class="grid g2" style="margin-top:28px">
+      <div class="panel">
+        <span class="ns-label" style="color:var(--ns-red)">Display · Anek Devanagari</span>
+        <p class="spec-display" style="margin-top:14px">Request<br>availability</p>
+        <p class="spec-deva" lang="hi">उपलब्धता पूछें</p>
+        <p class="small">ExtraBold 800 at 75% width for headlines of a few words. SemiBold at 87.5% for labels. Bold at 100% for buttons. Variable font, one file per script. <span class="tag tag--flag">Hindi line is a sample translation to review</span></p>
+      </div>
+      <div class="panel">
+        <span class="ns-label" style="color:var(--ns-red)">Text · Mukta</span>
+        <p class="spec-text" style="margin-top:14px;font-size:1.35rem;line-height:1.45">Corporate stages, awards, conferences, launches and celebrity events. Hosting in Hindi and English, in India and abroad.</p>
+        <p class="spec-text" lang="hi" style="font-size:1.25rem">हिंदी और अंग्रेज़ी में होस्टिंग।</p>
+        <p class="small">Regular 400 for body, SemiBold 600 for emphasis, Bold 700 rarely. 17–18&nbsp;px, line height 1.55, at most 60 characters a line.</p>
+      </div>
+    </div>
+    <div style="margin-top:28px">
+      <div class="spec-row"><span class="k">Headline</span><span class="ns-display" style="font-size:clamp(2.4rem,5vw,3.75rem)">Full-time since 2016</span></div>
+      <div class="spec-row"><span class="k">Label</span><span class="ns-label">Hosting in · Corporate · Awards</span></div>
+      <div class="spec-row"><span class="k">Button</span><span style="font-family:var(--ns-display);font-weight:700;font-size:1.125rem">Request availability</span></div>
+      <div class="spec-row"><span class="k">Body</span><span class="ns-body">Short lines. One idea a sentence. Facts she has published, never superlatives.</span></div>
+    </div>
+    <p class="small" style="margin-top:16px">Not used before in this project: P22 Archivo/Hanken, P24 Eczar/Martel, P25 Newsreader/Schibsted.</p>
+  </div>
+</section>
+
+<section id="device">
+  <div class="wrap">
+    <h2>The device: <span class="num">Cue card</span></h2>
+    <p class="lede">The card she hosts from, in her hand on stage for a decade. On the site it is a shape, not a scene: a small tilted card that carries a few words, most often her own poster line, “Hosting in”.</p>
+    <div class="evid" style="margin-top:28px">
+      <figure><img src="img/ev-raychem-cuecard.jpg" alt="Nisha Shetty hosting with a microphone and a cue card at a sales conference in Goa." width="560" height="700"><figcaption>Raychem RPG “Tales to Tell”, Goa (<code>DWoYAnqiN0p</code>, posted 2026). [V]</figcaption></figure>
+      <figure><img src="img/ev-cuecards-2024.jpg" alt="Nisha Shetty seated in a white blazer with cue cards in her lap." width="560" height="700"><figcaption>“Off-stage magic”, Jul 2024 (<code>C9ADVTRqWsM</code>). Event unnamed. [V]</figcaption></figure>
+      <figure><img src="img/ev-poster-2026.jpg" alt="Her 2026 South Korea hosting poster." width="560" height="700"><figcaption>“HOSTING IN”: her poster line, 2019–2026 (<code>Dc3uPIwIJ4G</code>). [V]</figcaption></figure>
+      <figure><img src="img/ev-namecard-2016.jpg" alt="Her 2016 first cue card." width="640" height="400" style="aspect-ratio:4/5"><figcaption>Her “first cuecard”, Aug 2016 (<code>BI75NIDgP1L</code>). [V]</figcaption></figure>
+    </div>
+
+    <div class="grid g3" style="margin-top:36px; align-items:start">
+      <div class="anatomy">
+        <span class="anatomy__note an-1">3 : 2, the shape of a 6×4 in. index card</span>
+        <span class="anatomy__note an-2">Tilt −3°. Never more than 4°</span>
+        <div class="ns-card ns-card--red">
+          <span class="ns-card__kicker">Hosting in</span>
+          <span class="ns-card__place">Seoul</span>
+          <span class="ns-card__meta">Sep 2026</span>
+        </div>
+        <span class="anatomy__note an-3">Kicker · place · one short line. Six words at most. Place names over 10 letters drop a size</span>
+        <span class="anatomy__note an-4">Radius 6&nbsp;px. Shadow only over photos</span>
+      </div>
+      <figure class="app-photo">
+        <img src="img/hcmc-gold.jpg" alt="Nisha Shetty in a gold gown after a show in Ho Chi Minh City." width="1000" height="1250">
+        <div class="ns-card">
+          <span class="ns-card__kicker">Recently</span>
+          <span class="ns-card__place">Vietnam</span>
+          <span class="ns-card__meta">Ho Chi Minh City · Jul 2026</span>
+        </div>
+      </figure>
+      <div class="grid" style="align-content:start">
+        <div class="cta-demo cta-states">
+          <figure><a class="ns-cta" href="#device">Request availability</a><figcaption>At rest: level</figcaption></figure>
+          <figure><span class="ns-cta is-hover">Request availability</span><figcaption>Hover or press: −2°, Red Deep</figcaption></figure>
+          <figure><span class="ns-cta focus-demo">Request availability</span><figcaption>Keyboard focus: −2° plus the cobalt ring</figcaption></figure>
+        </div>
+        <p class="small">The one main button is a red cue card. It <b>rests level</b> and tilts −2° only on hover, focus or press; the label stays level. The only secondary is a small text link to the same form: <a class="textlink" href="#device">Just a question? Use the same form.</a></p>
+        <figure class="sound-demo">
+          <img src="../media/clips/voice-datamatics-poster.jpg" alt="Nisha Shetty at the lectern in a red gown, Datamatics Annual Achievers Awards (video poster)." width="720" height="1280">
+          <span class="hear"><span class="tri" aria-hidden="true"></span>Hear her</span>
+        </figure>
+        <p class="small">Sound sits on the media: an ink-on-white “▶ Hear her” control, never a coloured button beside the CTA. Cobalt appears only as the focus ring.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tint" id="application">
+  <div class="wrap">
+    <h2>In use</h2>
+    <p class="lede">The approved first screen (Option B): her name across the full width, her moving clip in the large panel, the dated 2026 still beside it, and one red button. A reduced sample of the live page, not a separate design.</p>
+    <div class="ob" style="margin-top:28px">
+      <div class="ob__nav"><img src="logo/monogram.svg" alt="" width="34" height="34"><span>Hear her</span><span>Lately</span><span>What she hosts</span></div>
+      <div class="ob__body">
+        <span class="ns-label" style="color:var(--ns-red)">Presenter · Anchor · Emcee</span>
+        <img class="ob__wm" src="logo/wordmark-a-700.svg" alt="Nisha Shetty" width="820" height="108">
+        <div class="ob__row">
+          <div class="ob__words">
+            <p class="ob__nouns">Awards<i>.</i><br>Summits<i>.</i><br>Launches<i>.</i><br>Celebrity events<i>.</i></p>
+            <div style="display:grid;gap:14px;justify-items:start">
+              <p class="ns-body" style="margin:0">English and Hindi. India and abroad. Full-time since 2016.</p>
+              <a class="ns-cta" href="#application">Request availability</a>
+            </div>
+          </div>
+          <div class="ob__media">
+            <figure>
+              <div class="ob__panel"><img src="../media/clips/voice-datamatics-poster.jpg" alt="Nisha Shetty at the lectern in a red gown (the muted clip's poster). Datamatics Annual Achievers Awards." width="720" height="1280"><span class="hear"><span class="tri" aria-hidden="true"></span>Hear her</span></div>
+              <figcaption class="ob__label">Opening the room · Datamatics</figcaption>
+            </figure>
+            <figure class="ob__still">
+              <div><img src="img/surat-stage.jpg" alt="Nisha Shetty in a red pantsuit on the Birla Opus stage, Surat, August 2026." width="1100" height="1375"></div>
+              <div class="ns-card"><span class="ns-card__kicker">Recently</span><span class="ns-card__place">Surat</span><span class="ns-card__meta">Birla Opus · Aug 2026</span></div>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="small" style="margin-top:12px">The dated card stays on the Surat still (date confirmed, Aug 2026) and sits on the ceiling, clear of her. The Datamatics panel carries a plain label with no year until Nisha confirms 2025 or 2026. Live page: <code>Prototype-26/index.html</code>.</p>
+  </div>
+</section>
+
+<section id="rules">
+  <div class="wrap">
+    <h2>Do and don't</h2>
+    <div class="grid g4" style="margin-top:28px">
+      <div class="dd dd--do"><div class="dd__vis"><span class="dd__badge">Do</span><img src="logo/wordmark-a-700.svg" alt="" width="820" height="108"></div><p class="small">Ink and red on white or blush. Lots of white around it.</p></div>
+      <div class="dd dd--do"><div class="dd__vis" style="background:var(--ns-red)"><span class="dd__badge">Do</span><img src="logo/monogram-on-red.svg" alt="" width="512" height="512" style="width:110px"></div><p class="small">One red field per screen at most, used for a single message.</p></div>
+      <div class="dd dd--do"><div class="dd__vis dd__vis--photo"><span class="dd__badge" style="z-index:1">Do</span><img class="bg" src="img/surat-red-portrait.jpg" alt="" width="1100" height="1375"><div class="ns-card" style="position:absolute;right:5%;bottom:6%;width:36%;padding:.45rem .6rem"><span class="ns-card__kicker" style="font-size:.55rem">Recently</span><span class="ns-card__place" style="font-size:1.3rem">Surat</span></div></div><p class="small">One card per photo, in a corner, clear of her face.</p></div>
+      <div class="dd dd--do"><div class="dd__vis"><span class="dd__badge">Do</span><a class="ns-cta" href="#rules" tabindex="-1">Request availability</a></div><p class="small">Exactly one red button style: “Request availability”.</p></div>
+      <div class="dd dd--dont"><div class="dd__vis" style="background:var(--ns-ink)"><span class="dd__badge">Don't</span><div class="gold-bad"></div></div><p class="small">No gold gradients, no black-and-gold, no chrome. Not the 2019 look.</p></div>
+      <div class="dd dd--dont"><div class="dd__vis"><span class="dd__badge">Don't</span><img class="stretch-bad" src="logo/wordmark-a-700.svg" alt="" width="820" height="108"></div><p class="small">Never stretch, outline, retype or recolour the wordmark.</p></div>
+      <div class="dd dd--dont"><div class="dd__vis"><span class="dd__badge">Don't</span><div class="fan"><i></i><i></i><i></i></div></div><p class="small">No stacks, fans, tape or lined “index card” props. One flat card.</p></div>
+      <div class="dd dd--dont"><div class="dd__vis dd__vis--photo"><span class="dd__badge" style="z-index:1">Don't</span><img class="bg" src="img/surat-red-portrait.jpg" alt="" width="1100" height="1375"><span class="face-card"></span></div><p class="small">Never over her face, never a cut-out of her, never a stage scene.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap grid g2">
+    <div>
+      <h3>Sources and status</h3>
+      <ul class="src">
+        <li>[V] her own posts: poster <code>Dc3uPIwIJ4G</code>, 2019 logo <code>BzDw6K0A0RA</code>, 2016 card <code>BI75NIDgP1L</code>, cue cards <code>C9ADVTRqWsM</code> and <code>DWoYAnqiN0p</code>, photos <code>DcRD0mgCNXA</code> and <code>DbDiu9JIxzS</code> (Research/PHASE-22).</li>
+        <li>[I] red is the colour that recurs most in her hosting outfits: evening gowns “usually red” and red pantsuits by day (PHASE-22 §4.1; Birla Opus Surat, HSBC, Datamatics). Cobalt, white and gold also recur.</li>
+        <li>[CREATIVE DIRECTION] wordmark, monogram, palette, type and device. Not her existing brand.</li>
+        <li>[OWNER] approved for P26 on 1 Oct 2026 (Research/PHASE-35): Wordmark A 700, red kept, CTA level at rest, cobalt as focus ring only, Option B first screen.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Questions for Nisha</h3>
+      <ul class="src">
+        <li>Is the 2019 gold logo retired, or still hers to use?</li>
+        <li>Is the Devanagari spelling “निशा शेट्टी” right?</li>
+        <li>Is she comfortable with red as her signature colour?</li>
+      </ul>
+      <p class="small">Fonts: Anek Devanagari, Mukta and Rozha One (sheet only), SIL Open Font License. See <code>fonts/</code>.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

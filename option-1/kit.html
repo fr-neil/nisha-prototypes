@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <!-- p22:head -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Component kit · Prototype 22</title>
+  <meta name="description" content="Shared components for page builders.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#faf6f0">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nisha Shetty">
+  <meta property="og:title" content="Component kit · Prototype 22">
+  <meta property="og:description" content="Shared components for page builders.">
+  <!-- TODO(domain): og:image must become an absolute URL (https://<domain>/…) once the domain is decided; relative paths do not resolve in link previews. -->
+  <meta property="og:image" content="media/stills/hsbc-laugh-1600.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='3' fill='%2318206e'/%3E%3Ctext x='7' y='23' font-family='Arial' font-weight='700' font-size='19' fill='%23faf6f0'%3EN%3C/text%3E%3Ccircle cx='25' cy='8' r='3.5' fill='%23d42a3c'/%3E%3C/svg%3E">
+  <script>
+    /* Before first paint: JS flag, cue stand-by, and a watchdog that returns the page to its
+       complete no-JS state if core.js never arrives. */
+    (function (d) {
+      var h = d.documentElement;
+      h.classList.add('js');
+      try {
+        if (!matchMedia('(prefers-reduced-motion: reduce)').matches && !sessionStorage.getItem('p22-cue-seen')) h.classList.add('cue-pending');
+      } catch (e) { /* storage blocked: no cue */ }
+      setTimeout(function () { h.classList.remove('cue-pending'); }, 4000);
+      setTimeout(function () { if (!h.classList.contains('motion-ok') && !h.classList.contains('reduce-motion')) h.classList.remove('js'); }, 5000);
+    })(document);
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@400..700&family=Archivo:wdth,wght@62..125,400..800&family=Hanken+Grotesk:ital,wght@0,400..700;1,400..700&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/signature.css">
+  <script src="js/core.js" defer></script>
+  <script src="js/signature.js" defer></script>
+  <!-- /p22:head -->
+  <style>
+    /* kit-only layout helpers (this page is a reference for builders, not part of the site) */
+    .kit-block { padding-block: var(--s-8); border-top: 1px solid var(--rule); }
+    .kit-block > h2 { font-size: var(--fs-h3); margin-bottom: var(--s-5); }
+    .kit-note { font-size: var(--fs-small); color: var(--muted); max-width: 60ch; margin-bottom: var(--s-5); }
+    .kit-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--s-3); }
+    .kit-swatch { border: 1px solid var(--rule); font-size: 0.8125rem; }
+    .kit-swatch span { display: block; height: 64px; }
+    .kit-swatch p { padding: 8px 10px; }
+    .kit-demo { display: grid; gap: var(--col-gap); align-items: end; }
+    @media (min-width: 900px) { .kit-demo { grid-template-columns: 1fr 1fr; } }
+    .kit-two { display: grid; gap: var(--col-gap); }
+    @media (min-width: 900px) { .kit-two { grid-template-columns: 5fr 7fr; align-items: start; } }
+  </style>
+</head>
+<body data-page="kit">
+<!-- p22:header -->
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header" data-header>
+  <div class="site-header__inner wrap">
+    <a class="brand" data-nav="home" href="index.html" aria-label="Nisha Shetty, home">
+      <span class="brand__name">Nisha Shetty</span>
+      <span class="brand__role">Presenter · Anchor · Emcee</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" hidden data-nav-toggle>
+      <span class="nav-toggle__bars" aria-hidden="true"></span><span class="nav-toggle__label">Menu</span>
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <ul class="nav__list">
+        <li><a class="nav__link" data-nav="work" href="work.html">Work</a></li>
+        <li><a class="nav__link" data-nav="watch" href="watch.html">Watch</a></li>
+        <li><a class="nav__link" data-nav="about" href="about.html">About</a></li>
+        <li><a class="nav__link" data-nav="event-managers" href="event-managers.html">For event managers</a></li>
+      </ul>
+      <a class="btn btn--primary btn--sm nav__cta" data-nav="enquire" data-cue-header href="enquire.html#availability"><span class="tally" aria-hidden="true"></span>Request availability</a>
+      <a class="btn btn--secondary nav__alt" href="enquire.html#enquiry">Make an enquiry</a>
+    </nav>
+  </div>
+</header>
+<!-- /p22:header -->
+<main id="main" tabindex="-1">
+  <section class="section">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow"><span class="eyebrow__n">P22</span>Component kit</p>
+        <h1>Shared components</h1>
+        <p class="sec-head__lede">Reference for page builders. Copy markup from here; do not link to this page from the site.</p>
+      </header>
+
+      <!-- S1 demo: this block uses the hero hooks so the cue can be verified here -->
+      <div class="kit-block">
+        <h2>Signature S1 · The cue (hero hooks)</h2>
+        <p class="kit-note">The strap carries <code>data-cue-source</code>; the primary CTA carries <code>data-cue-target</code> and <code>data-dock-sentinel</code>. Only Home uses these hooks on the live site. Clear sessionStorage key <code>p22-cue-seen</code> to replay.</p>
+        <div class="kit-demo">
+          <div class="stack">
+            <p class="t-mega">Nisha Shetty</p>
+            <ul class="facts">
+              <li>Based in Mumbai</li>
+              <li>English · <span lang="hi">हिन्दी</span></li>
+              <li>Full-time since 2016</li>
+            </ul>
+            <div class="btn-row" data-dock-sentinel>
+              <a class="btn btn--primary" data-cue-target href="enquire.html#availability"><span class="tally" aria-hidden="true"></span>Request availability</a>
+              <a class="btn btn--secondary" href="enquire.html#enquiry">Make an enquiry</a>
+            </div>
+            <div class="cluster">
+              <a class="link-arrow" href="watch.html">Watch her host</a>
+              <a class="link-arrow" href="event-managers.html">Event manager? Start here</a>
+            </div>
+          </div>
+          <figure class="photo" style="--ratio: 4 / 5; --pos: 42% 38%">
+            <div class="photo__media">
+              <picture>
+                <source type="image/avif" srcset="media/stills/hsbc-laugh-800.avif 800w, media/stills/hsbc-laugh-1600.avif 1600w, media/stills/hsbc-laugh-2400.avif 2400w" sizes="(min-width: 900px) 45vw, 100vw">
+                <img src="media/stills/hsbc-laugh-1600.jpg" srcset="media/stills/hsbc-laugh-800.jpg 800w, media/stills/hsbc-laugh-1600.jpg 1600w, media/stills/hsbc-laugh-2400.jpg 2400w" sizes="(min-width: 900px) 45vw, 100vw" width="3072" height="4096" alt="Nisha Shetty laughing at a podium microphone, in a white suit, in front of a red stage set." fetchpriority="high">
+              </picture>
+              <p class="strap" data-cue-source><span class="strap__l1">Unlocking Tomorrow: Future of Banking</span><span class="strap__l2">HSBC&nbsp;· 2026</span></p>
+            </div>
+          </figure>
+        </div>
+      </div>
+
+      <div class="kit-block">
+        <h2>Colour</h2>
+        <div class="kit-swatches">
+          <div class="kit-swatch"><span style="background:var(--paper)"></span><p><b>paper</b> #faf6f0</p></div>
+          <div class="kit-swatch"><span style="background:var(--paper-2)"></span><p><b>paper-2</b> #f1eae0</p></div>
+          <div class="kit-swatch"><span style="background:var(--ink)"></span><p><b>ink</b> #18206e · 13.3:1</p></div>
+          <div class="kit-swatch"><span style="background:var(--text)"></span><p><b>text</b> #1f2348 · 14.0:1</p></div>
+          <div class="kit-swatch"><span style="background:var(--muted)"></span><p><b>muted</b> #585b74 · 6.2:1</p></div>
+          <div class="kit-swatch"><span style="background:var(--cue)"></span><p><b>cue</b> #d42a3c · white 5.0:1</p></div>
+          <div class="kit-swatch"><span style="background:var(--stage)"></span><p><b>stage</b> #0e1236</p></div>
+          <div class="kit-swatch"><span style="background:var(--ph-ground)"></span><p><b>placeholder</b></p></div>
+        </div>
+      </div>
+
+      <div class="kit-block">
+        <h2>Type</h2>
+        <div class="stack">
+          <p class="t-mega">Nisha Shetty</p>
+          <h1 class="t-h1">Page title, Archivo 600</h1>
+          <h2 class="t-h2">Section title for a room</h2>
+          <h3 class="t-h3">Card title, awards and R&amp;R nights</h3>
+          <p class="t-lede">Lede in Hanken Grotesk: plain, short sentences with specific nouns.</p>
+          <p class="prose">Body copy at 17–19px. ICICI Prudential Life: first in March 2017, most recently January 2024. Dates are set in tabular figures: <time class="tnum" datetime="2026-09">Sep 2026</time>.</p>
+          <p class="t-label">Label · tracked caps</p>
+          <p>Hindi runs: <span lang="hi">हिन्दी और अंग्रेज़ी</span> (mark with <code>lang="hi"</code>; only lines she writes or approves).</p>
+        </div>
+      </div>
+
+      <div class="kit-block">
+        <h2>Buttons and links</h2>
+        <div class="stack">
+          <div class="btn-row">
+            <a class="btn btn--primary" href="enquire.html#availability"><span class="tally" aria-hidden="true"></span>Request availability</a>
+            <a class="btn btn--secondary" href="enquire.html#enquiry">Make an enquiry</a>
+            <a class="btn btn--primary btn--sm" href="enquire.html#availability"><span class="tally" aria-hidden="true"></span>Request availability</a>
+            <a class="link-arrow" href="work.html">See the full record</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="kit-block">
+        <h2>Section heading</h2>
+        <header class="sec-head">
+          <p class="eyebrow"><span class="eyebrow__n">02</span>The rooms</p>
+          <h2>Awards nights, conferences, launches and red carpets</h2>
+          <p class="sec-head__lede">One line on what this section proves, in plain site voice.</p>
+        </header>
+      </div>
+
+      <div class="kit-block">
+        <h2>Photo card with lower-third strap (S2)</h2>
+        <div class="rail" style="--rail-cols: 3">
+          <figure class="photo" style="--ratio: 3 / 2">
+            <div class="photo__media">
+              <picture>
+                <source type="image/avif" srcset="media/stills/tokyo-guests-800.avif 800w, media/stills/tokyo-guests-1440.avif 1440w" sizes="(min-width: 900px) 30vw, 76vw">
+                <img src="media/stills/tokyo-guests-800.jpg" srcset="media/stills/tokyo-guests-800.jpg 800w, media/stills/tokyo-guests-1440.jpg 1440w" sizes="(min-width: 900px) 30vw, 76vw" width="1440" height="960" loading="lazy" decoding="async" alt="Nisha Shetty among seated guests, pointing into the room with her microphone.">
+              </picture>
+              <p class="strap"><span class="strap__l1">Among the guests&nbsp;· Tokyo</span><span class="strap__l2">TATA AIA Life&nbsp;· 2025</span></p>
+            </div>
+            <figcaption class="photo__cap"><b>Tokyo Training Conclave.</b> Hilton Tokyo, February 2025.</figcaption>
+          </figure>
+          <figure class="photo" style="--ratio: 3 / 2">
+            <div class="photo__media">
+              <picture>
+                <source type="image/avif" srcset="media/stills/mika-press-800.avif 800w, media/stills/mika-press-1440.avif 1440w" sizes="(min-width: 900px) 30vw, 76vw">
+                <img src="media/stills/mika-press-800.jpg" srcset="media/stills/mika-press-800.jpg 800w, media/stills/mika-press-1440.jpg 1440w" sizes="(min-width: 900px) 30vw, 76vw" width="1440" height="960" loading="lazy" decoding="async" alt="Nisha Shetty laughing on stage beside a singer, both holding microphones, at a palace-style press conference set.">
+              </picture>
+              <p class="strap"><span class="strap__l1">TV press conference</span><span class="strap__l2">Star Bharat&nbsp;· 2022</span></p>
+            </div>
+            <figcaption class="photo__cap"><b>"Mika Di Vohti" press conference.</b> June 2022.</figcaption>
+          </figure>
+          <figure class="photo" style="--ratio: 3 / 2; --pos: 50% 40%">
+            <div class="photo__media">
+              <picture>
+                <source type="image/avif" srcset="media/stills/tokyo-dance-800.avif 800w, media/stills/tokyo-dance-1440.avif 1440w" sizes="(min-width: 900px) 30vw, 76vw">
+                <img src="media/stills/tokyo-dance-800.jpg" srcset="media/stills/tokyo-dance-800.jpg 800w, media/stills/tokyo-dance-1440.jpg 1440w" sizes="(min-width: 900px) 30vw, 76vw" width="1440" height="960" loading="lazy" decoding="async" alt="Nisha Shetty dancing on stage with festival performers and guests under paper lanterns.">
+              </picture>
+              <p class="strap"><span class="strap__l1">With the performers&nbsp;· Tokyo</span><span class="strap__l2">TATA AIA Life&nbsp;· 2025</span></p>
+            </div>
+            <figcaption class="photo__cap"><b>Cultural segment.</b> Tokyo, February 2025.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section stage">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow"><span class="eyebrow__n">01</span>Clip players on the stage band</p>
+        <h2>Poster first. Muted. Tap to play.</h2>
+      </header>
+      <div class="rail" style="--rail-cols: 3">
+        <figure class="clip" id="clip-raychem-goa" data-clip style="--ratio: 9 / 16">
+          <div class="clip__frame">
+            <video class="clip__video" controls muted playsinline preload="none" width="720" height="1280" poster="media/clips/raychem-goa-poster.jpg">
+              <source src="media/clips/raychem-goa.mp4" type="video/mp4">
+            </video>
+            <button class="clip__play" type="button" hidden aria-label="Play clip: sales conference in Goa, 18 seconds, muted"><span class="clip__play-icon" aria-hidden="true"></span>Play<span class="clip__dur" aria-hidden="true">0:18</span></button>
+            <p class="strap"><span class="strap__l1">Sales conference&nbsp;· Goa</span><span class="strap__l2">Raychem RPG&nbsp;· 2025</span></p>
+          </div>
+          <figcaption class="clip__meta"><b>Among the guests.</b> Mic and cue card on the floor; a guest takes the mic.</figcaption>
+        </figure>
+        <figure class="clip" id="clip-datamatics-awards" data-clip style="--ratio: 9 / 16">
+          <div class="clip__frame">
+            <video class="clip__video" controls muted playsinline preload="none" width="720" height="1280" poster="media/clips/datamatics-awards-poster.jpg">
+              <source src="media/clips/datamatics-awards.mp4" type="video/mp4">
+            </video>
+            <button class="clip__play" type="button" hidden aria-label="Play clip: awards night in Mumbai, 18 seconds, muted"><span class="clip__play-icon" aria-hidden="true"></span>Play<span class="clip__dur" aria-hidden="true">0:18</span></button>
+            <p class="strap"><span class="strap__l1">Awards night&nbsp;· Mumbai</span><span class="strap__l2">Datamatics&nbsp;· 2026</span></p>
+          </div>
+          <figcaption class="clip__meta"><b>Handing over the mic.</b> From the lectern to a guest in the audience.</figcaption>
+        </figure>
+        <figure class="clip" id="clip-himalaya-awards" data-clip style="--ratio: 9 / 16">
+          <div class="clip__frame">
+            <video class="clip__video" controls muted playsinline preload="none" width="720" height="1280" poster="media/clips/himalaya-awards-poster.jpg">
+              <source src="media/clips/himalaya-awards.mp4" type="video/mp4">
+            </video>
+            <button class="clip__play" type="button" hidden aria-label="Play clip: awards night in Jaipur, 34 seconds, muted"><span class="clip__play-icon" aria-hidden="true"></span>Play<span class="clip__dur" aria-hidden="true">0:34</span></button>
+            <p class="strap"><span class="strap__l1">Awards night&nbsp;· Jaipur</span><span class="strap__l2">Himalaya Star Awards&nbsp;· 2025</span></p>
+          </div>
+          <figcaption class="clip__meta"><b>The room answers.</b> Guests cheer; the mic goes out to the crowd.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="kit-block" style="border-top:0">
+        <h2>Ledger rows</h2>
+        <div class="ledger" role="table" aria-label="Selected engagements">
+          <div class="ledger__head" role="row"><span role="columnheader">Date</span><span role="columnheader">Client and occasion</span><span role="columnheader">Place</span><span role="columnheader">Format</span><span role="columnheader"><span class="visually-hidden">Booked again</span></span></div>
+          <div class="ledger__row" role="row">
+            <time class="ledger__date" role="cell" datetime="2026-09">Sep 2026</time>
+            <div class="ledger__main" role="cell"><span class="ledger__client">HSBC</span><span class="ledger__event">HSBC at Global Fintech Fest</span></div>
+            <span class="ledger__place" role="cell">Mumbai</span>
+            <span class="ledger__format" role="cell">Conference &amp; summit</span>
+            <span class="ledger__flag" role="cell"><span class="again" title="Also hosted for HSBC at Global Fintech Fest 2023">Again</span></span>
+          </div>
+          <div class="ledger__row" role="row">
+            <time class="ledger__date" role="cell" datetime="2025-02">Feb 2025</time>
+            <div class="ledger__main" role="cell"><span class="ledger__client">TATA AIA Life</span><span class="ledger__event">Tokyo Training Conclave</span></div>
+            <span class="ledger__place" role="cell"><span class="abroad">Tokyo, Japan</span></span>
+            <span class="ledger__format" role="cell">Awards &amp; R&amp;R</span>
+            <span class="ledger__flag" role="cell"></span>
+          </div>
+          <div class="ledger__row" role="row">
+            <time class="ledger__date" role="cell" datetime="2024-02">Feb 2024</time>
+            <div class="ledger__main" role="cell"><span class="ledger__client ledger__client--anon">A leading pharma company</span><span class="ledger__event">Annual Awards 2023</span></div>
+            <span class="ledger__place" role="cell">Mumbai</span>
+            <span class="ledger__format" role="cell">Awards &amp; R&amp;R</span>
+            <span class="ledger__flag" role="cell"></span>
+          </div>
+          <div class="ledger__row" role="row">
+            <time class="ledger__date" role="cell" datetime="2018-01">Jan 2018</time>
+            <div class="ledger__main" role="cell"><span class="ledger__client">Filmfare</span><span class="ledger__event">Jio Filmfare Awards 2018 red carpet</span></div>
+            <span class="ledger__place" role="cell">Mumbai</span>
+            <span class="ledger__format" role="cell">Red carpet</span>
+            <span class="ledger__flag" role="cell"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="kit-block">
+        <h2>Chips and filters</h2>
+        <div class="chips" role="group" aria-label="Filter by family">
+          <button class="chip" type="button" aria-pressed="true">All <span class="chip__count">111</span></button>
+          <button class="chip" type="button" aria-pressed="false">Corporate</button>
+          <button class="chip" type="button" aria-pressed="false">Entertainment &amp; celebrity</button>
+          <button class="chip" type="button" aria-pressed="false">Cultural &amp; institutional</button>
+          <button class="chip" type="button" aria-pressed="false">Virtual &amp; on-camera</button>
+          <button class="chip" type="button" aria-pressed="false">Abroad</button>
+        </div>
+      </div>
+
+      <div class="kit-block">
+        <h2>"Hosting in" rows (her own device, set as type)</h2>
+        <ol class="signs">
+          <li class="sign"><span class="sign__lead">Hosting in</span><span class="sign__place">Tokyo</span><span class="sign__meta">Japan · Feb 2025 · Training conclave</span></li>
+          <li class="sign"><span class="sign__lead">Hosting in</span><span class="sign__place">Colombo</span><span class="sign__meta">Sri Lanka · Apr 2026 · Partner event</span></li>
+          <li class="sign"><span class="sign__lead">Hosting in</span><span class="sign__place">Paris</span><span class="sign__meta">France · Apr 2018 · Dealer programme</span></li>
+        </ol>
+      </div>
+
+      <div class="kit-two kit-block">
+        <div>
+          <h2>Her words (pending approval)</h2>
+          <figure class="quote">
+            <blockquote><p>“Always a privilege to be part of rooms where the future is being shaped.”</p></blockquote>
+            <figcaption>Nisha Shetty, June 2026 <span class="ph">[QUOTE — AWAITING HER APPROVAL]</span></figcaption>
+          </figure>
+        </div>
+        <form class="stack" action="enquire.html" method="get" onsubmit="return false">
+          <h2 class="t-h3">Form controls</h2>
+          <div class="field">
+            <label class="field__label" for="kit-date">Date or month</label>
+            <input class="input" id="kit-date" name="date" type="text" autocomplete="off" placeholder="e.g. 14 Nov 2026, or November 2026">
+            <p class="field__hint">Dates flexible? Say so.</p>
+          </div>
+          <fieldset class="choices">
+            <legend>Format</legend>
+            <label class="choice"><input type="radio" name="kit-format" value="awards" checked><span>Awards or R&amp;R night</span></label>
+            <label class="choice"><input type="radio" name="kit-format" value="conference"><span>Conference</span></label>
+            <label class="choice"><input type="radio" name="kit-format" value="launch"><span>Launch or press</span></label>
+          </fieldset>
+          <p class="notice">Contact routes are placeholders: <span class="ph">[EMAIL — TO BE PROVIDED]</span></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+<!-- p22:footer -->
+<footer class="site-footer stage" data-footer>
+  <div class="wrap">
+    <div class="site-footer__cta" data-footer-cta>
+      <h2 class="site-footer__title">Planning an event?</h2>
+      <div class="stack" style="--stack: var(--s-5)">
+        <p>A date, a city and the format are enough to start.</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="enquire.html#availability"><span class="tally" aria-hidden="true"></span>Request availability</a>
+          <a class="btn btn--secondary" href="enquire.html#enquiry">Make an enquiry</a>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer__grid">
+      <div>
+        <a class="brand" href="index.html" aria-label="Nisha Shetty, home">
+          <span class="brand__name">Nisha Shetty</span>
+          <span class="brand__role">Presenter · Anchor · Emcee</span>
+        </a>
+        <ul class="site-footer__facts">
+          <li>Based in Mumbai; hosts across India and abroad</li>
+          <li>Hosts in English and Hindi (<span lang="hi">हिन्दी</span>)</li>
+          <li>Full-time since 2016</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Contact</h2>
+        <dl class="site-footer__contact">
+          <div><dt>Email</dt><dd><span class="ph">[EMAIL — TO BE PROVIDED]</span></dd></div>
+          <div><dt>Phone and WhatsApp</dt><dd><span class="ph">[NUMBER — TO BE PROVIDED]</span></dd></div>
+          <div><dt>Replies</dt><dd><span class="ph">[REPLY TIME — TO BE CONFIRMED]</span></dd></div>
+        </dl>
+      </div>
+      <nav aria-label="Footer">
+        <h2>Pages</h2>
+        <ul class="site-footer__list">
+          <li><a href="work.html">Work</a></li>
+          <li><a href="watch.html">Watch</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="event-managers.html">For event managers</a></li>
+          <li><a href="enquire.html#enquiry">Make an enquiry</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="site-footer__base">
+      <p class="proto-note">Prototype 22 · draft copy · photographer licences unconfirmed</p>
+      <p>Record updated <time datetime="2026-09">September 2026</time> · Photographs and video by event photographers and crews; credits to be confirmed · © 2026 Nisha Shetty</p>
+    </div>
+  </div>
+</footer>
+<div class="dock" data-dock hidden>
+  <a class="btn btn--primary" data-cue-header href="enquire.html#availability"><span class="tally" aria-hidden="true"></span>Request availability</a>
+  <a class="btn btn--secondary" href="enquire.html#enquiry">Make an enquiry</a>
+</div>
+<!-- /p22:footer -->
+</body>
+</html>

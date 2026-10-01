@@ -1,0 +1,99 @@
+/* Prototype 22 · design tokens. SHARED, READ-ONLY for page builders.
+   Rationale and contrast table: SPEC.md §2. Light editorial ground (P23 §5.3); stage colour only
+   where it earns it (the dark "house" band for video, the red cue/tally for action). No gold. */
+:root {
+  /* Colour: ground */
+  --paper: #faf6f0;          /* page ground. Ink on it 13.26:1 */
+  --paper-2: #f1eae0;        /* sunk panels, ledger zebra. Ink 11.96:1, muted 5.56:1 */
+  --paper-3: #e8dfd2;        /* pressed / selected chip ground */
+  --rule: #d8cec0;           /* hairlines (decorative only, never the only cue) */
+  --rule-strong: #b9ad9c;    /* input borders: 3:1+ against paper for non-text UI */
+
+  /* Colour: ink */
+  --ink: #18206e;            /* LED-blue ink: headings, wordmark, focus ring */
+  --text: #1f2348;           /* body copy, 14.01:1 */
+  --muted: #585b74;          /* secondary copy, 6.17:1 on paper */
+
+  /* Colour: cue (action only) */
+  --cue: #d42a3c;            /* primary button fill; white on it 5.00:1 */
+  --cue-press: #b3202f;      /* hover/active fill; also red TEXT on paper (6.16:1) */
+  --cue-on-stage: #ff5a67;   /* red text/dots on the stage band, 5.97:1 */
+  --on-cue: #ffffff;
+
+  /* Colour: stage (the dark house band; used for video sections and the footer) */
+  --stage: #0e1236;
+  --stage-2: #171c4d;        /* raised surface on stage */
+  --stage-rule: #2c3268;
+  --on-stage: #faf6f0;       /* 16.84:1 */
+  --on-stage-muted: #b4b8d4; /* 9.28:1 */
+  --spot: 255 226 190;       /* warm follow-spot, rgb triplet; light only, never behind text */
+
+  /* Placeholder marking (content the client must supply) */
+  --ph-ground: #fff3c4;
+  --ph-ink: #5a4500;         /* 8.9:1 on its ground */
+
+  /* Type */
+  --font-display: "Archivo", "Arial Narrow", Arial, sans-serif;
+  --font-text: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-deva: "Anek Devanagari", "Nirmala UI", "Mangal", sans-serif;
+
+  /* Fluid type scale (390 → 1440). Display sizes use Archivo; body uses Hanken Grotesk. */
+  --fs-mega: clamp(3.25rem, 1.6rem + 7.2vw, 8.5rem);   /* the name on Home */
+  --fs-h1: clamp(2.5rem, 1.55rem + 4.1vw, 5.25rem);    /* page titles */
+  --fs-h2: clamp(1.875rem, 1.35rem + 2.3vw, 3.5rem);   /* section titles */
+  --fs-h3: clamp(1.25rem, 1.1rem + 0.7vw, 1.75rem);
+  --fs-lede: clamp(1.1875rem, 1.05rem + 0.55vw, 1.5rem);
+  --fs-body: clamp(1.0625rem, 1.02rem + 0.18vw, 1.1875rem); /* 17 → 19px */
+  --fs-small: 0.9375rem;     /* 15px */
+  --fs-label: 0.8125rem;     /* 13px, tracked caps */
+  --fs-sign: clamp(2.25rem, 1rem + 5.4vw, 6rem);       /* HOSTING IN rows (condensed) */
+
+  --lh-tight: 1.02;
+  --lh-snug: 1.18;
+  --lh-body: 1.58;
+  --track-label: 0.12em;
+  --track-display: -0.022em;
+
+  /* Archivo width axis: the typographic voice */
+  --wdth-name: 108;          /* the name: slightly expanded, calm */
+  --wdth-head: 100;
+  --wdth-sign: 68;           /* condensed "HOSTING IN" signage rows */
+
+  /* Space (4-based) */
+  --s-1: 0.25rem; --s-2: 0.5rem; --s-3: 0.75rem; --s-4: 1rem; --s-5: 1.5rem;
+  --s-6: 2rem; --s-7: 3rem; --s-8: 4rem; --s-9: 6rem; --s-10: 8rem;
+  --section-y: clamp(4rem, 2.4rem + 7vw, 9rem);
+  --head-top: clamp(2rem, 1rem + 4vw, 4.5rem); /* space between the header and every page title */
+
+  /* Grid */
+  --max: 1320px;             /* content max width */
+  --max-text: 38rem;         /* measure for running text */
+  --gutter: clamp(1.25rem, 0.6rem + 2.6vw, 2.5rem); /* 20px on phones (>=16px rule), 40px desktop */
+  --cols: 12;
+  --col-gap: clamp(1rem, 0.5rem + 1.6vw, 2rem);
+
+  /* Chrome */
+  --header-h: 64px;
+  --dock-h: 72px;            /* phone dock: 10 + 48 + 10 + hairline, rounded up */
+  --target: 48px;            /* min touch target (>= 44px rule) */
+  --radius: 2px;             /* nearly square: editorial, not app-like */
+  --radius-pill: 999px;
+
+  /* Motion (SPEC.md §4). All durations collapse to 0 under reduced motion (base.css). */
+  --t-fast: 160ms;
+  --t-base: 240ms;
+  --t-strap: 420ms;
+  --t-cue: 900ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* Focus */
+  --focus: var(--ink);
+  --focus-on-stage: var(--on-stage);
+
+  color-scheme: light;
+}
+
+@media (min-width: 900px) {
+  :root { --header-h: 72px; }
+}

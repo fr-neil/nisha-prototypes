@@ -1,0 +1,172 @@
+/* enquire.html · page styles. Owned by the Request availability builder (SPEC.md §7). Use tokens from css/tokens.css.
+   Layout: phone = intro → form → next steps → routes. Desktop (≥900px) = intro and next steps in cols 1–5,
+   the form in cols 7–12. Steps: without JS both steps show as one form; with JS (form[data-step]) one at a time. */
+
+/* ------------------------------------------------------------ frame */
+.enq { padding-top: var(--head-top); }
+.enq__grid { display: grid; grid-template-columns: minmax(0, 1fr); row-gap: var(--s-7); }
+.enq__intro { display: grid; gap: var(--s-4); align-content: start; }
+.enq__intro h1 { max-width: 9ch; }
+.enq__facts { margin-top: var(--s-2); }
+
+@media (min-width: 900px) {
+  .enq__grid { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--col-gap); row-gap: var(--s-8); }
+  .enq__intro { grid-column: 1 / 6; grid-row: 1; }
+  .enq__aside { grid-column: 1 / 6; grid-row: 2; align-self: start; }
+  .enq__main { grid-column: 7 / 13; grid-row: 1 / span 2; align-self: start; }
+}
+
+/* ------------------------------------------------------------ form */
+.enq-form { display: grid; gap: var(--s-7); }
+.enq-form__policy { color: var(--muted); margin-top: calc(-1 * var(--s-4)); }
+.enq-form__policy b { color: var(--ink); }
+.enq-form:not([data-step]) .enq-form__policy { margin-top: 0; }
+.enq-form__note { color: var(--muted); }
+
+.enq-progress { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.enq-progress__seg {
+  display: flex; align-items: center; gap: 0.5rem; padding-top: 0.75rem; border-top: 3px solid var(--rule);
+  font-size: var(--fs-small); font-weight: 650; color: var(--muted); transition: border-color var(--t-base) ease, color var(--t-base) ease;
+}
+.enq-progress__seg.is-on { border-top-color: var(--ink); color: var(--ink); }
+.enq-progress__n { font-family: var(--font-display); font-variant-numeric: tabular-nums; }
+
+.enq-step { display: grid; gap: var(--s-6); padding-top: var(--s-5); border-top: 1.5px solid var(--ink); }
+.enq-form[data-step] .enq-step { padding-top: 0; border-top: 0; }
+.enq-step__head { display: grid; gap: var(--s-2); }
+.enq-step__n { color: var(--cue-press); }
+.enq-step__title { font-size: var(--fs-h3); line-height: 1.15; }
+.enq-step__title:focus { outline: none; }
+
+/* Choices: a little more air than the kit default, and 48px targets */
+.enq-choices { gap: var(--s-2); }
+.enq-choices legend { font-size: 1rem; margin-bottom: var(--s-3); }
+.enq-choices .choice > span { min-height: var(--target); transition: background-color var(--t-fast), border-color var(--t-fast), color var(--t-fast); }
+.enq-choices .choice > span:hover { border-color: var(--ink); }
+.enq-choices .choice > input:checked + span { box-shadow: inset 0 -3px 0 var(--cue); }
+
+/* Format: eight options in two columns on phones, so the list stays short */
+@media (max-width: 599px) {
+  .enq-choices--grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .enq-choices--grid legend { grid-column: 1 / -1; float: left; width: 100%; }
+  .enq-choices--grid .choice > span { display: flex; width: 100%; min-height: 56px; padding: 0.5rem 0.75rem; line-height: 1.25; }
+  .enq-choices--grid .enq-err { grid-column: 1 / -1; }
+}
+
+.enq-row { display: grid; gap: var(--s-4); }
+@media (min-width: 600px) {
+  .enq-row--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--s-5); align-items: start; }
+}
+
+/* Checkbox: "Dates are flexible" */
+.enq-check { position: relative; display: inline-flex; align-items: center; gap: 0.75rem; min-height: var(--target); font-weight: 600; cursor: pointer; justify-self: start; }
+.enq-check input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.enq-check span::before {
+  content: ""; display: inline-block; width: 22px; height: 22px; margin-right: 0.75rem; vertical-align: -5px;
+  border: 1.5px solid var(--rule-strong); border-radius: var(--radius); background: var(--paper);
+  transition: background-color var(--t-fast), border-color var(--t-fast);
+}
+.enq-check:hover span::before { border-color: var(--ink); }
+.enq-check input:checked + span::before {
+  background: var(--ink) no-repeat center / 14px 14px; border-color: var(--ink);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M2 7.5l3.2 3L12 3.5' fill='none' stroke='%23faf6f0' stroke-width='2'/%3E%3C/svg%3E");
+}
+.enq-check input:focus-visible + span { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: var(--radius); }
+
+/* ------------------------------------------------------------ validation */
+.enq-err { display: flex; gap: 0.5rem; align-items: baseline; margin-top: var(--s-1); color: var(--cue-press); font-size: var(--fs-small); font-weight: 650; flex-basis: 100%; }
+.enq-err::before {
+  content: "!"; flex: none; display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 50%;
+  background: var(--cue-press); color: var(--on-cue); font-size: 0.75rem; font-weight: 800; transform: translateY(2px);
+}
+.enq-form .input[aria-invalid="true"] { border-color: var(--cue-press); box-shadow: inset 0 0 0 1px var(--cue-press); }
+.enq-choices[data-invalid] .choice > span { border-color: var(--cue-press); }
+
+.enq-errors { border-left: 3px solid var(--cue-press); background: var(--paper-2); padding: var(--s-4) var(--s-5); display: grid; gap: var(--s-2); }
+.enq-errors:focus { outline: none; }
+.enq-errors__title { font-weight: 700; color: var(--ink); }
+.enq-errors__list { display: grid; gap: var(--s-1); }
+.enq-errors__list a { display: inline-flex; align-items: center; min-height: 44px; color: var(--cue-press); font-weight: 650; }
+
+/* ------------------------------------------------------------ actions */
+.enq-step__actions, .enq-submit { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-3) var(--s-5); }
+.enq-next { gap: 0.75rem; }
+.enq-next__arrow { transition: transform var(--t-fast) var(--ease-out); }
+.enq-next:hover .enq-next__arrow { transform: translateX(3px); }
+.enq-skip, .enq-back {
+  display: inline-flex; align-items: center; gap: 0.4em; min-height: 44px; padding: 0;
+  background: none; border: 0; color: var(--ink); font-weight: 650; font-size: 0.9375rem;
+  text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.25em;
+}
+.enq-skip:hover, .enq-back:hover { text-decoration-thickness: 2px; }
+.enq-submit__btn { min-height: 52px; padding-inline: 1.75rem; }
+@media (max-width: 599px) {
+  .enq-submit__btn, .enq-next { width: 100%; }
+  .enq-submit { flex-direction: column; align-items: stretch; }
+  .enq-back, .enq-skip { justify-content: center; }
+  .enq-step__actions { flex-direction: column; align-items: stretch; }
+}
+
+/* ------------------------------------------------------------ steps with JS (the form carries data-step) */
+.enq-form[data-step="1"] .enq-step--2,
+.enq-form[data-step="1"] .enq-submit { display: none; }
+.enq-form[data-step="2"] .enq-step:not(.enq-step--2),
+.enq-form[data-step="2"] .enq-form__policy { display: none; }
+.enq-step.is-entering, .enq-received.is-entering { animation: enq-in var(--t-base) var(--ease-out) both; }
+@keyframes enq-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+/* ------------------------------------------------------------ result ("what would be sent") */
+.enq-received { display: none; border: 1.5px solid var(--ink); background: var(--paper); padding: var(--s-6) var(--s-5); }
+.enq-received:target, .enq-received.is-shown { display: grid; gap: var(--s-5); }
+.enq__main:has(> .enq-received:target) .enq-form { display: none; }
+.enq__main.is-sent .enq-form { display: none; }
+.enq-received h2 { font-size: var(--fs-h3); }
+.enq-received h2:focus { outline: none; }
+.enq-received__kicker { display: inline-flex; align-items: center; gap: 0.6em; color: var(--ink); }
+.enq-received__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cue); }
+.enq-sheet { border-top: 1.5px solid var(--ink); }
+.enq-sheet__row { display: grid; gap: 2px; padding: 0.75rem 0; border-bottom: 1px solid var(--rule); }
+.enq-sheet__row dt { font-size: var(--fs-label); font-weight: 650; letter-spacing: var(--track-label); text-transform: uppercase; color: var(--muted); }
+.enq-sheet__row dd { margin: 0; color: var(--text); overflow-wrap: anywhere; }
+@media (min-width: 600px) {
+  .enq-received { padding: var(--s-7) var(--s-6); }
+  .enq-sheet__row { grid-template-columns: 11rem minmax(0, 1fr); column-gap: var(--s-5); align-items: baseline; }
+}
+
+/* ------------------------------------------------------------ aside: what happens next */
+.enq__aside { display: grid; gap: var(--s-6); }
+.enq-aside__title { font-size: var(--fs-h3); }
+.enq-next-steps { display: grid; border-top: 1px solid var(--rule); }
+.enq-next-steps li { display: grid; grid-template-columns: 2.5rem minmax(0, 1fr); gap: var(--s-3); padding: var(--s-4) 0; border-bottom: 1px solid var(--rule); }
+.enq-next-steps__n {
+  font-family: var(--font-display); font-weight: 600; font-size: 1.5rem; line-height: 1.1; color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.enq-next-steps p { max-width: 34ch; }
+.enq-photo { max-width: 22rem; }
+@media (max-width: 899px) { .enq-photo { max-width: 26rem; } }
+
+/* ------------------------------------------------------------ routes (#enquiry) */
+.enq-routes__grid { display: grid; gap: var(--s-7); }
+.enq-routes__lead { display: grid; gap: var(--s-4); align-content: start; }
+.enq-routes__text { font-size: var(--fs-lede); line-height: 1.45; max-width: 36ch; }
+.enq-routes__lead .btn-row { margin-top: var(--s-2); }
+.enq-routes { scroll-margin-top: var(--header-h); }
+.enq-routes__list { border-top: 1.5px solid var(--ink); align-self: start; margin-top: var(--s-4); }
+/* Make an enquiry: a short form on the sunk band, set on paper so it reads as its own sheet. */
+.enq-ask { display: grid; gap: var(--s-6); align-self: start; background: var(--paper); border: 1.5px solid var(--ink); padding: var(--s-6) var(--s-5); }
+.enq-ask .enq-errors { background: var(--paper-2); }
+.enq-ask__btn { min-height: 52px; padding-inline: 1.75rem; }
+.enq-opt { margin-left: 0.35em; font-size: var(--fs-small); font-weight: 500; color: var(--muted); }
+.enq-form__alt { display: block; margin-top: var(--s-1); }
+@media (max-width: 759px) { .enq-ask__btn { width: 100%; } }
+.enq-routes__item { display: grid; gap: var(--s-1); padding: var(--s-4) 0; border-bottom: 1px solid var(--rule-strong); }
+.enq-routes__item dt { font-size: var(--fs-label); font-weight: 650; letter-spacing: var(--track-label); text-transform: uppercase; color: var(--muted); }
+.enq-routes__item dd { margin: 0; }
+#enquiry:focus { outline: none; }
+@media (min-width: 900px) {
+  .enq-routes__grid { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--col-gap); }
+  .enq-routes__lead { grid-column: 1 / 6; }
+  .enq-ask { grid-column: 7 / 13; padding: var(--s-7) var(--s-6); }
+  .enq-routes__item { grid-template-columns: 12rem minmax(0, 1fr); align-items: baseline; padding: var(--s-5) 0; }
+}

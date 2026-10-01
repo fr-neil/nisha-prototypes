@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <!-- p22:head -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Request availability · Nisha Shetty</title>
+  <meta name="description" content="Check a date or make an enquiry. A date, a city and the format are enough to start.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#faf6f0">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nisha Shetty">
+  <meta property="og:title" content="Request availability · Nisha Shetty">
+  <meta property="og:description" content="Check a date or make an enquiry. A date, a city and the format are enough to start.">
+  <!-- TODO(domain): og:image must become an absolute URL (https://<domain>/…) once the domain is decided; relative paths do not resolve in link previews. -->
+  <meta property="og:image" content="media/stills/hsbc-laugh-1600.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='3' fill='%2318206e'/%3E%3Ctext x='7' y='23' font-family='Arial' font-weight='700' font-size='19' fill='%23faf6f0'%3EN%3C/text%3E%3Ccircle cx='25' cy='8' r='3.5' fill='%23d42a3c'/%3E%3C/svg%3E">
+  <script>
+    /* Before first paint: JS flag, cue stand-by, and a watchdog that returns the page to its
+       complete no-JS state if core.js never arrives. */
+    (function (d) {
+      var h = d.documentElement;
+      h.classList.add('js');
+      try {
+        if (!matchMedia('(prefers-reduced-motion: reduce)').matches && !sessionStorage.getItem('p22-cue-seen')) h.classList.add('cue-pending');
+      } catch (e) { /* storage blocked: no cue */ }
+      setTimeout(function () { h.classList.remove('cue-pending'); }, 4000);
+      setTimeout(function () { if (!h.classList.contains('motion-ok') && !h.classList.contains('reduce-motion')) h.classList.remove('js'); }, 5000);
+    })(document);
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@400..700&family=Archivo:wdth,wght@62..125,400..800&family=Hanken+Grotesk:ital,wght@0,400..700;1,400..700&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/signature.css">
+  <link rel="stylesheet" href="css/pages/enquire.css">
+  <script src="js/core.js" defer></script>
+  <script src="js/signature.js" defer></script>
+  <script src="js/pages/enquire.js" defer></script>
+  <!-- /p22:head -->
+</head>
+<body data-page="enquire" data-no-dock>
+<!-- p22:header -->
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header" data-header>
+  <div class="site-header__inner wrap">
+    <a class="brand" data-nav="home" href="index.html" aria-label="Nisha Shetty, home">
+      <span class="brand__name">Nisha Shetty</span>
+      <span class="brand__role">Presenter · Anchor · Emcee</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" hidden data-nav-toggle>
+      <span class="nav-toggle__bars" aria-hidden="true"></span><span class="nav-toggle__label">Menu</span>
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <ul class="nav__list">
+        <li><a class="nav__link" data-nav="work" href="work.html">Work</a></li>
+        <li><a class="nav__link" data-nav="watch" href="watch.html">Watch</a></li>
+        <li><a class="nav__link" data-nav="about" href="about.html">About</a></li>
+        <li><a class="nav__link" data-nav="event-managers" href="event-managers.html">For event managers</a></li>
+      </ul>
+      <a class="btn btn--primary btn--sm nav__cta" data-nav="enquire" data-cue-header href="enquire.html#availability"><span class="tally" aria-hidden="true"></span>Request availability</a>
+      <a class="btn btn--secondary nav__alt" href="enquire.html#enquiry">Make an enquiry</a>
+    </nav>
+  </div>
+</header>
+<!-- /p22:header -->
+<main id="main" tabindex="-1">
+    <section class="section enq" aria-labelledby="enq-title">
+      <div class="wrap enq__grid">
+
+        <header class="enq__intro">
+          <p class="eyebrow"><span class="eyebrow__n">01</span>Check a date</p>
+          <h1 id="enq-title">Request availability</h1>
+          <p class="t-lede">A date, a city and the format are enough to start.</p>
+          <ul class="facts enq__facts">
+            <li>Based in Mumbai</li>
+            <li>English and Hindi (<span lang="hi">हिन्दी</span>)</li>
+            <li>Full-time since 2016</li>
+          </ul>
+        </header>
+
+        <div class="enq__main">
+          <form class="enq-form" id="availability" action="enquire.html#received" method="get" data-enq-form>
+            <ol class="enq-progress" aria-hidden="true" data-enq-progress hidden>
+              <li class="enq-progress__seg is-on"><span class="enq-progress__n">1</span>The essentials</li>
+              <li class="enq-progress__seg"><span class="enq-progress__n">2</span>Details, optional</li>
+            </ol>
+
+            <p class="enq-form__policy t-small"><b>Working through an agency?</b> <span class="ph">[AGENCY POLICY — IN HER WORDS, TO BE PROVIDED]</span></p>
+
+            <!-- Step 1: required -->
+            <section class="enq-step" id="step-1" aria-labelledby="step-1-title" data-enq-step="1">
+              <header class="enq-step__head">
+                <p class="enq-step__n t-label">Step 1 of 2 · Required</p>
+                <h2 class="enq-step__title" id="step-1-title" tabindex="-1">The essentials</h2>
+              </header>
+
+              <div class="enq-errors" role="alert" aria-labelledby="enq-errors-title" tabindex="-1" data-enq-errors hidden>
+                <p class="enq-errors__title" id="enq-errors-title" data-enq-errors-title>Please check these</p>
+                <ul class="enq-errors__list" data-enq-errors-list></ul>
+              </div>
+
+              <fieldset class="choices enq-choices" id="f-as" aria-describedby="f-as-err">
+                <legend>I'm enquiring as</legend>
+                <label class="choice"><input type="radio" name="as" value="agency" required><span>An event agency</span></label>
+                <label class="choice"><input type="radio" name="as" value="host" required><span>The company hosting the event</span></label>
+                <label class="choice"><input type="radio" name="as" value="other" required><span>Other</span></label>
+                <p class="enq-err" id="f-as-err" data-err-for="as" hidden></p>
+              </fieldset>
+
+              <fieldset class="choices enq-choices enq-choices--grid" id="f-format" aria-describedby="f-format-err">
+                <legend>Format</legend>
+                <label class="choice"><input type="radio" name="format" value="Awards or R&amp;R night" required><span>Awards or R&amp;R night</span></label>
+                <label class="choice"><input type="radio" name="format" value="Conference or summit" required><span>Conference or summit</span></label>
+                <label class="choice"><input type="radio" name="format" value="Dealer or partner meet" required><span>Dealer or partner meet</span></label>
+                <label class="choice"><input type="radio" name="format" value="Launch or press conference" required><span>Launch or press conference</span></label>
+                <label class="choice"><input type="radio" name="format" value="Red carpet or meet-and-greet" required><span>Red carpet or meet-and-greet</span></label>
+                <label class="choice"><input type="radio" name="format" value="Pageant or cultural event" required><span>Pageant or cultural event</span></label>
+                <label class="choice"><input type="radio" name="format" value="Virtual or on-camera" required><span>Virtual or on-camera</span></label>
+                <label class="choice"><input type="radio" name="format" value="Other" required><span>Other</span></label>
+                <p class="enq-err" id="f-format-err" data-err-for="format" hidden></p>
+              </fieldset>
+
+              <div class="enq-row">
+                <div class="field">
+                  <label class="field__label" for="f-date">Date or month</label>
+                  <input class="input" id="f-date" name="date" type="text" autocomplete="off" required aria-describedby="f-date-hint f-date-err" placeholder="e.g. 14 Nov 2026, or November 2026">
+                  <p class="field__hint" id="f-date-hint">More than one day? Give the range.</p>
+                  <p class="enq-err" id="f-date-err" data-err-for="date" hidden></p>
+                </div>
+                <label class="enq-check" for="f-flexible">
+                  <input type="checkbox" id="f-flexible" name="flexible" value="yes">
+                  <span>Dates are flexible</span>
+                </label>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="f-city">City and country</label>
+                <input class="input" id="f-city" name="city" type="text" autocomplete="off" required aria-describedby="f-city-err" placeholder="e.g. Pune, India">
+                <p class="enq-err" id="f-city-err" data-err-for="city" hidden></p>
+              </div>
+
+              <div class="enq-row enq-row--2">
+                <div class="field">
+                  <label class="field__label" for="f-name">Your name</label>
+                  <input class="input" id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="f-name-err">
+                  <p class="enq-err" id="f-name-err" data-err-for="name" hidden></p>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="f-contact">Your phone, WhatsApp or email</label>
+                  <input class="input" id="f-contact" name="contact" type="text" autocomplete="on" required aria-describedby="f-contact-hint f-contact-err" spellcheck="false">
+                  <p class="field__hint" id="f-contact-hint">Where the reply should go. Add the country code for WhatsApp.</p>
+                  <p class="enq-err" id="f-contact-err" data-err-for="contact" hidden></p>
+                </div>
+              </div>
+
+              <div class="enq-step__actions" data-enq-step1-actions hidden>
+                <button class="btn btn--secondary enq-next" type="button" data-enq-next>Continue<span class="enq-next__arrow" aria-hidden="true">→</span></button>
+                <button class="enq-skip" type="submit" data-enq-skip>Skip the details and send</button>
+              </div>
+            </section>
+
+            <!-- Step 2: optional -->
+            <section class="enq-step enq-step--2" id="step-2" aria-labelledby="step-2-title" data-enq-step="2">
+              <header class="enq-step__head">
+                <p class="enq-step__n t-label">Step 2 of 2 · Optional</p>
+                <h2 class="enq-step__title" id="step-2-title" tabindex="-1">Details that help her reply faster</h2>
+              </header>
+
+              <fieldset class="choices enq-choices">
+                <legend>In person or virtual</legend>
+                <label class="choice"><input type="radio" name="setting" value="In person"><span>In person</span></label>
+                <label class="choice"><input type="radio" name="setting" value="Virtual"><span>Virtual</span></label>
+                <label class="choice"><input type="radio" name="setting" value="Hybrid"><span>Hybrid</span></label>
+              </fieldset>
+
+              <fieldset class="choices enq-choices">
+                <legend>Hosting language</legend>
+                <label class="choice"><input type="radio" name="language" value="English"><span>English</span></label>
+                <label class="choice"><input type="radio" name="language" value="Hindi"><span>Hindi&nbsp;·&nbsp;<bdi lang="hi">हिन्दी</bdi></span></label>
+                <label class="choice"><input type="radio" name="language" value="English and Hindi"><span>Both</span></label>
+              </fieldset>
+
+              <fieldset class="choices enq-choices">
+                <legend>Audience size</legend>
+                <label class="choice"><input type="radio" name="audience" value="Under 100"><span class="tnum">Under 100</span></label>
+                <label class="choice"><input type="radio" name="audience" value="100 to 500"><span class="tnum">100–500</span></label>
+                <label class="choice"><input type="radio" name="audience" value="500 to 1,500"><span class="tnum">500–1,500</span></label>
+                <label class="choice"><input type="radio" name="audience" value="Over 1,500"><span class="tnum">Over 1,500</span></label>
+                <label class="choice"><input type="radio" name="audience" value="Not sure yet"><span>Not sure yet</span></label>
+              </fieldset>
+
+              <fieldset class="choices enq-choices">
+                <legend>Who is in the room</legend>
+                <label class="choice"><input type="radio" name="room" value="Employees"><span>Employees</span></label>
+                <label class="choice"><input type="radio" name="room" value="Dealers and partners"><span>Dealers and partners</span></label>
+                <label class="choice"><input type="radio" name="room" value="Customers"><span>Customers</span></label>
+                <label class="choice"><input type="radio" name="room" value="Public"><span>Public</span></label>
+                <label class="choice"><input type="radio" name="room" value="A mix"><span>A mix</span></label>
+              </fieldset>
+
+              <div class="enq-row enq-row--2">
+                <div class="field">
+                  <label class="field__label" for="f-org" data-enq-org-label>Organisation hosting the event</label>
+                  <input class="input" id="f-org" name="org" type="text" autocomplete="organization">
+                </div>
+                <div class="field">
+                  <label class="field__label" for="f-agency" data-enq-agency-label>Agency, if there is one</label>
+                  <input class="input" id="f-agency" name="agency" type="text" autocomplete="off">
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="f-budget">Budget range</label>
+                <select class="select" id="f-budget" name="budget" aria-describedby="f-budget-hint">
+                  <option value="">Prefer to discuss</option>
+                  <option value="" disabled>Bands to be confirmed</option>
+                </select>
+                <p class="field__hint" id="f-budget-hint">Optional. <span class="ph">[BANDS — TO BE CONFIRMED]</span></p>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="f-notes">Anything else</label>
+                <textarea class="textarea" id="f-notes" name="notes" rows="4" aria-describedby="f-notes-hint"></textarea>
+                <p class="field__hint" id="f-notes-hint">The running order, number of days, a co-host, rehearsal timing.</p>
+              </div>
+            </section>
+
+            <div class="enq-submit">
+              <button class="btn btn--primary enq-submit__btn" type="submit"><span class="tally" aria-hidden="true"></span>Request availability</button>
+              <button class="enq-back" type="button" data-enq-back hidden><span aria-hidden="true">←</span> Back to the essentials</button>
+            </div>
+            <p class="enq-form__note t-small">Prototype: this form sends nothing yet. It shows what would be sent. <span class="enq-form__alt">No date yet? <a href="#enquiry">Make an enquiry</a> instead.</span></p>
+          </form>
+
+          <!-- Result for both forms. Without JS: the GET lands here and :target shows it. With JS: filled with a summary.
+               TODO(production): deliver both forms by POST to the real endpoint; GET puts names and numbers in the URL and history. -->
+          <section class="enq-received" id="received" aria-labelledby="received-title" data-enq-received>
+            <p class="t-label enq-received__kicker"><span class="enq-received__dot" aria-hidden="true"></span>Prototype · nothing has been sent</p>
+            <h2 id="received-title" tabindex="-1">Here is what would be sent</h2>
+            <dl class="enq-sheet" data-enq-summary>
+              <div class="enq-sheet__row enq-sheet__row--nojs"><dt>Your request</dt><dd>The form reached this page. In the finished site it goes to her by email or WhatsApp.</dd></div>
+            </dl>
+            <p class="notice">Prototype: nothing has been sent. Email and WhatsApp routes will be added once provided. Replies: <span class="ph">[REPLY TIME — TO BE CONFIRMED]</span></p>
+            <div class="btn-row">
+              <button class="btn btn--secondary" type="button" data-enq-edit hidden>Edit the request</button>
+              <a class="link-arrow" href="enquire.html#availability">Start a new request</a>
+            </div>
+          </section>
+        </div>
+
+        <aside class="enq__aside" aria-labelledby="next-title">
+          <h2 class="enq-aside__title" id="next-title">What happens next</h2>
+          <ol class="enq-next-steps">
+            <li><span class="enq-next-steps__n">1</span><p>Your request arrives with the date, the city and the format.</p></li>
+            <li><span class="enq-next-steps__n">2</span><p>A reply on your phone, WhatsApp or email within <span class="ph">[REPLY TIME — TO BE CONFIRMED]</span>.</p></li>
+            <li><span class="enq-next-steps__n">3</span><p>If the date is open, the brief and the running order follow. Nothing is confirmed until she confirms it.</p></li>
+          </ol>
+          <figure class="photo enq-photo" style="--ratio: 4 / 5; --pos: 50% 34%">
+            <div class="photo__media">
+              <picture>
+                <source type="image/avif" srcset="media/loops/loop-handover-poster.avif 720w" sizes="(min-width: 900px) 26vw, 90vw">
+                <img src="media/loops/loop-handover-poster.jpg" width="720" height="1280" loading="lazy" decoding="async" alt="Nisha Shetty holds the microphone out to a guest who answers from the audience.">
+              </picture>
+              <p class="strap"><span class="strap__l1">Handing over the mic</span><span class="strap__l2">Datamatics&nbsp;· 2026</span></p>
+            </div>
+            <figcaption class="photo__cap"><b>Awards night, Mumbai.</b> The mic goes to a guest in the audience.</figcaption>
+          </figure>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 02 · Make an enquiry: its own short form (no date, city or format needed). Same #received pattern, works without JS. -->
+    <section class="section section--sunk enq-routes" id="enquiry" aria-labelledby="enquiry-title">
+      <div class="wrap enq-routes__grid">
+        <div class="enq-routes__lead">
+          <p class="eyebrow"><span class="eyebrow__n">02</span>Not a date yet?</p>
+          <h2 id="enquiry-title" tabindex="-1">Make an enquiry</h2>
+          <p class="enq-routes__text">A question about formats, languages, a programme abroad or working through an agency. No date needed.</p>
+          <dl class="enq-routes__list">
+            <div class="enq-routes__item"><dt>Email</dt><dd><span class="ph">[EMAIL — TO BE PROVIDED]</span></dd></div>
+            <div class="enq-routes__item"><dt>Phone and WhatsApp</dt><dd><span class="ph">[NUMBER — TO BE PROVIDED]</span></dd></div>
+            <div class="enq-routes__item"><dt>Replies</dt><dd><span class="ph">[REPLY TIME — TO BE CONFIRMED]</span></dd></div>
+          </dl>
+        </div>
+
+        <form class="enq-ask" id="enquiry-form" action="enquire.html#received" method="get" aria-labelledby="enquiry-title" data-enq-ask>
+          <input type="hidden" name="kind" value="enquiry">
+          <div class="enq-errors" role="alert" aria-labelledby="q-errors-title" tabindex="-1" data-enq-errors hidden>
+            <p class="enq-errors__title" id="q-errors-title" data-enq-errors-title>Please check these</p>
+            <ul class="enq-errors__list" data-enq-errors-list></ul>
+          </div>
+
+          <fieldset class="choices enq-choices" id="q-as">
+            <legend>I'm asking as <span class="enq-opt">optional</span></legend>
+            <label class="choice"><input type="radio" name="as" value="agency"><span>An event agency</span></label>
+            <label class="choice"><input type="radio" name="as" value="host"><span>The company hosting</span></label>
+            <label class="choice"><input type="radio" name="as" value="other"><span>Other</span></label>
+          </fieldset>
+
+          <div class="field">
+            <label class="field__label" for="q-message">Your question</label>
+            <textarea class="textarea" id="q-message" name="message" rows="5" required aria-describedby="q-message-hint q-message-err"></textarea>
+            <p class="field__hint" id="q-message-hint">For example: hosting in Hindi and English on one evening, a programme abroad, or a virtual format.</p>
+            <p class="enq-err" id="q-message-err" data-err-for="message" hidden></p>
+          </div>
+
+          <div class="enq-row enq-row--2">
+            <div class="field">
+              <label class="field__label" for="q-name">Your name</label>
+              <input class="input" id="q-name" name="name" type="text" autocomplete="name" required aria-describedby="q-name-err">
+              <p class="enq-err" id="q-name-err" data-err-for="name" hidden></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="q-contact">Your phone, WhatsApp or email</label>
+              <input class="input" id="q-contact" name="contact" type="text" autocomplete="on" required spellcheck="false" aria-describedby="q-contact-hint q-contact-err">
+              <p class="field__hint" id="q-contact-hint">Where the reply should go.</p>
+              <p class="enq-err" id="q-contact-err" data-err-for="contact" hidden></p>
+            </div>
+          </div>
+
+          <div class="enq-row enq-row--2">
+            <div class="field">
+              <label class="field__label" for="q-date">Date or month <span class="enq-opt">optional</span></label>
+              <input class="input" id="q-date" name="date" type="text" autocomplete="off" placeholder="If there is one">
+            </div>
+            <div class="field">
+              <label class="field__label" for="q-city">City <span class="enq-opt">optional</span></label>
+              <input class="input" id="q-city" name="city" type="text" autocomplete="off">
+            </div>
+          </div>
+
+          <div class="enq-submit">
+            <button class="btn btn--secondary enq-ask__btn" type="submit">Send the enquiry</button>
+          </div>
+          <p class="enq-form__note t-small">Prototype: this form sends nothing yet. It shows what would be sent.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+<!-- p22:footer -->
+<footer class="site-footer stage" data-footer>
+  <div class="wrap">
+    <div class="site-footer__cta" data-footer-cta>
+      <h2 class="site-footer__title">Planning an event?</h2>
+      <div class="stack" style="--stack: var(--s-5)">
+        <p>A date, a city and the format are enough to start.</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="enquire.html#availability"><span class="tally" aria-hidden="true"></span>Request availability</a>
+          <a class="btn btn--secondary" href="enquire.html#enquiry">Make an enquiry</a>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer__grid">
+      <div>
+        <a class="brand" href="index.html" aria-label="Nisha Shetty, home">
+          <span class="brand__name">Nisha Shetty</span>
+          <span class="brand__role">Presenter · Anchor · Emcee</span>
+        </a>
+        <ul class="site-footer__facts">
+          <li>Based in Mumbai; hosts across India and abroad</li>
+          <li>Hosts in English and Hindi (<span lang="hi">हिन्दी</span>)</li>
+          <li>Full-time since 2016</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Contact</h2>
+        <dl class="site-footer__contact">
+          <div><dt>Email</dt><dd><span class="ph">[EMAIL — TO BE PROVIDED]</span></dd></div>
+          <div><dt>Phone and WhatsApp</dt><dd><span class="ph">[NUMBER — TO BE PROVIDED]</span></dd></div>
+          <div><dt>Replies</dt><dd><span class="ph">[REPLY TIME — TO BE CONFIRMED]</span></dd></div>
+        </dl>
+      </div>
+      <nav aria-label="Footer">
+        <h2>Pages</h2>
+        <ul class="site-footer__list">
+          <li><a href="work.html">Work</a></li>
+          <li><a href="watch.html">Watch</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="event-managers.html">For event managers</a></li>
+          <li><a href="enquire.html#enquiry">Make an enquiry</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="site-footer__base">
+      <p class="proto-note">Prototype 22 · draft copy · photographer licences unconfirmed</p>
+      <p>Record updated <time datetime="2026-09">September 2026</time> · Photographs and video by event photographers and crews; credits to be confirmed · © 2026 Nisha Shetty</p>
+    </div>
+  </div>
+</footer>
+<div class="dock" data-dock hidden>
+  <a class="btn btn--primary" data-cue-header href="enquire.html#availability"><span class="tally" aria-hidden="true"></span>Request availability</a>
+  <a class="btn btn--secondary" href="enquire.html#enquiry">Make an enquiry</a>
+</div>
+<!-- /p22:footer -->
+</body>
+</html>

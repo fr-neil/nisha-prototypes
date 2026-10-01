@@ -1,0 +1,33 @@
+/* Prototype 24 · M6 shared-element pairs (P29 §2 M6). CORE-owned. The pseudo-elements of a cross-document
+ * view transition belong to the NEW page, so these rules matter only on the destinations (work.html, enquire.html,
+ * both blocking-mode). Kept out of the inline critical CSS of split-mode pages (Home). */
+
+/* ---- pair 1: the chosen story frame grows into the Work family figure (0.5 s) ---- */
+::view-transition-group(family-hero) { animation-duration: 500ms; animation-timing-function: var(--ease-in-out); }
+::view-transition-old(family-hero), ::view-transition-new(family-hero) { height: 100%; object-fit: cover; }
+
+/* ---- pair 2: a "Request availability" CTA grows into the form card (0.45 s). The snapshots are never
+ * stretched: object-fit none, pinned to the top; the old one is gone by 30 %, the new one fades in from 40 %. ---- */
+::view-transition-group(cta-panel) { animation-duration: 450ms; animation-timing-function: var(--ease-in-out); }
+::view-transition-old(cta-panel),
+::view-transition-new(cta-panel) {
+  height: 100%;
+  object-fit: none;
+  object-position: 50% 0;
+}
+::view-transition-old(cta-panel) { animation: 450ms linear both p24-vt-cta-old; }
+::view-transition-new(cta-panel) { animation: 450ms linear both p24-vt-cta-new; }
+@keyframes p24-vt-cta-old { 0% { opacity: 1; } 30%, 100% { opacity: 0; } }
+@keyframes p24-vt-cta-new { 0%, 40% { opacity: 0; } 100% { opacity: 1; } }
+/* Phones: the destination card is full-bleed, so the snapshots are pinned to the top-left (a centred pin would
+ * crop both sides of the growing box). */
+@media (max-width: 760px) {
+  ::view-transition-old(cta-panel), ::view-transition-new(cta-panel) { object-position: 0 0; }
+}
+
+/* No destination for the pair on this page (head-inline.js sets html.vt-unpaired): the old page's named snapshot
+ * leaves exactly as the old root does (fade and lift), so no orphan pill or photo is drawn over the new page. */
+html.vt-unpaired::view-transition-group(cta-panel),
+html.vt-unpaired::view-transition-group(family-hero) { animation: none; }
+html.vt-unpaired::view-transition-old(cta-panel),
+html.vt-unpaired::view-transition-old(family-hero) { animation: 140ms var(--ease-page) both p24-vt-out; }

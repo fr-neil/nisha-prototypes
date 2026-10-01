@@ -1,0 +1,190 @@
+/* Prototype 24 · type (P28 §3.2). CORE-owned.
+ * Eczar (display, Latin + Devanagari, variable 500–700) and Martel Sans (text, Latin + Devanagari).
+ * Self-hosted woff2 with OFL texts in fonts/. The first-screen Devanagari is a subset (tools/subset-fonts.py):
+ * the "-sub" faces are declared first for U+0900 so निशा शेट्टी and हिन्दी never wait for the full files. */
+
+@font-face {
+  font-family: "Eczar";
+  src: url("../fonts/eczar-latin.woff2") format("woff2");
+  font-weight: 500 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+2000-206F, U+20AC, U+2122, U+2212;
+}
+
+/* Latin ranges are shortened to the characters the site uses (inline critical CSS budget); the files hold more.
+ * (ı, Œ, œ, ˆ and ˜ were dropped in the QA fix pass: no page or record uses them.) */
+
+/* First-screen subset: न ि श ा (space) े ट ् ी ह द. Pages with more Hindi add class .deva-full on <html>. */
+@font-face {
+  font-family: "Eczar";
+  src: url("../fonts/eczar-deva-sub.woff2") format("woff2");
+  font-weight: 500 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0928, U+093F, U+0936, U+093E, U+0947, U+091F, U+094D, U+0940, U+0939, U+0926, U+200C-200D, U+25CC;
+}
+@font-face {
+  font-family: "Martel Sans";
+  src: url("../fonts/martel-400-latin.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+2000-206F, U+20AC, U+2122, U+2212;
+}
+@font-face {
+  font-family: "Martel Sans";
+  src: url("../fonts/martel-600-latin.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+2000-206F, U+20AC, U+2122, U+2212;
+}
+@font-face {
+  font-family: "Martel Sans";
+  src: url("../fonts/martel-400-deva-sub.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+0928, U+093F, U+0936, U+093E, U+0947, U+091F, U+094D, U+0940, U+0939, U+0926, U+200C-200D, U+25CC;
+}
+/* Deva subset for 600 and 700 as two faces with single weights: a "600 700" range here made Chrome pick this
+ * face (Devanagari only) for Latin 700 text and fall back to Arial (checkpoint integration fix). */
+@font-face {
+  font-family: "Martel Sans";
+  src: url("../fonts/martel-600-deva-sub.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+  unicode-range: U+0928, U+093F, U+0936, U+093E, U+0947, U+091F, U+094D, U+0940, U+0939, U+0926, U+200C-200D, U+25CC;
+}
+
+/* Metric-matched fallbacks (computed from the font files: Eczar vs Georgia, Martel Sans vs Arial). */
+@font-face {
+  font-family: "Eczar Fallback";
+  src: local("Georgia");
+  size-adjust: 98.7%;
+  ascent-override: 115.8%;
+  descent-override: 64.2%;
+  line-gap-override: 0%;
+}
+/* Martel Sans 400 vs Arial and 600 vs Arial Bold (advance widths of the site's own labels; QA: the arriving page's
+ * nav was drawn in synthetic-bold Arial until Martel swapped in). */
+@font-face {
+  font-family: "Martel Sans Fallback";
+  src: local("Arial");
+  size-adjust: 106.5%;
+  ascent-override: 107.9%;
+  descent-override: 63.3%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Martel Sans Fallback";
+  src: local("Arial Bold");
+  font-weight: 600 900;
+  size-adjust: 103%;
+  ascent-override: 111.8%;
+  descent-override: 65.5%;
+  line-gap-override: 0%;
+}
+
+html {
+  font-family: var(--font-text);
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+body {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: 400;
+  color: var(--ink);
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+}
+
+/* Scale (1440 → 390): name 96 → 46 · H2 60 → 34 · H3 28 → 22 · body 18 → 17 · captions 13–14 */
+.p24-name {
+  font-family: var(--font-display);
+  font-size: var(--fs-name);
+  font-weight: var(--name-weight, 600);
+  letter-spacing: -.01em;
+  line-height: var(--lh-display);
+}
+.p24-meta, .p24-cap {
+  font-size: var(--fs-cap);
+  font-weight: 600;
+  letter-spacing: .02em;
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+.p24-meta { font-size: var(--fs-meta); }
+.p24-tnum, time, .p24-date { font-variant-numeric: tabular-nums; }
+
+/* Devanagari: never masked, never split below the word (conjuncts and matras overflow the line box). */
+[lang="hi"] {
+  line-height: 1.5;
+  overflow: visible;
+}
+
+/* SplitText line masks (linesClass "p24-line" → mask class "p24-line-mask"): padded so descenders
+ * ("y" in Shetty) are never clipped. Display text that is split keeps line-height ≥ 1.15. */
+.p24-line-mask {
+  padding-block: .18em;
+  margin-block: -.18em;
+}
+.p24-line { display: block; }
+
+/* Links: ink, 1 px underline that thickens on hover or focus. No chromatic accent. */
+a {
+  color: var(--ink);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .18em;
+  transition: text-decoration-thickness var(--dur-ui) var(--ease-ui);
+}
+a:hover, a:focus-visible { text-decoration-thickness: 2px; }
+.p24-link-arrow { font-weight: 600; text-decoration-line: none; }
+.p24-link-arrow:hover, .p24-link-arrow:focus-visible { text-decoration-line: underline; }
+
+/* Buttons (§3.2): ink pill primary, ink outline pill secondary. line-height 1.1, nowrap. */
+.p24-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 24px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--ink);
+  font-family: var(--font-text);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.1;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--dur-ui) var(--ease-ui), color var(--dur-ui) var(--ease-ui);
+}
+.p24-btn--primary { background: var(--ink); color: var(--on-ink); }
+.p24-btn--primary:hover { background: #2c2c33; border-color: #2c2c33; }
+.p24-btn--secondary { background: transparent; color: var(--ink); }
+.p24-btn--secondary:hover { background: rgb(22 22 26 / .06); }
+.p24-btn--sm { min-height: 44px; padding: 0 20px; font-size: 15px; }
+.p24-btn[disabled], .p24-btn[aria-disabled="true"] { opacity: .55; cursor: not-allowed; }
+
+.p24-cta-pair {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+@media (max-width: 420px) {
+  .p24-cta-pair { flex-wrap: nowrap; gap: 8px; }
+  .p24-cta-pair .p24-btn {
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 48px;
+    padding: 0 16px;
+    font-size: 15px;
+  }
+}
+@media (max-width: 360px) {
+  .p24-cta-pair { flex-direction: column; }
+  .p24-cta-pair .p24-btn { width: 100%; }
+  .p24-cta-pair .p24-btn--secondary { min-height: 44px; }
+}

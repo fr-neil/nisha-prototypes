@@ -1,0 +1,2133 @@
+{
+  "generated": "2026-09-30T02:33:42.757Z",
+  "generator": "tools/prep-media.cjs",
+  "status": "PROTOTYPE. Client consent given for names and guest-inclusive media (Phase 24). Photographer and videographer licences unconfirmed. All sources are platform exports, not originals.",
+  "rules": [
+    "Clips are poster-first, muted, tap to play; captions are HTML (caption.line1/line2), never burned in.",
+    "hasAudio versions are unheard; do not ship sound-on without an audition.",
+    "Card scale only for anything with maxWidth < 2400; nothing below 2400 px goes full-bleed on desktop.",
+    "Captions and alt never mention anything outside her hosting work.",
+    "client: null means the client must not be named (signage-only or unnamed)."
+  ],
+  "totalMB": 97.7,
+  "stills": [
+    {
+      "id": "hsbc-laugh",
+      "kind": "still",
+      "files": {
+        "avif": {
+          "800": "media/stills/hsbc-laugh-800.avif",
+          "1600": "media/stills/hsbc-laugh-1600.avif",
+          "2400": "media/stills/hsbc-laugh-2400.avif"
+        },
+        "jpg": {
+          "800": "media/stills/hsbc-laugh-800.jpg",
+          "1600": "media/stills/hsbc-laugh-1600.jpg",
+          "2400": "media/stills/hsbc-laugh-2400.jpg"
+        }
+      },
+      "srcsetAvif": "media/stills/hsbc-laugh-800.avif 800w, media/stills/hsbc-laugh-1600.avif 1600w, media/stills/hsbc-laugh-2400.avif 2400w",
+      "srcsetJpg": "media/stills/hsbc-laugh-800.jpg 800w, media/stills/hsbc-laugh-1600.jpg 1600w, media/stills/hsbc-laugh-2400.jpg 2400w",
+      "fallback": "media/stills/hsbc-laugh-1600.jpg",
+      "w": 3072,
+      "h": 4096,
+      "maxWidth": 2400,
+      "heroCapable": true,
+      "focus": "42% 38%",
+      "alt": "Nisha Shetty laughing at a podium microphone, in a white suit, in front of a red stage set.",
+      "caption": {
+        "line1": "Unlocking Tomorrow: Future of Banking",
+        "line2": "HSBC · 2026"
+      },
+      "event": "Unlocking Tomorrow: Future of Banking",
+      "client": "HSBC",
+      "date": "2026-06",
+      "city": null,
+      "country": "India",
+      "abroad": false,
+      "family": "Corporate",
+      "roomType": "Conference",
+      "role": "performing",
+      "archive": false,
+      "publicFigures": [],
+      "notes": "Hero candidate (P23 §6.2). No audience in frame: presence, not scale.",
+      "credit": "@keshavphotography1",
+      "source": {
+        "file": "instagram-all/images/work/2026-06-05_DZNIQ2liIGM_01.jpg",
+        "code": "DZNIQ2liIGM"
+      }
+    },
+    {
+      "id": "hsbc-hand",
+      "kind": "still",
+      "files": {
+        "avif": {
+          "800": "media/stills/hsbc-hand-800.avif",
+          "1600": "media/stills/hsbc-hand-1600.avif",
+          "2400": "media/stills/hsbc-hand-2400.avif"
+        },
+        "jpg": {
+          "800": "media/stills/hsbc-hand-800.jpg",
+          "1600": "media/stills/hsbc-hand-1600.jpg",
+          "2400": "media/stills/hsbc-hand-2400.jpg"
+        }
+      },
+      "srcsetAvif": "media/stills/hsbc-hand-800.avif 800w, media/stills/hsbc-hand-1600.avif 1600w, media/stills/hsbc-hand-2400.avif 2400w",
+      "srcsetJpg": "media/stills/hsbc-hand-800.jpg 800w, media/stills/hsbc-hand-1600.jpg 1600w, media/stills/hsbc-hand-2400.jpg 2400w",
+      "fallback": "media/stills/hsbc-hand-1600.jpg",
+      "w": 3072,
+      "h": 4096,
+      "maxWidth": 2400,
+      "heroCapable": true,
+      "focus": "40% 30%",
+      "alt": "Nisha Shetty mid-delivery with one hand raised high, holding a microphone and a red programme card.",
+      "caption": {
+        "line1": "Unlocking Tomorrow: Future of Banking",
+        "line2": "HSBC · 2026"
+      },
+      "event": "Unlocking Tomorrow: Future of Banking",
+      "client": "HSBC",
+      "date": "2026-06",
+      "city": null,
+      "country": "India",
+      "abroad": false,
+      "family": "Corporate",
+      "roomType": "Conference",
+      "role": "performing",
+      "archive": false,
+      "publicFigures": [],
+      "notes": null,
+      "credit": "@keshavphotography1",
+      "source": {
+        "file": "instagram-all/images/work/2026-06-05_DZNIQ2liIGM_08.jpg",
+        "code": "DZNIQ2liIGM"
+      }
+    },
+    {
+      "id": "hsbc-card",
+      "kind": "still",
+      "files": {
+        "avif": {
+          "800": "media/stills/hsbc-card-800.avif",
+          "1600": "media/stills/hsbc-card-1600.avif",
+          "2400": "media/stills/hsbc-card-2400.avif"
+        },
+        "jpg": {
+          "800": "media/stills/hsbc-card-800.jpg",
+          "1600": "media/stills/hsbc-card-1600.jpg",
+          "2400": "media/stills/hsbc-card-2400.jpg"
+        }
+      },
+      "srcsetAvif": "media/stills/hsbc-card-800.avif 800w, media/stills/hsbc-card-1600.avif 1600w, media/stills/hsbc-card-2400.avif 2400w",
+      "srcsetJpg": "media/stills/hsbc-card-800.jpg 800w, media/stills/hsbc-card-1600.jpg 1600w, media/stills/hsbc-card-2400.jpg 2400w",
+      "fallback": "media/stills/hsbc-card-1600.jpg",
+      "w": 3077,
+      "h": 4096,
+      "maxWidth": 2400,
+      "heroCapable": true,
+      "focus": "45% 35%",
+      "alt": "Nisha Shetty speaking into a microphone, holding the red programme card for the session.",
+      "caption": {
+        "line1": "Unlocking Tomorrow: Future of Banking",
+        "line2": "HSBC · 2026"
+      },
+      "event": "Unlocking Tomorrow: Future of Banking",
+      "client": "HSBC",
+      "date": "2026-06",
+      "city": null,
+      "country": "India",
+      "abroad": false,
+      "family": "Corporate",
+      "roomType": "Conference",
+      "role": "process",
+      "archive": false,
+      "publicFigures": [],
+      "notes": null,
+      "credit": "@keshavphotography1",
+      "source": {
+        "file": "instagram-all/images/work/2026-06-05_DZNIQ2liIGM_07.jpg",
+        "code": "DZNIQ2liIGM"
+      }
+    },
+    {
+      "id": "hsbc-stage",
+      "kind": "still",
+      "files": {
+        "avif": {
+          "800": "media/stills/hsbc-stage-800.avif",
+          "1600": "media/stills/hsbc-stage-1600.avif",
+          "2400": "media/stills/hsbc-stage-2400.avif"
+        },
+        "jpg": {
+          "800": "media/stills/hsbc-stage-800.jpg",
+          "1600": "media/stills/hsbc-stage-1600.jpg",
+          "2400": "media/stills/hsbc-stage-2400.jpg"
+        }
+      },
+      "srcsetAvif": "media/stills/hsbc-stage-800.avif 800w, media/stills/hsbc-stage-1600.avif 1600w, media/stills/hsbc-stage-2400.avif 2400w",
+      "srcsetJpg": "media/stills/hsbc-stage-800.jpg 800w, media/stills/hsbc-stage-1600.jpg 1600w, media/stills/hsbc-stage-2400.jpg 2400w",
+      "fallback": "media/stills/hsbc-stage-1600.jpg",
+      "w": 3077,
+      "h": 4096,
+      "maxWidth": 2400,
+      "heroCapable": true,
+      "focus": "50% 45%",
+      "alt": "Nisha Shetty standing on a panel set with two lounge chairs, the session title on the screen behind her.",
+      "caption": {
+        "line1": "Panel set, Unlocking Tomorrow",
+        "line2": "HSBC · 2026"
+      },
+      "event": "Unlocking Tomorrow: Future of Banking",
+      "client": "HSBC",
+      "date": "2026-06",
+      "city": null,
+      "country": "India",
+      "abroad": false,
+      "family": "Corporate",
+      "roomType": "Conference",
+      "role": "range",
+      "archive": false,
+      "publicFigures": [],
+      "notes": null,
+      "credit": "@keshavphotography1",
+      "source": {
+        "file": "instagram-all/images/work/2026-06-05_DZNIQ2liIGM_03.jpg",
+        "code": "DZNIQ2liIGM"
+      }
+    },
+    {
+      "id": "hsbc-mic",
+      "kind": "still",
+      "files": {
+        "avif": {
+          "800": "media/stills/hsbc-mic-800.avif",
+          "1600": "media/stills/hsbc-mic-1600.avif",
+          "2400": "media/stills/hsbc-mic-2400.avif"
+        },
+        "jpg": {
+          "800": "media/stills/hsbc-mic-800.jpg",
+          "1600": "media/stills/hsbc-mic-1600.jpg",
+          "2400": "media/stills/hsbc-mic-2400.jpg"
+        }
+      },
+      "srcsetAvif": "media/stills/hsbc-mic-800.avif 800w, media/stills/hsbc-mic-1600.avif 1600w, media/stills/hsbc-mic-2400.avif 2400w",
+      "srcsetJpg": "media/stills/hsbc-mic-800.jpg 800w, media/stills/hsbc-mic-1600.jpg 1600w, media/stills/hsbc-mic-2400.jpg 2400w",
+      "fallback": "media/stills/hsbc-mic-1600.jpg",
+      "w": 2496,
+      "h": 3328,
+      "maxWidth": 2400,
+      "heroCapable": true,
+      "focus": "50% 35%",
+      "alt": "Close view of Nisha Shetty speaking into a handheld microphone against a red backdrop.",
+      "caption": {
+        "line1": "Unlocking Tomorrow: Future of Banking",
+        "line2": "HSBC · 2026"
+      },
+      "event": "Unlocking Tomorrow: Future of Banking",
+      "client": "HSBC",
+      "date": "2026-06",
+      "city": null,
+      "country": "India",
+      "abroad": false,
+      "family": "Corporate",
+      "roomType": "Conference",
+      "role": "performing",
+      "archive": false,
+      "publicFigures": [],
+      "notes": null,
+      "credit": "@keshavphotography1",
+      "source": {
+        "file": "instagram-all/images/work/2026-06-05_DZNIQ2liIGM_10.jpg",
+        "code": "DZNIQ2liIGM"
+      }
+    },
+    {
+      "id": "tokyo-mic",
+      "kind": "still",
+      "files": {
+        "avif": {
+          "800": "media/stills/tokyo-mic-800.avif",
+          "1440": "media/stills/tokyo-mic-1440.avif"
+        },
+        "jpg": {
+          "800": "media/stills/tokyo-mic-800.jpg",
+          "1440": "media/stills/tokyo-mic-1440.jpg"
+        }
+      },
+      "srcsetAvif": "media/stills/tokyo-mic-800.avif 800w, media/stills/tokyo-mic-1440.avif 1440w",
+      "srcsetJpg": "media/stills/tokyo-mic-800.jpg 800w, media/stills/tokyo-mic-1440.jpg 1440w",
+      "fallback": "media/stills/tokyo-mic-1440.jpg",
+      "w": 1440,
+      "h": 960,
+      "maxWidth": 1440,
+      "heroCapable": false,
+      "focus": "52% 40%",
+      "alt": "Nisha Shetty on stage in a red sequinned gown, microphone raised, laughing, in front of a large screen reading Tokyo Training Conclave.",
+      "caption": {
+        "line1": "Training Conclave · Tokyo",
+        "line2": "TATA AIA Life · 2025"
+      },
+      "event": "Tokyo Training Conclave 2025",
+      "client": "TATA AIA Life",
+      "date": "2025-02",
+      "city": "Tokyo",
+      "country": "Japan",
+      "abroad": true,
+      "family": "Corporate",
+      "roomType": "Awards & R&R",
+      "role": "performing",
+      "archive": false,
+      "publicFigures": [],
+      "notes": null,
+      "credit": "Photographer uncredited",
+      "source": {
+        "file": "instagram-all/images/work/2025-02-25_DGgM_VmozQM_01.jpg",
+        "code": "DGgM_VmozQM"
+      }
+    },
+    {
+      "id": "tokyo-guests",
+      "kind": "still",
+      "files": {
+        "avif": {
+          "800": "media/stills/tokyo-guests-800.avif",
+          "1440": "media/stills/tokyo-guests-1440.avif"
+        },
+        "jpg": {
+          "800": "media/stills/tokyo-guests-800.jpg",
+          "1440": "media/stills/tokyo-guests-1440.jpg"
+        }
+      },
+      "srcsetAvif": "media/stills/tokyo-guests-800.avif 800w, media/stills/tokyo-guests-1440.avif 1440w",
+      "srcsetJpg": "media/stills/tokyo-guests-800.jpg 800w, media/stills/tokyo-guests-1440.jpg 1440w",
+      "fallback": "media/stills/tokyo-guests-1440.jpg",
+      "w": 1440,
+      "h": 960,
+      "maxWidth": 1440,
+      "heroCapable": false,
+      "focus": "45% 40%",
+      "alt": "Nisha Shetty among seated guests, pointing into the room with her microphone.",
+      "caption": {
+        "line1": "Among the guests · Tokyo",
+        "line2": "TATA AIA Life · 2025"
+      },
+      "event": "Tokyo Training Conclave 2025",
+      "client": "TATA AIA Life",
+      "date": "2025-02",
+      "city": "Tokyo",
+      "country": "Japan",
+      "abroad": true,
+      "family": "Corporate",
+      "roomType": "Awards & R&R",
+      "role": "among-people",
+      "archive": false,
+      "publicFigures": [],
+      "notes": "Identifiable guests; consent given (P24).",
+      "credit": "Photographer uncredited",
+      "source": {
+        "file": "instagram-all/images/work/2025-02-25_DGgM_VmozQM_03.jpg",
+        "code": "DGgM_VmozQM"
+      }
+    },
+    {
+      "id": "tokyo-floor",
+      "kind": "still",
+      "files": {
+        "avif": {
+          "800": "media/stills/tokyo-floor-800.avif",
+          "1440": "media/stills/tokyo-floor-1440.avif"
+        },
+        "jpg": {
+          "800": "media/stills/tokyo-floor-800.jpg",
+          "1440": "media/stills/tokyo-floor-1440.jpg"
+        }
+      },
+      "srcsetAvif": "media/stills/tokyo-floor-800.avif 800w, media/stills/tokyo-floor-1440.avif 1440w",
+      "srcsetJpg": "media/stills/tokyo-floor-800.jpg 800w, media/stills/tokyo-floor-1440.jpg 1440w",
+      "fallback": "media/stills/tokyo-floor-1440.jpg",
+      "w": 1440,
+      "h": 960,
+      "maxWidth": 1440,
+      "heroCapable": false,
+      "focus": "55% 40%",
+      "alt": "Nisha Shetty on the floor between tables, speaking with a guest while a camera operator films.",
+      "caption": {
+        "line1": "On the floor · Tokyo",
+        "line2": "TATA AIA Life · 2025"
+      },
+      "event": "Tokyo Training Conclave 2025",
+      "client": "TATA AIA Life",
+      "date": "2025-02",
+      "city": "Tokyo",
+      "country": "Japan",
+      "abroad": true,
+      "family": "Corporate",
+      "roomType": "Awards & R&R",
+      "role": "listening-handover",
+      "archive": false,
+      "publicFigures": [],
+      "notes": null,
+      "credit": "Photographer uncredited",
+      "source": {
+        "file": "instagram-all/images/work/2025-02-25_DGgM_VmozQM_06.jpg",
+        "code": "DGgM_VmozQM"
+      }
+    },
+    {
+      "id": "tokyo-dance",
+      "kind": "still",
+      "files": {
+        "avif": {
+          "800": "media/stills/tokyo-dance-800.avif",
+          "1440": "media/stills/tokyo-dance-1440.avif"
+        },
+        "jpg": {
+          "800": "media/stills/tokyo-dance-800.jpg",
+          "1440": "media/stills/tokyo-dance-1440.jpg"
+        }
+      },
+      "srcsetAvif": "media/stills/tokyo-dance-800.avif 800w, media/stills/tokyo-dance-1440.avif 1440w",
+      "srcsetJpg": "media/stills/tokyo-dance-800.jpg 800w, media/stills/tokyo-dance-1440.jpg 1440w",
+      "fallback": "media/stills/tokyo-dance-1440.jpg",
+      "w": 1440,
+      "h": 960,
+      "maxWidth": 1440,
+      "heroCapable": false,
+      "focus": "35% 45%",
+      "alt": "Nisha Shetty dancing on stage with festival performers and guests under paper lanterns.",
+      "caption": {
+        "line1": "With the performers · Tokyo",
+        "line2": "TATA AIA Life · 2025"
+      },
+      "event": "Tokyo Training Conclave 2025",
+      "client": "TATA AIA Life",
+      "date": "2025-02",
+      "city": "Tokyo",
+      "country": "Japan",
+      "abroad": true,
+      "family": "Corporate",
+      "roomType": "Awards & R&R",
+      "role": "among-people",
+      "archive": false,
+      "publicFigures": [],
+      "notes": null,
+      "credit": "Photographer uncredited",
+      "source": {
+        "file": "instagram-all/images/work/2025-02-25_DGgM_VmozQM_10.jpg",
+        "code": "DGgM_VmozQM"
+      }
+    },
+    {
+      "id": "tokyo-stage",
+      "kind": "still",
+      "files": {
+        "avif": {
+          "800": "media/stills/tokyo-stage-800.avif",
+          "1440": "media/stills/tokyo-stage-1440.avif"
+        },
+        "jpg": {
+          "800": "media/stills/tokyo-stage-800.jpg",
+          "1440": "media/stills/tokyo-stage-1440.jpg"
+        }
+      },
+      "srcsetAvif": "media/stills/tokyo-stage-800.avif 800w, media/stills/tokyo-stage-1440.avif 1440w",
+      "srcsetJpg": "media/stills/tokyo-stage-800.jpg 800w, media/stills/tokyo-stage-1440.jpg 1440w",
+      "fallback": "media/stills/tokyo-stage-1440.jpg",
+      "w": 1440,
+      "h": 960,
+      "maxWidth": 1440,
+      "heroCapable": false,
+      "focus": "50% 50%",
+      "alt": "Wide view of a curved LED stage with Nisha Shetty small at the centre and a Champions fascia below.",
+      "caption": {
+        "line1": "The stage · Tokyo",
+        "line2": "TATA AIA Life · 2025"
+      },
+      "event": "Tokyo Training Conclave 2025",
+      "client": "TATA AIA Life",
+      "date": "2025-02",
+      "city": "Tokyo",
+      "country": "Japan",
+      "abroad": true,
+      "family": "Corporate",
+      "roomType": "Awards & R&R",
+      "role": "scale",
+      "archive": false,
+      "publicFigures": [],
+      "notes": null,
+      "credit": "Photographer uncredited",
+      "source": {
+        "file": "instagram-all/images/work/2025-02-25_DGgM_VmozQM_09.jpg",
+        "code": "DGgM_VmozQM"
+      }
+    },
+    {
+      "id": "welspun-podium",
+      "kind": "still",
+      "files": {
+        "avif": {
+          "800": "media/stills/welspun-podium-800.avif",
+          "1600": "media/stills/welspun-podium-1600.avif"
+        },
+        "jpg": {
+          "800": "media/stills/welspun-podium-800.jpg",
+          "1600": "media/stills/welspun-podium-1600.jpg"
+        }
+      },
+      "srcsetAvif": "media/stills/welspun-podium-800.avif 800w, media/stills/welspun-podium-1600.avif 1600w",
+      "srcsetJpg": "media/stills/welspun-podium-800.jpg 800w, media/stills/welspun-podium-1600.jpg 1600w",
+      "fallback": "media/stills/welspun-podium-1600.jpg",
+      "w": 2268,
+      "h": 4032,
+      "maxWidth": 1600,
+      "heroCapable": false,
+      "focus": "45% 35%",
+      "alt": "Nisha Shetty speaking at a podium microphone under blue stage light.",
+      "caption": {
+        "line1": "Annual Day · Mumbai",
+        "line2": "Welspun Corp · 2024"
+      },
+      "event": "Annual Day",
+      "client": "Welspun Corp",
+      "date": "2024-04",
+      "city": "Mumbai",
+      "country": "India",
+      "abroad": false,
+      "family": "Corporate",
+      "roomType": "Awards & R&R",
+      "role": "performing",
+      "archive": false,
+      "publicFigures": [],
+      "notes": null,
+      "credit": "Unknown (reel cover)",
+      "source": {
+        "file": "instagram-all/images/work/2024-04-06_C5aRM5uSjCL_01.jpg",
+        "code": "C5aRM5uSjCL"
+      }
+    },
+    {
+      "id": "txb-guest",
+      "kind": "still",
+      "files": {
+        "avif": {
+          "800": "media/stills/txb-guest-800.avif",
+          "1440": "media/stills/txb-guest-1440.avif"
+        },
+        "jpg": {
+          "800": "media/stills/txb-guest-800.jpg",
+          "1440": "media/stills/txb-guest-1440.jpg"
+        }
+      },
+      "srcsetAvif": "media/stills/txb-guest-800.avif 800w, media/stills/txb-guest-1440.avif 1440w",
+      "srcsetJpg": "media/stills/txb-guest-800.jpg 800w, media/stills/txb-guest-1440.jpg 1440w",
+      "fallback": "media/stills/txb-guest-1440.jpg",
+      "w": 1440,
+      "h": 1794,
+      "maxWidth": 1440,
+      "heroCapable": false,
+      "focus": "40% 40%",
+      "alt": "Nisha Shetty bending with her microphone toward a laughing seated guest.",
+      "caption": {
+        "line1": "Handing over the mic",
+        "line2": "Corporate anniversary evening · 2020"
+      },
+      "event": "Corporate anniversary evening",
+      "client": null,
+      "date": "2020",
+      "city": null,
+      "country": "India",
+      "abroad": false,
+      "family": "Corporate",
+      "roomType": "Awards & R&R",
+      "role": "listening-handover",
+      "archive": false,
+      "publicFigures": [],
+      "notes": "Client from signage only (P22 §3.2, [I]); do not name. Event undated; post Nov 2020.",
+      "credit": "Unknown",
+      "source": {
+        "file": "instagram-all/images/work/2020-11-04_CHK2JjkA04l_04.jpg",
+        "code": "CHK2JjkA04l"
+      }
+    },
+    {
+      "id": "mobil-headset",
+      "kind": "still",
+      "files": {
+        "avif": {
+          "800": "media/stills/mobil-headset-800.avif",
+          "1440": "media/stills/mobil-headset-1440.avif"
+        },
+        "jpg": {
+          "800": "media/stills/mobil-headset-800.jpg",
+          "1440": "media/stills/mobil-headset-1440.jpg"
+        }
+      },
+      "srcsetAvif": "media/stills/mobil-headset-800.avif 800w, media/stills/mobil-headset-1440.avif 1440w",
+      "srcsetJpg": "media/stills/mobil-headset-800.jpg 800w, media/stills/mobil-headset-1440.jpg 1440w",
+      "fallback": "media/stills/mobil-headset-1440.jpg",
+      "w": 1440,
+      "h": 1791,
+      "maxWidth": 1440,
+      "heroCapable": false,
+      "focus": "45% 35%",
+      "alt": "Nisha Shetty in a black blazer speaking into a handheld microphone, a headset mic at her cheek.",
+      "caption": {
+        "line1": "Corporate launch · New Delhi",
+        "line2": "2022"
+      },
+      "event": "Corporate event",
+      "client": null,
+      "date": "2022-02",
+      "city": "New Delhi",
+      "country": "India",
+      "abroad": false,
+      "family": "Corporate",
+      "roomType": "Launch",
+      "role": "performing",
+      "archive": false,
+      "publicFigures": [],
+      "notes": "Client from signage only; do not name.",
+      "credit": "@anishkhanphotography1",
+      "source": {
+        "file": "instagram-all/images/work/2022-02-20_CaM84zXqFBy_02.jpg",
+        "code": "CaM84zXqFBy"
+      }
+    },
+    {
+      "id": "mobil-stage",
+      "kind": "still",
+      "files": {
+        "avif": {
+          "800": "media/stills/mobil-stage-800.avif",
+          "1440": "media/stills/mobil-stage-1440.avif"
+        },
+        "jpg": {
+          "800": "media/stills/mobil-stage-800.jpg",
+          "1440": "media/stills/mobil-stage-1440.jpg"
+        }
+      },
+      "srcsetAvif": "media/stills/mobil-stage-800.avif 800w, media/stills/mobil-stage-1440.avif 1440w",
+      "srcsetJpg": "media/stills/mobil-stage-800.jpg 800w, media/stills/mobil-stage-1440.jpg 1440w",
+      "fallback": "media/stills/mobil-stage-1440.jpg",
+      "w": 1440,
+      "h": 1440,
+      "maxWidth": 1440,
+      "heroCapable": false,
+      "focus": "60% 35%",
+      "alt": "Nisha Shetty on stage holding a cue card, gesturing toward guests beside her.",
+      "caption": {
+        "line1": "Launches and partner awards · New Delhi",
+        "line2": "Mobil India · 2021"
+      },
+      "event": "Launches and partner awards",
+      "client": "Mobil India",
+      "date": "2021-11",
+      "city": "New Delhi",
+      "country": "India",
+      "abroad": false,
+      "family": "Corporate",
+      "roomType": "Dealer & partner meet",
+      "role": "listening-handover",
+      "archive": false,
+      "publicFigures": [],
+      "notes": null,
+      "credit": "@anishkhanphotography1",
+      "source": {
+        "file": "instagram-all/images/work/2021-11-03_CV0T8tQKq3h_08.jpg",
+        "code": "CV0T8tQKq3h"
+      }
+    },
+    {
+      "id": "mobil-wide",
+      "kind": "still",
+      "files": {
+        "avif": {
+          "800": "media/stills/mobil-wide-800.avif",
+          "1440": "media/stills/mobil-wide-1440.avif"
+        },
+        "jpg": {
+          "800": "media/stills/mobil-wide-800.jpg",
+          "1440": "media/stills/mobil-wide-1440.jpg"
+        }
+      },
+      "srcsetAvif": "media/stills/mobil-wide-800.avif 800w, media/stills/mobil-wide-1440.avif 1440w",
+      "srcsetJpg": "media/stills/mobil-wide-800.jpg 800w, media/stills/mobil-wide-1440.jpg 1440w",
+      "fallback": "media/stills/mobil-wide-1440.jpg",
+      "w": 1440,
+      "h": 1026,
+      "maxWidth": 1440,
+      "heroCapable": false,
+      "focus": "50% 50%",
+      "alt": "Wide stage view: Nisha Shetty and a guest speaker on stage in front of a Winning the Opportunity screen.",
+      "caption": {
+        "line1": "Winning the Opportunity",
+        "line2": "Mobil India · 2021"
+      },
+      "event": "Winning the Opportunity",
+      "client": "Mobil India",
+      "date": "2021-10",
+      "city": null,
+      "country": "India",
+      "abroad": false,
+      "family": "Corporate",
+      "roomType": "Dealer & partner meet",
+      "role": "range",
+      "archive": false,
+      "publicFigures": [],
+      "notes": null,
+      "credit": "@anishkhanphotography1",
+      "source": {
+        "file": "instagram-all/images/work/2021-10-24_CVaiMbwK3VZ_01.jpg",
+        "code": "CVaiMbwK3VZ"
+      }
+    },
+    {
+      "id": "mika-press",
+      "kind": "still",
+      "files": {
+        "avif": {
+          "800": "media/stills/mika-press-800.avif",
+          "1440": "media/stills/mika-press-1440.avif"
+        },
+        "jpg": {
+          "800": "media/stills/mika-press-800.jpg",
+          "1440": "media/stills/mika-press-1440.jpg"
+        }
+      },
+      "srcsetAvif": "media/stills/mika-press-800.avif 800w, media/stills/mika-press-1440.avif 1440w",
+      "srcsetJpg": "media/stills/mika-press-800.jpg 800w, media/stills/mika-press-1440.jpg 1440w",
+      "fallback": "media/stills/mika-press-1440.jpg",
+      "w": 1440,
+      "h": 960,
+      "maxWidth": 1440,
+      "heroCapable": false,
+      "focus": "45% 40%",
+      "alt": "Nisha Shetty laughing on stage beside a singer, both holding microphones, at a palace-style press conference set.",
+      "caption": {
+        "line1": "TV press conference",
+        "line2": "Star Bharat · 2022"
+      },
+      "event": "Mika Di Vohti press conference",
+      "client": "Star Bharat",
+      "date": "2022-06",
+      "city": null,
+      "country": "India",
+      "abroad": false,
+      "family": "Entertainment & celebrity",
+      "roomType": "Celebrity & press",
+      "role": "performing",
+      "archive": false,
+      "publicFigures": [
+        "Mika Singh"
+      ],
+      "notes": null,
+      "credit": "Unknown",
+      "source": {
+        "file": "instagram-all/images/work/2022-06-10_CeooRPEq4xj_04.jpg",
+        "code": "CeooRPEq4xj"
+      }
+    },
+    {
+      "id": "mika-handshake",
+      "kind": "still",
+      "files": {
+        "avif": {
+          "800": "media/stills/mika-handshake-800.avif",
+          "1440": "media/stills/mika-handshake-1440.avif"
+        },
+        "jpg": {
+          "800": "media/stills/mika-handshake-800.jpg",
+          "1440": "media/stills/mika-handshake-1440.jpg"
+        }
+      },
+      "srcsetAvif": "media/stills/mika-handshake-800.avif 800w, media/stills/mika-handshake-1440.avif 1440w",
+      "srcsetJpg": "media/stills/mika-handshake-800.jpg 800w, media/stills/mika-handshake-1440.jpg 1440w",
+      "fallback": "media/stills/mika-handshake-1440.jpg",
+      "w": 1440,
+      "h": 960,
+      "maxWidth": 1440,
+      "heroCapable": false,
+      "focus": "55% 45%",
+      "alt": "Nisha Shetty in Indian formal wear greeting the guest of honour on a palace-arch stage.",
+      "caption": {
+        "line1": "TV press conference",
+        "line2": "Star Bharat · 2022"
+      },
+      "event": "Mika Di Vohti press conference",
+      "client": "Star Bharat",
+      "date": "2022-06",
+      "city": null,
+      "country": "India",
+      "abroad": false,
+      "family": "Entertainment & celebrity",
+      "roomType": "Celebrity & press",
+      "role": "range",
+      "archive": false,
+      "publicFigures": [
+        "Mika Singh"
+      ],
+      "notes": null,
+      "credit": "Unknown",
+      "source": {
+        "file": "instagram-all/images/work/2022-06-10_CeooRPEq4xj_02.jpg",
+        "code": "CeooRPEq4xj"
+      }
+    },
+    {
+      "id": "filmfare-carpet",
+      "kind": "still",
+      "files": {
+        "avif": {
+          "800": "media/stills/filmfare-carpet-800.avif",
+          "1080": "media/stills/filmfare-carpet-1080.avif"
+        },
+        "jpg": {
+          "800": "media/stills/filmfare-carpet-800.jpg",
+          "1080": "media/stills/filmfare-carpet-1080.jpg"
+        }
+      },
+      "srcsetAvif": "media/stills/filmfare-carpet-800.avif 800w, media/stills/filmfare-carpet-1080.avif 1080w",
+      "srcsetJpg": "media/stills/filmfare-carpet-800.jpg 800w, media/stills/filmfare-carpet-1080.jpg 1080w",
+      "fallback": "media/stills/filmfare-carpet-1080.jpg",
+      "w": 1080,
+      "h": 1080,
+      "maxWidth": 1080,
+      "heroCapable": false,
+      "focus": "50% 40%",
+      "alt": "Nisha Shetty interviewing guests with a handheld microphone on a red carpet.",
+      "caption": {
+        "line1": "Red carpet",
+        "line2": "Filmfare Awards · 2018"
+      },
+      "event": "Jio Filmfare Awards red carpet",
+      "client": "Filmfare",
+      "date": "2018",
+      "city": "Mumbai",
+      "country": "India",
+      "abroad": false,
+      "family": "Entertainment & celebrity",
+      "roomType": "Red carpet",
+      "role": "performing",
+      "archive": true,
+      "publicFigures": [],
+      "notes": "Archive (1080 px). Card scale only.",
+      "credit": "Unknown",
+      "source": {
+        "file": "instagram-all/images/work/2018-05-09_BikJPDLnSPp_01.jpg",
+        "code": "BikJPDLnSPp"
+      }
+    },
+    {
+      "id": "navi-mumbai-pageant",
+      "kind": "still",
+      "files": {
+        "avif": {
+          "800": "media/stills/navi-mumbai-pageant-800.avif",
+          "1065": "media/stills/navi-mumbai-pageant-1065.avif"
+        },
+        "jpg": {
+          "800": "media/stills/navi-mumbai-pageant-800.jpg",
+          "1065": "media/stills/navi-mumbai-pageant-1065.jpg"
+        }
+      },
+      "srcsetAvif": "media/stills/navi-mumbai-pageant-800.avif 800w, media/stills/navi-mumbai-pageant-1065.avif 1065w",
+      "srcsetJpg": "media/stills/navi-mumbai-pageant-800.jpg 800w, media/stills/navi-mumbai-pageant-1065.jpg 1065w",
+      "fallback": "media/stills/navi-mumbai-pageant-1065.jpg",
+      "w": 1065,
+      "h": 1332,
+      "maxWidth": 1065,
+      "heroCapable": false,
+      "focus": "45% 35%",
+      "alt": "Nisha Shetty on stage with a microphone and cue card at a pageant press conference.",
+      "caption": {
+        "line1": "Pageant press conference · Navi Mumbai",
+        "line2": "Miss Navi Mumbai · 2022"
+      },
+      "event": "Miss Navi Mumbai 2022 press conference",
+      "client": "Miss Navi Mumbai",
+      "date": "2022-02",
+      "city": "Navi Mumbai",
+      "country": "India",
+      "abroad": false,
+      "family": "Cultural & institutional",
+      "roomType": "Pageant",
+      "role": "performing",
+      "archive": false,
+      "publicFigures": [],
+      "notes": null,
+      "credit": "Unknown",
+      "source": {
+        "file": "instagram-all/images/work/2022-03-03_Capj2l0qLI0_01.jpg",
+        "code": "Capj2l0qLI0"
+      }
+    },
+    {
+      "id": "raychem-forge",
+      "kind": "still",
+      "files": {
+        "avif": {
+          "800": "media/stills/raychem-forge-800.avif",
+          "1440": "media/stills/raychem-forge-1440.avif"
+        },
+        "jpg": {
+          "800": "media/stills/raychem-forge-800.jpg",
+          "1440": "media/stills/raychem-forge-1440.jpg"
+        }
+      },
+      "srcsetAvif": "media/stills/raychem-forge-800.avif 800w, media/stills/raychem-forge-1440.avif 1440w",
+      "srcsetJpg": "media/stills/raychem-forge-800.jpg 800w, media/stills/raychem-forge-1440.jpg 1440w",
+      "fallback": "media/stills/raychem-forge-1440.jpg",
+      "w": 1440,
+      "h": 1920,
+      "maxWidth": 1440,
+      "heroCapable": false,
+      "focus": "55% 45%",
+      "alt": "Nisha Shetty in a red gown beside a branded podium on a lit conference stage.",
+      "caption": {
+        "line1": "Forge the Future · Mumbai",
+        "line2": "Raychem RPG · 2026"
+      },
+      "event": "Forge the Future",
+      "client": "Raychem RPG",
+      "date": "2026-04",
+      "city": "Mumbai",
+      "country": "India",
+      "abroad": false,
+      "family": "Corporate",
+      "roomType": "Conference",
+      "role": "range",
+      "archive": false,
+      "publicFigures": [],
+      "notes": null,
+      "credit": "Unknown (phone)",
+      "source": {
+        "file": "instagram-all/images/work/2026-04-11_DW_5SXViNMb_01.jpg",
+        "code": "DW_5SXViNMb"
+      }
+    },
+    {
+      "id": "raychem-room",
+      "kind": "still",
+      "files": {
+        "avif": {
+          "800": "media/stills/raychem-room-800.avif",
+          "1440": "media/stills/raychem-room-1440.avif"
+        },
+        "jpg": {
+          "800": "media/stills/raychem-room-800.jpg",
+          "1440": "media/stills/raychem-room-1440.jpg"
+        }
+      },
+      "srcsetAvif": "media/stills/raychem-room-800.avif 800w, media/stills/raychem-room-1440.avif 1440w",
+      "srcsetJpg": "media/stills/raychem-room-800.jpg 800w, media/stills/raychem-room-1440.jpg 1440w",
+      "fallback": "media/stills/raychem-room-1440.jpg",
+      "w": 1440,
+      "h": 1920,
+      "maxWidth": 1440,
+      "heroCapable": false,
+      "focus": "50% 50%",
+      "alt": "A camera operator on a tripod filming the stage of a conference ballroom before the session.",
+      "caption": {
+        "line1": "The room before the session",
+        "line2": "Raychem RPG · 2026"
+      },
+      "event": "Forge the Future",
+      "client": "Raychem RPG",
+      "date": "2026-04",
+      "city": "Mumbai",
+      "country": "India",
+      "abroad": false,
+      "family": "Corporate",
+      "roomType": "Conference",
+      "role": "process",
+      "archive": false,
+      "publicFigures": [],
+      "notes": "She is not in frame.",
+      "credit": "Unknown (phone)",
+      "source": {
+        "file": "instagram-all/images/work/2026-04-11_DW_5SXViNMb_04.jpg",
+        "code": "DW_5SXViNMb"
+      }
+    },
+    {
+      "id": "birla-opus-surat",
+      "kind": "still",
+      "files": {
+        "avif": {
+          "800": "media/stills/birla-opus-surat-800.avif",
+          "1600": "media/stills/birla-opus-surat-1600.avif",
+          "2400": "media/stills/birla-opus-surat-2400.avif"
+        },
+        "jpg": {
+          "800": "media/stills/birla-opus-surat-800.jpg",
+          "1600": "media/stills/birla-opus-surat-1600.jpg",
+          "2400": "media/stills/birla-opus-surat-2400.jpg"
+        }
+      },
+      "srcsetAvif": "media/stills/birla-opus-surat-800.avif 800w, media/stills/birla-opus-surat-1600.avif 1600w, media/stills/birla-opus-surat-2400.avif 2400w",
+      "srcsetJpg": "media/stills/birla-opus-surat-800.jpg 800w, media/stills/birla-opus-surat-1600.jpg 1600w, media/stills/birla-opus-surat-2400.jpg 2400w",
+      "fallback": "media/stills/birla-opus-surat-1600.jpg",
+      "w": 3072,
+      "h": 4096,
+      "maxWidth": 2400,
+      "heroCapable": true,
+      "focus": "55% 45%",
+      "alt": "Nisha Shetty in a red pantsuit beside a lectern on a daytime partner-meet stage.",
+      "caption": {
+        "line1": "Partner meet · Surat",
+        "line2": "Birla Opus · 2026"
+      },
+      "event": "Partner events",
+      "client": "Birla Opus",
+      "date": "2026-08",
+      "city": "Surat",
+      "country": "India",
+      "abroad": false,
+      "family": "Corporate",
+      "roomType": "Dealer & partner meet",
+      "role": "range",
+      "archive": false,
+      "publicFigures": [],
+      "notes": null,
+      "credit": "Unknown (phone)",
+      "source": {
+        "file": "instagram-all/images/work/2026-08-20_DcRD0mgCNXA_01.jpg",
+        "code": "DcRD0mgCNXA"
+      }
+    },
+    {
+      "id": "asian-paints-launch",
+      "kind": "still",
+      "files": {
+        "avif": {
+          "800": "media/stills/asian-paints-launch-800.avif",
+          "1600": "media/stills/asian-paints-launch-1600.avif",
+          "2400": "media/stills/asian-paints-launch-2400.avif"
+        },
+        "jpg": {
+          "800": "media/stills/asian-paints-launch-800.jpg",
+          "1600": "media/stills/asian-paints-launch-1600.jpg",
+          "2400": "media/stills/asian-paints-launch-2400.jpg"
+        }
+      },
+      "srcsetAvif": "media/stills/asian-paints-launch-800.avif 800w, media/stills/asian-paints-launch-1600.avif 1600w, media/stills/asian-paints-launch-2400.avif 2400w",
+      "srcsetJpg": "media/stills/asian-paints-launch-800.jpg 800w, media/stills/asian-paints-launch-1600.jpg 1600w, media/stills/asian-paints-launch-2400.jpg 2400w",
+      "fallback": "media/stills/asian-paints-launch-1600.jpg",
+      "w": 3164,
+      "h": 5624,
+      "maxWidth": 2400,
+      "heroCapable": true,
+      "focus": "50% 45%",
+      "alt": "Nisha Shetty in a white gown on a launch stage under a Reimagine Tomorrow screen.",
+      "caption": {
+        "line1": "Launch · Kolkata",
+        "line2": "Asian Paints · 2024"
+      },
+      "event": "Reimagine Tomorrow launch",
+      "client": "Asian Paints",
+      "date": "2024-11",
+      "city": "Kolkata",
+      "country": "India",
+      "abroad": false,
+      "family": "Corporate",
+      "roomType": "Launch",
+      "role": "range",
+      "archive": false,
+      "publicFigures": [],
+      "notes": null,
+      "credit": "Unknown (reel cover)",
+      "source": {
+        "file": "instagram-all/images/work/2024-11-23_DCt_gepoL1r_01.jpg",
+        "code": "DCt_gepoL1r"
+      }
+    },
+    {
+      "id": "scwin-stage",
+      "kind": "still",
+      "files": {
+        "avif": {
+          "800": "media/stills/scwin-stage-800.avif",
+          "1440": "media/stills/scwin-stage-1440.avif"
+        },
+        "jpg": {
+          "800": "media/stills/scwin-stage-800.jpg",
+          "1440": "media/stills/scwin-stage-1440.jpg"
+        }
+      },
+      "srcsetAvif": "media/stills/scwin-stage-800.avif 800w, media/stills/scwin-stage-1440.avif 1440w",
+      "srcsetJpg": "media/stills/scwin-stage-800.jpg 800w, media/stills/scwin-stage-1440.jpg 1440w",
+      "fallback": "media/stills/scwin-stage-1440.jpg",
+      "w": 1440,
+      "h": 1920,
+      "maxWidth": 1440,
+      "heroCapable": false,
+      "focus": "45% 45%",
+      "alt": "Nisha Shetty in a white suit on a report-launch stage.",
+      "caption": {
+        "line1": "Report launch · Mumbai",
+        "line2": "Standard Chartered · 2026"
+      },
+      "event": "Women Entrepreneurship Optimism Index launch",
+      "client": "Standard Chartered",
+      "date": "2026-02",
+      "city": "Mumbai",
+      "country": "India",
+      "abroad": false,
+      "family": "Corporate",
+      "roomType": "Launch",
+      "role": "range",
+      "archive": false,
+      "publicFigures": [],
+      "notes": null,
+      "credit": "Unknown",
+      "source": {
+        "file": "instagram-all/images/work/2026-02-20_DU-5dAKiIYA_01.jpg",
+        "code": "DU-5dAKiIYA"
+      }
+    },
+    {
+      "id": "hsbc-gff-2026",
+      "kind": "still",
+      "files": {
+        "avif": {
+          "800": "media/stills/hsbc-gff-2026-800.avif",
+          "1122": "media/stills/hsbc-gff-2026-1122.avif"
+        },
+        "jpg": {
+          "800": "media/stills/hsbc-gff-2026-800.jpg",
+          "1122": "media/stills/hsbc-gff-2026-1122.jpg"
+        }
+      },
+      "srcsetAvif": "media/stills/hsbc-gff-2026-800.avif 800w, media/stills/hsbc-gff-2026-1122.avif 1122w",
+      "srcsetJpg": "media/stills/hsbc-gff-2026-800.jpg 800w, media/stills/hsbc-gff-2026-1122.jpg 1122w",
+      "fallback": "media/stills/hsbc-gff-2026-1122.jpg",
+      "w": 1122,
+      "h": 1402,
+      "maxWidth": 1122,
+      "heroCapable": false,
+      "focus": "50% 40%",
+      "alt": "Nisha Shetty in a red suit at the HSBC stand at a fintech festival.",
+      "caption": {
+        "line1": "Global Fintech Fest · Mumbai",
+        "line2": "HSBC · 2026"
+      },
+      "event": "HSBC at Global Fintech Fest",
+      "client": "HSBC",
+      "date": "2026-09",
+      "city": "Mumbai",
+      "country": "India",
+      "abroad": false,
+      "family": "Corporate",
+      "roomType": "Conference",
+      "role": "range",
+      "archive": false,
+      "publicFigures": [],
+      "notes": null,
+      "credit": "Unknown",
+      "source": {
+        "file": "instagram-all/images/work/2026-09-10_DdGIclYCb3S_01.jpg",
+        "code": "DdGIclYCb3S"
+      }
+    },
+    {
+      "id": "ey-microsoft",
+      "kind": "still",
+      "files": {
+        "avif": {
+          "800": "media/stills/ey-microsoft-800.avif",
+          "1440": "media/stills/ey-microsoft-1440.avif"
+        },
+        "jpg": {
+          "800": "media/stills/ey-microsoft-800.jpg",
+          "1440": "media/stills/ey-microsoft-1440.jpg"
+        }
+      },
+      "srcsetAvif": "media/stills/ey-microsoft-800.avif 800w, media/stills/ey-microsoft-1440.avif 1440w",
+      "srcsetJpg": "media/stills/ey-microsoft-800.jpg 800w, media/stills/ey-microsoft-1440.jpg 1440w",
+      "fallback": "media/stills/ey-microsoft-1440.jpg",
+      "w": 1440,
+      "h": 1800,
+      "maxWidth": 1440,
+      "heroCapable": false,
+      "focus": "50% 45%",
+      "alt": "Nisha Shetty in a blazer on lit stage steps at a technology event.",
+      "caption": {
+        "line1": "Generative AI event · Mumbai",
+        "line2": "EY & Microsoft · 2023"
+      },
+      "event": "Generative AI",
+      "client": "EY & Microsoft",
+      "date": "2023-10",
+      "city": "Mumbai",
+      "country": "India",
+      "abroad": false,
+      "family": "Corporate",
+      "roomType": "Conference",
+      "role": "range",
+      "archive": false,
+      "publicFigures": [],
+      "notes": null,
+      "credit": "Unknown",
+      "source": {
+        "file": "instagram-all/images/work/2023-10-13_CyVz30DK5q__01.jpg",
+        "code": "CyVz30DK5q_"
+      }
+    },
+    {
+      "id": "hcmc-portrait",
+      "kind": "still",
+      "files": {
+        "avif": {
+          "800": "media/stills/hcmc-portrait-800.avif",
+          "1600": "media/stills/hcmc-portrait-1600.avif",
+          "2400": "media/stills/hcmc-portrait-2400.avif"
+        },
+        "jpg": {
+          "800": "media/stills/hcmc-portrait-800.jpg",
+          "1600": "media/stills/hcmc-portrait-1600.jpg",
+          "2400": "media/stills/hcmc-portrait-2400.jpg"
+        }
+      },
+      "srcsetAvif": "media/stills/hcmc-portrait-800.avif 800w, media/stills/hcmc-portrait-1600.avif 1600w, media/stills/hcmc-portrait-2400.avif 2400w",
+      "srcsetJpg": "media/stills/hcmc-portrait-800.jpg 800w, media/stills/hcmc-portrait-1600.jpg 1600w, media/stills/hcmc-portrait-2400.jpg 2400w",
+      "fallback": "media/stills/hcmc-portrait-1600.jpg",
+      "w": 4096,
+      "h": 4096,
+      "maxWidth": 2400,
+      "heroCapable": true,
+      "focus": "50% 40%",
+      "alt": "Nisha Shetty in a gold gown after a show, standing at a red backdrop with fan and skyline props.",
+      "caption": {
+        "line1": "After the show · Ho Chi Minh City",
+        "line2": "2026"
+      },
+      "event": "International show",
+      "client": null,
+      "date": "2026-07",
+      "city": "Ho Chi Minh City",
+      "country": "Vietnam",
+      "abroad": true,
+      "family": "Corporate",
+      "roomType": "Awards & R&R",
+      "role": "portrait",
+      "archive": false,
+      "publicFigures": [],
+      "notes": "Client from signage only (P22, [I]); never caption with a client.",
+      "credit": "Unknown",
+      "source": {
+        "file": "instagram-all/images/work/2026-07-21_DbDiu9JIxzS_01.jpg",
+        "code": "DbDiu9JIxzS"
+      }
+    },
+    {
+      "id": "cue-cards",
+      "kind": "still",
+      "files": {
+        "avif": {
+          "800": "media/stills/cue-cards-800.avif",
+          "1440": "media/stills/cue-cards-1440.avif"
+        },
+        "jpg": {
+          "800": "media/stills/cue-cards-800.jpg",
+          "1440": "media/stills/cue-cards-1440.jpg"
+        }
+      },
+      "srcsetAvif": "media/stills/cue-cards-800.avif 800w, media/stills/cue-cards-1440.avif 1440w",
+      "srcsetJpg": "media/stills/cue-cards-800.jpg 800w, media/stills/cue-cards-1440.jpg 1440w",
+      "fallback": "media/stills/cue-cards-1440.jpg",
+      "w": 1440,
+      "h": 1800,
+      "maxWidth": 1440,
+      "heroCapable": false,
+      "focus": "55% 35%",
+      "alt": "Nisha Shetty seated in a white blazer between segments, cue cards in her lap, smiling off camera.",
+      "caption": {
+        "line1": "Between segments",
+        "line2": "Cue cards in hand · 2024"
+      },
+      "event": "Between segments (event unnamed)",
+      "client": null,
+      "date": "2024-07",
+      "city": null,
+      "country": "India",
+      "abroad": false,
+      "family": "Corporate",
+      "roomType": null,
+      "role": "process",
+      "archive": false,
+      "publicFigures": [],
+      "notes": null,
+      "credit": "Unknown",
+      "source": {
+        "file": "instagram-all/images/work/2024-07-04_C9ADVTRqWsM_01.jpg",
+        "code": "C9ADVTRqWsM"
+      }
+    }
+  ],
+  "clips": [
+    {
+      "id": "raychem-goa",
+      "kind": "clip",
+      "files": {
+        "mp4": "media/clips/raychem-goa.mp4",
+        "mp4Audio": null,
+        "poster": {
+          "jpg": "media/clips/raychem-goa-poster.jpg",
+          "avif": "media/clips/raychem-goa-poster.avif"
+        }
+      },
+      "w": 720,
+      "h": 1280,
+      "duration": 18,
+      "orientation": "portrait",
+      "hasAudio": false,
+      "audioStatus": "stripped (muted-safe)",
+      "alt": "Nisha Shetty with a microphone and cue card among seated guests at a sales conference; the room laughs and a guest takes the mic.",
+      "caption": {
+        "line1": "Sales conference · Goa",
+        "line2": "Raychem RPG · 2025"
+      },
+      "event": "Tales to Tell — Annual Sales Conference",
+      "client": "Raychem RPG",
+      "date": "2025",
+      "city": "Goa",
+      "country": "India",
+      "abroad": false,
+      "family": "Corporate",
+      "roomType": "Conference",
+      "role": "among-people",
+      "archive": false,
+      "publicFigures": [],
+      "notes": "Posted Apr 2026 as a 2025 throwback. Identifiable guests; consent given (P24).",
+      "playback": "poster-first, tap to play, muted by default",
+      "source": {
+        "file": "instagram-all/videos/2026-04-02_DWoYAnqiN0p.mp4",
+        "code": "DWoYAnqiN0p",
+        "in": 8,
+        "out": 26,
+        "posterAt": 10
+      }
+    },
+    {
+      "id": "datamatics-awards",
+      "kind": "clip",
+      "files": {
+        "mp4": "media/clips/datamatics-awards.mp4",
+        "mp4Audio": null,
+        "poster": {
+          "jpg": "media/clips/datamatics-awards-poster.jpg",
+          "avif": "media/clips/datamatics-awards-poster.avif"
+        }
+      },
+      "w": 720,
+      "h": 1280,
+      "duration": 18,
+      "orientation": "portrait",
+      "hasAudio": false,
+      "audioStatus": "stripped (muted-safe)",
+      "alt": "Nisha Shetty in a red gown at an acrylic lectern, then holding the microphone out to a guest in the audience.",
+      "caption": {
+        "line1": "Awards night · Mumbai",
+        "line2": "Datamatics · 2026"
+      },
+      "event": "Annual Achievers Awards",
+      "client": "Datamatics",
+      "date": "2026-09",
+      "city": "Mumbai",
+      "country": "India",
+      "abroad": false,
+      "family": "Corporate",
+      "roomType": "Awards & R&R",
+      "role": "listening-handover",
+      "archive": false,
+      "publicFigures": [],
+      "notes": "Date conflict: posted Sep 2026; a YouTube copy titled \"Awards 2025\" was uploaded Mar 2026 (P22 §2.2).",
+      "playback": "poster-first, tap to play, muted by default",
+      "source": {
+        "file": "instagram-all/videos/2026-09-28_Dd1ggLhpVrO.mp4",
+        "code": "Dd1ggLhpVrO",
+        "in": 22,
+        "out": 40,
+        "posterAt": 22.5
+      }
+    },
+    {
+      "id": "himalaya-awards",
+      "kind": "clip",
+      "files": {
+        "mp4": "media/clips/himalaya-awards.mp4",
+        "mp4Audio": null,
+        "poster": {
+          "jpg": "media/clips/himalaya-awards-poster.jpg",
+          "avif": "media/clips/himalaya-awards-poster.avif"
+        }
+      },
+      "w": 720,
+      "h": 1280,
+      "duration": 34,
+      "orientation": "portrait",
+      "hasAudio": false,
+      "audioStatus": "stripped (muted-safe)",
+      "alt": "Nisha Shetty on an awards stage, applauding at the podium; suited guests cheer with arms raised and she holds the mic out to the crowd.",
+      "caption": {
+        "line1": "Awards night · Jaipur",
+        "line2": "Himalaya Star Awards · 2025"
+      },
+      "event": "Himalaya Star Awards",
+      "client": "Himalaya",
+      "date": "2025-07",
+      "city": "Jaipur",
+      "country": "India",
+      "abroad": false,
+      "family": "Corporate",
+      "roomType": "Awards & R&R",
+      "role": "among-people",
+      "archive": false,
+      "publicFigures": [],
+      "notes": null,
+      "playback": "poster-first, tap to play, muted by default",
+      "source": {
+        "file": "instagram-all/videos/2025-07-07_DL0B7ZxIXua.mp4",
+        "code": "DL0B7ZxIXua",
+        "in": 12,
+        "out": 46,
+        "posterAt": 22
+      }
+    },
+    {
+      "id": "raychem-evening",
+      "kind": "clip",
+      "files": {
+        "mp4": "media/clips/raychem-evening.mp4",
+        "mp4Audio": null,
+        "poster": {
+          "jpg": "media/clips/raychem-evening-poster.jpg",
+          "avif": "media/clips/raychem-evening-poster.avif"
+        }
+      },
+      "w": 720,
+      "h": 1280,
+      "duration": 30,
+      "orientation": "portrait",
+      "hasAudio": false,
+      "audioStatus": "stripped (muted-safe)",
+      "alt": "Nisha Shetty hosting an outdoor evening: laughing under stage light, then at the stage edge with a large seated crowd behind.",
+      "caption": {
+        "line1": "Outdoor evening",
+        "line2": "Raychem RPG · 2025"
+      },
+      "event": "Evening for Raychem RPG",
+      "client": "Raychem RPG",
+      "date": "2025",
+      "city": null,
+      "country": "India",
+      "abroad": false,
+      "family": "Corporate",
+      "roomType": "Awards & R&R",
+      "role": "performing",
+      "archive": false,
+      "publicFigures": [],
+      "notes": "Cut ends at 0:43, before awardee names on the LED at 0:45 (P22B §7). Integration pass: the 0:30.6–0:33.2 award-winner slide and team-name list (source time) removed, so no awardee names remain.",
+      "playback": "poster-first, tap to play, muted by default",
+      "source": {
+        "file": "instagram-all/videos/2026-02-19_DU8daTtiFkP.mp4",
+        "code": "DU8daTtiFkP",
+        "in": 10,
+        "out": 43,
+        "posterAt": 24
+      }
+    },
+    {
+      "id": "shapoorji-launch",
+      "kind": "clip",
+      "files": {
+        "mp4": "media/clips/shapoorji-launch.mp4",
+        "mp4Audio": null,
+        "poster": {
+          "jpg": "media/clips/shapoorji-launch-poster.jpg",
+          "avif": "media/clips/shapoorji-launch-poster.avif"
+        }
+      },
+      "w": 606,
+      "h": 1078,
+      "duration": 23,
+      "orientation": "portrait",
+      "hasAudio": false,
+      "audioStatus": "stripped (muted-safe)",
+      "alt": "Nisha Shetty at the lectern of a property launch; a guest laughs out loud, the audience watches a live painting act, and she closes on stage in a red gown.",
+      "caption": {
+        "line1": "Launch · Pune",
+        "line2": "Shapoorji Pallonji · 2023"
+      },
+      "event": "SP Kingstown launch",
+      "client": "Shapoorji Pallonji",
+      "date": "2023-12",
+      "city": "Pune",
+      "country": "India",
+      "abroad": false,
+      "family": "Corporate",
+      "roomType": "Launch",
+      "role": "performing",
+      "archive": false,
+      "publicFigures": [],
+      "notes": null,
+      "playback": "poster-first, tap to play, muted by default",
+      "source": {
+        "file": "instagram-all/videos/2023-12-24_C1PSfwGKVal.mp4",
+        "code": "C1PSfwGKVal",
+        "in": 17,
+        "out": 40,
+        "posterAt": 37
+      }
+    },
+    {
+      "id": "smarties-awards",
+      "kind": "clip",
+      "files": {
+        "mp4": "media/clips/smarties-awards.mp4",
+        "mp4Audio": null,
+        "poster": {
+          "jpg": "media/clips/smarties-awards-poster.jpg",
+          "avif": "media/clips/smarties-awards-poster.avif"
+        }
+      },
+      "w": 606,
+      "h": 1078,
+      "duration": 34.83,
+      "orientation": "portrait",
+      "hasAudio": false,
+      "audioStatus": "stripped (muted-safe)",
+      "alt": "Nisha Shetty hosting an industry awards night, hand raised; a table applauds; the ballroom in silhouette.",
+      "caption": {
+        "line1": "Industry awards night",
+        "line2": "MMA SMARTIES India · 2023"
+      },
+      "event": "MMA SMARTIES India 2023",
+      "client": "MMA (SMARTIES India)",
+      "date": "2023",
+      "city": null,
+      "country": "India",
+      "abroad": false,
+      "family": "Corporate",
+      "roomType": "Awards & R&R",
+      "role": "performing",
+      "archive": false,
+      "publicFigures": [],
+      "notes": "Posted Jul 2024; event 2023.",
+      "playback": "poster-first, tap to play, muted by default",
+      "source": {
+        "file": "instagram-all/videos/2024-07-14_C9Z-J0XqZ32.mp4",
+        "code": "C9Z-J0XqZ32",
+        "in": 0,
+        "out": 35,
+        "posterAt": 14
+      }
+    },
+    {
+      "id": "qualys-conference",
+      "kind": "clip",
+      "files": {
+        "mp4": "media/clips/qualys-conference.mp4",
+        "mp4Audio": null,
+        "poster": {
+          "jpg": "media/clips/qualys-conference-poster.jpg",
+          "avif": "media/clips/qualys-conference-poster.avif"
+        }
+      },
+      "w": 720,
+      "h": 1280,
+      "duration": 28,
+      "orientation": "portrait",
+      "hasAudio": false,
+      "audioStatus": "stripped (muted-safe)",
+      "alt": "Nisha Shetty walking among delegate tables with a microphone while a delegate stands to ask a question.",
+      "caption": {
+        "line1": "Security conference · floor Q&A",
+        "line2": "Qualys · 2023"
+      },
+      "event": "Qualys Security Conference 2023",
+      "client": "Qualys",
+      "date": "2023-12",
+      "city": null,
+      "country": "India",
+      "abroad": false,
+      "family": "Corporate",
+      "roomType": "Conference",
+      "role": "listening-handover",
+      "archive": false,
+      "publicFigures": [],
+      "notes": null,
+      "playback": "poster-first, tap to play, muted by default",
+      "source": {
+        "file": "instagram-all/videos/2023-12-09_C0o5JVvqmnX.mp4",
+        "code": "C0o5JVvqmnX",
+        "in": 2,
+        "out": 30,
+        "posterAt": 20
+      }
+    },
+    {
+      "id": "icici-pru-awards",
+      "kind": "clip",
+      "files": {
+        "mp4": "media/clips/icici-pru-awards.mp4",
+        "mp4Audio": null,
+        "poster": {
+          "jpg": "media/clips/icici-pru-awards-poster.jpg",
+          "avif": "media/clips/icici-pru-awards-poster.avif"
+        }
+      },
+      "w": 606,
+      "h": 1078,
+      "duration": 46,
+      "orientation": "portrait",
+      "hasAudio": false,
+      "audioStatus": "stripped (muted-safe)",
+      "alt": "Nisha Shetty walking to the stage past a seated audience, then at the podium pointing up, then at an award handover.",
+      "caption": {
+        "line1": "Awards night · Mumbai",
+        "line2": "ICICI Prudential Life · 2024"
+      },
+      "event": "Awards Night",
+      "client": "ICICI Prudential Life",
+      "date": "2024-01",
+      "city": "Mumbai",
+      "country": "India",
+      "abroad": false,
+      "family": "Corporate",
+      "roomType": "Awards & R&R",
+      "role": "performing",
+      "archive": false,
+      "publicFigures": [],
+      "notes": null,
+      "playback": "poster-first, tap to play, muted by default",
+      "source": {
+        "file": "instagram-all/videos/2024-01-10_C165Bfqvy-2.mp4",
+        "code": "C165Bfqvy-2",
+        "in": 2,
+        "out": 48,
+        "posterAt": 34
+      }
+    },
+    {
+      "id": "lipton-meet-greet",
+      "kind": "clip",
+      "files": {
+        "mp4": "media/clips/lipton-meet-greet.mp4",
+        "mp4Audio": null,
+        "poster": {
+          "jpg": "media/clips/lipton-meet-greet-poster.jpg",
+          "avif": "media/clips/lipton-meet-greet-poster.avif"
+        }
+      },
+      "w": 720,
+      "h": 1280,
+      "duration": 44,
+      "orientation": "portrait",
+      "hasAudio": false,
+      "audioStatus": "stripped (muted-safe)",
+      "alt": "Nisha Shetty on stage addressing a seated audience, then in a seated interview with the guest of honour.",
+      "caption": {
+        "line1": "Celebrity meet-and-greet · Mumbai",
+        "line2": "Lipton · 2024"
+      },
+      "event": "Lipton meet-and-greet with Shraddha Kapoor",
+      "client": "Lipton",
+      "date": "2024-01",
+      "city": "Mumbai",
+      "country": "India",
+      "abroad": false,
+      "family": "Entertainment & celebrity",
+      "roomType": "Celebrity & press",
+      "role": "performing",
+      "archive": false,
+      "publicFigures": [
+        "Shraddha Kapoor"
+      ],
+      "notes": "Event Jan 2024 (P22 §3.1); reel posted Jul 2024.",
+      "playback": "poster-first, tap to play, muted by default",
+      "source": {
+        "file": "instagram-all/videos/2024-07-09_C9NElpBK4CL.mp4",
+        "code": "C9NElpBK4CL",
+        "in": 0,
+        "out": 44,
+        "posterAt": 11
+      }
+    },
+    {
+      "id": "phoenix-launch",
+      "kind": "clip",
+      "files": {
+        "mp4": "media/clips/phoenix-launch.mp4",
+        "mp4Audio": null,
+        "poster": {
+          "jpg": "media/clips/phoenix-launch-poster.jpg",
+          "avif": "media/clips/phoenix-launch-poster.avif"
+        }
+      },
+      "w": 720,
+      "h": 1280,
+      "duration": 22,
+      "orientation": "portrait",
+      "hasAudio": false,
+      "audioStatus": "stripped (muted-safe)",
+      "alt": "Nisha Shetty in profile speaking into a microphone toward a crowd at a mall brand launch, gesturing with a cue card.",
+      "caption": {
+        "line1": "Retail launch · Mumbai",
+        "line2": "Phoenix Palladium · 2024"
+      },
+      "event": "Launch of new brands",
+      "client": "Phoenix Palladium",
+      "date": "2024-12",
+      "city": "Mumbai",
+      "country": "India",
+      "abroad": false,
+      "family": "Entertainment & celebrity",
+      "roomType": "Launch",
+      "role": "among-people",
+      "archive": false,
+      "publicFigures": [],
+      "notes": "Public crowd; videographer @iamvishnu14.",
+      "playback": "poster-first, tap to play, muted by default",
+      "source": {
+        "file": "instagram-all/videos/2024-12-28_DEIJeohzpp6.mp4",
+        "code": "DEIJeohzpp6",
+        "in": 12,
+        "out": 34,
+        "posterAt": 17
+      }
+    },
+    {
+      "id": "dorby-dialogue",
+      "kind": "clip",
+      "files": {
+        "mp4": "media/clips/dorby-dialogue.mp4",
+        "mp4Audio": null,
+        "poster": {
+          "jpg": "media/clips/dorby-dialogue-poster.jpg",
+          "avif": "media/clips/dorby-dialogue-poster.avif"
+        }
+      },
+      "w": 720,
+      "h": 1280,
+      "duration": 26,
+      "orientation": "portrait",
+      "hasAudio": false,
+      "audioStatus": "stripped (muted-safe)",
+      "alt": "Nisha Shetty with a microphone and cue card at a two-day dealer dialogue, laughing with her co-host.",
+      "caption": {
+        "line1": "Dealer dialogue · Udaipur",
+        "line2": "Dorby · 2026"
+      },
+      "event": "The Dorby Dialogue",
+      "client": "Dorby",
+      "date": "2026-05",
+      "city": "Udaipur",
+      "country": "India",
+      "abroad": false,
+      "family": "Corporate",
+      "roomType": "Dealer & partner meet",
+      "role": "process",
+      "archive": false,
+      "publicFigures": [],
+      "notes": "Via WootFactor; co-host @huseinkk. Date conflict (YouTube Mar 2026 vs Instagram May–Jun 2026).",
+      "playback": "poster-first, tap to play, muted by default",
+      "source": {
+        "file": "instagram-all/videos/2026-06-09_DZXv6Y9I0Sc.mp4",
+        "code": "DZXv6Y9I0Sc",
+        "in": 8,
+        "out": 34,
+        "posterAt": 21
+      }
+    },
+    {
+      "id": "igi-dubai",
+      "kind": "clip",
+      "files": {
+        "mp4": "media/clips/igi-dubai.mp4",
+        "mp4Audio": "media/clips/igi-dubai-audio.mp4",
+        "poster": {
+          "jpg": "media/clips/igi-dubai-poster.jpg",
+          "avif": "media/clips/igi-dubai-poster.avif"
+        }
+      },
+      "w": 720,
+      "h": 1280,
+      "duration": 8.77,
+      "orientation": "portrait",
+      "hasAudio": true,
+      "audioStatus": "unheard: audition before any sound-on use",
+      "alt": "Nisha Shetty interviewing an executive on camera at a jewellery trade-show set in Dubai.",
+      "caption": {
+        "line1": "On-camera interviews · Dubai",
+        "line2": "IGI D Show · 2023"
+      },
+      "event": "IGI D Show",
+      "client": "IGI",
+      "date": "2023-05",
+      "city": "Dubai",
+      "country": "UAE",
+      "abroad": true,
+      "family": "Virtual & on-camera",
+      "roomType": "On-camera & interviews",
+      "role": "listening-handover",
+      "archive": false,
+      "publicFigures": [],
+      "notes": "Story clip. Audio unheard: audition before sound-on.",
+      "playback": "poster-first, tap to play, muted by default",
+      "source": {
+        "file": "instagram-highlights/Dubai_23/2023-05-06_3096945944519293186.mp4",
+        "code": "3096945944519293186",
+        "in": 0,
+        "out": 9.5,
+        "posterAt": 1.5
+      }
+    },
+    {
+      "id": "machinist-virtual",
+      "kind": "clip",
+      "files": {
+        "mp4": "media/clips/machinist-virtual.mp4",
+        "mp4Audio": "media/clips/machinist-virtual-audio.mp4",
+        "poster": {
+          "jpg": "media/clips/machinist-virtual-poster.jpg",
+          "avif": "media/clips/machinist-virtual-poster.avif"
+        }
+      },
+      "w": 1280,
+      "h": 720,
+      "duration": 30,
+      "orientation": "landscape",
+      "hasAudio": true,
+      "audioStatus": "unheard: audition before any sound-on use",
+      "alt": "Nisha Shetty presenting direct to camera for a virtual manufacturing conference.",
+      "caption": {
+        "line1": "Virtual conference",
+        "line2": "The Machinist · 2020"
+      },
+      "event": "The Machinist Manufacturing Conference & Expo 2020",
+      "client": "The Machinist",
+      "date": "2020-08",
+      "city": null,
+      "country": "India",
+      "abroad": false,
+      "family": "Virtual & on-camera",
+      "roomType": "Virtual",
+      "role": "performing",
+      "archive": false,
+      "publicFigures": [],
+      "notes": "Strongest voice candidate (P22B §2.3, close mic). Audio unheard: audition before sound-on.",
+      "playback": "poster-first, tap to play, muted by default",
+      "source": {
+        "file": "youtube/own-work/2020-09-04_qGsgnLhRTVk_Hosting The Machinist Conference and Exhibition 2020.mp4",
+        "code": "YT:qGsgnLhRTVk",
+        "in": 10,
+        "out": 40,
+        "posterAt": 14
+      }
+    },
+    {
+      "id": "filmfare-red-carpet",
+      "kind": "clip",
+      "files": {
+        "mp4": "media/clips/filmfare-red-carpet.mp4",
+        "mp4Audio": "media/clips/filmfare-red-carpet-audio.mp4",
+        "poster": {
+          "jpg": "media/clips/filmfare-red-carpet-poster.jpg",
+          "avif": "media/clips/filmfare-red-carpet-poster.avif"
+        }
+      },
+      "w": 1280,
+      "h": 720,
+      "duration": 30,
+      "orientation": "landscape",
+      "hasAudio": true,
+      "audioStatus": "unheard: audition before any sound-on use",
+      "alt": "Nisha Shetty interviewing arrivals with a handheld microphone on the Filmfare Awards red carpet.",
+      "caption": {
+        "line1": "Red carpet · Mumbai",
+        "line2": "Filmfare Awards · 2018"
+      },
+      "event": "Filmfare Awards red carpet",
+      "client": "Filmfare",
+      "date": "2018",
+      "city": "Mumbai",
+      "country": "India",
+      "abroad": false,
+      "family": "Entertainment & celebrity",
+      "roomType": "Red carpet",
+      "role": "performing",
+      "archive": true,
+      "publicFigures": [],
+      "notes": "Archive, 1080p source. Uploaded Jun 2018; which Filmfare edition is unconfirmed. Audio unheard.",
+      "playback": "poster-first, tap to play, muted by default",
+      "source": {
+        "file": "youtube/own-work/2018-06-23_3SLIlGo-k8s_Hosting The Filmfare Awards Red Carpet.mp4",
+        "code": "YT:3SLIlGo-k8s",
+        "in": 41,
+        "out": 71,
+        "posterAt": 50
+      }
+    },
+    {
+      "id": "g20-conference",
+      "kind": "clip",
+      "files": {
+        "mp4": "media/clips/g20-conference.mp4",
+        "mp4Audio": null,
+        "poster": {
+          "jpg": "media/clips/g20-conference-poster.jpg",
+          "avif": "media/clips/g20-conference-poster.avif"
+        }
+      },
+      "w": 720,
+      "h": 1280,
+      "duration": 15,
+      "orientation": "portrait",
+      "hasAudio": false,
+      "audioStatus": "stripped (muted-safe)",
+      "alt": "Nisha Shetty in a saree with a microphone, arm raised, addressing a daytime policy conference; she walks among seated guests.",
+      "caption": {
+        "line1": "Policy conference · Palghar",
+        "line2": "G20 / C20 Food & LiFE · 2023"
+      },
+      "event": "G20 / C20 Food & LiFE Conference",
+      "client": "C20 (G20)",
+      "date": "2023-05",
+      "city": "Palghar",
+      "country": "India",
+      "abroad": false,
+      "family": "Cultural & institutional",
+      "roomType": "Institutional conference",
+      "role": "performing",
+      "archive": false,
+      "publicFigures": [],
+      "notes": "Cut ends at 0:25, before the 0:27 frame of monks (faith line, P22 §6.2). Venue not named.",
+      "playback": "poster-first, tap to play, muted by default",
+      "source": {
+        "file": "instagram-all/videos/2023-05-01_CrtPVOMruWb.mp4",
+        "code": "CrtPVOMruWb",
+        "in": 10,
+        "out": 25,
+        "posterAt": 12
+      }
+    },
+    {
+      "id": "lloyd-launch",
+      "kind": "clip",
+      "files": {
+        "mp4": "media/watch/lloyd-launch.mp4",
+        "mp4Audio": null,
+        "poster": {
+          "jpg": "media/watch/lloyd-launch-poster.jpg",
+          "avif": "media/watch/lloyd-launch-poster.avif"
+        }
+      },
+      "w": 720,
+      "h": 1280,
+      "duration": 10,
+      "orientation": "portrait",
+      "hasAudio": false,
+      "audioStatus": "stripped (muted-safe)",
+      "alt": "Nisha Shetty on stage in a white pantsuit under the Lloyd logo, microphone and cue card in hand; a ballroom of partners at round tables; product reveals on the screen.",
+      "caption": {
+        "line1": "Partner launch · Gurugram",
+        "line2": "Lloyd · 2026"
+      },
+      "event": "Refrigerator launch for top partners",
+      "client": "Lloyd",
+      "date": "2026-03",
+      "city": "Gurugram",
+      "country": "India",
+      "abroad": false,
+      "family": "Corporate",
+      "roomType": "Dealer & partner meet",
+      "role": "performing",
+      "archive": false,
+      "publicFigures": [],
+      "notes": "Added in the polish pass (v2) as the recent replacement for the 2020 Machinist capture at the head of the clips. Hand-cut into media/watch/ (not built by prep-media.cjs; a re-run of the tool drops this entry). Cut from 3.05s to the end to remove the black-and-white text opening and flash transition. She is small in most frames. Photo/video credit per her caption: @sushant_alex (licence unconfirmed).",
+      "playback": "poster-first, tap to play, muted by default",
+      "source": {
+        "file": "instagram-all/videos/2026-03-13_DVz6YliiYSO.mp4",
+        "code": "DVz6YliiYSO",
+        "in": 3.05,
+        "out": 12.93,
+        "posterAt": null
+      }
+    }
+  ],
+  "loops": [
+    {
+      "id": "loop-arrival",
+      "kind": "loop",
+      "files": {
+        "mp4": "media/loops/loop-arrival.mp4",
+        "mp4Audio": null,
+        "poster": {
+          "jpg": "media/loops/loop-arrival-poster.jpg",
+          "avif": "media/loops/loop-arrival-poster.avif"
+        }
+      },
+      "w": 720,
+      "h": 1280,
+      "duration": 1.9,
+      "orientation": "portrait",
+      "hasAudio": false,
+      "audioStatus": "stripped (muted-safe)",
+      "alt": "Nisha Shetty walks on toward a lit stage and turns to camera.",
+      "caption": {
+        "line1": "Walking on · Pune",
+        "line2": "CITCO · 2025"
+      },
+      "event": "CITCO event",
+      "client": "CITCO",
+      "date": "2025-12",
+      "city": "Pune",
+      "country": "India",
+      "abroad": false,
+      "family": "Corporate",
+      "roomType": "Conference",
+      "role": "process",
+      "archive": false,
+      "publicFigures": [],
+      "notes": "Ends at 1.9s, on her at the stage, before the cut to the crowd. Via @toli.exp.",
+      "playback": "once-in-view (never loops; reduced motion shows the poster)",
+      "source": {
+        "file": "instagram-all/videos/2025-12-03_DRz09YNEwYz.mp4",
+        "code": "DRz09YNEwYz",
+        "in": 33.9,
+        "out": 35.8,
+        "posterAt": 35
+      }
+    },
+    {
+      "id": "loop-laugh",
+      "kind": "loop",
+      "files": {
+        "mp4": "media/loops/loop-laugh.mp4",
+        "mp4Audio": null,
+        "poster": {
+          "jpg": "media/loops/loop-laugh-poster.jpg",
+          "avif": "media/loops/loop-laugh-poster.avif"
+        }
+      },
+      "w": 720,
+      "h": 1280,
+      "duration": 5,
+      "orientation": "portrait",
+      "hasAudio": false,
+      "audioStatus": "stripped (muted-safe)",
+      "alt": "Nisha Shetty laughing on stage under warm stage light.",
+      "caption": {
+        "line1": "Outdoor evening",
+        "line2": "Raychem RPG · 2025"
+      },
+      "event": "Evening for Raychem RPG",
+      "client": "Raychem RPG",
+      "date": "2025",
+      "city": null,
+      "country": "India",
+      "abroad": false,
+      "family": "Corporate",
+      "roomType": "Awards & R&R",
+      "role": "performing",
+      "archive": false,
+      "publicFigures": [],
+      "notes": null,
+      "playback": "once-in-view (never loops; reduced motion shows the poster)",
+      "source": {
+        "file": "instagram-all/videos/2026-02-19_DU8daTtiFkP.mp4",
+        "code": "DU8daTtiFkP",
+        "in": 19,
+        "out": 24,
+        "posterAt": 20
+      }
+    },
+    {
+      "id": "loop-handover",
+      "kind": "loop",
+      "files": {
+        "mp4": "media/loops/loop-handover.mp4",
+        "mp4Audio": null,
+        "poster": {
+          "jpg": "media/loops/loop-handover-poster.jpg",
+          "avif": "media/loops/loop-handover-poster.avif"
+        }
+      },
+      "w": 720,
+      "h": 1280,
+      "duration": 6,
+      "orientation": "portrait",
+      "hasAudio": false,
+      "audioStatus": "stripped (muted-safe)",
+      "alt": "Nisha Shetty holds the microphone out to a guest who answers from the audience.",
+      "caption": {
+        "line1": "Handing over the mic",
+        "line2": "Datamatics · 2026"
+      },
+      "event": "Annual Achievers Awards",
+      "client": "Datamatics",
+      "date": "2026-09",
+      "city": "Mumbai",
+      "country": "India",
+      "abroad": false,
+      "family": "Corporate",
+      "roomType": "Awards & R&R",
+      "role": "listening-handover",
+      "archive": false,
+      "publicFigures": [],
+      "notes": null,
+      "playback": "once-in-view (never loops; reduced motion shows the poster)",
+      "source": {
+        "file": "instagram-all/videos/2026-09-28_Dd1ggLhpVrO.mp4",
+        "code": "Dd1ggLhpVrO",
+        "in": 32,
+        "out": 38,
+        "posterAt": 37.5
+      }
+    },
+    {
+      "id": "loop-camera-view",
+      "kind": "loop",
+      "files": {
+        "mp4": "media/loops/loop-camera-view.mp4",
+        "mp4Audio": null,
+        "poster": {
+          "jpg": "media/loops/loop-camera-view-poster.jpg",
+          "avif": "media/loops/loop-camera-view-poster.avif"
+        }
+      },
+      "w": 720,
+      "h": 1280,
+      "duration": 6,
+      "orientation": "portrait",
+      "hasAudio": false,
+      "audioStatus": "stripped (muted-safe)",
+      "alt": "A camera monitor framing Nisha Shetty at a trade-show set in Dubai.",
+      "caption": {
+        "line1": "Camera view · Dubai",
+        "line2": "IGI D Show · 2023"
+      },
+      "event": "IGI D Show",
+      "client": "IGI",
+      "date": "2023-05",
+      "city": "Dubai",
+      "country": "UAE",
+      "abroad": true,
+      "family": "Virtual & on-camera",
+      "roomType": "On-camera & interviews",
+      "role": "process",
+      "archive": false,
+      "publicFigures": [],
+      "notes": null,
+      "playback": "once-in-view (never loops; reduced motion shows the poster)",
+      "source": {
+        "file": "instagram-highlights/Dubai_23/2023-05-07_3097596887864344290.mp4",
+        "code": "3097596887864344290",
+        "in": 0,
+        "out": 6,
+        "posterAt": 2
+      }
+    }
+  ]
+}

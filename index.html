@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Nisha Shetty · Website options</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='7' width='26' height='18' rx='3' fill='%23d7142b' transform='rotate(-6 16 16)'/%3E%3C/svg%3E">
+  <style>
+    :root { --ink: #1b1716; --soft: #5f5753; --line: #e6e0dc; --bg: #fbf9f7; --card: #ffffff; --accent: #d7142b; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) { --ink: #f3efec; --soft: #b5aca7; --line: #3a3431; --bg: #161312; --card: #201c1a; }
+    }
+    :root[data-theme="dark"] { --ink: #f3efec; --soft: #b5aca7; --line: #3a3431; --bg: #161312; --card: #201c1a; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    main { max-width: 1120px; margin: 0 auto; padding: 48px 16px 64px; }
+    .kicker { color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; margin: 0 0 8px; }
+    h1 { font-size: clamp(30px, 5vw, 48px); line-height: 1.05; margin: 0 0 12px; letter-spacing: -.01em; }
+    .lead { color: var(--soft); margin: 0 0 40px; max-width: 46ch; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    a.opt { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; color: inherit; text-decoration: none; transition: transform .16s ease, box-shadow .16s ease; }
+    a.opt:hover, a.opt:focus-visible { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,.10); }
+    a.opt:focus-visible { outline: 3px solid #2f5bd3; outline-offset: 2px; }
+    a.opt img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; display: block; border-bottom: 1px solid var(--line); }
+    .body { padding: 18px 20px 22px; }
+    .num { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+    h2 { font-size: 22px; margin: 4px 0 6px; }
+    .body p { margin: 0; color: var(--soft); font-size: 15px; }
+    .go { margin-top: 14px; font-weight: 600; font-size: 15px; }
+    footer { margin-top: 48px; color: var(--soft); font-size: 13px; }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="kicker">For review · not live</p>
+    <h1>Nisha Shetty: three website options</h1>
+    <p class="lead">Three different directions for the same brief. Each one works on desktop and phone.</p>
+    <div class="grid">
+      <a class="opt" href="option-1/">
+        <img src="thumbs/option-1.jpg" alt="Option 1 first screen" width="960" height="600" loading="lazy">
+        <div class="body">
+          <span class="num">Option 1</span>
+          <h2>Calm editorial</h2>
+          <p>Light and clear, with a few pages: Work, Watch, About and a page for event managers.</p>
+          <div class="go">Open option 1 →</div>
+        </div>
+      </a>
+      <a class="opt" href="option-2/">
+        <img src="thumbs/option-2.jpg" alt="Option 2 first screen" width="960" height="600" loading="lazy">
+        <div class="body">
+          <span class="num">Option 2</span>
+          <h2>Cinematic</h2>
+          <p>Light and cinematic, with motion and big photography, across several pages.</p>
+          <div class="go">Open option 2 →</div>
+        </div>
+      </a>
+      <a class="opt" href="option-3/">
+        <img src="thumbs/option-3.jpg" alt="Option 3 first screen" width="960" height="600" loading="lazy">
+        <div class="body">
+          <span class="num">Option 3</span>
+          <h2>Bold brand, one page</h2>
+          <p>A new brand identity on one energetic page: her footage, her voice and one clear call to action.</p>
+          <div class="go">Open option 3 →</div>
+        </div>
+      </a>
+    </div>
+    <footer>Prototypes for discussion. Contact details are placeholders, and some dates and transcripts are still to be confirmed with Nisha.</footer>
+  </main>
+</body>
+</html>

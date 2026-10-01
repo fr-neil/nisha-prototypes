@@ -1,0 +1,146 @@
+/* watch.html · page styles. Owned by the Watch builder (SPEC.md §7). Tokens only; everything scoped under .w-*.
+   One stage band (.w-house) runs from the page head through every clip section; the closing note sits on paper.
+   Vertical-video aware: portrait and landscape clips in one row share a height (flex-grow = aspect ratio). */
+
+/* ------------------------------------------------------------------ the house band */
+.w-house > .section { padding-block: 0; }
+.w-house { padding-bottom: var(--section-y); }
+
+/* ------------------------------------------------------------------ top: head, the reel and its running order */
+.w-house > .w-top { padding-top: var(--head-top); }
+.w-top__grid { display: grid; grid-template-columns: minmax(0, 1fr); row-gap: var(--s-6); --reel-w: min(26rem, calc((100svh - var(--header-h) - 6rem) * 0.5625)); }
+.w-head { display: grid; gap: var(--s-4); }
+.w-head__title { font-size: var(--fs-h1); }
+.w-head__lede { color: var(--on-stage); }
+.w-head__reel { color: var(--on-stage-muted); }
+
+/* Jump links: a single scrolling row on phones, wrapped on wider screens */
+.w-jump .w-jump__list { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.w-jump__list a {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 1rem;
+  border: 1px solid var(--stage-rule); border-radius: var(--radius-pill);
+  color: var(--on-stage); font-size: var(--fs-small); font-weight: 600; text-decoration: none; white-space: nowrap;
+  transition: background-color var(--t-fast), border-color var(--t-fast);
+}
+.w-jump__list a:hover { background: var(--stage-2); border-color: var(--on-stage-muted); }
+@media (max-width: 759px) {
+  .w-jump .w-jump__list {
+    flex-wrap: nowrap; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none;
+    margin-inline: calc(-1 * var(--gutter)); padding: 4px var(--gutter);
+  }
+  .w-jump__list::-webkit-scrollbar { display: none; }
+}
+
+/* ------------------------------------------------------------------ 01 · in sequence */
+.w-seq__head { margin-bottom: 0; border-top: 1px solid var(--stage-rule); padding-top: var(--s-6); scroll-margin-top: var(--s-4); }
+.w-seq__note { color: var(--on-stage-muted); max-width: 44ch; }
+
+.w-reel { width: min(100%, var(--reel-w)); margin-inline: auto; }
+.w-reel .clip__frame { box-shadow: 0 0 0 1px var(--stage-rule); }
+/* The reel keeps its lower third while playing: it is the caption track, re-cut on every beat. */
+.w-reel[data-state="playing"] .w-reel__strap,
+.w-reel[data-state="paused"] .w-reel__strap { opacity: 1; bottom: 68px; }
+.w-reel__strap.is-cut { animation: w-cut var(--t-strap) var(--ease-out) both; }
+.w-reel__strap.is-cut .strap__l1, .w-reel__strap.is-cut .strap__l2 { animation: w-cut-line 300ms var(--ease-out) 120ms both; }
+@keyframes w-cut { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes w-cut-line { from { opacity: 0; transform: translateX(-8px); } to { opacity: 1; transform: none; } }
+.w-reel__now { margin-top: var(--s-2); font-size: var(--fs-small); }
+.w-reel__now .link-arrow { min-height: 44px; display: inline-flex; align-items: center; }
+/* Without JS the captions track does this job, so the static strap is not shown. */
+html:not(.js) .w-reel__strap { display: none; }
+
+/* Running order: the show's cue sheet. The current beat's tally lights while the reel plays. */
+.w-run__label { color: var(--on-stage-muted); margin-bottom: var(--s-3); }
+.w-run .w-run__list { border-top: 1px solid var(--stage-rule); counter-reset: none; }
+.w-run__row {
+  display: grid; grid-template-columns: 2.75rem 10px minmax(0, 1fr); column-gap: var(--s-3); align-items: center;
+  width: 100%; min-height: 48px; padding: 0.5rem var(--s-2) 0.5rem 0;
+  border: 0; border-bottom: 1px solid var(--stage-rule); border-radius: 0; background: none;
+  color: var(--on-stage-muted); font: inherit; font-size: var(--fs-small); line-height: 1.3; text-align: left; text-decoration: none;
+  transition: background-color var(--t-fast);
+}
+a.w-run__row:hover, button.w-run__row:hover { background: var(--stage-2); }
+.w-run__row:focus-visible { outline-offset: -3px; }
+.w-run__tc { font-variant-numeric: tabular-nums lining-nums; font-weight: 600; letter-spacing: 0.02em; padding-left: var(--s-1); }
+.w-run__dot { width: 10px; height: 10px; border-radius: 50%; box-shadow: inset 0 0 0 1.5px var(--stage-rule); }
+.w-run__what { color: var(--on-stage); font-weight: 600; }
+.w-run__who { grid-column: 3; font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; font-variant-numeric: tabular-nums; }
+.w-run__item.is-now .w-run__row { background: var(--stage-2); }
+.w-run__item.is-now .w-run__tc { color: var(--on-stage); }
+.w-run__item.is-now .w-run__dot { background: var(--cue-on-stage); box-shadow: 0 0 0 3px color-mix(in srgb, var(--cue-on-stage) 22%, transparent); }
+
+@media (min-width: 760px) {
+  .w-run__row { grid-template-columns: 3rem 10px minmax(0, 1fr) auto; min-height: 46px; }
+  .w-run__who { grid-column: 4; text-align: right; }
+}
+@media (min-width: 900px) {
+  .w-top__grid {
+    grid-template-columns: var(--reel-w) minmax(0, 1fr); grid-template-rows: auto auto auto 1fr;
+    column-gap: clamp(2.5rem, 1rem + 5vw, 7rem); align-items: start;
+  }
+  .w-reel { grid-column: 1; grid-row: 1 / span 4; width: 100%; margin: 0; position: sticky; top: calc(var(--header-h) + var(--s-5)); }
+  .w-head, .w-jump, .w-seq__head, .w-run { grid-column: 2; }
+  .w-seq__head { margin-top: var(--s-4); }
+}
+
+/* ------------------------------------------------------------------ 02 · start here */
+.w-house > .w-start { padding-top: var(--section-y); }
+.w-start__rail { --rail-item: 76%; }
+
+/* ------------------------------------------------------------------ 03 · by moment (what she is doing in the frame, not the kind of event) */
+.w-house > .w-moments { padding-top: var(--section-y); }
+.w-moments__head { margin-bottom: var(--s-6); }
+.w-moments__head .sec-head__lede { color: var(--on-stage); }
+.w-moments__head .sec-head__lede a { color: inherit; }
+
+.w-fam { display: grid; gap: var(--s-5); padding-block: var(--s-7); border-top: 1px solid var(--stage-rule); scroll-margin-top: var(--s-2); }
+.w-fam:last-child { padding-bottom: 0; }
+.w-fam__head { display: grid; gap: var(--s-2); align-content: start; }
+.w-fam__title { font-size: clamp(1.625rem, 1.2rem + 1.4vw, 2.375rem); line-height: 1.08; }
+.w-fam__line { color: var(--on-stage-muted); font-size: var(--fs-small); max-width: 34ch; }
+.w-fam__link { font-size: var(--fs-small); min-height: 44px; display: inline-flex; align-items: center; justify-self: start; }
+
+.w-fam__grid { --rail-item: 64%; align-items: start; }
+
+/* Mixed rows: each clip grows by its aspect ratio, so portrait and landscape share one height. */
+.w-fam__row { display: flex; gap: var(--col-gap); align-items: flex-start; }
+.w-fam__row > .w-clip { flex: var(--ar) 1 0; min-width: 0; }
+
+@media (max-width: 759px) {
+  .w-fam__row { flex-direction: column; gap: var(--s-6); }
+  .w-fam__row > .w-clip { flex: none; width: 100%; }
+  .w-fam__row > .w-clip:not(.w-clip--land) { width: 64%; }
+}
+@media (min-width: 1024px) {
+  .w-fam { grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); column-gap: var(--col-gap); }
+  .w-fam__head { position: sticky; top: calc(var(--header-h) + var(--s-5)); }
+}
+
+/* Clip captions under the frame: event bold, date in tabular figures */
+.w-clip .clip__meta { max-width: 46ch; }
+.w-clip__date { color: var(--on-stage-muted); font-weight: 600; white-space: nowrap; }
+
+/* Deep links from Home and Work: the linked clip is outlined (paper ring on the stage band) */
+.w-clip:target .clip__frame, .w-reel:target .clip__frame { outline: 3px solid var(--on-stage); outline-offset: 4px; }
+.w-clip { scroll-margin-top: calc(var(--header-h) + var(--s-5)); }
+
+/* ------------------------------------------------------------------ 04 · coming (paper) */
+.w-next__grid { display: grid; gap: var(--s-5); }
+.w-next__head { margin-bottom: 0; }
+.w-next__body { max-width: var(--max-text); }
+.w-next__links { gap: var(--s-5); }
+.w-next__links .link-arrow { min-height: 44px; display: inline-flex; align-items: center; }
+@media (min-width: 900px) {
+  .w-next__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--col-gap); align-items: start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .w-reel__strap.is-cut, .w-reel__strap.is-cut .strap__l1, .w-reel__strap.is-cut .strap__l2 { animation: none; }
+}
+
+/* ------------------------------------------------------------------ the archive: two older 16:9 recordings with her voice, kept compact */
+.w-fam--archive .w-fam__row { max-width: 56rem; }
+
+/* Clips that carry her voice say so under the frame (the Sound on control appears once playing). */
+.w-clip__sound { display: block; margin-top: var(--s-1); font-weight: 650; color: var(--on-stage); }
+.w-clip .clip__meta .ph { display: inline-block; margin-top: var(--s-2); }

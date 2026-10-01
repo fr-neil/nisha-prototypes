@@ -1,0 +1,90 @@
+/* Prototype 24 · tokens (P28 §3.1, §3.3; P29 §1.2). CORE-owned: units read these, never redefine them. */
+:root {
+  /* Colour: light only. Her photographs carry the colour; there is no chromatic UI accent. */
+  --ground: #fcfbf9;
+  --ink: #16161a;
+  --ink-2: #4f5058;
+  --ink-3: #66676f;
+  --rule: #d7d6da;
+  --on-ink: #fcfbf9;
+  --tint-red: #f6ecea;
+  --tint-champagne: #f3eee4;
+  --tint-cobalt: #ebeef7;
+  --tint-stone: #eeece8;
+  --ph-bg: #fff1c9;
+  --ph-ink: #5c4200;
+  --scrim: rgb(252 251 249 / .96);
+
+  /* The section's own ground: set by [data-tint], read by units as var(--section-bg). */
+  --section-bg: var(--ground);
+
+  /* Type families (fallbacks are metric-matched in type.css) */
+  --font-display: "Eczar", "Eczar Fallback", Georgia, serif;
+  --font-text: "Martel Sans", "Martel Sans Fallback", system-ui, sans-serif;
+
+  /* Type scale 1440 → 390 (§3.2). Fluid between 390 and 1440 px. */
+  --fs-name: clamp(46px, 1.714rem + 4.762vw, 96px);
+  --fs-h1: clamp(40px, 1.886rem + 3.048vw, 72px);
+  --fs-h2: clamp(34px, 1.521rem + 2.476vw, 60px);
+  --fs-h3: clamp(22px, 1.236rem + .571vw, 28px);
+  --fs-body: clamp(17px, 1.039rem + .095vw, 18px);
+  --fs-cap: 13px;
+  --fs-meta: 14px;
+  --lh-body: 1.55;
+  --lh-display: 1.15;
+
+  /* Layout (§3.3) */
+  --page-max: 1440px;
+  --margin: 48px;
+  --gutter: 24px;
+  --content: 1344px;
+  --cols: 12;
+  --bleed-gap: 6px;
+  --section-space: 120px;
+
+  /* Spacing steps */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+
+  /* Chrome */
+  --header-h: 72px;
+  --tap: 44px;
+  --radius-pill: 999px;
+  --focus: 3px solid var(--ink);
+  --focus-offset: 2px;
+
+  /* Motion tokens (CSS side; the JS side lives in js/core/motion.js) */
+  --ease-out: cubic-bezier(.16, 1, .3, 1);   /* ≈ expo.out */
+  --ease-in-out: cubic-bezier(.65, 0, .35, 1); /* ≈ power3.inOut */
+  --ease-ui: cubic-bezier(.33, 1, .68, 1);   /* ≈ power2.out */
+  --dur-ui: .2s;
+  --ease-window: cubic-bezier(.65, 0, .35, 1); /* M5 story window (WAAPI clip-path) */
+  --ease-page: cubic-bezier(.16, 1, .3, 1);    /* M6 page transitions */
+  --dock-h: 0px;                               /* set to the dock height while the dock shows (chrome.js) */
+
+  color-scheme: light;
+}
+
+@media (max-width: 760px) {
+  :root {
+    --margin: 16px;
+    --gutter: 16px;
+    --cols: 4;
+    --section-space: 72px;
+    --header-h: 56px;
+  }
+}
+
+/* Section tints follow her wardrobe-by-format pattern; chosen by hand per section, never sampled. */
+[data-tint="red"] { --section-bg: var(--tint-red); }
+[data-tint="champagne"] { --section-bg: var(--tint-champagne); }
+[data-tint="cobalt"] { --section-bg: var(--tint-cobalt); }
+[data-tint="stone"] { --section-bg: var(--tint-stone); }
+[data-tint="ground"] { --section-bg: var(--ground); }
+[data-tint] { background-color: var(--section-bg); }

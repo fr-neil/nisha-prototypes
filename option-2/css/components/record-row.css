@@ -1,0 +1,44 @@
+/* Prototype 24 · component CSS: record row (Work record, Home Abroad, any dated list). CORE-owned; no JS.
+ * <ul class="p24-rows" role="list"><li class="p24-row">
+ *   <time class="p24-row__date" datetime="2026-09">Sep 2026</time>
+ *   <div class="p24-row__main"><p class="p24-row__client">HSBC</p><p class="p24-row__event">…</p></div>
+ *   <p class="p24-row__where">Mumbai, India · Conference · via …</p>
+ *   <a class="p24-row__thumb" href="…" …><img … alt=""><span>View photo</span></a>  or  <span class="p24-row__none">Text only</span>
+ * </li></ul> */
+.p24-rows { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--rule); }
+.p24-row {
+  display: grid;
+  grid-template-columns: 7.5em minmax(0, 1fr) minmax(0, 16em) 76px;
+  column-gap: var(--gutter);
+  align-items: start;
+  padding-block: 16px;
+  border-top: 1px solid var(--rule);
+}
+.p24-row__date {
+  padding-top: 2px;
+  font-size: var(--fs-meta);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+.p24-row__main { display: grid; gap: 2px; }
+.p24-row__client { font-family: var(--font-display); font-size: 20px; font-weight: 600; line-height: 1.25; }
+.p24-row__event { font-size: 16px; line-height: 1.5; color: var(--ink-2); }
+.p24-row__where { padding-top: 2px; font-size: var(--fs-meta); font-weight: 600; line-height: 1.45; color: var(--ink-2); }
+.p24-row__thumb { display: grid; gap: 6px; justify-items: start; min-height: var(--tap); text-decoration: none; }
+.p24-row__thumb img { display: block; width: 64px; height: 64px; object-fit: cover; background: var(--tint-stone); }
+.p24-row__thumb span { font-size: 12px; font-weight: 600; text-decoration: underline; text-underline-offset: .2em; }
+.p24-row__none { padding-top: 2px; font-size: 12px; font-weight: 600; color: var(--ink-3); }
+@media (max-width: 760px) {
+  .p24-row {
+    grid-template-columns: minmax(0, 1fr) 56px;
+    grid-template-areas: "date thumb" "main thumb" "where thumb";
+    row-gap: 2px;
+    column-gap: 12px;
+  }
+  .p24-row__date { grid-area: date; }
+  .p24-row__main { grid-area: main; }
+  .p24-row__where { grid-area: where; }
+  .p24-row__thumb, .p24-row__none { grid-area: thumb; justify-self: end; }
+  .p24-row__thumb img { width: 56px; height: 56px; }
+}

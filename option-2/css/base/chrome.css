@@ -1,0 +1,118 @@
+/* Prototype 24 · chrome, first screen: prototype line, header, dock (P28 §2.1, P29 §1.4). CORE-owned.
+ * Inlined as critical CSS on split-mode pages; the menu, footer and QA overlay are in chrome-late.css.
+ * A quiet ink header with an ink pill button. No light, tick or glow. The header never hides or shrinks. */
+
+/* ---- prototype line (not site UI; removed at sign-off) ---- */
+.p24-proto {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--ph-ink);
+  background: var(--ph-bg);
+  border-bottom: 1px dashed var(--ph-ink);
+}
+.p24-proto .p24-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  align-items: center;
+  padding-block: 5px;
+}
+.p24-proto a { color: var(--ph-ink); font-weight: 700; }
+/* "Replay opening" exists only on Home. */
+.p24-proto [data-replay-opening] { display: none; }
+[data-page="home"] .p24-proto [data-replay-opening] { display: inline; }
+/* On phones the line sits at the end of the page, so it never costs the first screen. */
+.p24-proto--end { display: none; border-bottom: 0; border-top: 1px dashed var(--ph-ink); }
+@media (max-width: 760px) {
+  .p24-proto--top { display: none; }
+  .p24-proto--end { display: block; }
+  .p24-proto--end .p24-wrap { padding-block: 10px; }
+}
+
+/* ---- header ---- */
+.p24-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--ground);
+  border-bottom: 1px solid var(--rule);
+}
+.p24-header__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--s-6);
+  min-height: var(--header-h);
+}
+.p24-brand {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -.005em;
+  text-decoration: none;
+  white-space: nowrap;
+  margin-right: auto;
+  padding-block: 10px;
+}
+.p24-nav { display: flex; align-items: center; gap: var(--s-6); }
+.p24-nav__list {
+  display: flex;
+  gap: var(--s-5);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.p24-nav__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration-line: none;
+  text-underline-offset: .35em;
+}
+.p24-nav__link:hover, .p24-nav__link:focus-visible { text-decoration-line: underline; }
+.p24-nav__bar { display: none; }
+.p24-nav__link[aria-current="page"] .p24-nav__bar {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 8px;
+  height: 2px;
+  background: var(--ink);
+}
+.p24-nav__link[aria-current="page"]:hover, .p24-nav__link[aria-current="page"]:focus-visible { text-decoration-line: none; }
+.p24-menu-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--tap);
+  min-width: 72px;
+  padding: 0 16px;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+@media (max-width: 1100px) and (min-width: 761px) {
+  .p24-header__inner { gap: var(--s-5); }
+  .p24-nav, .p24-nav__list { gap: var(--s-4); }
+  .p24-nav__link { font-size: 14px; }
+}
+
+@media (max-width: 760px) {
+  .p24-brand { font-size: 20px; }
+  /* With JS: a "Menu" button opens the full-screen panel. Without JS: the plain list wraps under the name. */
+  .js .p24-nav { display: none; }
+  .js .p24-menu-btn { display: inline-flex; }
+  html:not(.js) .p24-header__inner { flex-wrap: wrap; padding-block: 8px; gap: 4px 16px; }
+  html:not(.js) .p24-nav { width: 100%; flex-wrap: wrap; gap: 4px 16px; }
+  html:not(.js) .p24-nav__list { flex-wrap: wrap; gap: 0 16px; }
+  html:not(.js) .p24-header { position: static; }
+}

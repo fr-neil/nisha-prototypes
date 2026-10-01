@@ -1,0 +1,98 @@
+/* Prototype 24 · component: story (M5 v2, P29 §2 M5). CORE-owned. Markup contract: CORE.md §4.1.
+ * The unit sizes the stage (--story-h on [data-story-stage]) and lays out the section; this file owns the
+ * engine's parts: the area, the clip-path window, the true-aspect layers, the "In the photo" label and the
+ * filmstrip; the active thumbnail carries a static ink underline (the scroll-driven marker was retired). */
+
+[data-story-stage] { position: relative; }
+.p24-story__area { position: relative; height: var(--story-h, 420px); }
+/* Until a stage shows its own first frame the unit's [data-story-static] photo holds the place (no blank, no
+ * layout shift); the engine then marks the stage [data-story-ready], hides that static and lays out the area. */
+[data-story-stage]:not([data-story-ready]) .p24-story__area { display: none; }
+.p24-story__window { position: absolute; inset: 0; }
+.p24-story__layer {
+  position: absolute;
+  overflow: hidden;
+  visibility: hidden;
+  background: var(--tint-stone);
+}
+.p24-story__layer.is-on { visibility: visible; }
+.p24-story__layer.is-top { z-index: 2; }
+.p24-story__layer picture,
+.p24-story__layer img { display: block; width: 100%; height: 100%; }
+.p24-story__layer img { object-fit: cover; }
+
+/* Phones: a stage stuck within its block (P29 M5, [OWNER] default). Units add the class to per-block stages. */
+@media (max-width: 760px) {
+  .p24-story__stage--sticky {
+    position: sticky;
+    top: calc(var(--header-h) + 8px);
+    z-index: 3;
+    padding-bottom: 8px;
+    background: var(--section-bg);
+    border-bottom: 1px solid var(--rule);
+  }
+}
+
+/* "In the photo": a small text label beside the date of the row whose photo is showing. */
+.p24-inphoto {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 1px 6px;
+  border: 1px solid var(--ink);
+  border-radius: 3px;
+  font-family: var(--font-text);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  vertical-align: .1em;
+  white-space: nowrap;
+  color: var(--ink);
+}
+
+/* ---- filmstrip: the block's frames as small true-aspect thumbnails (same markup with and without JS) ---- */
+ul[data-story-strip], [data-story-strip] { /* ul[…] outranks layout.css ul[role="list"] { padding: 0 } */
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  gap: 6px;
+  margin: 0;
+  width: fit-content;
+  max-width: 100%;
+  padding: 0 0 8px;
+  list-style: none;
+  overflow: hidden;
+}
+[data-story-strip] > li { flex: 0 0 auto; }
+[data-story-thumb] { position: relative; display: block; text-decoration: none; }
+[data-story-thumb] img { display: block; height: 40px; width: auto; }
+[data-story-thumb]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  background: var(--ink);
+  opacity: 0;
+}
+[data-story-thumb].is-active::after { opacity: 1; }
+/* A shared stage shows only the strip of the block on screen; a block's own stage (phones) always keeps its strip. */
+[data-story-live] [data-story-stage]:not([data-story-block] [data-story-stage]) [data-story-strip]:not(.is-current) { display: none; }
+
+.p24-strip__marker {
+  display: none;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: calc(100% / var(--n, 4));
+  height: 2px;
+  background: var(--ink);
+  pointer-events: none;
+}
+/* The scroll-linked marker (CSS scroll-driven animation) is retired: it assumed equal-width thumbnails in row order
+ * and drifted from mixed portrait/landscape strips (final QA). The active thumbnail's ink underline is the one
+ * indicator in every mode. The .p24-strip__marker element stays in the markup and is never displayed. */
+

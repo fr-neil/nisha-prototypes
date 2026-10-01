@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Request availability · Nisha Shetty</title>
+  <meta name="description" content="Ask for Nisha Shetty's availability, or send a general question. Prototype 26, not live.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="brand/logo/monogram.svg" type="image/svg+xml">
+  <link rel="preload" href="brand/fonts/anek-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="brand/tokens.css">
+  <link rel="stylesheet" href="css/p26.css">
+  <script>document.documentElement.classList.replace('no-js', 'js');</script>
+  <script src="js/p26.js" defer></script>
+</head>
+<body data-page="request">
+  <a class="skip" href="#main">Skip to the form</a>
+  <p class="proto">Prototype 26 · for review · not live</p>
+  <header class="hdr hdr-req">
+    <div class="wrap hdr-in">
+      <a class="hdr-home" href="index.html" aria-label="Nisha Shetty, home">
+        <img class="hdr-mono" src="brand/logo/monogram.svg" alt="" width="44" height="44">
+        <img class="hdr-wm" src="brand/logo/wordmark-a-700.svg" alt="" width="144" height="19">
+      </a>
+      <a class="req-back" href="index.html">← Back to the page</a>
+    </div>
+  </header>
+
+  <main id="main" class="req">
+    <div class="wrap req-grid">
+      <div class="req-main">
+        <section class="received" id="received" aria-labelledby="received-h">
+          <h2 id="received-h" class="received-h">Thanks. Your request is in.</h2>
+          <p class="note">Prototype: nothing was sent. In production this form posts to the booking inbox. <span class="ph">[Booking email]</span> <span class="ph">[Phone / WhatsApp]</span></p>
+          <a class="received-back" href="index.html">Back to the page</a>
+        </section>
+
+        <h1 class="req-h1">Request availability</h1>
+        <p class="req-intro">Tell us the date and the city. A general question works too.</p>
+
+        <form id="req-form" class="req-form" action="request.html#received" method="get">
+          <fieldset class="about">
+            <legend>This is about</legend>
+            <label class="radio"><input type="radio" name="about" id="about-date" value="date" checked> A date</label>
+            <label class="radio"><input type="radio" name="about" id="about-question" value="question"> A general question</label>
+            <p class="hint no-js-only">For a general question, leave the date and city empty.</p>
+          </fieldset>
+
+          <div class="row2">
+            <div class="field" data-for-date>
+              <label for="f-date">Event date <span class="req-mark">for a date</span></label>
+              <input id="f-date" name="date" type="date" aria-describedby="f-date-err">
+              <label class="check"><input id="f-notfixed" name="date_not_fixed" type="checkbox" value="yes"> Dates not fixed yet</label>
+              <p class="err" id="f-date-err" hidden></p>
+            </div>
+            <div class="field" data-for-date>
+              <label for="f-city">City <span class="req-mark">for a date</span></label>
+              <input id="f-city" name="city" type="text" autocomplete="address-level2" aria-describedby="f-city-err">
+              <p class="err" id="f-city-err" hidden></p>
+            </div>
+          </div>
+
+          <div class="row2">
+            <div class="field">
+              <label for="f-name">Name <span class="req-mark">required</span></label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="f-name-err">
+              <p class="err" id="f-name-err" hidden></p>
+            </div>
+            <div class="field">
+              <label for="f-reply">Reply to (email or phone) <span class="req-mark">required</span></label>
+              <input id="f-reply" name="reply_to" type="text" autocomplete="email" inputmode="email" required aria-describedby="f-reply-err">
+              <p class="err" id="f-reply-err" hidden></p>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-msg">Message <span class="opt">optional</span></label>
+            <textarea id="f-msg" name="message" rows="4" maxlength="600"></textarea>
+          </div>
+
+          <details class="more">
+            <summary>Add details (optional)</summary>
+            <div class="more-in">
+              <div class="field">
+                <label for="f-kind">Kind of event</label>
+                <select id="f-kind" name="kind">
+                  <option value="">Choose…</option>
+                  <option>Awards night</option>
+                  <option>Conference or summit</option>
+                  <option>Launch</option>
+                  <option>Partner or dealer meet</option>
+                  <option>Celebrity or PR event</option>
+                  <option>Cultural evening</option>
+                  <option>On camera or virtual</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <fieldset class="field">
+                <legend>Language</legend>
+                <label class="radio"><input type="radio" name="language" value="english"> English</label>
+                <label class="radio"><input type="radio" name="language" value="hindi"> Hindi</label>
+                <label class="radio"><input type="radio" name="language" value="both"> Both</label>
+              </fieldset>
+              <div class="field">
+                <label for="f-you">You are</label>
+                <select id="f-you" name="you_are">
+                  <option value="">Choose…</option>
+                  <option>Event agency</option>
+                  <option>Company (events, HR, admin)</option>
+                  <option>Celebrity, PR or brand team</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="f-org">Organisation</label>
+                <input id="f-org" name="organisation" type="text" autocomplete="organization">
+              </div>
+            </div>
+          </details>
+
+          <button class="ns-cta req-send" type="submit">Send request</button>
+          <p class="note">Prototype: the form sends nothing. Production must POST.</p>
+        </form>
+      </div>
+
+      <aside class="req-side" aria-label="Who replies">
+        <img class="req-mono" src="brand/logo/monogram.svg" alt="" width="120" height="120">
+        <picture class="req-pic">
+          <source type="image/avif" srcset="media/stills/hsbc-card-480.avif 480w, media/stills/hsbc-card-960.avif 960w" sizes="(max-width: 760px) 40vw, 320px">
+          <img src="media/stills/hsbc-card-480.jpg" srcset="media/stills/hsbc-card-480.jpg 480w, media/stills/hsbc-card-960.jpg 960w" sizes="(max-width: 760px) 40vw, 320px" width="480" height="639" alt="Nisha Shetty mid-sentence on mic, holding a red programme card. HSBC Unlocking Tomorrow: Future of Banking, 2026." decoding="async">
+        </picture>
+        <p class="req-who">Replies come from Nisha’s team.</p>
+        <p class="req-contact"><span class="ph">[Booking email]</span> <span class="ph">[Phone / WhatsApp]</span></p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="ftr ftr-req">
+    <div class="wrap ftr-in">
+      <ul class="ftr-social">
+        <li><a href="https://www.instagram.com/nishashetty22/" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.youtube.com/@NishaShetty" rel="noopener">YouTube</a></li>
+        <li><a href="https://www.facebook.com/nishashetty22/" rel="noopener">Facebook</a></li>
+      </ul>
+      <p class="ftr-legal">Prototype, not live.</p>
+    </div>
+  </footer>
+</body>
+</html>

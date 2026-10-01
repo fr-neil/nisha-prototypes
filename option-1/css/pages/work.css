@@ -1,0 +1,285 @@
+/* work.html · page styles. Owned by the Work builder (SPEC.md §7). Tokens only; everything scoped under .work-*.
+   Sections: 00 head + featured · 01 the record (filters + ledger) · 02 the rooms (all four families)
+   · 03 abroad ("hosting in"). Breakpoints: 760 (phone), 1024 (record sidebar). */
+
+/* ================================================================ 00 · Head */
+.work-head { padding-top: var(--head-top); padding-bottom: 0; }
+.work-head__grid { display: grid; gap: var(--s-6); align-items: start; }
+.work-head__title { display: grid; gap: var(--s-4); }
+.work-head__title h1 {
+  /* Same page-title size as the other inner pages (tokens --fs-h1); only the name on Home is larger. */
+  margin: var(--s-1) 0 0;
+}
+.work-head__intro { display: grid; gap: var(--s-6); }
+.work-head__intro .t-lede { max-width: 34ch; }
+
+.work-index__list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+.work-index li { border-bottom: 1px solid var(--rule); }
+.work-index a {
+  display: flex; align-items: center; gap: var(--s-4); min-height: 44px;
+  font-weight: 650; color: var(--ink); text-decoration: none;
+}
+.work-index a::after { content: "\2193"; margin-left: auto; color: var(--muted); font-weight: 500; transition: transform var(--t-fast) var(--ease-out); }
+.work-index a:hover { text-decoration: underline; text-underline-offset: 0.25em; }
+.work-index a:hover::after { transform: translateY(2px); }
+.work-index__n {
+  font-family: var(--font-display); font-weight: 600; font-size: var(--fs-label); letter-spacing: 0.04em;
+  color: var(--cue-press); font-variant-numeric: tabular-nums; min-width: 1.75rem;
+}
+
+.work-featured { margin-top: clamp(2.5rem, 1.5rem + 4vw, 5rem); --rail-item: 84%; align-items: start; }
+.work-featured .photo__cap { max-width: 36ch; }
+
+@media (min-width: 760px) {
+  .work-featured { grid-template-columns: 2fr 1fr 1fr; align-items: start; }
+}
+@media (min-width: 900px) {
+  .work-head__grid { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--col-gap); }
+  .work-head__title { grid-column: 1 / span 6; }
+  .work-head__intro { grid-column: 8 / -1; padding-bottom: 0.6rem; }
+}
+
+/* ================================================================ 01 · The rooms */
+.section.work-rooms { padding-top: var(--section-y); }
+.work-rooms__grid { --rail-item: 84%; align-items: start; }
+.work-room { display: grid; gap: var(--s-4); align-content: start; min-width: 0; }
+.work-room__body { display: grid; gap: var(--s-3); }
+.work-room__body h3 { font-size: var(--fs-h3); }
+.work-room__line { color: var(--text); max-width: 40ch; }
+.work-room__eg { border-top: 1px solid var(--rule); margin-top: var(--s-2); }
+.work-room__eg li {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: var(--s-4); row-gap: 1px;
+  padding: 0.6rem 0; border-bottom: 1px solid var(--rule); font-size: var(--fs-small); line-height: 1.4;
+}
+.work-room__who { grid-column: 1; font-weight: 650; color: var(--ink); }
+.work-room__what { grid-column: 1; color: var(--muted); }
+.work-room__eg time, .work-room__years {
+  grid-column: 2; grid-row: 1 / span 2; align-self: center; text-align: right;
+  font-family: var(--font-display); font-weight: 600; color: var(--ink); font-size: 0.875rem; white-space: nowrap;
+}
+.work-room__years { white-space: normal; max-width: 6.5rem; line-height: 1.25; }
+.work-room .link-arrow { justify-self: start; }
+
+@media (min-width: 760px) {
+  .work-rooms__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--s-8); }
+}
+@media (min-width: 1024px) {
+  .work-rooms__grid { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--col-gap); row-gap: var(--s-9); }
+  .work-room--1 { grid-column: 1 / span 7; }
+  .work-room--2 { grid-column: 9 / span 4; }
+  .work-room--3 { grid-column: 1 / span 4; }
+  .work-room--4 { grid-column: 5 / span 4; }
+  .work-room--5 { grid-column: 9 / span 4; }
+  .work-room--6 { grid-column: 1 / span 5; }
+  .work-room--7 { grid-column: 7 / span 6; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); column-gap: var(--col-gap); align-items: start; }
+  .work-room--7 .work-room__body { align-self: end; }
+  /* The wide opener: text sits beside the photo's lower edge rhythm, not under a narrow column */
+  .work-room--1 .work-room__body { grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); column-gap: var(--col-gap); align-items: start; }
+  .work-room--1 .work-room__body h3, .work-room--1 .work-room__line { grid-column: 1; }
+  .work-room--1 .work-room__eg { grid-column: 2; grid-row: 1 / span 3; margin-top: 0; }
+  .work-room--1 .link-arrow { grid-column: 1; }
+  .work-room--2 { margin-top: var(--s-9); }
+}
+
+/* ================================================================ 02 · Abroad: "Nisha Shetty hosting in" */
+.work-abroad h2 { display: grid; gap: var(--s-2); }
+.work-abroad__lead {
+  font-family: var(--font-text); font-size: var(--fs-label); font-weight: 650; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--muted);
+}
+.work-abroad h2 {
+  font-variation-settings: "wdth" var(--wdth-sign); font-weight: 750; text-transform: uppercase;
+  font-size: clamp(2.75rem, 1.4rem + 5.6vw, 6.5rem); line-height: 0.88; letter-spacing: -0.01em;
+}
+.work-abroad__years { border-top: 1.5px solid var(--ink); }
+.work-abroad__year { display: grid; gap: var(--s-3); padding: var(--s-5) 0 var(--s-6); border-bottom: 1px solid var(--rule-strong); }
+.work-abroad__y {
+  font-family: var(--font-display); font-variation-settings: "wdth" 100; font-weight: 600; font-size: 1rem;
+  letter-spacing: 0.06em; color: var(--cue-press); font-variant-numeric: tabular-nums lining-nums;
+}
+.work-signs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-5) var(--col-gap); }
+.work-sign { display: grid; gap: 0.2rem; align-content: start; min-width: 0; }
+.work-sign__city {
+  font-family: var(--font-display); font-variation-settings: "wdth" var(--wdth-sign); font-weight: 750;
+  font-size: clamp(1.5rem, 1rem + 2.2vw, 2.875rem); line-height: 0.92; letter-spacing: -0.005em;
+  text-transform: uppercase; color: var(--ink); overflow-wrap: break-word;
+}
+.work-sign__meta { font-size: 0.875rem; font-weight: 650; color: var(--text); font-variant-numeric: tabular-nums; }
+.work-sign__what { font-size: 0.875rem; line-height: 1.4; color: var(--muted); }
+.work-sign__what b { color: var(--text); font-weight: 650; }
+.work-sign__what .again { margin-left: 0.25em; vertical-align: 0.05em; font-size: 0.6875rem; }
+.work-more { margin-top: var(--s-6); }
+
+@media (min-width: 760px) {
+  .work-abroad__year { grid-template-columns: 7rem minmax(0, 1fr); column-gap: var(--col-gap); align-items: start; padding: var(--s-6) 0 var(--s-7); }
+  .work-abroad__y { font-size: 1.25rem; padding-top: 0.35rem; }
+  .work-signs { grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); row-gap: var(--s-6); }
+}
+@media (min-width: 1024px) {
+  .work-abroad__year { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+  .work-abroad__y { grid-column: 1 / span 2; }
+  .work-signs { grid-column: 3 / -1; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* ================================================================ Shared list */
+.work-list { border-top: 1.5px solid var(--ink); }
+.work-item {
+  display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); column-gap: var(--s-4);
+  padding: var(--s-4) 0; border-bottom: 1px solid var(--rule);
+}
+.work-item__date { font-family: var(--font-display); font-weight: 600; font-size: 0.9375rem; color: var(--ink); padding-top: 0.15rem; }
+.work-item__main { display: grid; gap: 0.15rem; min-width: 0; }
+.work-item__event { font-family: var(--font-display); font-weight: 600; font-size: 1.1875rem; line-height: 1.22; color: var(--ink); letter-spacing: -0.01em; }
+.work-item__with { font-size: var(--fs-small); font-weight: 650; color: var(--ink); }
+.work-item__meta { font-size: var(--fs-small); color: var(--muted); }
+.work-item__meta .again { margin-left: 0.35em; font-size: 0.6875rem; vertical-align: 0.1em; }
+
+/* "Watch" link inside rows and list items: 44px target, visually quiet */
+.work-row__watch {
+  display: inline-flex; align-items: center; gap: 0.5em; min-height: 44px; justify-self: start;
+  font-size: 0.875rem; font-weight: 650; color: var(--ink); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.25em;
+  margin-bottom: -0.6rem;
+}
+.work-row__watch::before {
+  content: ""; flex: none; width: 0; height: 0;
+  border-left: 7px solid var(--cue); border-top: 4.5px solid transparent; border-bottom: 4.5px solid transparent;
+}
+
+/* ================================================================ 01 · The record */
+.section.work-record { padding-top: var(--section-y); }
+.work-record__grid { display: grid; gap: var(--s-6); }
+/* Earlier years (JS): the last two years show first; without JS every year is listed. */
+.work-earlier { padding: var(--s-6) 0 var(--s-2); border-top: 1.5px solid var(--ink); }
+.work-earlier__btn { gap: 0.9rem; }
+.work-earlier__range { font-weight: 500; color: var(--muted); font-variant-numeric: tabular-nums; }
+.work-earlier__btn:hover .work-earlier__range { color: inherit; }
+/* Phones with a filtered link: the panel folds behind one button so the rows come first. */
+.work-filters__toggle {
+  display: none; width: 100%; min-height: 48px; align-items: center; justify-content: space-between; gap: var(--s-3);
+  padding: 0 var(--s-4); background: var(--paper); color: var(--ink); border: 1.5px solid var(--ink); border-radius: var(--radius);
+  font-weight: 650; font-size: 0.9375rem; text-align: left;
+}
+.work-filters__toggle::after { content: ""; flex: none; width: 8px; height: 8px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg) translateY(-2px); }
+.work-filters__toggle[aria-expanded="true"]::after { transform: rotate(-135deg) translateY(-2px); }
+@media (max-width: 1023px) {
+  .work-filters__toggle { display: flex; }
+  .work-filters.is-folded > :not(.work-filters__toggle):not(.work-status) { display: none; }
+  /* Folded, the toggle already names the filters; the live line stays for screen readers only. */
+  .work-filters.is-folded .work-status__text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
+.work-side { display: grid; gap: var(--s-6); align-content: start; min-width: 0; }
+.work-filters { display: grid; gap: var(--s-5); padding: var(--s-5); background: var(--paper-2); border-top: 1.5px solid var(--ink); }
+.work-chips .chip { min-height: 44px; }
+.work-chip--again { gap: 0.55em; }
+.work-chip__dot { width: 7px; height: 7px; border-radius: 50%; background: var(--cue); flex: none; }
+.work-chip--again[aria-pressed="true"] .work-chip__dot { background: var(--cue-on-stage); }
+.work-selects { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-3); }
+.work-selects .field__label { font-size: var(--fs-label); letter-spacing: var(--track-label); text-transform: uppercase; color: var(--muted); }
+.work-selects .select { padding-inline: 0.625rem; font-size: 0.9375rem; min-width: 0; text-overflow: ellipsis; }
+.work-status { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s-2) var(--s-4); }
+.work-status__text { font-weight: 650; color: var(--ink); font-size: var(--fs-small); font-variant-numeric: tabular-nums; }
+.work-reset {
+  min-height: 44px; padding: 0 0.25rem; background: none; border: 0; color: var(--ink);
+  font-weight: 650; font-size: var(--fs-small); text-decoration: underline; text-underline-offset: 0.25em;
+}
+
+.work-jump__list { display: flex; flex-wrap: wrap; gap: 0 var(--s-1); margin-top: var(--s-2); margin-left: -0.5rem; }
+.work-jump__list a {
+  display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; padding: 0 0.5rem;
+  font-family: var(--font-display); font-weight: 600; font-variant-numeric: tabular-nums; color: var(--ink);
+}
+.work-jump__label { margin-top: var(--s-5); }
+.work-jump__fam { margin-top: var(--s-1); }
+.work-jump__fam a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 650; color: var(--ink); }
+/* With JS the filters replace the jump list on phones; the year list stays in the desktop sidebar.
+   The family links are for the no-JS page only (the family chips do this job with JS). */
+.js .work-jump { display: none; }
+.js .work-jump__label, .js .work-jump__fam { display: none; }
+
+.work-ledger { min-width: 0; }
+.work-ledger__head { border-bottom: 1.5px solid var(--ink); }
+.work-year { scroll-margin-top: calc(var(--header-h) + 64px); }
+.work-year__h {
+  font-variation-settings: "wdth" var(--wdth-sign); font-weight: 750; font-size: clamp(2.25rem, 1.5rem + 2.6vw, 3.5rem);
+  line-height: 0.9; letter-spacing: -0.005em; font-variant-numeric: tabular-nums lining-nums;
+  padding: var(--s-6) 0 var(--s-2);
+}
+.work-year:first-of-type .work-year__h { padding-top: var(--s-5); }
+.work-year__ledger .ledger__row:last-child { border-bottom: 0; }
+.work-venue { display: block; font-size: 0.8125rem; color: var(--muted); line-height: 1.35; margin-top: 2px; }
+.work-row .ledger__place { line-height: 1.35; }
+.work-row .ledger__event .ph { font-size: 0.75rem; margin-left: 0.2em; white-space: nowrap; }
+.work-row__again { display: block; position: relative; padding-left: 0.95em; font-size: 0.8125rem; color: var(--muted); line-height: 1.4; margin-top: 2px; }
+.work-row__again::before { content: ""; position: absolute; left: 0; top: 0.5em; width: 5px; height: 5px; border-radius: 50%; background: var(--cue); }
+.work-row .ledger__flag { align-self: start; padding-top: 0.2rem; }
+.work-row .ledger__date { align-self: start; padding-top: 0.2rem; }
+
+/* Filtered rows settle in (SPEC §4.3: ≤240ms, opacity + ≤8px). Still = rows simply present. */
+.work-row.is-settling { animation: work-settle 220ms var(--ease-out) both; }
+@keyframes work-settle { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+.work-empty { display: grid; gap: var(--s-4); justify-items: start; padding: var(--s-7) 0; border-top: 1.5px solid var(--ink); }
+.work-record__note { margin-top: var(--s-7); max-width: 60ch; padding-top: var(--s-4); border-top: 1px solid var(--rule); }
+.work-record__note .again { font-size: 0.6875rem; vertical-align: 0.1em; }
+
+/* Phone bar: result line + a way back to the filters, under the sticky header (JS only). */
+.work-bar {
+  position: fixed; left: 0; right: 0; top: var(--header-h); z-index: 30;
+  display: flex; align-items: center; justify-content: space-between; gap: var(--s-4);
+  padding: 6px var(--gutter); background: var(--paper); border-bottom: 1px solid var(--rule);
+  box-shadow: 0 10px 20px -18px rgb(14 18 54 / 0.5);
+  transform: translateY(-120%); visibility: hidden;
+  transition: transform var(--t-base) var(--ease-out), visibility 0s linear var(--t-base);
+}
+.work-bar[data-show] { transform: none; visibility: visible; transition: transform var(--t-base) var(--ease-out), visibility 0s; }
+.work-bar__btn {
+  display: inline-flex; align-items: center; gap: 0.6rem; min-height: 44px; padding: 0 0.9rem;
+  background: var(--ink); color: var(--paper); border: 0; border-radius: var(--radius);
+  font-weight: 650; font-size: 0.9375rem; font-variant-numeric: tabular-nums;
+}
+.work-bar__icon, .work-bar__icon::before, .work-bar__icon::after { display: block; height: 1.5px; background: currentColor; border-radius: 1px; }
+.work-bar__icon { position: relative; width: 16px; }
+.work-bar__icon::before, .work-bar__icon::after { content: ""; position: absolute; left: 3px; right: 3px; }
+.work-bar__icon::before { top: -5px; left: 0; right: 0; }
+.work-bar__icon::after { top: 5px; left: 5px; right: 5px; }
+.work-bar__text { font-size: var(--fs-small); font-weight: 650; color: var(--ink); font-variant-numeric: tabular-nums; }
+
+@media (max-width: 759px) {
+  .work-filters { margin-inline: calc(-1 * var(--gutter)); padding: var(--s-5) var(--gutter); }
+  /* Phones: "Hosting in" shows the two latest years; the rest is one tap away in the filtered record. */
+  .work-abroad__year:nth-child(n+3) { display: none; }
+  .work-earlier__btn { width: 100%; justify-content: space-between; }
+  .work-selects { gap: var(--s-2); }
+  .work-row .ledger__place:not(:empty) + .ledger__format::before { content: "\00a0\00b7\00a0"; }
+  .work-venue { display: none; }
+  .work-place--venue .work-venue { display: inline; font-size: inherit; margin: 0; }
+  .work-row .ledger__main { order: 3; }
+  .work-row .ledger__date { order: 1; padding-top: 0; }
+  .work-row .ledger__flag { order: 2; padding-top: 0; }
+  .work-row .ledger__place { order: 4; }
+  .work-row .ledger__format { order: 5; }
+  .work-row { padding: 0.875rem 0; column-gap: 0; }
+  .work-year__h { padding-top: var(--s-6); }
+}
+@media (min-width: 760px) {
+  .work-selects { grid-template-columns: 1fr; }
+}
+@media (min-width: 760px) and (max-width: 1023px) {
+  .work-selects { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) {
+  .work-record__grid { grid-template-columns: 17.5rem minmax(0, 1fr); column-gap: clamp(2rem, 1rem + 2.5vw, 4rem); align-items: start; }
+  .work-side {
+    position: sticky; top: calc(var(--header-h) + var(--s-5));
+    max-height: calc(100vh - var(--header-h) - var(--s-7)); overflow-y: auto; overscroll-behavior: contain;
+    padding: 4px; margin: -4px; /* room for focus rings inside the scroller */
+  }
+  .js .work-jump { display: block; }
+  .work-filters { padding: var(--s-5) var(--s-4); }
+  .work-bar { display: none; }
+  .work-ledger__head { position: sticky; top: var(--header-h); z-index: 5; background: var(--paper); }
+  .work-year { scroll-margin-top: calc(var(--header-h) + 48px); }
+}
+@media (max-width: 1023px) {
+  .work-ledger__head { display: none; }
+}

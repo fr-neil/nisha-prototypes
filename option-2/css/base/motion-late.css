@@ -1,0 +1,9 @@
+/* Prototype 24 · motion CSS, not needed for the first paint (CORE-owned). */
+
+/* Print and find-in-page always see the final state (motion.js also finishes running tweens). */
+@media print {
+  [data-m1-hold], [data-page-title], .m-owned {
+    opacity: 1 !important; transform: none !important; clip-path: none !important; visibility: visible !important;
+  }
+  .p24-ink-muted { color: var(--ink) !important; }
+}

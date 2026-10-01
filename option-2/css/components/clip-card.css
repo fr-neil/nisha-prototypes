@@ -1,0 +1,21 @@
+/* Prototype 24 · component CSS: clip card (Home, Work, Watch, For event managers). CORE-owned; the player
+ * component opens it. Poster at its true aspect with the one allowed overlay ("Play clip"); title and facts
+ * BELOW the poster, never on it.
+ * <figure class="p24-card" data-group="<group>">
+ *   <a class="p24-card__frame" href="media/clips/<id>.mp4" data-clip="<id>" data-flip-id="card-<id>">
+ *     <img … width height alt><span class="p24-play" aria-hidden="true">Play clip</span></a>
+ *   <figcaption><span class="p24-card__title">…</span><span class="p24-cap">client · place · date · 0:18 · No sound</span></figcaption>
+ * </figure> */
+.p24-card { display: grid; gap: 10px; align-content: start; margin: 0; }
+.p24-card__frame {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: var(--tint-stone);
+  text-decoration: none;
+}
+.p24-card__frame img { display: block; width: 100%; height: auto; }
+.p24-card__frame .p24-play { pointer-events: none; }
+.p24-card figcaption { display: grid; gap: 2px; }
+.p24-card__title { font-family: var(--font-display); font-size: 20px; font-weight: 600; line-height: 1.25; }
+.p24-card__frame:focus-visible { outline-offset: 3px; }

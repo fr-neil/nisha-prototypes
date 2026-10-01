@@ -1,0 +1,76 @@
+/* Prototype 24 · layout (P28 §3.3, §3.4). CORE-owned.
+ * Grid: 1440 → 12 columns, 48 px margins, 24 px gutters (1344 px content). 390 → 4 columns, 16 px.
+ * Photographs may break the grid; text never does. */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--ground); scroll-padding-top: calc(var(--header-h) + 16px); }
+body {
+  margin: 0;
+  background: var(--ground);
+  min-height: 100vh;
+  overflow-x: clip;
+}
+h1, h2, h3, h4, p, figure, blockquote, dl, dd, ul, ol { margin: 0; }
+ul[role="list"], ol[role="list"], .p24-list { list-style: none; padding: 0; }
+img, video, svg { display: block; max-width: 100%; }
+img, video { height: auto; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+[hidden] { display: none !important; }
+
+/* Focus: 3 px ink outline, 2 px offset (§6). */
+:focus-visible {
+  outline: var(--focus);
+  outline-offset: var(--focus-offset);
+}
+.p24-btn:focus-visible { outline-offset: 3px; }
+
+.p24-skip {
+  position: absolute;
+  left: 8px;
+  top: -100px;
+  z-index: 100;
+  padding: 10px 16px;
+  background: var(--ink);
+  color: var(--on-ink);
+  border-radius: 6px;
+  font-weight: 600;
+}
+.p24-skip:focus { top: 8px; }
+
+.p24-sr {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
+/* Container and grid */
+.p24-wrap {
+  width: 100%;
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--margin);
+}
+/* .p24-grid, .p24-bleed and .p24-section live in layout-late.css (never on the first screen). */
+
+/* Figures: full photographs, captions BELOW the frame (never on it). */
+.p24-figure { display: grid; gap: 10px; }
+.p24-frame {
+  position: relative;
+  overflow: hidden;
+  background: var(--tint-stone);
+}
+.p24-frame > img, .p24-frame > video, .p24-frame > picture > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.p24-frame--true > img, .p24-frame--true > picture > img { height: auto; object-fit: initial; }
+.p24-cap {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.p24-cap--wrap { white-space: normal; }
