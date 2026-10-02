@@ -1,0 +1,149 @@
+/* Home (index.html): page-only layout. Shared components live in css/system.css. */
+
+/* ---------- 1. hero: full-bleed triptych of loops from the top (≥ 70% of the first screen), then one compact band ---------- */
+.hero__band{position:relative;width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;max-width:2168px;margin-inline:auto}
+.hero__panel .frame{height:clamp(400px,calc(100svh - 400px),853px)}
+.hero__panel .cap{padding-inline:var(--s4)}
+.hero__panel:first-child .cap{padding-left:var(--margin)}
+.hero__pause{top:var(--s3);bottom:auto}
+.hero__intro{display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));column-gap:var(--gutter);row-gap:var(--s4);padding-block:var(--s6) var(--s7)}
+.hero__name,.hero__line,.hero__actions,.hero__lead{grid-column:1/-1}
+.hero__name{color:var(--ink)}
+.hero__role{color:var(--ink-soft)}
+.hero__line{max-width:22ch;text-wrap:balance}
+.hero__lead{color:var(--ink-soft)}
+@media (min-width:1024px){
+  .hero__intro{row-gap:var(--s2);align-items:end;padding-top:var(--s4)}
+  .hero__intro > .marks-line{grid-row:1}
+  .hero__name{grid-column:1/9;grid-row:2}
+  .hero__line{grid-column:1/9;grid-row:3/5;max-width:none}
+  .hero__actions{grid-column:9/13;grid-row:3;justify-content:flex-end;align-self:start}
+  .hero__lead{grid-column:9/13;grid-row:4;font-size:var(--fs-body);text-align:right;justify-self:end;max-width:36ch}
+}
+@media (min-width:768px) and (max-width:1023px){
+  .hero__band{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero__panel--phoenix{display:none}
+  .hero__panel .frame{height:clamp(440px,60svh,760px)}
+}
+@media (max-width:767px){
+  .hero__band{grid-template-columns:1fr}
+  .hero__panel--phoenix,.hero__panel--raychem{display:none}
+  .hero__panel .frame{height:min(100vw,46svh)}
+  .hero__intro{padding-top:var(--s5);row-gap:var(--s4)}
+  .hero__actions{flex-direction:column;align-items:stretch;gap:var(--s2)}
+  .hero__actions .btn{width:100%}
+  .hero__actions .tlink{justify-content:center}
+}
+
+/* ---------- 2. credibility strip ---------- */
+.proof__label{margin-bottom:var(--s6)}
+.proof__foot{margin-top:var(--s7);display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:var(--s4) var(--s7)}
+.proof__how summary{cursor:pointer;list-style:none}
+.proof__how summary::-webkit-details-marker{display:none}
+.proof__how summary::after{content:"+";margin-left:6px;text-decoration:none}
+.proof__how[open] summary::after{content:"\2212"}
+.proof__basis{display:grid;gap:var(--s2);margin-top:var(--s3);max-width:80ch;color:var(--ink-soft)}
+.proof__basis strong{color:var(--ink);font-weight:600}
+.proof .proof__foot > .tlink{display:inline;max-width:60ch;line-height:1.9}
+
+/* ---------- 3. what are you planning? ---------- */
+.planning__grid .card{gap:var(--s3)}
+.planning__grid .card__title{margin-top:var(--s2)}
+.planning__grid .card__more{margin-top:var(--s1)}
+@media (min-width:768px){
+  .planning__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s8) var(--gutter)}
+}
+@media (min-width:1200px){
+  .planning__grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s8) var(--gutter)}
+}
+.planning__also{margin-top:var(--s7);font-family:var(--serif);font-size:var(--fs-quote);line-height:1.25;max-width:none}
+.planning__also a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
+.planning__also a:hover{color:var(--red-deep)}
+
+/* ---------- 4. the Nisha Difference ---------- */
+.difference__grid{row-gap:var(--s7)}
+.difference__list,.difference__media{grid-column:1/-1}
+.difference__title{margin-bottom:var(--head-gap)}
+.difference__more{margin-top:var(--s6)}
+.difference__media{width:100%;max-width:420px}
+@media (min-width:1024px){
+  .difference__list{grid-column:1/8}
+  .difference__media{grid-column:9/13;justify-self:end;position:sticky;top:var(--sticky-top);align-self:start}
+}
+@media (max-width:1023px){
+  .difference__media{order:-1;max-width:min(100%,360px)}
+}
+
+/* ---------- 5. showreel (component .reel in system.css) ---------- */
+.showreel__more{margin-top:var(--s6)}
+.showreel__more a{display:inline-flex;align-items:center;min-height:44px}
+
+/* ---------- 6. featured experiences ---------- */
+.feature{gap:var(--s5)}
+.feature__text{display:grid;gap:var(--s2);align-content:end}
+.feature__client{font-family:var(--serif);font-weight:400;font-stretch:100%;font-size:var(--fs-h2);line-height:1.05}
+.feature__event{font-size:var(--fs-lead);line-height:1.4}
+.feature__moment{margin-top:var(--s2);max-width:42ch}
+.feature .card__more{margin-top:var(--s3)}
+.featured__pair{display:grid;gap:var(--s8) var(--gutter);margin-top:var(--s9)}
+@media (min-width:768px){.featured__pair{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1024px){
+  .feature--lead{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter)}
+  .feature--lead .feature__media{grid-column:1/9}
+  .feature--lead .feature__text{grid-column:9/13;padding-bottom:var(--s8)}
+  .featured__pair .feature{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--gutter);align-items:end}
+  .featured__pair .feature__text{padding-bottom:var(--s8)}
+  .featured__pair .feature__client{font-size:var(--fs-h3);font-family:var(--ui);font-weight:600;font-stretch:87.5%;line-height:1.2}
+}
+.featured__more{display:none}
+@media (max-width:767px){
+  .feature--lead .frame{margin-inline:calc(-1 * var(--margin))}
+  /* phone: the lead story only, then a link (keeps the page short) */
+  .featured__pair{display:none}
+  .featured__more{display:block;margin-top:var(--s5)}
+}
+
+/* ---------- 7. worked with ---------- */
+.clients .names{max-width:none}
+.clients .names .names__more{display:none}
+.names__more a{text-decoration:underline;text-underline-offset:4px}
+@media (max-width:767px){
+  /* phone: ten names, then "and N more" */
+  .clients .names li:nth-child(n+11):not(.names__more){display:none}
+  .clients .names li:nth-child(10)::after{content:"\a0·\a0"}
+  .clients .names .names__more{display:inline-block}
+}
+
+/* ---------- 8. the Nisha Effect preview ---------- */
+.effect__grid{row-gap:var(--s6)}
+.effect__head,.effect__ph,.effect__again{grid-column:1/-1}
+.effect__ph{display:grid;gap:var(--s4);align-content:start}
+.effect__again{display:grid;gap:var(--s3);align-content:start}
+.again{margin-top:var(--s3)}
+@media (min-width:1024px){
+  .effect__head{grid-column:1/9}
+  .effect__ph{grid-column:1/7}
+  .effect__again{grid-column:8/13}
+}
+
+/* ---------- 9. about preview ---------- */
+.about-preview__grid{row-gap:var(--s6);align-items:center}
+.about-preview__media,.about-preview__text{grid-column:1/-1}
+.about-preview__text{display:grid;gap:var(--s5)}
+@media (min-width:768px){
+  .about-preview__media{grid-column:1/4}
+  .about-preview__text{grid-column:4/9}
+}
+@media (min-width:1024px){
+  .about-preview__media{grid-column:1/6}
+  .about-preview__text{grid-column:7/13}
+}
+
+/* ---------- 10. media preview ---------- */
+.media-preview__grid{display:grid;gap:var(--s7) var(--gutter)}
+.media-item__credit{display:grid;align-content:center;padding:var(--s6);background:var(--surface);aspect-ratio:3/2}
+.media-item__quote{font-family:var(--serif);font-size:var(--fs-quote);line-height:1.2;max-width:16ch}
+@media (min-width:768px){.media-preview__grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1024px){.media-preview__grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:767px){.media-item__credit{aspect-ratio:auto;padding:var(--s5)}}
+@media (min-width:768px){.clients .names li:nth-last-child(2)::after{content:none}}

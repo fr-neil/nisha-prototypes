@@ -1,0 +1,84 @@
+/* css/pages/about.css: About page layout (builder-owned). Shared rules: css/system.css, css/pages/b3.css. */
+
+/* ---------- 1. her story: sticky step name left, facts + media/words right ---------- */
+.steps{display:grid}
+.step{display:grid;gap:var(--s5);padding-block:var(--s7);border-top:1px solid var(--rule)}
+.step:last-child{border-bottom:1px solid var(--rule)}
+.step__label{display:grid;gap:var(--s2);align-content:start}
+.step__name{font-family:var(--serif);font-weight:400;font-stretch:100%;font-size:var(--fs-h2);line-height:1.05}
+.step__body{display:grid;gap:var(--s6);align-items:start}
+.step__facts{display:grid;gap:var(--s4)}
+.step__facts li{display:grid;gap:var(--s1)}
+.step__fact{font-size:var(--fs-lead);line-height:1.45}
+.step__side--words .quote{max-width:30rem}
+.quote--artefact .quote-text{font-size:var(--fs-h1);line-height:1;font-style:normal}
+.step__quote .quote{max-width:36rem}
+@media (min-width:768px){
+  .step{grid-template-columns:repeat(8,minmax(0,1fr));column-gap:var(--gutter)}
+  .step__label{grid-column:1/-1}
+  .step__body{grid-column:1/-1;grid-template-columns:repeat(8,minmax(0,1fr));column-gap:var(--gutter)}
+  .step__facts{grid-column:1/5}
+  .step__side{grid-column:5/9}
+  .step__quote{grid-column:1/-1}
+}
+@media (min-width:1024px){
+  .step{grid-template-columns:repeat(12,minmax(0,1fr));padding-block:var(--s8)}
+  .step__label{grid-column:1/4;position:sticky;top:var(--sticky-top);align-self:start}
+  .step__body{grid-column:4/13;grid-template-columns:repeat(9,minmax(0,1fr))}
+  .step__facts{grid-column:1/5}
+  .step__side{grid-column:5/10}
+  .step__quote{grid-column:1/10;padding-top:var(--s2)}
+}
+@media (max-width:767px){
+  .step__side--media{order:-1}
+  .step__side--media .frame{margin-inline:calc(-1 * var(--margin))}
+}
+
+/* ---------- 2. her craft: large frame + her words ---------- */
+.craft__grid{row-gap:var(--s7);align-items:start}
+.craft__media,.craft__text{grid-column:1/-1}
+.craft__text{display:grid;gap:var(--s5);align-content:start}
+.craft__quotes > li{padding-block:var(--s5)}
+.craft__quotes .quote{max-width:34rem}
+@media (min-width:768px){
+  .craft__media{grid-column:1/4}
+  .craft__text{grid-column:4/9}
+}
+@media (min-width:1024px){
+  .craft__media{grid-column:1/6;position:sticky;top:var(--sticky-top)}
+  .craft__text{grid-column:7/13}
+}
+
+/* ---------- 3. how she prepares: numbered rows + sticky arrival loop ---------- */
+.prepare__grid{row-gap:var(--s7)}
+.prepare__list,.prepare__media{grid-column:1/-1}
+.prep__row .pillar__body{gap:var(--s3)}
+.prep__row .quote{max-width:32rem}
+.prep__row .ph{margin-top:var(--s1)}
+.prepare__media{width:100%;max-width:400px}
+@media (min-width:1024px){
+  .prepare__list{grid-column:1/8}
+  .prepare__media{grid-column:9/13;justify-self:end;position:sticky;top:var(--sticky-top);align-self:start}
+}
+@media (max-width:1023px){
+  .prepare__media{max-width:min(100%,340px)}
+}
+
+/* ---------- 4. behind the mic: three frames on the band, then her words + portrait placeholder ---------- */
+.behind__gallery{display:grid;gap:var(--s4)}
+.behind__foot{margin-top:var(--s8);row-gap:var(--s6);align-items:stretch}
+.behind__quote,.behind__ph{grid-column:1/-1}
+.behind__quote .quote{max-width:36rem}
+.behind__ph .ph{min-height:220px}
+@media (min-width:768px){
+  .behind__gallery{grid-template-columns:5fr 3fr 4fr;align-items:end;gap:var(--gutter)}
+  .behind__quote{grid-column:1/6}
+  .behind__ph{grid-column:6/9}
+}
+@media (min-width:1024px){
+  .behind__quote{grid-column:1/8;align-self:center}
+  .behind__ph{grid-column:9/13}
+}
+
+/* review fix (3 Oct): each chapter is one short paragraph, not dated lines */
+.step__para{font-size:var(--fs-lead);line-height:1.5;max-width:40ch}

@@ -1,0 +1,61 @@
+/* css/pages/why.css: The Nisha Difference (builder-owned). Shared rules: css/system.css, css/pages/b3.css. */
+
+/* hero: the six pillars as jump links, one per line */
+.phero__jumps ul{display:grid;gap:0}
+.phero__jumps li{border-top:1px solid var(--rule)}
+.phero__jumps li:last-child{border-bottom:1px solid var(--rule)}
+.phero__jumps .tlink{text-decoration:none;width:100%}
+.phero__jumps .tlink:hover{text-decoration:underline}
+@media (min-width:1024px){.phero__jumps ul{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--gutter)}.phero__jumps li:nth-last-child(2){border-bottom:1px solid var(--rule)}}
+
+/* ---------- six pillars: one layout, mirrored on alternate rows ---------- */
+.pillar-row{padding-block:var(--s9)}
+.pillar-row + .pillar-row{border-top:1px solid var(--rule)}
+.pillar-row__grid{row-gap:var(--s6);align-items:center}
+.pillar-row__text,.pillar-row__media{grid-column:1/-1}
+.pillar-row__text{display:grid;gap:var(--s5);align-content:start}
+.pillar-row__num{letter-spacing:.14em}
+.proof-list{display:grid;gap:var(--s4)}
+.proof-list > li{display:grid;gap:var(--s1);max-width:52ch}
+.proof-list .quote{margin-top:var(--s2);max-width:30rem}
+.pillar-row .ph{max-width:52ch}
+.pillar-row__media .pair{max-width:636px}
+.pillar-row__media .pair--ph{max-width:420px}
+@media (min-width:768px){
+  .pillar-row__media .pair--ph{max-width:420px}
+}
+@media (min-width:1024px){
+  .pillar-row{padding-block:var(--s10)}
+  .pillar-row__text{grid-column:1/6}
+  .pillar-row__media{grid-column:7/13}
+  .pillar-row--flip .pillar-row__text{grid-column:8/13;grid-row:1}
+  .pillar-row--flip .pillar-row__media{grid-column:1/7;grid-row:1}
+  .pillar-row--flip .pillar-row__media .pair--ph{margin-left:auto}
+  .pillar-row:not(.pillar-row--flip) .pillar-row__media .pair{margin-left:auto}
+}
+@media (max-width:1023px){
+  .pillar-row__media{order:-1}
+}
+@media (max-width:767px){
+  .pillar-row{padding-block:var(--s8)}
+  .pillar-row__media .pair[data-snap]{grid-auto-columns:64vw}
+}
+
+/* ---------- a moment from the stage: typographic rows on the band ---------- */
+.moments__list{border-color:var(--rule)}
+.moment{display:grid;gap:var(--s4);padding-block:var(--s7)}
+.moment__head{display:grid;gap:var(--s2);align-content:start}
+.moment__quote .quote{max-width:40rem}
+.moment--ph{padding-block:var(--s6)}
+@media (min-width:1024px){
+  .moment{grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter)}
+  .moment__head{grid-column:1/5}
+  .moment__quote{grid-column:6/13}
+  .moment--ph .ph{grid-column:1/-1;max-width:none}
+}
+
+/* ---------- one "From the event team" slot for the page (review fix 3 Oct) ---------- */
+.from-team__grid{row-gap:var(--s5);align-items:end}
+.from-team__head,.from-team__ph{grid-column:1/-1}
+.from-team__head{display:grid;gap:var(--s3)}
+@media (min-width:1024px){.from-team__head{grid-column:1/6}.from-team__ph{grid-column:7/13}}
