@@ -1,0 +1,357 @@
+/* Prototype 5 "Hold the Mic": the producers page (producers.html). Uses base.css tokens and mic.css for the
+   held clips; nothing here changes the home page. Same art direction: ivory, ink, one red, Instrument Serif. */
+
+.producers .sec{padding-block:min(var(--sec),var(--s6))}
+.sec-head h2 + .sec-sub{margin-top:var(--s2)}
+.sec-sub{font-size:var(--fs-body);color:var(--mute);max-width:560px}
+.sec-sub + .sec-sub{margin-top:var(--s1)}
+.lab{font-family:var(--ui);font-weight:600;font-stretch:88%;font-size:15px;line-height:1.3;letter-spacing:.01em;color:var(--mute)}
+.producers .ph{white-space:normal}
+button.tlink{background:none;border:0;padding:0;min-height:44px;cursor:pointer;text-align:left}
+.tlink.sm{font-size:15px;margin-left:6px;white-space:nowrap}
+.print-only{display:none}
+
+/* photographs: one 240 ms fade as each decodes (JS adds .decoding only to images not yet loaded) */
+.p-photo img,.bios-photo img,.notes-photo img{transition:opacity .24s ease-out}
+.bios-photo .cap,.notes-photo .cap{text-wrap:pretty}
+.p-photo img.decoding,.bios-photo img.decoding,.notes-photo img.decoding{opacity:0}
+
+/* =====================================================================
+   1. FOR PRODUCERS — words left, one strong photograph right
+   ===================================================================== */
+.p-intro{padding:clamp(112px,14svh,148px) 0 var(--s6)}
+.p-intro .grid{align-items:start}
+.p-copy{grid-column:1 / span 6;grid-row:1}
+.p-photo{grid-column:8 / span 5;grid-row:1;margin:0}
+.p-photo img{width:100%;height:auto;aspect-ratio:3 / 4;object-fit:cover;background:var(--paper-2)}
+.p-h{font-family:var(--serif);font-size:clamp(60px,7.4vw,112px);line-height:.9;letter-spacing:-.025em;margin-top:var(--s3)}
+.p-facts{margin-top:var(--s4);font-family:var(--serif);font-size:28px;line-height:1.2;max-width:560px}
+
+.say{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--hair);max-width:560px}
+.say-name{font-family:var(--serif);font-size:56px;line-height:1;letter-spacing:-.02em;margin-top:var(--s2)}
+.say-how,.say-deva{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin-top:var(--s2)}
+.say-k{font-weight:600}
+.say-deva [lang=hi]{font-family:var(--deva);font-size:30px;line-height:1.3}
+
+.p-index{margin-top:var(--s5);display:flex;flex-wrap:wrap;gap:0 var(--s3);font-size:15px}
+.p-index a{color:var(--mute);text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
+.p-index a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.p-acts{margin-top:var(--s2);display:flex;flex-wrap:wrap;align-items:center;gap:0 var(--s4)}
+
+@media (max-width:1100px){
+  .p-copy{grid-column:1 / span 4}
+  .p-photo{grid-column:5 / span 4}
+  .p-facts{font-size:24px}
+  .say-name{font-size:46px}
+}
+/* phones: she comes first, full bleed under the header, then the words */
+@media (max-width:600px){
+  .p-intro{padding-top:0;padding-bottom:var(--s5)}
+  .p-copy,.p-photo{grid-column:1 / -1}
+  .p-copy{grid-row:2}
+  .p-photo{position:relative;margin-inline:calc(-1 * var(--gut))}
+  .p-photo picture{display:block;position:relative}
+  .p-photo picture::before{content:"";position:absolute;left:0;right:0;top:0;height:96px;background:linear-gradient(#F4F0EAd9,#F4F0EA00);z-index:1;pointer-events:none}
+  .p-photo img{aspect-ratio:auto;height:min(58svh,520px);object-position:50% 18%}
+  .p-photo .cap{padding-inline:var(--gut);font-size:12px}
+  .p-copy .eyebrow{margin-top:var(--s3)}
+  .p-h{font-size:64px;margin-top:var(--s1)}
+  .p-facts{font-size:22px;margin-top:var(--s3)}
+  .say{margin-top:var(--s4)}
+  .say-name{font-size:40px}
+  .say-deva [lang=hi]{font-size:26px}
+  .p-index{margin-top:var(--s3);gap:0 var(--s2)}
+}
+
+/* =====================================================================
+   2. HEAR HER — three held moments as a clip sheet (the home page's device)
+   ===================================================================== */
+.clips .sec-head{margin-bottom:var(--s4)}
+.clip{--btn:88px;display:grid;grid-template-columns:216px minmax(0,1fr) minmax(0,1.3fr);
+  grid-template-areas:"media info side" "media . side" "media ctl ctl";grid-template-rows:auto 1fr auto;
+  column-gap:var(--s4);padding-block:var(--s4);border-top:1px solid var(--hair)}
+.clip:last-of-type{border-bottom:1px solid var(--hair)}
+.clip-media{grid-area:media}
+.clip .m-photo{position:relative;width:100%;aspect-ratio:4 / 5}
+#c-datamatics{--pos:50% 30%}
+#c-himalaya{--pos:50% 40%}
+#c-dorby{--pos:50% 40%}
+.clip .tag{left:12px;right:12px;bottom:10px}
+.clip .tc{font-size:11px;letter-spacing:.16em}
+.clip-info{grid-area:info}
+.clip-t{font-family:var(--serif);font-size:36px;line-height:1;letter-spacing:-.015em}
+.clip-info .cap{margin-top:var(--s1)}
+
+/* meta at rest; her words take the same place while they are on screen (the hero's grammar) */
+.clip-meta,.clip-words{grid-area:side}
+.clip-meta{display:grid;grid-template-columns:auto auto minmax(0,1fr);gap:var(--s3);align-content:start}
+.clip-meta dt{font-size:var(--fs-meta);color:var(--mute)}
+.clip-meta dd{font-size:var(--fs-body);line-height:1.3;margin-top:2px}
+.js .clip.played:not(.is-still) .clip-meta{visibility:hidden}
+.js .clip[data-draft-label].played:not(.is-live) .clip-meta{visibility:visible}
+.cc-off .clip .clip-meta{visibility:visible!important}
+.clip .m-draft{margin-bottom:var(--s1)}
+.clip .said .before{font-size:18px}
+.clip .said .now{font-size:38px;line-height:1.02;margin-top:6px}
+.clip .said .now.sz-s{font-size:32px}
+.clip .said .now:lang(hi){font-size:30px;line-height:1.35}
+.clip .said .gloss{font-size:15px;margin-top:6px}
+
+/* the mic on its own line, along the foot of the row */
+.clip-ctl{grid-area:ctl;position:relative;height:calc(var(--btn) / 2 + 82px);align-self:end}
+.clip .line{top:calc(var(--btn) / 2 - 35px);height:70px}
+.clip .mic{left:0;right:0;top:0}
+.clip .mic-txt{position:absolute;left:calc(var(--btn) + 16px);right:0;top:calc(var(--btn) / 2 + 8px)}
+.clip .act{font-size:21px;align-self:flex-start;background:var(--paper);padding:0 6px;margin-left:-6px;border-radius:3px}
+.clip .alt{font-size:14px;gap:0 12px}
+.clip .alt .lang{display:none}             /* the language is in the meta beside it */
+.clip .hint{left:0;bottom:calc(100% + 8px);white-space:nowrap}
+.no-js .clip-ctl{display:none}
+.no-js .clip-words{display:none}
+.no-js .clip .transcript{grid-column:2 / -1;margin-top:var(--s2)}
+.no-js .clip .transcript p{font-size:20px}
+.no-js .clips .sec-sub{display:none}             /* no mic without JS: the native players carry the clips */
+
+.clips-foot{margin-top:var(--s3);font-size:15px;color:var(--mute)}
+
+/* tablet and phones: picture beside its title and meta, the mic across the row, words under it once played */
+@media (max-width:900px){
+  .clip{--btn:72px;grid-template-columns:160px minmax(0,1fr);grid-template-areas:"media info" "media side" "ctl ctl" "words words";grid-template-rows:auto 1fr auto auto;column-gap:var(--s3);padding-block:var(--s3)}
+  .clip-meta{grid-area:side;margin-top:var(--s2);grid-template-columns:repeat(3,auto);justify-content:start}
+  .clip-words{grid-area:words;margin-top:var(--s1)}
+  .js .clip.is-still .clip-words{display:none}
+  .js .clip.played:not(.is-still) .clip-meta{visibility:visible}   /* the words have their own row here */
+  .clip-ctl{margin-top:var(--s3);height:calc(var(--btn) / 2 + 80px)}
+  .clip .hint{white-space:normal}
+  /* draft words show only while playing; once frozen they give their row back (below the held clip) */
+  .js .clip[data-draft-label]:not(.is-live) .clip-words{display:none}
+}
+@media (max-width:600px){
+  .clip{--btn:64px;grid-template-columns:112px minmax(0,1fr);column-gap:var(--s2)}
+  .clip-t{font-size:28px}
+  .clip-info .cap{font-size:13px}
+  .clip-meta{grid-template-columns:1fr;gap:4px;margin-top:var(--s1)}
+  .clip-meta div{display:flex;gap:8px;align-items:baseline}
+  .clip-meta dt{flex:none;width:70px;font-size:12px}
+  .clip-meta dd{font-size:14px;margin:0}
+  .clip-ctl{margin-top:var(--s2);height:calc(var(--btn) / 2 + 78px)}
+  .clip .act{font-size:18px}
+  .clip .mic{left:12px}
+  .clip .m-draft .chip{white-space:normal}
+  .clip .tag{left:8px;right:6px;bottom:8px}
+  .clip .tc{font-size:10px;letter-spacing:.1em;gap:6px}
+  .clip .mic-txt{left:calc(var(--btn) + 12px);top:calc(var(--btn) / 2 + 6px)}
+  .clip .alt .cc .cc-l{display:none}.clip .alt .cc .cc-s{display:inline}
+  .clip .said .before{font-size:16px}
+  .clip .said .now{font-size:30px}
+  .clip .said .now.sz-s{font-size:26px}
+  .clip .said .now:lang(hi){font-size:24px}
+  .clip.is-live .mic-btn .r3{display:none}
+  .no-js .clip .transcript{grid-column:1 / -1}
+  /* no JS: the native player gets the full width, so its whole control bar shows */
+  .no-js .clip{grid-template-columns:1fr;grid-template-rows:auto;grid-template-areas:"info" "media" "side"}
+  .no-js .clip .m-photo{aspect-ratio:9 / 16;max-height:60svh;margin-top:var(--s2)}
+}
+
+/* =====================================================================
+   3. BIOS — one portrait, three lengths, each with Copy
+   ===================================================================== */
+.bios .grid{align-items:start}
+.bios-photo{grid-column:1 / span 4;margin:0;position:sticky;top:var(--s4)}
+.bios-photo img,.notes-photo img{width:100%;height:auto;aspect-ratio:4 / 5;object-fit:cover;background:var(--paper-2)}
+.bios-main{grid-column:6 / span 7}
+.bios .sec-head{margin-bottom:var(--s4)}
+.bio{border-top:1px solid var(--hair);padding-block:var(--s3) var(--s4)}
+.bio-top{display:flex;justify-content:space-between;align-items:center;gap:var(--s2);min-height:44px}
+.wc{font-family:var(--text);font-weight:400;font-stretch:100%;color:var(--mute);margin-left:8px}
+.bio-t{margin-top:var(--s1);max-width:640px}
+.bio-t p + p{margin-top:var(--s2)}
+.bio-s .bio-t{font-family:var(--serif);font-size:30px;line-height:1.18}
+.bio-m .bio-t{font-size:19px;line-height:1.5}
+.bio-l .bio-t{font-size:var(--fs-body);line-height:1.55}
+
+/* one Copy control: the text-link style, with a confirmation that does not move anything */
+.copy-btn{font-family:var(--text);font-weight:600;font-size:15px;color:var(--ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;min-height:44px;min-width:64px;padding:0 4px;text-align:right;flex:none}
+.copy-btn:hover{color:var(--red)}
+.copy-btn.done{text-decoration:none;color:var(--mute)}
+
+@media (max-width:1100px){
+  .bios-photo{grid-column:1 / span 3}
+  .bios-main{grid-column:4 / span 5}
+  .bio-s .bio-t{font-size:26px}
+}
+@media (max-width:600px){
+  .bios .grid{grid-template-columns:148px minmax(0,1fr);column-gap:var(--s2)}
+  .bios-main{display:contents}
+  .bios-photo{grid-column:1;grid-row:1;position:static}
+  .bios .sec-head{grid-column:2;grid-row:1;align-self:center;margin-bottom:0}
+  .bio{grid-column:1 / -1}
+  .bio-s{margin-top:var(--s4)}
+  .bios-photo .cap{font-size:12px}
+  .bio-s .bio-t{font-size:23px}
+  .bio-m .bio-t{font-size:17px}
+}
+
+/* =====================================================================
+   4. BEFORE SHE WALKS ON — the announcer's intro, set as a cue card
+   ===================================================================== */
+.walk .grid{align-items:center}
+.walk-head{grid-column:1 / span 4}
+.walk-head h2{margin-bottom:var(--s3)}
+.card-wrap{grid-column:6 / span 7}
+.cue{margin:0;background:var(--white);border-radius:6px;box-shadow:0 1px 0 #0000000f,0 18px 48px #1b18151a;padding:var(--s4) 44px var(--s3)}
+.cue-t{font-family:var(--serif);font-size:34px;line-height:1.2;letter-spacing:-.01em}
+.cue-t p + p{margin-top:.45em}
+.cue-t strong{font-weight:400;font-style:italic}
+.fill{font-style:italic;color:var(--mute);border-bottom:1.5px dotted var(--mute);padding:0 2px}
+.cue-foot{margin-top:var(--s4);padding-top:var(--s2);border-top:1px solid var(--hair);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:var(--s1) var(--s2);font-size:15px;color:var(--mute)}
+.cue-hi{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
+
+@media (max-width:1100px){
+  .walk-head{grid-column:1 / -1;margin-bottom:var(--s4)}
+  .card-wrap{grid-column:1 / -1}
+}
+@media (max-width:600px){
+  .walk-head{margin-bottom:var(--s3)}
+  .cue{padding:var(--s3) 20px var(--s2)}
+  .cue-t{font-size:25px}
+  .cue-foot{margin-top:var(--s3)}
+}
+
+/* =====================================================================
+   5. WORKING NOTES — evidence beside a working photograph; placeholders stay quiet
+   ===================================================================== */
+.notes .grid{align-items:start}
+.notes-photo{grid-column:1 / span 4;margin:0}
+.notes-main{grid-column:6 / span 7}
+.notes .sec-head{margin-bottom:var(--s4)}
+.notes-list>div{display:grid;grid-template-columns:200px minmax(0,1fr);gap:var(--s2);border-top:1px solid var(--hair);padding-block:14px}
+.notes-list>div:last-child{border-bottom:1px solid var(--hair)}
+.notes-list dt{font-family:var(--ui);font-weight:600;font-stretch:88%;font-size:16px;line-height:1.5}
+.notes-list dd{line-height:1.5}
+.notes-list dd .ph{display:table;margin-top:6px}
+.notes-list dd>.ph:first-child{margin-top:0}
+.places{display:block;margin-top:4px;font-family:var(--serif);font-size:22px;line-height:1.3}
+
+@media (max-width:1100px){
+  .notes-photo{grid-column:1 / span 3}
+  .notes-main{grid-column:4 / span 5}
+  .notes-list>div{grid-template-columns:1fr;gap:10px}   /* room for the 44 px tap area of "Hear her in Hindi" */
+}
+@media (max-width:600px){
+  .notes .grid{grid-template-columns:148px minmax(0,1fr);column-gap:var(--s2)}
+  .notes-main{display:contents}
+  .notes-photo{grid-column:1;grid-row:1}
+  .notes .sec-head{grid-column:2;grid-row:1;align-self:center;margin-bottom:0}
+  .notes-list{grid-column:1 / -1;margin-top:var(--s4)}
+  .notes-photo .cap{font-size:12px}
+  /* the same stacked kind label as the home page's narrow photographs */
+  .bios-photo .kind,.notes-photo .kind{display:block;margin:0 0 1px}
+  .places{font-size:20px}
+}
+
+/* =====================================================================
+   6. WHO REPLIES — contacts, the one CTA, print
+   ===================================================================== */
+.who{background:var(--paper-2)}
+.who .grid{align-items:end}
+.who-main{grid-column:1 / span 7}
+.who-list{margin-top:var(--s4)}
+.who-list>div{display:grid;grid-template-columns:200px minmax(0,1fr);gap:var(--s2);border-top:1px solid var(--hair);padding-block:12px}
+.who-list dt{font-size:15px;font-weight:600}
+.who-act{grid-column:9 / span 4;display:flex;flex-direction:column;align-items:flex-start;gap:var(--s2)}
+@media (max-width:1100px){
+  .who-main{grid-column:1 / span 5}
+  .who-act{grid-column:6 / span 3}
+  .who-list>div{grid-template-columns:1fr;gap:2px}
+}
+@media (max-width:600px){
+  .who-main,.who-act{grid-column:1 / -1}
+  .who-act{margin-top:var(--s4)}
+  .who-act .pill{width:100%}
+}
+
+/* =====================================================================
+   PRINT — "Print / save as PDF": a one-sheet without the device
+   ===================================================================== */
+@media print{
+  @page{size:A4;margin:14mm 14mm 16mm}
+  :root{--gut:0px;--gap:16px;--fs-body:10.5pt}
+  html,body{background:#fff!important;color:#000;font-size:10.5pt;line-height:1.4}
+  .skip,.top .pill,.top .nav,.p-index,.p-acts,.who-act,.copy-btn,.print-btn,.clip-ctl,.clip-words,.hint,.status,.clip .transcript,.clips-foot,.f-social,.f-pages,.clips .sec-sub,.tlink.sm{display:none!important}
+  .print-only{display:block}
+  .top{position:static;height:auto;padding:0 0 4mm;border-bottom:1px solid #0003}
+  .mark{font-size:11pt}
+  .wrap{padding:0;max-width:none}
+  .grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:16px}
+  .producers .sec{padding-block:3.5mm 0;border-top:1px solid #0003;break-inside:auto}
+  h2,.sec-head{break-after:avoid}
+  h2{font-size:17pt;line-height:1}
+  .sec-head{margin-bottom:2mm!important}
+  .cap{font-size:8pt;margin-top:1mm}
+  .ph{background:none;border:1px dashed #0006;padding:0 4px;font-style:normal;color:#000}
+  .chip{font-size:8pt}
+
+  /* the intro: name, how to say it, facts; a small photograph on the right */
+  .p-intro{padding:5mm 0 0}
+  .p-copy{grid-column:1 / span 10}
+  .p-photo{grid-column:11 / span 2}
+  .p-photo img{aspect-ratio:3 / 4}
+  .p-h{font-size:30pt;margin-top:1mm}
+  .p-facts{font-size:14pt;margin-top:3mm}
+  .say{margin-top:4mm;padding-top:3mm}
+  .say-name{font-size:22pt;margin-top:1mm}
+  .say-how,.say-deva{margin-top:1.5mm}
+  .say-deva [lang=hi]{font-size:14pt}
+
+  /* clips: a plain list (length, language, transcript status) and where to hear them */
+  .clips .sec-head{margin-bottom:2mm}
+  .clip{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);grid-template-areas:"info side";column-gap:16px;padding-block:2mm;border-color:#0003;break-inside:avoid}
+  .clip-media{display:none}
+  .clip-t{font-size:13pt}
+  .clip-info .cap{margin-top:0}
+  .clip-meta{visibility:visible!important;grid-template-columns:auto auto minmax(0,1fr);gap:4mm}
+  .clip-meta dt{font-size:8pt}
+  .clip-meta dd{font-size:10pt}
+  .print-url{margin-top:2mm;font-size:9pt;color:#444}
+
+  /* bios: text only */
+  .bios-photo,.notes-photo{display:none}
+  .bios-main,.notes-main{grid-column:1 / -1}
+  .bio{padding-block:1.5mm 2mm;break-inside:avoid}
+  .bio-l{break-inside:auto}                    /* the long bio may run on, so page 1 is filled */
+  .bio-l p{orphans:3;widows:3}
+  .bio-top{min-height:0}
+  .bio-s .bio-t{font-size:13pt}
+  .bio-m .bio-t,.bio-l .bio-t{font-size:10.5pt}
+
+  /* the announcer's card */
+  .walk-head{grid-column:1 / -1;margin-bottom:2mm}
+  .walk-head .sec-sub{display:block;font-size:9pt}
+  .card-wrap{grid-column:1 / -1}
+  .cue{box-shadow:none;border:1px solid #0004;padding:4mm 5mm 3mm;break-inside:avoid}
+  .cue-t{font-size:13pt}
+  .cue-foot{margin-top:2mm;padding-top:2mm;font-size:9pt}
+
+  .notes-list>div,.who-list>div{grid-template-columns:40mm minmax(0,1fr);padding-block:1.5mm;break-inside:avoid}
+  .notes-list dt{font-size:10pt}
+  .places{font-size:12pt}
+  .who{background:none}
+  .who-main{grid-column:1 / -1}
+  .who-list{margin-top:2mm}
+
+  /* fit the sheet on two A4 pages: tighter rows, one-line headings */
+  .walk-head h2 br{display:none}
+  .walk-head .sec-sub{display:inline-block;margin:0 3mm 0 0}
+  .bio-t p + p{margin-top:1.5mm}
+  .clip{padding-block:1.5mm}
+  .notes-list>div,.who-list>div{padding-block:1mm}
+  .notes-list dd .ph{display:inline-block;margin-top:1mm}
+  .places{font-size:11pt;line-height:1.25}
+
+  .foot{border-top:1px solid #0003;padding:4mm 0 0;font-size:8pt}
+  .foot .wrap{display:block}
+  .f-mark,.f-what{display:inline;margin-right:4mm}
+  .f-note{margin-top:1mm}
+  a{text-decoration:none}
+}

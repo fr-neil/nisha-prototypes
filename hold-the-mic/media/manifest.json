@@ -1,0 +1,905 @@
+{
+ "project": "Prototype 5 \"Hold the Mic\"",
+ "generated": "2026-10-02 (review fixes)",
+ "direction": "Research/PHASE-43-P5-HOLD-THE-MIC.md",
+ "basePath": "media/",
+ "rules": [
+  "Real media only; every file traces to Concepts-R2/hold-the-mic/media, Prototype-26/media or Prototype-4/media (see source on each entry). No SBI or NSE media.",
+  "Nothing is upscaled; no derived file exceeds its source dimensions.",
+  "year is filled only where the record supports printing it; Datamatics and Himalaya carry year:null on purpose (see yearNote).",
+  "Spoken words shown as hers: only the four verified Datamatics cues. Every other transcript is a draft: show only while playing, with the chip 'Draft transcript, awaiting her approval' (Dorby: 'Draft transcript and translation, awaiting her approval').",
+  "Clips: H.264 High yuv420p 720x1280 30 fps, AAC-LC 48 kHz stereo ~128k, moov before mdat (faststart). Loudness target -16 LUFS integrated (EBU R128) within 0.5 LU; true peak at or below -1.5 dBTP.",
+  "Stills cut from video are 720 px wide: render at <= 792 css px (video rule). Photographs: srcset/sizes so naturalWidth >= 1.5 x clientWidth at 1440 and 390.",
+  "'-mono' files are plain luma greyscale (no contrast or brightness baked in), so they are safe under the still-state CSS filter grayscale(1) contrast(.82) brightness(1.1)."
+ ],
+ "moments": [
+  {
+   "id": "datamatics",
+   "section": "hero (#m-datamatics)",
+   "role": "held moment",
+   "files": {
+    "mp4": "datamatics-open.mp4",
+    "captions": [
+     {
+      "file": "datamatics-open.en.vtt",
+      "kind": "captions",
+      "srclang": "en",
+      "label": "English",
+      "status": "verified"
+     }
+    ],
+    "still": {
+     "jpg": "datamatics-face.jpg",
+     "avif": "datamatics-face.avif",
+     "w": 720,
+     "h": 1280,
+     "at": 3.5,
+     "note": "Frame at 3.5 s of the clip (matched by pixel difference); mic at her mouth, mid-sentence. The reel is black and white for its first 10 s, so this still is monochrome at source: no colour version exists and no separate -mono file is needed. Also the poster (no-JS too)."
+    }
+   },
+   "w": 720,
+   "h": 1280,
+   "duration": 11.07,
+   "bytes": 2477357,
+   "start": 0.45,
+   "startNote": "Frames 0 to about 0.4 s are black; the first word sounds at about 0.8 s (cue 1 starts 0.6). Same as the concept's data-start.",
+   "lengthLabel": "0:11",
+   "lang": "en",
+   "end": {
+    "from": 10.5,
+    "note": "10.0 s is a white flash; from about 10.5 s to the last frame the room applauds in colour (the 'THE ROOM ANSWERS' state)."
+   },
+   "loudness": {
+    "integratedLUFS": -15.6,
+    "truePeakDBTP": -5.8,
+    "processing": "none: byte-identical copy (already within 0.5 LU of target)"
+   },
+   "envelope": "Use HTM_ENV.datamatics from the concept's js/envelopes.js unchanged (same file).",
+   "client": "Datamatics",
+   "event": "Annual Achievers Awards",
+   "place": "Jio World Convention Centre, Mumbai",
+   "city": "Mumbai",
+   "year": null,
+   "yearNote": "Never print a year: r111 has a date conflict (posted Sep 2026; a YouTube copy is titled 'Awards 2025').",
+   "recordRow": "r111",
+   "caption": "Opening the room · Datamatics, Annual Achievers Awards · Mumbai",
+   "transcript": {
+    "status": "verified",
+    "cues": 4,
+    "note": "All four cues match the reel's own on-screen words. The clip ends before unverified cue 5. Verified words carry no source line."
+   },
+   "alt": "Nisha Shetty on the Datamatics awards stage in a long gown, mic raised as she speaks, in black and white",
+   "source": {
+    "copiedFrom": "Concepts-R2/hold-the-mic/media/datamatics-open.mp4, datamatics-open.en.vtt, datamatics-face.jpg (byte copies)",
+    "original": "Instagram reel Dd1ggLhpVrO (Assets-Reference/instagram-all/videos/2026-09-28_Dd1ggLhpVrO.mp4)",
+    "derivatives": [
+     "datamatics-face.avif (AVIF q55 of the same frame)"
+    ]
+   },
+   "flags": [
+    "Only verified source: a 720 px edited reel, black and white for its first 10 s (NEEDS-NISHA 1a: clean master).",
+    "No burned-in yellow words were visible in the checked frames of this 11 s cut; with JS the page still sets native tracks to hidden."
+   ]
+  },
+  {
+   "id": "himalaya",
+   "section": "rooms, card a (#m-himalaya)",
+   "role": "held moment",
+   "files": {
+    "mp4": "himalaya.mp4",
+    "captions": [
+     {
+      "file": "himalaya.en.vtt",
+      "kind": "captions",
+      "srclang": "en",
+      "label": "English (draft)",
+      "status": "draft"
+     }
+    ],
+    "still": {
+     "jpg": "himalaya-still.jpg",
+     "avif": "himalaya-still.avif",
+     "w": 720,
+     "h": 1280,
+     "at": 0.3,
+     "note": "Frame at 0.3 s, the start frame, so still and first live frame match."
+    },
+    "stillMono": {
+     "jpg": "himalaya-still-mono.jpg",
+     "avif": "himalaya-still-mono.avif",
+     "w": 720,
+     "h": 1280
+    }
+   },
+   "w": 720,
+   "h": 1280,
+   "duration": 11.52,
+   "bytes": 2339096,
+   "start": 0.3,
+   "startNote": "0.0 to 0.2 s is a light wash from the reel's transition. Her voice is already sounding from about 0.1 s, so a 0.3 s start may clip the first syllable of 'Working': check by ear; if clipped, use start 0.1.",
+   "lengthLabel": "0:11",
+   "lang": "en",
+   "loudness": {
+    "integratedLUFS": -16,
+    "truePeakDBTP": -4.9,
+    "processing": "video stream copied bit-exact; audio linear gain -1.5 dB (source -14.5 LUFS), AAC 128k re-encode; A/V offset measured 0 ms"
+   },
+   "envelope": "Use HTM_ENV.himalaya unchanged: same timeline, linear gain only.",
+   "client": "Himalaya",
+   "event": "Himalaya Star Awards",
+   "place": "Jaipur",
+   "city": "Jaipur",
+   "year": null,
+   "yearNote": "r086 is dated Jul 2025, but in the clip she says a year heard as 2024 or 2020. No year until Nisha confirms (PHASE-43 §1.2).",
+   "recordRow": "r086",
+   "caption": "Himalaya, Himalaya Star Awards · Jaipur",
+   "transcript": {
+    "status": "draft",
+    "cues": 3,
+    "note": "Cues 1-3 only ('Working together, / tiny stars make up a beautiful universe. / To each one of you,'), text unchanged from the concept. Source cue 4 (8.9-11.4 s) omitted: unresolved year in brackets. Show only while playing, with the draft chip."
+   },
+   "alt": "Nisha Shetty in a silver sequinned gown on the Himalaya Star Awards stage, mic in hand",
+   "cardObjectPosition": "50% 40%",
+   "cropNote": "At a 4:5 card the 720x1280 still crops vertically only, so the x value has no effect; at y 40% her face, mic hand and gown are inside (checked: _tools/p5-shots/media/card-crops-4x5.jpg).",
+   "source": {
+    "copiedFrom": "Concepts-R2/hold-the-mic/media/himalaya.mp4 (= Prototype-26 voice-himalaya.mp4), himalaya-still.jpg; VTT is a P5 copy",
+    "original": "Instagram DL0B7ZxIXua, 3.5-15 s",
+    "derivatives": [
+     "himalaya.mp4 (audio gain only)",
+     "himalaya.en.vtt (cues 1-3)",
+     "himalaya-still.avif",
+     "himalaya-still-mono.{jpg,avif}"
+    ]
+   },
+   "flags": [
+    "7.0-7.5 s holds a white cross-fade from the source edit (cut to a closer shot)."
+   ]
+  },
+  {
+   "id": "dorby-hi",
+   "section": "rooms, card b (#m-dorby)",
+   "role": "held moment",
+   "files": {
+    "mp4": "dorby-hi-open.mp4",
+    "captions": [
+     {
+      "file": "dorby-hi-open.hi.vtt",
+      "kind": "captions",
+      "srclang": "hi",
+      "label": "Hindi (draft)",
+      "status": "draft"
+     },
+     {
+      "file": "dorby-hi-open.en.vtt",
+      "kind": "subtitles",
+      "srclang": "en",
+      "label": "English translation (draft)",
+      "status": "draft"
+     }
+    ],
+    "still": {
+     "jpg": "dorby-hi-still.jpg",
+     "avif": "dorby-hi-still.avif",
+     "w": 720,
+     "h": 1280,
+     "at": 0.4,
+     "note": "Frame at 0.4 s, the first clean frame after the reel's flare transition."
+    },
+    "stillMono": {
+     "jpg": "dorby-hi-still-mono.jpg",
+     "avif": "dorby-hi-still-mono.avif",
+     "w": 720,
+     "h": 1280
+    }
+   },
+   "w": 720,
+   "h": 1280,
+   "duration": 5.6,
+   "bytes": 2913670,
+   "start": 0,
+   "startNote": "Keep 0: her first syllable starts at about 0.28 s. Frames 0-0.4 s are a lens flare and a white flash from the source edit; the page may keep the still over the video until videoCleanFrom.",
+   "videoCleanFrom": 0.45,
+   "lengthLabel": "0:06",
+   "lang": "hi",
+   "trim": {
+    "from": "Concepts-R2/hold-the-mic/media/dorby-hi.mp4 (8.40 s)",
+    "in": 0,
+    "out": 5.6,
+    "reason": "Cue 1 ends 5.2 s; measured near-silence 5.20-5.84 s (about -35 dBFS), next syllable at 5.86 s, so no syllable crosses 5.6 s.",
+    "fade": "120 ms audio fade-out, 5.48-5.60 s",
+    "encode": "libx264 preset slow CRF 20, High, yuv420p, GOP 30, no scaling; AAC 128k; alimiter ceiling -1.5 dBFS (source true peak was +0.8 dBTP), latency-compensated: A/V offset measured 0 ms"
+   },
+   "loudness": {
+    "integratedLUFS": -16.4,
+    "truePeakDBTP": -1.5,
+    "processing": "limiter only (the trimmed span was already -16.2 LUFS)"
+   },
+   "envelope": "Slice HTM_ENV['dorby-hi'] to its first 672 samples (5.6 s x 120 per s); timeline unchanged.",
+   "client": "Dorby",
+   "event": "The Dorby Dialogue",
+   "place": "Mementos by ITC Ekaaya, Udaipur",
+   "city": "Udaipur",
+   "year": 2026,
+   "yearNote": "r101 has a date conflict (YouTube Mar 2026; Instagram/LinkedIn May-Jun 2026); both fall in 2026, so 2026 may be printed.",
+   "recordRow": "r101",
+   "caption": "Dorby, The Dorby Dialogue · Udaipur · 2026",
+   "via": "WootFactor (agency; clearance pending)",
+   "transcript": {
+    "status": "draft",
+    "cues": 1,
+    "note": "Low-confidence auto-draft Hindi (Devanagari) and a draft English translation, cue 1 only (0-5.2 s), text unchanged from the concept. The unresolved second line is outside the trim. Chip: 'Draft transcript and translation, awaiting her approval'."
+   },
+   "alt": "Nisha Shetty in a black off-shoulder gown on The Dorby Dialogue stage, mic in hand, speaking in Hindi",
+   "cardObjectPosition": "62% 45%",
+   "cropNote": "At 4:5 only the y value acts; at 45% her face, mic hand and the Dorby mark are inside (checked: card-crops-4x5.jpg).",
+   "source": {
+    "copiedFrom": "Concepts-R2/hold-the-mic/media/dorby-hi.mp4, dorby-hi.hi.vtt, dorby-hi.en.vtt, dorby-hi-still.jpg (= Prototype-26 voice-dorby-hi)",
+    "original": "Instagram DZXv6Y9I0Sc, 5-13.4 s",
+    "derivatives": [
+     "dorby-hi-open.mp4 (trim + re-encode)",
+     "dorby-hi-open.hi.vtt and .en.vtt (cue 1)",
+     "dorby-hi-still.avif",
+     "dorby-hi-still-mono.{jpg,avif}"
+    ]
+   },
+   "flags": [
+    "Owner choice open: the full 8.4 s clip with karaoke for cue 1 only (source stays in Concepts-R2).",
+    "Co-host not named until he consents."
+   ]
+  }
+ ],
+ "photographs": [
+  {
+   "id": "cue-cards",
+   "section": "Off the stage",
+   "role": "portrait, no mic (the deliberate exception)",
+   "files": [
+    {
+     "file": "cue-cards-480.avif",
+     "w": 480,
+     "h": 600,
+     "bytes": 12379
+    },
+    {
+     "file": "cue-cards-480.jpg",
+     "w": 480,
+     "h": 600,
+     "bytes": 27245
+    },
+    {
+     "file": "cue-cards-960.avif",
+     "w": 960,
+     "h": 1200,
+     "bytes": 28981
+    },
+    {
+     "file": "cue-cards-960.jpg",
+     "w": 960,
+     "h": 1200,
+     "bytes": 74778
+    },
+    {
+     "file": "cue-cards-1440.avif",
+     "w": 1440,
+     "h": 1800,
+     "bytes": 51505
+    },
+    {
+     "file": "cue-cards-1440.jpg",
+     "w": 1440,
+     "h": 1800,
+     "bytes": 141751
+    }
+   ],
+   "sourceW": 1440,
+   "sourceH": 1800,
+   "client": null,
+   "event": null,
+   "place": null,
+   "year": 2024,
+   "yearNote": "Year of her post (2024-07-04); the event is not named.",
+   "recordRow": null,
+   "caption": "Between segments · 2024",
+   "alt": "Nisha Shetty seated in a white blazer between segments, smiling, cue cards in her lap",
+   "objectPosition": "55% 30%",
+   "sizes": "desktop about 420 css px (4 of 12 columns) -> 960w (1440w at 2x); phone 132 css px -> 480w",
+   "source": {
+    "copiedFrom": "Prototype-26/media/stills/cue-cards-{480,960,1440}.{avif,jpg} (byte copies)",
+    "original": "Assets-Reference/instagram-all/images/work/2024-07-04_C9ADVTRqWsM_01.jpg (1440x1800)",
+    "post": "https://www.instagram.com/p/C9ADVTRqWsM/"
+   },
+   "flags": [
+    "She wears a white blazer and red top here and in the HSBC frame in the next section: two nearby colour photographs in the same outfit colours. Acceptable (different years and settings), but the owner should see it."
+   ]
+  },
+  {
+   "id": "hsbc-hand",
+   "section": "Request availability",
+   "role": "stage photograph, mic in hand, beside 'Handed her the mic again'",
+   "files": [
+    {
+     "file": "hsbc-hand-480.avif",
+     "w": 480,
+     "h": 640,
+     "bytes": 14051
+    },
+    {
+     "file": "hsbc-hand-480.jpg",
+     "w": 480,
+     "h": 640,
+     "bytes": 32812
+    },
+    {
+     "file": "hsbc-hand-800.avif",
+     "w": 800,
+     "h": 1067,
+     "bytes": 25171
+    },
+    {
+     "file": "hsbc-hand-800.jpg",
+     "w": 800,
+     "h": 1067,
+     "bytes": 68940
+    },
+    {
+     "file": "hsbc-hand-1600.avif",
+     "w": 1600,
+     "h": 2133,
+     "bytes": 63013
+    },
+    {
+     "file": "hsbc-hand-1600.jpg",
+     "w": 1600,
+     "h": 2133,
+     "bytes": 188149
+    },
+    {
+     "file": "hsbc-hand-2400.avif",
+     "w": 2400,
+     "h": 3200,
+     "bytes": 109090
+    },
+    {
+     "file": "hsbc-hand-2400.jpg",
+     "w": 2400,
+     "h": 3200,
+     "bytes": 342473
+    }
+   ],
+   "sourceW": 3072,
+   "sourceH": 4096,
+   "client": "HSBC",
+   "event": "Unlocking Tomorrow: Future of Banking",
+   "place": null,
+   "year": 2026,
+   "yearNote": "r104, Jun 2026, no conflict. The record has no city, so none is printed.",
+   "recordRow": "r104",
+   "caption": "HSBC, Unlocking Tomorrow: Future of Banking · 2026",
+   "alt": "Nisha Shetty in a white blazer, one hand raised high, speaking into the mic with the programme card in her other hand",
+   "objectPosition": "50% 30%",
+   "cropNote": "Files are 3:4; a 4:5 crop at y 30% keeps her raised hand, face and mic (checked: _tools/p5-shots/media/stills-photos.jpg, right).",
+   "sizes": "desktop about 420 css px -> 800w (1600w at 2x); phone 132 css px -> 480w",
+   "credit": "@keshavphotography1 (her caption; credit form NEEDS-NISHA)",
+   "source": {
+    "copiedFrom": "Prototype-26/media/stills/hsbc-hand-480.{avif,jpg}; Prototype-4/media/hero/hsbc-hand-{800,1600,2400}.{avif,jpg} (byte copies; the 1600 is identical in both)",
+    "original": "Assets-Reference/instagram-all/images/work/2026-06-05_DZNIQ2liIGM_08.jpg (3072x4096)",
+    "post": "https://www.instagram.com/p/DZNIQ2liIGM/"
+   },
+   "flags": []
+  }
+ ],
+ "notUsed": [
+  {
+   "id": "filmfare-carpet",
+   "reason": "Withheld by direction: any crop keeping the mic shows Vidya Balan and a second identifiable man; needs clearance (PHASE-43 §6, owner choice \"Filmfare only after clearance\"). Removed from #work in the review fixes; the red carpet stays text only, in the producers bios. Files moved to _tools/p5-shots/complete/fix/withheld/."
+  },
+  {
+   "id": "p-hcmc",
+   "reason": "Ho Chi Minh City 2026 (r106): a large Birla Opus logo above her head, but r106 says \"client visible on signage only; not named\", and Birla Opus is on the home page (Surat, r107). Replaced by p-tokyo. Files moved to _tools/p5-shots/complete/fix/withheld/."
+  },
+  {
+   "id": "p-cue-card",
+   "reason": "New Delhi 2022 (r040): the LED wall reads \"Mobil\" / \"ALL NEW Mobil Delvac MX ESP\", but r040 does not name the client (r037 Mobil India, Nov 2021, is a different row). Replaced by p-raychem-card. NEEDS-NISHA if the owner wants it back. Files moved to _tools/p5-shots/complete/fix/withheld/."
+  },
+  {
+   "id": "voice-nse",
+   "reason": "No hand mic and no room; not a held room. Text only."
+  },
+  {
+   "id": "voice-sbi, hero-sbi, sbi-podium",
+   "reason": "r108: text only, no media."
+  },
+  {
+   "id": "datamatics.mp4 (17.5 s)",
+   "reason": "Runs into unverified cues 5-7; the 11 s opening cut is used instead."
+  }
+ ],
+ "work": {
+  "section": "Where she has held the mic (#work) + one photograph in Working with her (#with)",
+  "basePath": "media/work/",
+  "rule": "Silent photographs, in colour, one calm grade; no client, place or year that is not in Prototype-22/data/record.json. Never upscaled (prep: _tools/p5-shots/complete/fix/prep-fix.cjs, sharp; JPEG mozjpeg q82 + AVIF q55).",
+  "abroadLine": {
+   "label": "Abroad, 2024 to 2026",
+   "places": [
+    "Seoul (r109)",
+    "Ho Chi Minh City (r106, client not named)",
+    "Auckland and Queenstown (r105, client not named)",
+    "Colombo (r092 Dec 2025 confirmed; r098 Apr 2026 caption says \"Dorby Pramet\")",
+    "Bali (r091 Dec 2025, r070 Apr 2024)",
+    "Tbilisi (r087)",
+    "Tokyo (r078)",
+    "Baku (r073)",
+    "Macao (r072; shown as \"Macao\", whether \"China\" is her decision)"
+   ],
+   "note": "Every abroad row dated 2024 to 2026 in the record; no count is printed."
+  },
+  "photographs": [
+   {
+    "id": "tokyo-mic",
+    "order": 1,
+    "record": "r078",
+    "client": "TATA AIA Life",
+    "event": "Tokyo Training Conclave",
+    "place": "Tokyo, Japan",
+    "abroad": true,
+    "year": 2025,
+    "kind": "Conclave abroad",
+    "post": "https://www.instagram.com/p/DGgM_VmozQM/",
+    "credit": "Photographer uncredited",
+    "alt": "Nisha Shetty on stage in a red sequinned gown, mic raised, laughing, in front of a screen that reads Tokyo Training Conclave.",
+    "flags": [
+     "Event name from the LED screen and her caption (\"Hosted a show in ... Japan for TATA AIA\").",
+     "Graded at export: sharp modulate({saturation:0.8}) + slight warm recomb [[1.02,0,0],[0,1,0],[0,0,0.965]] (review fix: plates no louder than the hero).",
+     "Bottom 4% cropped (1440x960 -> 1440x922) to remove a blurred audience head, bottom left."
+    ],
+    "source": "Assets-Reference/instagram-all/images/work/2025-02-25_DGgM_VmozQM_01.jpg",
+    "sourceW": 1440,
+    "sourceH": 960,
+    "crop": {
+     "left": 0,
+     "top": 0,
+     "width": 1440,
+     "height": 922
+    },
+    "w": 1440,
+    "h": 922,
+    "files": [
+     {
+      "file": "work/tokyo-mic-480.jpg",
+      "w": 480,
+      "h": 307,
+      "bytes": 20211
+     },
+     {
+      "file": "work/tokyo-mic-480.avif",
+      "w": 480,
+      "h": 307,
+      "bytes": 9935
+     },
+     {
+      "file": "work/tokyo-mic-960.jpg",
+      "w": 960,
+      "h": 615,
+      "bytes": 53155
+     },
+     {
+      "file": "work/tokyo-mic-960.avif",
+      "w": 960,
+      "h": 615,
+      "bytes": 23327
+     },
+     {
+      "file": "work/tokyo-mic-1440.jpg",
+      "w": 1440,
+      "h": 922,
+      "bytes": 97479
+     },
+     {
+      "file": "work/tokyo-mic-1440.avif",
+      "w": 1440,
+      "h": 922,
+      "bytes": 41269
+     }
+    ]
+   },
+   {
+    "id": "birla-opus",
+    "order": 2,
+    "record": "r107",
+    "client": "Birla Opus",
+    "event": "Partner events (two)",
+    "place": "Surat, India",
+    "abroad": false,
+    "year": 2026,
+    "kind": "Partner meet",
+    "post": "https://www.instagram.com/p/DcRD0mgCNXA/",
+    "credit": "Unknown (phone)",
+    "alt": "Nisha Shetty laughing on a daytime stage in a red trouser suit, beside the Birla Opus lectern and screen.",
+    "flags": [
+     "Carousel image _06 (P22 used _01). 4:5 crop of a 3:4 source, top 35% of the spare height removed (ceiling).",
+     "Graded at export: sharp modulate({saturation:0.8}) + slight warm recomb [[1.02,0,0],[0,1,0],[0,0,0.965]] (review fix: plates no louder than the hero)."
+    ],
+    "source": "Assets-Reference/instagram-all/images/work/2026-08-20_DcRD0mgCNXA_06.jpg",
+    "sourceW": 3072,
+    "sourceH": 4096,
+    "crop": {
+     "left": 0,
+     "top": 90,
+     "width": 3072,
+     "height": 3840
+    },
+    "w": 3072,
+    "h": 3840,
+    "files": [
+     {
+      "file": "work/birla-opus-480.jpg",
+      "w": 480,
+      "h": 600,
+      "bytes": 38910
+     },
+     {
+      "file": "work/birla-opus-480.avif",
+      "w": 480,
+      "h": 600,
+      "bytes": 20121
+     },
+     {
+      "file": "work/birla-opus-960.jpg",
+      "w": 960,
+      "h": 1200,
+      "bytes": 104755
+     },
+     {
+      "file": "work/birla-opus-960.avif",
+      "w": 960,
+      "h": 1200,
+      "bytes": 45665
+     },
+     {
+      "file": "work/birla-opus-1440.jpg",
+      "w": 1440,
+      "h": 1800,
+      "bytes": 184206
+     },
+     {
+      "file": "work/birla-opus-1440.avif",
+      "w": 1440,
+      "h": 1800,
+      "bytes": 73062
+     }
+    ]
+   },
+   {
+    "id": "raychem-goa",
+    "order": 3,
+    "record": "r093",
+    "client": "Raychem RPG",
+    "event": "Tales to Tell: Annual Sales Conference",
+    "place": "Goa, India",
+    "abroad": false,
+    "year": 2025,
+    "kind": "Conference",
+    "post": "https://www.instagram.com/p/DWoYAnqiN0p/",
+    "credit": "Unknown (her reel)",
+    "alt": "Nisha Shetty on a conference stage in a pink suit, speaking into a handheld mic, a script card in her other hand.",
+    "flags": [
+     "Replaces the withheld Filmfare plate (owner review, high). Frame at 8.1 s of her reel (720x1280, the sharpest source; the post cover is 640x1136).",
+     "r093 note: posted Apr 2026 as a 2025 throwback; Raychem RPG is a named repeat client.",
+     "Graded at export: sharp modulate({saturation:0.8}) + slight warm recomb [[1.02,0,0],[0,1,0],[0,0,0.965]] (review fix: plates no louder than the hero)."
+    ],
+    "source": "Assets-Reference/instagram-all/videos/2026-04-02_DWoYAnqiN0p.mp4 @ 8.1 s (frame: _tools/p5-shots/complete/fix/scratch/rg/f8.1.png)",
+    "sourceW": 720,
+    "sourceH": 1280,
+    "crop": {
+     "left": 40,
+     "top": 380,
+     "width": 640,
+     "height": 800
+    },
+    "w": 640,
+    "h": 800,
+    "files": [
+     {
+      "file": "work/raychem-goa-480.jpg",
+      "w": 480,
+      "h": 600,
+      "bytes": 36651
+     },
+     {
+      "file": "work/raychem-goa-480.avif",
+      "w": 480,
+      "h": 600,
+      "bytes": 19113
+     },
+     {
+      "file": "work/raychem-goa-640.jpg",
+      "w": 640,
+      "h": 800,
+      "bytes": 55234
+     },
+     {
+      "file": "work/raychem-goa-640.avif",
+      "w": 640,
+      "h": 800,
+      "bytes": 26466
+     }
+    ]
+   },
+   {
+    "id": "welspun-podium",
+    "order": 4,
+    "record": "r068",
+    "client": "Welspun Corp",
+    "event": "Annual Day",
+    "place": "Mumbai, India",
+    "abroad": false,
+    "year": 2024,
+    "kind": "Annual day",
+    "post": "https://www.instagram.com/p/C5aRM5uSjCL/",
+    "credit": "Unknown (reel cover)",
+    "alt": "Nisha Shetty smiling at a podium microphone under blue stage light, in a white gown.",
+    "flags": [
+     "Her caption spells it \"Wellspun\"; the record and caption on the page use Welspun Corp.",
+     "Graded at export: sharp modulate({saturation:0.8}) + slight warm recomb [[1.02,0,0],[0,1,0],[0,0,0.965]] (review fix: plates no louder than the hero)."
+    ],
+    "source": "Assets-Reference/instagram-all/images/work/2024-04-06_C5aRM5uSjCL_01.jpg",
+    "sourceW": 2268,
+    "sourceH": 4032,
+    "crop": {
+     "left": 0,
+     "top": 359,
+     "width": 2268,
+     "height": 2835
+    },
+    "w": 2268,
+    "h": 2835,
+    "files": [
+     {
+      "file": "work/welspun-podium-480.jpg",
+      "w": 480,
+      "h": 600,
+      "bytes": 30960
+     },
+     {
+      "file": "work/welspun-podium-480.avif",
+      "w": 480,
+      "h": 600,
+      "bytes": 15653
+     },
+     {
+      "file": "work/welspun-podium-960.jpg",
+      "w": 960,
+      "h": 1200,
+      "bytes": 88995
+     },
+     {
+      "file": "work/welspun-podium-960.avif",
+      "w": 960,
+      "h": 1200,
+      "bytes": 40844
+     },
+     {
+      "file": "work/welspun-podium-1440.jpg",
+      "w": 1440,
+      "h": 1800,
+      "bytes": 167082
+     },
+     {
+      "file": "work/welspun-podium-1440.avif",
+      "w": 1440,
+      "h": 1800,
+      "bytes": 74446
+     }
+    ]
+   },
+   {
+    "id": "phoenix-launch",
+    "order": 5,
+    "record": "r077",
+    "client": "Phoenix Palladium",
+    "event": "Launch of new brands",
+    "place": "Mumbai, India",
+    "abroad": false,
+    "year": 2024,
+    "kind": "Launch",
+    "post": "https://www.instagram.com/p/DEIJeohzpp6/",
+    "credit": "Video @iamvishnu14 (her caption)",
+    "alt": "Nisha Shetty on a red carpet in a black gown, mic at her mouth and script cards in her other hand.",
+    "flags": [
+     "Reel cover, 720 px source: rendered at <= 304 css px on desktop (1x crisp, soft at 2x+). Public in the background. A higher-resolution original is on the originals list.",
+     "Graded at export: sharp modulate({saturation:0.8}) + slight warm recomb [[1.02,0,0],[0,1,0],[0,0,0.965]] (review fix: plates no louder than the hero).",
+     "Moved from #work to #with: it proves \"Script cards in hand\"."
+    ],
+    "source": "Assets-Reference/instagram-all/images/work/2024-12-28_DEIJeohzpp6_01.jpg",
+    "sourceW": 720,
+    "sourceH": 1280,
+    "crop": {
+     "left": 0,
+     "top": 114,
+     "width": 720,
+     "height": 900
+    },
+    "w": 720,
+    "h": 900,
+    "files": [
+     {
+      "file": "work/phoenix-launch-480.jpg",
+      "w": 480,
+      "h": 600,
+      "bytes": 59140
+     },
+     {
+      "file": "work/phoenix-launch-480.avif",
+      "w": 480,
+      "h": 600,
+      "bytes": 29957
+     },
+     {
+      "file": "work/phoenix-launch-720.jpg",
+      "w": 720,
+      "h": 900,
+      "bytes": 109903
+     },
+     {
+      "file": "work/phoenix-launch-720.avif",
+      "w": 720,
+      "h": 900,
+      "bytes": 52130
+     }
+    ],
+    "section": "Working with her (#with), beside the heading",
+    "caption": "Launch · Phoenix Palladium · Mumbai · 2024"
+   }
+  ]
+ },
+ "producers": {
+  "page": "producers.html",
+  "generated": "2026-10-02",
+  "rule": "Photographs only; the three held clips reuse the home page moments unchanged. Every photograph names a client only when the record names it and the signage matches. Never upscaled.",
+  "photos": [
+   {
+    "id": "p-mic",
+    "basePath": "media/producers/",
+    "files": [
+     {
+      "jpg": "p-mic-600.jpg",
+      "avif": "p-mic-600.avif",
+      "w": 600,
+      "h": 800,
+      "jpgBytes": 45034,
+      "avifBytes": 20241
+     },
+     {
+      "jpg": "p-mic-1000.jpg",
+      "avif": "p-mic-1000.avif",
+      "w": 1000,
+      "h": 1333,
+      "jpgBytes": 103399,
+      "avifBytes": 46641
+     },
+     {
+      "jpg": "p-mic-1600.jpg",
+      "avif": "p-mic-1600.avif",
+      "w": 1600,
+      "h": 2133,
+      "jpgBytes": 225126,
+      "avifBytes": 97016
+     },
+     {
+      "jpg": "p-mic-2400.jpg",
+      "avif": "p-mic-2400.avif",
+      "w": 2400,
+      "h": 3200,
+      "jpgBytes": 443998,
+      "avifBytes": 186823
+     }
+    ],
+    "source": {
+     "file": "Assets-Reference/instagram/P1_hero-performing_2026-06-05_DZNIQ2liIGM_10.jpg",
+     "w": 2496,
+     "h": 3328,
+     "crop": null
+    },
+    "page": "producers.html",
+    "section": "For producers (intro)",
+    "client": "HSBC",
+    "event": "Unlocking Tomorrow: Future of Banking",
+    "city": null,
+    "year": 2026,
+    "recordRow": "r104",
+    "caption": "HSBC, Unlocking Tomorrow: Future of Banking · 2026",
+    "alt": "Nisha Shetty on stage in a white suit, speaking into a handheld mic, against a red backdrop.",
+    "sourceCode": "DZNIQ2liIGM (carousel image 10)",
+    "note": "No city in the record, so none printed. Same carousel as hsbc-hand on the home page. Photographer credit: NEEDS-NISHA."
+   },
+   {
+    "id": "p-tokyo",
+    "basePath": "media/producers/",
+    "files": [
+     {
+      "jpg": "p-tokyo-480.jpg",
+      "avif": "p-tokyo-480.avif",
+      "w": 480,
+      "h": 600,
+      "jpgBytes": 34257,
+      "avifBytes": 16394
+     },
+     {
+      "jpg": "p-tokyo-768.jpg",
+      "avif": "p-tokyo-768.avif",
+      "w": 768,
+      "h": 960,
+      "jpgBytes": 70065,
+      "avifBytes": 32763
+     }
+    ],
+    "source": {
+     "file": "Assets-Reference/instagram-all/images/work/2025-02-25_DGgM_VmozQM_05.jpg",
+     "w": 1440,
+     "h": 960,
+     "crop": {
+      "left": 532,
+      "top": 0,
+      "width": 768,
+      "height": 960
+     }
+    },
+    "page": "producers.html",
+    "section": "Bios, three lengths",
+    "client": "TATA AIA Life",
+    "event": "Tokyo Training Conclave",
+    "city": "Tokyo",
+    "year": 2025,
+    "recordRow": "r078",
+    "caption": "Conclave abroad · TATA AIA Life, Tokyo Training Conclave · Tokyo · 2025",
+    "alt": "Nisha Shetty on stage in a red gown, mic at her mouth, a hand cupped to her ear, in front of the Tokyo Training Conclave screen.",
+    "sourceCode": "DGgM_VmozQM (carousel image 5)",
+    "note": "Screen reads \"Tokyo Training Conclave 2025\", matching r078 (named client). Different frame from tokyo-mic on the home page. Graded at export: sharp modulate({saturation:0.8}) + slight warm recomb [[1.02,0,0],[0,1,0],[0,0,0.965]] (review fix: plates no louder than the hero)."
+   },
+   {
+    "id": "p-raychem-card",
+    "basePath": "media/producers/",
+    "files": [
+     {
+      "jpg": "p-raychem-card-480.jpg",
+      "avif": "p-raychem-card-480.avif",
+      "w": 480,
+      "h": 600,
+      "jpgBytes": 38203,
+      "avifBytes": 20424
+     },
+     {
+      "jpg": "p-raychem-card-640.jpg",
+      "avif": "p-raychem-card-640.avif",
+      "w": 640,
+      "h": 800,
+      "jpgBytes": 57776,
+      "avifBytes": 29046
+     }
+    ],
+    "source": {
+     "file": "Assets-Reference/instagram-all/videos/2026-04-02_DWoYAnqiN0p.mp4 @ 9.8 s",
+     "w": 720,
+     "h": 1280,
+     "crop": {
+      "left": 40,
+      "top": 380,
+      "width": 640,
+      "height": 800
+     }
+    },
+    "page": "producers.html",
+    "section": "Working notes (Preparation)",
+    "client": "Raychem RPG",
+    "event": "Tales to Tell: Annual Sales Conference",
+    "city": "Goa",
+    "year": 2025,
+    "recordRow": "r093",
+    "caption": "Conference · Raychem RPG, Tales to Tell: Annual Sales Conference · Goa · 2025",
+    "alt": "Nisha Shetty on a conference stage in a pink suit, mic in one hand, reading from the script card in the other.",
+    "sourceCode": "DWoYAnqiN0p (reel frame)",
+    "note": "Evidence for \"works from script cards\"; makes no claim that she writes her material. Graded at export: sharp modulate({saturation:0.8}) + slight warm recomb [[1.02,0,0],[0,1,0],[0,0,0.965]] (review fix: plates no louder than the hero)."
+   }
+  ]
+ }
+}
