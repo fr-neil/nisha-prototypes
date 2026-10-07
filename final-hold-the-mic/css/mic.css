@@ -1,0 +1,141 @@
+/* The mic-moment component. Every held moment (hero, cards, clips) uses this markup:
+   .moment > .m-photo(video.vid, img.still-img, .cc-line?, .tag) + canvas.line + .mic(.mic-btn, .mic-txt) + .hint + .said? + .status
+   States are classes on .moment: is-still | is-live | is-frozen | is-ended (+ played, is-silent, pulse).
+   Placement (where the photo, line and mic sit) belongs to each moment's own layout in page.css. */
+
+.moment{position:relative;--btn:96px}
+
+/* ---------- picture ---------- */
+.m-photo{position:absolute;overflow:hidden;background:#d4d2cf;margin:0}
+.vid,.still-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--pos,50% 50%);background:#d4d2cf}
+.still-img{display:none;pointer-events:none}
+.js .is-still .still-img{display:block}
+/* at rest: a paused grey still with real blacks under a light paper veil; held: the source as shot
+   (the hero reel is black and white until the room answers), veil lifts (350 ms); let go: shutter back (120 ms) */
+.js .vid,.js .still-img{filter:grayscale(1) contrast(1.06) brightness(.97);transition:filter var(--veil-on) linear}
+.js .is-live .vid{filter:none;transition:filter var(--veil-off) ease-out}
+.js .is-ended .vid{filter:none;transition:none}
+.js .m-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(#0000 62%,#0000004d) var(--veil);pointer-events:none;transition:background-color var(--veil-on) linear}
+.js .is-live .m-photo::after,.js .is-ended .m-photo::after{background-color:#F4F0EA00;transition:background-color var(--veil-off) ease-out}
+
+/* state tag over the bottom gradient */
+.tag{position:absolute;left:24px;right:24px;bottom:22px;display:flex;flex-direction:column;gap:4px;color:var(--white);text-shadow:0 0 3px #0009,0 1px 10px #0008;z-index:2;pointer-events:none}
+.tc{font-family:var(--ui);font-weight:600;font-stretch:80%;font-size:12px;letter-spacing:.18em;text-transform:uppercase;display:flex;align-items:center;gap:10px;font-variant-numeric:tabular-nums}
+.ev{font-size:var(--fs-cap);line-height:1.35}
+.pause{display:inline-flex;gap:3px}.pause i{width:3px;height:11px;background:var(--white);display:block}
+.eq{display:none;gap:3px;align-items:flex-end;height:14px}
+.eq i{width:3px;height:6px;background:var(--white);display:block;transform-origin:bottom}
+.is-live .tag .pause,.is-ended .tag .pause{display:none}
+.is-live .tag .eq{display:inline-flex}
+.no-js .tag{display:none}
+
+/* ---------- the line ---------- */
+.line{position:absolute;left:0;width:100%;pointer-events:none;z-index:4}
+.no-js .line{display:none}
+
+/* ---------- the mic ---------- */
+.mic{position:absolute;z-index:6;display:flex;align-items:center}
+.no-js .mic,.no-js .hint{display:none}
+.mic-btn{position:relative;width:var(--btn);height:var(--btn);border-radius:50%;background:var(--paper);border:1.5px solid var(--ink);display:grid;place-items:center;flex:none;
+  touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;
+  transition:transform .18s ease,background-color .18s,border-color .18s,color .18s}
+.mic-btn:hover{background:var(--white)}
+.mic-btn .ico{width:28%;height:28%;position:relative;z-index:2;pointer-events:none}
+.mic-btn .prog{position:absolute;inset:-1.5px;width:calc(100% + 3px);height:calc(100% + 3px);max-width:none;transform:rotate(-90deg);overflow:visible;pointer-events:none}
+.mic-btn .prog circle{fill:none;stroke:var(--red);stroke-width:2.6;stroke-dasharray:0 100;vector-effect:non-scaling-stroke}
+.mic-btn .ring{position:absolute;inset:0;border-radius:50%;border:1.5px solid var(--red);opacity:0;pointer-events:none}
+
+.mic-txt{display:flex;flex-direction:column;user-select:none;-webkit-user-select:none}
+.act{font-family:var(--ui);font-weight:600;font-stretch:88%;font-size:var(--fs-label);line-height:1.15}
+.act>span{display:none}
+.act .a-still{display:inline}
+.act .dot{color:var(--red)}
+.alt{display:flex;flex-wrap:wrap;align-items:center;gap:0 12px;font-size:14px;color:var(--mute)}
+.alt button{min-height:44px;min-width:44px;padding:0 2px;color:var(--ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;text-align:left}
+.alt .toggle[aria-pressed="true"]{color:var(--red)}
+.alt .time{font-variant-numeric:tabular-nums}
+.row3{display:flex;align-items:center;gap:0 24px;font-size:15px;white-space:nowrap}
+.act .sep{margin:0 .3em 0 .05em}
+/* captions: one fixed label + aria-pressed, in every moment's .alt row; off reads struck through.
+   Phones use the short label, and once she is playing the language chip gives its room to the controls. */
+.alt .cc .cc-l{display:none}
+.is-live .alt .lang,.is-frozen .alt .lang{display:none}
+.is-live .mic-btn .r3{display:none}
+@media (min-width:601px){
+  .tc{font-size:13px}
+  .alt{gap:4px 16px;font-size:15px}
+  .alt .cc .cc-l{display:inline}.alt .cc .cc-s{display:none}
+  .is-live .alt .lang,.is-frozen .alt .lang{display:inline-block}
+  .is-live .mic-btn .r3{display:block}
+}
+.alt .cc[aria-pressed="false"]{color:var(--mute);text-decoration-line:line-through}
+.no-js .cc{display:none}
+.end-link{visibility:hidden;white-space:nowrap}
+.is-ended .end-link{visibility:visible}
+.no-js .row3{display:none}
+
+/* states */
+.is-live .mic-btn{background:var(--red);border-color:var(--red);color:var(--white);transform:scale(.94)}
+.is-live .mic-btn .prog circle{stroke:var(--white)}
+.is-live .mic-btn .r1{inset:-14%;opacity:.42}
+.is-live .mic-btn .r2{inset:-30%;opacity:.2}
+.is-live .mic-btn .r3{inset:-48%;opacity:.09}
+.is-live .act .a-still,.is-frozen .act .a-still,.is-ended .act .a-still{display:none}
+.is-live .act .a-live,.is-frozen .act .a-frozen,.is-ended .act .a-ended{display:inline}
+/* the phone's muted first hold says so, instead of "her voice" */
+.is-silent.is-live .act .a-live{display:none}
+.is-silent.is-live .act .a-silent{display:inline}
+@media (prefers-reduced-motion:no-preference){
+  .is-live .mic-btn .ring{animation:breathe var(--ring) ease-in-out infinite}
+  .is-live .mic-btn .r2{animation-delay:.25s}.is-live .mic-btn .r3{animation-delay:.5s}
+  .pulse .mic-btn .r1{animation:pulse-once 1s ease-out 1}
+}
+@keyframes breathe{50%{transform:scale(1.05)}}
+@keyframes pulse-once{0%{opacity:.6;transform:scale(1)}100%{opacity:0;transform:scale(1.6)}}
+
+/* ---------- hint: one pill on the page at a time ---------- */
+.hint{position:absolute;z-index:8;max-width:min(340px,calc(100vw - 32px));font-size:14px;line-height:1.35;color:var(--ink);background:var(--white);border-radius:18px;padding:8px 14px 8px 12px;box-shadow:0 6px 24px #1b181518;
+  opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s;pointer-events:none}
+.hint::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--red);margin-right:8px;vertical-align:1px}
+.hint>span{display:none}
+.hint.show{opacity:1;transform:none}
+.hint[data-say="first"] .h-first,.hint[data-say="keep"] .h-keep,.hint[data-say="muted"] .h-muted,.hint[data-say="unlock"] .h-unlock,.hint[data-say="tap"] .h-tap,.hint[data-say="retry"] .h-retry{display:inline}
+
+/* ---------- karaoke words (aria-hidden; the audio is the content) ---------- */
+.said{visibility:hidden}
+.said .before{font-family:var(--serif);color:var(--mute);line-height:1.22}
+.said .now{font-family:var(--serif);font-style:italic;letter-spacing:-.015em}
+.said .now span{transition:color .12s}
+.said .now .ahead{color:transparent;-webkit-text-stroke:1px #1B181566}
+.said .now .hot{color:var(--red)}
+.said .now .said-w{color:var(--ink)}
+.said .now:lang(hi){font-family:var(--deva);font-style:normal;font-weight:400;letter-spacing:0}
+/* Chrome drops the stroke on some Devanagari conjuncts (विश्वास vanished): Hindi words ahead use a pale fill */
+.said .now:lang(hi) .ahead{color:#1B181538;-webkit-text-stroke:0}
+.is-frozen .said .now:lang(hi) .ahead{color:#1B181529}
+.said .gloss{font-family:var(--text);color:var(--mute);line-height:1.35}
+.is-frozen .said .now .hot{color:var(--ink)}
+.is-frozen .said .now .ahead{-webkit-text-stroke-color:#1B181540}
+.moment.played:not(.is-still) .said{visibility:visible}
+.cc-off .said{visibility:hidden!important}
+/* standard captions (data-captions="plain"): one plain line, on screen only while she is playing */
+.cc-line{position:absolute;left:12px;right:12px;bottom:62px;z-index:3;display:flex;flex-direction:column;align-items:center;gap:3px;text-align:center;pointer-events:none;visibility:hidden}
+.cc-line span{display:block;max-width:100%;background:#000000b8;color:var(--white);padding:2px 8px;border-radius:3px;font-family:var(--text);line-height:1.4}
+.cc-line span:empty{display:none}
+.cc-main{font-size:16px}
+.cc-main:lang(hi){font-family:var(--deva);font-size:17px}
+.cc-gloss{font-size:14px}
+.js .is-live .cc-line.on{visibility:visible}
+.cc-off .cc-line{visibility:hidden!important}
+.no-js .cc-line{display:none}
+
+/* transcript: hero only (verified). no-JS: visible text; JS: screen-reader text */
+.transcript p{font-family:var(--serif);font-size:22px;line-height:1.25;max-width:620px}
+.js .transcript{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+
+/* no-JS: every moment is a native player, poster in colour */
+.no-js .still-img{display:none}
+
+/* a clip whose first frames are a flash from the source edit: the still (that clip's first clean
+   frame) stays over the video, in colour, until the clean frame arrives */
+.js .pre-clean .still-img{display:block;filter:none;transition:none}

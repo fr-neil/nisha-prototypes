@@ -1,0 +1,246 @@
+/* Home page sections: hero, rooms, off the stage, request. The device itself lives in mic.css.
+   Phone first; 601 px (tablet), 901 px (desktop hero split) and 1101 px (desktop grid) build on it. */
+
+/* =====================================================================
+   1. HERO — phone: the picture on top, the mic on its bottom edge at thumb height, then the words
+   ===================================================================== */
+.hero{--ph:max(340px,52svh);--btn:112px;--pos:50% 58%;padding-bottom:var(--s4)}
+.hero .m-photo{position:relative;width:100%;height:var(--ph)}
+.hero .m-photo::before{content:"";position:absolute;left:0;right:0;top:0;height:110px;background:linear-gradient(#F4F0EAd9,#F4F0EA00);z-index:1;pointer-events:none}
+/* phones: a light zoom so she reads at thumb distance, kept small so the 720 px reel stays sharp */
+.js .hero .vid,.js .hero .still-img{transform:scale(1.08);transform-origin:50% 46%}
+.hero .tag{left:auto;right:var(--gut);bottom:16px;align-items:flex-end;text-align:right;max-width:min(240px,62%)}
+.hero .line{top:calc(var(--ph) - 44px);height:88px}
+.hero .mic{left:var(--gut);right:var(--gut);top:calc(var(--ph) - var(--btn) / 2)}
+.hero .mic-txt{position:absolute;left:calc(var(--btn) + 16px);right:0;top:calc(var(--btn) / 2 + 14px)}
+.hero .row3{position:absolute;right:0;top:calc(var(--btn) / 2 - 92px - 44px)}
+.hero .end-link{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 16px;background:var(--paper);border-radius:999px;text-decoration:none;box-shadow:0 6px 24px #1b181518}
+.hero .hint{right:var(--gut);bottom:calc(100% - var(--ph) + 92px);max-width:min(300px,calc(100% - 2 * var(--gut)))}
+.hero.is-ended .hint{display:none}
+.hero .copy{position:relative;z-index:5;padding:104px var(--gut) 0}
+.hero .words{position:relative;margin-top:var(--s2);min-height:150px}
+.head{font-family:var(--serif);font-size:var(--fs-h1);line-height:.9;letter-spacing:-.025em;transition:opacity .2s}
+.hero .said{position:absolute;left:0;right:0;top:0}
+.hero .said .before{font-size:16px;max-width:620px;min-height:1.22em}
+.hero .said .now{font-size:var(--now,56px);line-height:1;margin-top:10px}
+.hero .said .now.sz-l{--now:56px}.hero .said .now.sz-m{--now:48px}.hero .said .now.sz-s{--now:40px}
+/* the h1 never leaves the DOM: it only fades while her words are on screen */
+.js .hero.played:not(.is-still) .head{opacity:0}
+.cc-off .hero .head{opacity:1!important}
+.hero .quote{position:relative;max-width:560px;padding:var(--s3) var(--gut) 0}
+.no-js .hero .copy{padding:var(--s3) var(--gut) 0}
+
+/* tablet: a bigger picture, never stretched past the reel's own 720 px width */
+@media (min-width:601px){
+  .hero{--ph:max(440px,60svh);--btn:136px;--pos:50% 30%;padding-bottom:var(--s5)}
+  .hero .m-photo{max-width:720px;margin-inline:auto}
+  .js .hero .vid,.js .hero .still-img{transform:none}
+  .hero .tag{max-width:min(320px,58%)}
+  .hero .copy{padding-top:118px}
+  .hero .words{min-height:160px}
+  .hero .said .before{font-size:18px}
+  .hero .said .now.sz-l{--now:72px}.hero .said .now.sz-m{--now:60px}.hero .said .now.sz-s{--now:50px}
+}
+
+/* desktop: words left, picture right, the line across at 71% */
+@media (min-width:901px){
+  .hero{--stageH:max(640px,min(100svh,1000px));--lineY:calc(var(--stageH) * .71);--btn:168px;--pos:50% 70%;position:relative;height:var(--stageH);overflow:hidden;padding-bottom:0}
+  .hero .m-photo{position:absolute;top:0;right:0;width:40%;max-width:720px;height:100%;margin:0}
+  .hero .m-photo::before{content:none}
+  /* the 720x1280 reel at 1 css px per source px (not upscaled) */
+  .hero .vid,.hero .still-img{object-fit:none}
+  .hero .tag{left:24px;right:24px;bottom:22px;align-items:stretch;text-align:left;max-width:none}
+  .hero .copy{position:absolute;left:var(--edge);top:clamp(112px,15.5svh,150px);width:min(700px,calc(60% - var(--edge) - 40px));padding:0}
+  .hero .words{margin-top:var(--s3);min-height:calc(var(--fs-h1) * 1.8)}
+  .hero .said .before{font-size:25px}
+  .hero .said .now{line-height:.94;margin-top:var(--s2)}
+  .hero .said .now.sz-l{--now:112px}.hero .said .now.sz-m{--now:92px}.hero .said .now.sz-s{--now:74px}
+  .hero .line{top:calc(var(--lineY) - 70px);height:140px}
+  .hero .mic{left:var(--edge);right:auto;top:calc(var(--lineY) - var(--btn) / 2);gap:30px}
+  .hero .mic-txt{position:relative;left:auto;right:auto;top:auto;height:var(--btn);justify-content:space-between;padding:20px 0 14px}
+  .hero .row3{left:calc(var(--btn) + 30px);right:auto;top:calc(100% - 10px)}
+  .hero .end-link{display:inline;min-height:0;padding:0;background:none;border-radius:0;box-shadow:none;text-decoration:underline}
+  .hero .hint{left:calc(var(--edge) + var(--btn) + 30px);right:auto;top:calc(var(--lineY) - var(--btn) / 2 - 52px);bottom:auto;white-space:nowrap;max-width:none}
+  .hero .quote{position:absolute;left:var(--edge);bottom:36px;width:min(480px,calc(60% - var(--edge) - 40px));padding:0;max-width:none}
+  /* no JS: the native player on the right, words and transcript on the left */
+  .no-js .hero{height:auto;min-height:var(--stageH)}
+  .no-js .hero .copy{position:relative;left:auto;top:auto;padding:150px 0 var(--s4) var(--edge);width:52%}
+  .no-js .hero .transcript{margin-top:var(--s4)}
+  .no-js .hero .quote{position:relative;left:auto;bottom:auto;padding:0 0 var(--s5) var(--edge)}
+}
+
+/* =====================================================================
+   2. ROOMS — phone: a swipe row of two cards, each the hero in miniature
+   ===================================================================== */
+.rooms{padding-bottom:var(--s4)}
+.rooms .grid{display:block}
+.rooms-head h2{margin-top:var(--s1)}
+.rooms-link-d{display:none}
+.swipe{display:flex;gap:12px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;margin-inline:calc(-1 * var(--gut));padding-inline:var(--gut);scroll-padding-inline:var(--gut);scrollbar-width:none;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+.swipe::-webkit-scrollbar{display:none}
+.swipe>*{scroll-snap-align:start;flex:none}
+.swipe-dots{display:flex;justify-content:center;gap:8px;margin-top:var(--s2)}
+.swipe-dots i{width:6px;height:6px;border-radius:50%;background:#1B181533;transition:background-color .2s,transform .2s}
+.swipe-dots i.on{background:var(--ink);transform:scale(1.2)}
+.no-js .swipe-dots{display:none}
+.rooms-row{margin-top:var(--s3);padding-bottom:4px}
+.card{--btn:64px;width:80vw;max-width:360px}
+.card .stage{position:relative;margin-bottom:calc(var(--btn) / 2 + 44px)}
+.card .m-photo{position:relative;width:100%;aspect-ratio:4 / 5}
+#m-himalaya,#m-dorby{--pos:50% 40%}
+.card .tag{left:auto;right:14px;bottom:14px;align-items:flex-end;text-align:right}
+.card .line{top:calc(100% - 35px);height:70px}
+.card .mic{left:14px;right:0;top:calc(100% - var(--btn) / 2)}
+.card .mic-txt{position:absolute;left:calc(var(--btn) + 10px);right:0;top:calc(var(--btn) / 2 + 6px)}
+.card .act{font-size:18px;align-self:flex-start;background:var(--paper);padding:0 6px;margin-left:-6px;border-radius:3px;white-space:nowrap}
+.card .alt{font-size:14px;gap:0 12px}
+.card .alt .cc .cc-l{display:none}.card .alt .cc .cc-s{display:inline}
+.card.is-live .alt .lang,.card.is-frozen .alt .lang{display:none}
+.card .hint{left:0;bottom:calc(var(--btn) / 2 + 16px);max-width:calc(100% - 8px)}
+.card .cap{margin-top:0}
+/* short phones (667 px tall): a square picture, so the mic, its controls and the caption fit one screen */
+@media (max-width:600px) and (max-height:700px){.card .m-photo{aspect-ratio:1 / 1}}
+.no-js .card .stage{margin-bottom:var(--s2)}
+.rooms-link-m{margin-top:var(--s2)}
+.js .rooms-link-m{display:none}   /* phones: the thumb-zone bar carries this action */
+
+@media (min-width:601px){
+  .rooms{padding-bottom:var(--s5)}
+  .rooms .grid{display:grid;row-gap:var(--s4);align-items:start}
+  .rooms-head{grid-column:1 / -1}
+  .rooms-head h2{margin-top:var(--s2)}
+  .swipe{display:contents}
+  .swipe-dots{display:none}
+  .card{--btn:96px;grid-column:span 4;width:auto;max-width:none}
+  .card .stage{margin-bottom:calc(var(--btn) / 2 + 44px)}
+  .card .tag{right:20px;bottom:18px}
+  .card .mic{left:24px}
+  .card .mic-txt{left:calc(var(--btn) + 16px);top:calc(var(--btn) / 2 + 10px)}
+  .card .act{font-size:21px}
+  .card .cc-line{bottom:68px}
+  .rooms-link-m,.js .rooms-link-m{display:block;grid-column:1 / -1;margin-top:0}
+}
+@media (min-width:1101px){
+  .rooms .grid{row-gap:var(--s5)}
+  .rooms .grid{align-items:center}
+  .rooms-head{grid-column:1 / span 4;align-self:center;padding-bottom:var(--s5)}
+  .rooms-link-d{display:block;margin-top:var(--s3)}
+  .rooms-link-m,.js .rooms-link-m{display:none}
+}
+
+/* =====================================================================
+   3. OFF THE STAGE — portrait, her own words, one line
+   ===================================================================== */
+.off .grid{grid-template-columns:148px minmax(0,1fr);column-gap:var(--s2)}
+.off-copy{display:contents}
+.off h2{grid-column:1 / -1;grid-row:1;margin-bottom:var(--s3)}
+.off-photo{grid-column:1;grid-row:2;margin:0}
+.off-photo img,.again-photo img{width:100%;height:auto;aspect-ratio:4 / 5;object-fit:cover;background:var(--paper-2)}
+.off .quote{grid-column:2;grid-row:2;margin-top:0}
+.off .q{font-size:18px}
+.facts{grid-column:1 / -1;margin-top:var(--s3);font-family:var(--serif);font-size:22px;line-height:1.2}
+.off .tlink-row{grid-column:1 / -1}
+.tlink-row{margin-top:var(--s3)}
+
+@media (min-width:601px){
+  .off .grid{grid-template-columns:repeat(var(--cols),minmax(0,1fr));column-gap:var(--gap)}
+  .off-copy{display:block;grid-column:4 / span 5;grid-row:1;align-self:center}
+  .off h2{margin-bottom:0}
+  .off-photo{grid-column:1 / span 3;grid-row:1}
+  .off .quote{margin-top:var(--s4);max-width:560px}
+  .off .q{font-size:var(--fs-quote)}
+  .facts{margin-top:var(--s4);font-size:24px}
+  .tlink-row{margin-top:var(--s4)}
+}
+@media (min-width:1101px){
+  .off-photo{grid-column:1 / span 4}
+  .off-copy{grid-column:6 / span 6}
+  .facts{font-size:28px}
+}
+
+/* =====================================================================
+   4. REQUEST — phone: the heading, the form, then who asked her back
+   ===================================================================== */
+.request{background:var(--paper-2)}
+.request .grid{display:flex;flex-direction:column}
+.req-side{display:contents}
+#req-h{order:0}
+.req-main{order:1;margin-top:var(--s3)}
+.again{order:2;margin-top:var(--s5);display:grid;grid-template-columns:148px minmax(0,1fr);column-gap:var(--s2);align-items:start}
+.again-photo{grid-column:1;margin:0}
+.again-list{grid-column:2}
+.again-lab{font-family:var(--ui);font-weight:600;font-stretch:88%;font-size:15px;color:var(--red);margin-bottom:var(--s1)}
+.again-list li{border-bottom:1px solid var(--hair);padding:8px 0}
+.who{font-family:var(--serif);font-size:22px;line-height:1.2}
+
+.req-nojs{font-size:18px;line-height:1.5}
+.no-js .req-form{display:none}
+.req-form{display:grid;gap:var(--s3)}
+.row2{display:grid;grid-template-columns:1fr;gap:var(--s3) var(--s2)}
+.row2.if-date{grid-template-columns:1fr 1fr;gap:var(--s2)}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0;border:0}
+.field>label:first-child,.seg legend{font-size:15px;font-weight:600}
+.opt{font-weight:400;color:var(--mute)}
+/* 16 px fields: iPhones do not zoom on focus */
+.field input[type=text],.field input[type=date],.field textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--paper);border:1px solid #1B181559;border-radius:8px;padding:12px 14px;width:100%;min-height:52px;-webkit-appearance:none;appearance:none}
+.field input[type=date]{min-width:0;display:block}
+.field textarea{resize:vertical;min-height:96px;line-height:1.45}
+/* a field focused after a failed send clears the header with its label in view */
+.req-form .field{scroll-margin-top:calc(var(--hdr) + 40px)}
+.field input:focus,.field textarea:focus{outline:2px solid var(--ink);outline-offset:0;border-color:var(--ink)}
+.field input[aria-invalid="true"]{border-color:var(--red)}
+.field input:disabled{opacity:.45}
+.check{display:inline-flex;align-items:center;gap:8px;font-size:15px;min-height:44px;cursor:pointer}
+.check input{width:20px;height:20px;accent-color:var(--ink)}
+.err{font-size:var(--fs-meta);color:var(--red)}
+.err:empty{display:none}
+.seg{border:0;display:flex;flex-wrap:wrap;gap:0}
+.seg legend{margin-bottom:8px;float:left;width:100%}
+.seg label{position:relative;cursor:pointer;flex:1 1 auto}
+.seg input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.seg span{white-space:nowrap;display:flex;align-items:center;justify-content:center;min-height:48px;padding:0 14px;border:1px solid #1B181559;font-size:15px;background:var(--paper)}
+.seg label:first-of-type span{border-radius:8px 0 0 8px}
+.seg label:last-of-type span{border-radius:0 8px 8px 0;margin-left:-1px}
+.seg input:checked + span{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.seg input:focus-visible + span{outline:2px solid var(--red);outline-offset:3px}
+.send{margin-top:var(--s1)}
+.send .pill{width:100%;min-height:56px}
+
+/* the result: replaces the form in place */
+.received{padding:var(--s1) 0 0;scroll-margin-top:calc(var(--hdr) + var(--s2))}
+.received:focus,.rc-h:focus{outline:none}   /* a script focus target for screen readers, not a control: no ring */
+.rc-k{display:flex;align-items:center;gap:8px;font-family:var(--ui);font-weight:600;font-stretch:88%;font-size:15px;color:var(--red)}
+.rc-dot{width:8px;height:8px;border-radius:50%;background:var(--red)}
+.rc-h{font-family:var(--serif);font-size:40px;line-height:1;letter-spacing:-.015em;margin-top:var(--s2)}
+.rc-lede{margin-top:var(--s2);color:var(--mute);max-width:520px}
+.rc-sheet{margin-top:var(--s3);border-top:1px solid var(--hair)}
+.rc-sheet>div{display:grid;grid-template-columns:96px minmax(0,1fr);gap:var(--s2);border-bottom:1px solid var(--hair);padding:10px 0}
+.rc-sheet dt{font-size:var(--fs-meta);color:var(--mute);padding-top:2px}
+.rc-sheet dd{overflow-wrap:anywhere;white-space:pre-line}
+.rc-send{margin-top:var(--s3)}
+.rc-btn{width:100%;min-height:56px}
+.rc-alt{margin-top:var(--s2);font-size:15px;color:var(--mute);line-height:1.5}
+.rc-alt .tlink{font-size:15px}
+.rc-copied{color:var(--ink);font-weight:600}
+.rc-again{margin-top:var(--s2)}
+
+@media (min-width:601px){
+  .request .grid{display:grid}
+  .req-side{display:block;grid-column:1 / span 4}
+  .req-main{grid-column:5 / span 4;margin-top:0;padding-top:var(--s1)}
+  .again{margin-top:var(--s4);grid-template-columns:148px minmax(0,1fr)}
+  .again-list li{padding:6px 0}
+  .who{font-size:21px}
+  .row2.if-date{grid-template-columns:1fr;gap:var(--s3) var(--s2)}
+  .send .pill,.rc-btn{width:auto;min-height:44px}
+  .rc-h{font-size:56px}
+}
+@media (min-width:1101px){
+  .off,.request{--sec:var(--s6)}
+  .req-side{grid-column:1 / span 5}
+  .req-main{grid-column:7 / span 6}
+  .again{grid-template-columns:220px minmax(0,1fr);gap:28px}
+  .again-list li{padding:8px 0}
+  .who{font-size:24px}
+  .row2,.row2.if-date{grid-template-columns:1fr 1fr}
+}

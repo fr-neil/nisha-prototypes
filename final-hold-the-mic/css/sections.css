@@ -1,0 +1,112 @@
+/* Home page: "Where she has held the mic", "Working with her" and the home page's print sheet.
+   Same tokens, grid, type scale and caption style as page.css. Nothing here moves: the mic device stays the only motion.
+   Phone first; 601 px (tablet) and 1101 px (desktop) build on it. */
+
+/* =====================================================================
+   WHERE SHE HAS HELD THE MIC — phone: Tokyo full bleed, a swipe row of three, then the places abroad
+   ===================================================================== */
+.work,.with{--sec:var(--s5)}
+.work .grid{align-items:start;row-gap:var(--s3)}
+.work-head,.work-intro,.p-tokyo,.work-row,.work .swipe-dots,.abroad{grid-column:1 / -1}
+.work-head h2{margin-top:var(--s1)}
+.work-intro{font-size:17px;line-height:1.45;max-width:440px;margin-top:calc(var(--s2) - var(--s3))}
+.plate{margin:0;min-width:0}
+.plate img{width:100%;height:auto;background:var(--paper-2)}
+.plate .cap{margin-top:8px;font-size:var(--fs-cap);text-wrap:pretty}
+.plate .kind{display:block;margin:0 0 1px}
+.p-tokyo{margin-inline:calc(-1 * var(--gut))}
+.p-tokyo .cap{padding-inline:var(--gut)}
+.work-row{margin-top:var(--s1)}
+.work-row .plate{width:72vw;max-width:340px}
+.work-row .plate img{aspect-ratio:4 / 5;object-fit:cover}
+.work .swipe-dots{margin-top:0}
+.abroad{margin-top:var(--s2);padding-top:var(--s3);border-top:1px solid var(--hair)}
+.abroad-lab{font-family:var(--ui);font-weight:600;font-stretch:88%;font-size:14px;color:var(--red);margin-bottom:var(--s1)}
+.abroad-list{font-family:var(--serif);font-size:22px;line-height:1.22;letter-spacing:-.01em;text-wrap:pretty}
+.abroad-list .d{color:var(--mute)}
+
+/* tablet: a six-column grid; every caption stacks its kind label, so captions in a row line up */
+@media (min-width:601px){
+  .work .grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .work-intro{grid-column:1 / span 5;font-size:19px;margin-top:calc(var(--s2) - var(--s3))}
+  .br-m{display:none}
+  .p-tokyo{grid-column:1 / span 4;margin-inline:0}
+  .p-tokyo .cap{padding-inline:0}
+  .work-row .plate{width:auto;max-width:none}
+  .work-row .plate img{aspect-ratio:auto;object-fit:fill}
+  .p-birla{grid-column:5 / span 2}
+  .p-raychem{grid-column:1 / span 3}
+  .p-welspun{grid-column:4 / span 3}
+  .plate .cap{margin-top:12px}
+  .abroad{grid-column:1 / -1;margin-top:var(--s1);padding-top:0;border-top:0}
+  .abroad-lab{font-size:15px}
+  .abroad-list{font-size:28px;line-height:1.16}
+}
+/* desktop: row 1 the wide Tokyo plate and the Surat portrait, bottoms level; row 2 two portraits, then the places abroad */
+@media (min-width:1101px){
+  .work .grid{grid-template-columns:repeat(12,minmax(0,1fr))}
+  .work-head{grid-column:1 / span 7}
+  .work-intro{grid-column:8 / span 5;align-self:end;margin-top:0}
+  .plate .cap{font-size:var(--fs-cap)}
+  .plate .kind{display:inline;margin:0 6px 0 0}
+  .p-raychem .kind,.p-welspun .kind,.with-photo .kind{display:block;margin:0 0 1px}
+  .p-tokyo{grid-column:1 / span 8}
+  .p-birla{grid-column:9 / span 4;align-self:end}
+  .p-raychem{grid-column:1 / span 3}
+  .p-welspun{grid-column:4 / span 3}
+  .abroad{grid-column:8 / span 5;align-self:start;margin-top:0}
+  .abroad-list{font-size:44px;line-height:1.1}   /* sized to stand level with the two photographs beside it */
+}
+
+/* =====================================================================
+   WORKING WITH HER — phone: the photograph beside the heading, four short rows, the producers' page
+   ===================================================================== */
+.with .grid{align-items:start}
+.with-head{grid-column:1 / -1;margin-bottom:var(--s3);display:grid;grid-template-columns:minmax(0,1fr) 148px;column-gap:var(--s2);align-items:center}
+.with-head .eyebrow{grid-column:1 / -1;grid-row:1}
+.with-head h2{grid-column:1;grid-row:2}
+.with-photo{grid-column:2;grid-row:2;margin:var(--s3) 0 0}
+.with-photo img{width:100%;height:auto;aspect-ratio:4 / 5;object-fit:cover;background:var(--paper-2)}
+.with-photo .cap{margin-top:8px}
+.with-photo .kind{display:block;margin:0 0 1px}
+.with-list,.with-foot{grid-column:1 / -1}
+.with-list{border-bottom:1px solid var(--hair)}
+.with-list li{border-top:1px solid var(--hair);padding-block:14px;display:grid;grid-template-columns:1fr}
+.w-k{font-family:var(--serif);font-size:26px;line-height:1.02;letter-spacing:-.015em}
+.w-v{font-size:16px;line-height:1.45;color:var(--mute);max-width:400px;margin-top:6px}
+.with-foot{margin-top:var(--s3)}
+.w-link{margin:0}
+
+@media (min-width:601px){
+  .with-head{margin-bottom:var(--s4);grid-template-columns:minmax(0,1fr) 220px;column-gap:var(--gap);grid-template-rows:1fr auto;align-items:end}
+  .with-head .eyebrow{grid-column:1;align-self:end}
+  .with-head h2{grid-column:1}
+  .with-photo{grid-row:1 / span 2;margin:0}
+  .with-photo .cap{margin-top:12px}
+  .with-list li{padding-block:var(--s3);grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:var(--gap);align-items:baseline}
+  .w-k{font-size:32px}
+  .w-v{margin-top:0}
+}
+/* desktop: four rows, the point on the left and its evidence on the right, level with the photograph */
+@media (min-width:1101px){
+  .with .grid{grid-template-rows:auto 1fr}
+  .with-head{grid-column:1 / span 4;grid-row:1 / span 2;display:block;margin-bottom:0}
+  .with-head h2{margin-top:var(--s2)}
+  .with-photo{margin:var(--s4) 0 0;max-width:240px}
+  .with-list{grid-column:5 / span 8;grid-row:1}
+  .with-foot{grid-column:5 / span 8;grid-row:2;align-self:start}
+  .w-k{font-size:36px}
+}
+
+/* =====================================================================
+   PRINT — the home page prints as a plain record; producers.html is the sheet meant for printing
+   ===================================================================== */
+@media print{
+  html,body{background:#fff!important}
+  .top .nav,.top .pill,.menu-btn,.dock,.sheet,.mic,.line,.hint,.status,.req-form,.received,.skip,.rooms-link-d,.rooms-link-m,.tlink-row,.w-link,.f-social,.f-nav,.vid,.swipe-dots,.cc-line{display:none!important}
+  .top{position:static;height:auto;padding:0 0 4mm;background:none;box-shadow:none}
+  .hero{height:auto!important;min-height:0!important}
+  .sec{break-inside:avoid;padding-block:6mm}
+  .swipe{display:contents}
+  a{text-decoration:none}
+}
