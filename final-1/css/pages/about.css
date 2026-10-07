@@ -1,0 +1,143 @@
+/* about.html · page styles. Scoped to .about-*. */
+
+/* ------------------------------------------------------------ 00 · Head */
+.about-head { padding-top: var(--head-top); }
+.about-head__grid {
+  display: grid; grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "title" "portrait" "body";
+  row-gap: var(--s-6);
+}
+.about-head__title { grid-area: title; display: grid; gap: var(--s-4); }
+.about-head__title h1 { margin-top: var(--s-1); }
+.about-head__statement {
+  font-family: var(--font-display); font-variation-settings: "wdth" var(--wdth-head);
+  font-weight: 500; font-size: clamp(1.375rem, 1.1rem + 1.1vw, 2.125rem); line-height: 1.18;
+  letter-spacing: -0.018em; color: var(--ink); max-width: 22ch; text-wrap: balance;
+}
+.about-head__portrait { grid-area: portrait; }
+.about-head__body { grid-area: body; display: grid; gap: var(--s-5); align-content: start; }
+.about-head__prose p { max-width: 36rem; }
+.about-head__first {
+  padding-top: var(--s-4); border-top: 1px solid var(--rule);
+  font-size: var(--fs-small); color: var(--muted);
+}
+
+@media (min-width: 900px) {
+  .about-head__grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--col-gap);
+    grid-template-rows: auto 1fr;
+    grid-template-areas: none; row-gap: var(--s-7);
+  }
+  .about-head__title { grid-column: 1 / 7; grid-row: 1; align-self: end; }
+  .about-head__body { grid-column: 1 / 7; grid-row: 2; }
+  .about-head__portrait { grid-column: 7 / 13; grid-row: 1 / 3; align-self: start; }
+  .about-head__statement { max-width: 27ch; }
+}
+
+/* ------------------------------------------------------------ 01 · How she works */
+.about-work__grid { display: grid; grid-template-columns: minmax(0, 1fr); row-gap: var(--s-6); }
+.about-work__head { margin-bottom: 0; }
+.about-work__list { display: grid; }
+.about-work__item {
+  display: grid; grid-template-columns: 2.75rem minmax(0, 1fr); column-gap: var(--s-3); row-gap: var(--s-3);
+  padding: var(--s-5) 0 var(--s-6); border-top: 1px solid var(--rule);
+}
+.about-work__item:first-child { border-top: 1.5px solid var(--ink); }
+.about-work__item > :not(.about-work__n) { grid-column: 2; }
+.about-work__n {
+  grid-column: 1; grid-row: 1; align-self: baseline;
+  font-family: var(--font-display); font-weight: 600; font-size: 1rem; letter-spacing: 0.02em;
+  color: var(--cue-press); font-variant-numeric: tabular-nums;
+}
+.about-work__item h3 { grid-row: 1; line-height: 1.15; }
+.about-work__item p { max-width: 36rem; }
+.about-work__quote { margin-top: var(--s-2); padding-left: var(--s-4); border-left: 3px solid var(--ink); }
+/* An excerpt of her post, at body size (quote--plain) until she approves it. */
+
+@media (min-width: 900px) {
+  .about-work__grid { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--col-gap); row-gap: var(--s-7); }
+  .about-work__head { grid-column: 7 / 13; grid-row: 1; align-self: end; }
+  .about-work__photo { grid-column: 1 / 6; grid-row: 1 / 3; align-self: start; }
+  .about-work__list { grid-column: 7 / 13; grid-row: 2; }
+}
+
+/* ------------------------------------------------------------ 03 · In her words */
+.about-words__grid { display: grid; grid-template-columns: minmax(0, 1fr); row-gap: var(--s-7); }
+.about-words__head { margin-bottom: 0; align-content: start; }
+.about-words__quotes { display: grid; gap: var(--s-7); }
+.about-words__quotes .quote + .quote { padding-top: var(--s-7); border-top: 1px solid var(--rule-strong); }
+
+@media (min-width: 900px) {
+  .about-words__grid { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--col-gap); }
+  .about-words__head { grid-column: 1 / 6; }
+  .about-words__quotes { grid-column: 7 / 13; }
+}
+
+/* ------------------------------------------------------------ 02 · The range (editorial mosaic)
+   Desktop: two staggered columns (portrait + a narrower tall launch still | head, landscape, a smaller landscape).
+   Phone and tablet: the heading holds still while the four photographs swipe beneath it, in one frame size. */
+.about-range__mosaic {
+  position: relative; display: grid; grid-template-columns: repeat(4, 84%); grid-template-rows: auto auto;
+  column-gap: var(--s-3); row-gap: var(--s-5); align-items: start;
+  overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none;
+  margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); scroll-padding-inline: var(--gutter);
+}
+.about-range__mosaic::-webkit-scrollbar { display: none; }
+.about-range__mosaic:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }
+.about-range__col { display: contents; }
+.about-range__head { grid-row: 1; grid-column: 1; position: sticky; left: var(--gutter); margin-bottom: 0; width: calc(100vw - 2 * var(--gutter)); }
+.about-range__a, .about-range__b, .about-range__c, .about-range__d { grid-row: 2; scroll-snap-align: start; }
+.about-range__a { grid-column: 1; }
+.about-range__b { grid-column: 2; }
+.about-range__c { grid-column: 3; }
+.about-range__d { grid-column: 4; }
+.about-range__mosaic .photo__media { aspect-ratio: 4 / 5; }
+@media (min-width: 600px) {
+  .about-range__mosaic { grid-template-columns: repeat(4, 44%); }
+}
+
+@media (min-width: 900px) {
+  .about-range__mosaic {
+    grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: none; column-gap: var(--col-gap); row-gap: 0; align-items: start;
+    overflow: visible; margin-inline: 0; padding-inline: 0; scroll-snap-type: none;
+  }
+  .about-range__head, .about-range__a, .about-range__b, .about-range__c, .about-range__d { grid-row: auto; grid-column: auto; }
+  .about-range__head { position: static; width: auto; }
+  .about-range__mosaic .photo__media { aspect-ratio: var(--ratio, 4 / 5); }
+  .about-range__col { display: grid; row-gap: var(--s-8); align-content: start; }
+  .about-range__col--l { grid-column: 1 / 6; }
+  .about-range__col--r { grid-column: 7 / 13; padding-top: var(--s-6); }
+  .about-range__head { padding-bottom: var(--s-4); }
+  .about-range__c { width: 72%; }
+  .about-range__d { width: 64%; }
+}
+
+/* ------------------------------------------------------------ 05 · Onward */
+.about-next__inner {
+  display: grid; gap: var(--s-4);
+  padding-top: var(--s-6); border-top: 1.5px solid var(--ink);
+}
+.about-next__title { font-size: var(--fs-h3); line-height: 1.15; max-width: 24ch; }
+.about-next__line { color: var(--muted); max-width: 40ch; }
+.about-next__links { display: grid; margin-top: var(--s-2); border-top: 1px solid var(--rule); }
+.about-next__links li { border-bottom: 1px solid var(--rule); }
+.about-next__links .link-arrow { display: flex; justify-content: space-between; min-height: 52px; text-decoration: none; }
+@media (min-width: 600px) {
+  .about-next__links { display: flex; flex-wrap: wrap; gap: 0 var(--s-6); margin-top: 0; border: 0; }
+  .about-next__links li { border: 0; }
+  .about-next__links .link-arrow { display: inline-flex; min-height: 44px; text-decoration: underline; }
+}
+
+@media (min-width: 900px) {
+  .about-next__inner { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--col-gap); align-items: start; }
+  .about-next__title { grid-column: 1 / 6; grid-row: 1 / 3; }
+  .about-next__line { grid-column: 7 / 13; }
+  .about-next__links { grid-column: 7 / 13; }
+}
+
+/* Phone: the square portrait crops to 4:5 so she reads larger in a narrow frame; 900px+: square. */
+.about-head__portrait .photo__media { aspect-ratio: 4 / 5; }
+@media (min-width: 900px) {
+  .about-head__portrait .photo__media { aspect-ratio: var(--ratio, 1 / 1); }
+}
+

@@ -1,0 +1,207 @@
+/* index.html · page styles. Scoped to .home-*. Phone first: base rules are the phone layout;
+   760px (tablet) and 900px (desktop) scale it up. */
+
+/* ================================================================ 00 · First screen
+   Phone: the photo leads, full bleed, with her lower third on it; then the name, one line of what she
+   does, and the actions within the first screen. 900px+: text beside the photo. */
+.home-hero { padding-block: 0 var(--s-7); }
+.home-hero__grid { row-gap: var(--s-5); }
+.home-hero__text, .home-hero__photo { grid-column: 1 / -1; }
+
+.home-hero__photo { order: -1; margin-inline: calc(-1 * var(--gutter)); }
+.home-hero__photo .photo__media { aspect-ratio: 4 / 5; max-height: 56vh; max-height: 56svh; width: 100%; }
+.home-hero__photo .photo__media > .strap { top: 14px; bottom: auto; }
+
+.home-hero__text { display: flex; flex-direction: column; min-width: 0; }
+.home-hero__name {
+  order: 1; margin-left: -0.045em; white-space: nowrap;
+  font-size: clamp(2.75rem, 12.4vw, 3.5rem);
+}
+.home-hero__name span { display: inline; }
+.home-hero__role { order: 2; margin-top: var(--s-3); font-size: 1.0625rem; line-height: 1.5; max-width: 34ch; }
+.home-hero__ctas { order: 3; margin-top: var(--s-5); display: grid; gap: var(--s-2); }
+.home-hero__ctas .btn { width: 100%; min-height: 52px; }
+.home-hero__links { order: 4; margin-top: var(--s-4); display: grid; border-top: 1px solid var(--rule); }
+.home-hero__links li { border-bottom: 1px solid var(--rule); }
+.home-hero__links .link-arrow {
+  display: flex; justify-content: space-between; min-height: 52px; width: 100%;
+  text-decoration: none; font-size: 1rem;
+}
+.home-hero__facts { order: 5; margin-top: var(--s-5); }
+
+/* "Hosting in": her poster device in the first screen, static type (no motion, no counts). */
+.home-hero__signs {
+  order: 6; display: grid; gap: 0.35rem; margin-top: var(--s-4); padding-top: var(--s-3); max-width: 36rem;
+  border-top: 1px solid var(--rule); color: var(--ink); text-decoration: none;
+}
+.home-hero__signs-lead { font-size: var(--fs-label); font-weight: 650; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+.home-hero__signs-list { display: grid; grid-template-columns: repeat(3, max-content); gap: 0 0.9rem; }
+/* Each city carries the lower third's red tick, so the line reads as three small broadcast captions. */
+.home-hero__sign {
+  display: grid; gap: 0.3rem; padding-left: 0.6rem; border-left: 3px solid var(--cue);
+  font-family: var(--font-display); font-variation-settings: "wdth" var(--wdth-sign); font-weight: 750;
+  font-size: 1.375rem; line-height: 1; letter-spacing: -0.005em; text-transform: uppercase;
+}
+.home-hero__sign time {
+  font-family: var(--font-text); font-variation-settings: normal; font-size: 0.75rem; font-weight: 650; line-height: 1;
+  letter-spacing: 0.06em; color: var(--muted); text-transform: uppercase;
+}
+.home-hero__signs:hover .home-hero__sign { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.12em; }
+
+/* Large phones and tablets in portrait (600–899px) keep the photo-led stack, scaled up: the two-column hero
+   only starts at 900px, where the text column is tall enough to sit beside the photo without dead space. */
+@media (min-width: 600px) and (max-width: 899px) {
+  .home-hero__name { font-size: clamp(3.5rem, 9vw, 5rem); }
+  .home-hero__ctas { grid-template-columns: 1fr 1fr; }
+  .home-hero__links { grid-template-columns: 1fr 1fr; column-gap: var(--s-5); }
+  .home-hero__photo .photo__media { max-height: 60svh; }
+}
+@media (min-width: 900px) {
+  .home-hero { padding-top: var(--s-5); }
+  .home-hero__grid { align-items: end; }
+  .home-hero__text { display: block; grid-column: 1 / span 6; padding-bottom: var(--s-1); }
+  .home-hero__photo { order: 0; grid-column: 7 / -1; margin-inline: 0; }
+  .home-hero__photo .photo__media {
+    max-height: calc(100vh - var(--header-h) - 3.5rem);
+    max-height: calc(100svh - var(--header-h) - 3.5rem);
+    min-height: 26rem;
+  }
+  .home-hero__photo .photo__media > .strap { top: auto; bottom: 14px; }
+  .home-hero__name { white-space: normal; font-size: clamp(3.25rem, 1rem + 9.4vw, 9.5rem); }
+  .home-hero__name span { display: block; }
+  .home-hero__role { margin-top: var(--s-5); font-size: var(--fs-lede); line-height: 1.45; }
+  .home-hero__facts { margin-top: var(--s-4); }
+  .home-hero__signs { margin-top: var(--s-5); }
+  .home-hero__signs-list { gap: 0 clamp(1rem, 0.5rem + 1.6vw, 2rem); }
+  .home-hero__sign { font-size: clamp(1.5rem, 1.1rem + 1.3vw, 2.25rem); }
+  .home-hero__ctas { display: flex; flex-wrap: wrap; gap: var(--s-3); margin-top: var(--s-6); }
+  .home-hero__ctas .btn { width: auto; min-height: var(--target); }
+  .home-hero__links { display: flex; flex-wrap: wrap; gap: 0 var(--s-5); margin-top: var(--s-2); border: 0; }
+  .home-hero__links li { border: 0; }
+  .home-hero__links .link-arrow { display: inline-flex; justify-content: flex-start; min-height: 44px; width: auto; text-decoration: underline; font-size: inherit; }
+}
+@media (min-width: 900px) {
+  .home-hero__photo .photo__media { min-height: 32rem; }
+}
+
+/* Running order: the page's sections as a run-of-show strip (desktop only; phones just scroll). */
+.home-order { display: none; }
+@media (min-width: 900px) {
+  .home-order { display: block; margin-top: var(--s-7); }
+  .home-order__inner {
+    display: flex; align-items: center; gap: var(--s-6);
+    border-top: 1.5px solid var(--ink); padding-top: var(--s-2);
+  }
+  .home-order__label {
+    flex: none; font-size: var(--fs-label); font-weight: 650; letter-spacing: var(--track-label);
+    text-transform: uppercase; color: var(--muted);
+  }
+  .home-order__list { display: flex; flex-wrap: wrap; gap: 0 var(--s-5); }
+  .home-order__list a {
+    display: inline-flex; align-items: center; gap: 0.55em; min-height: 44px;
+    font-size: 0.9375rem; font-weight: 600; color: var(--text); text-decoration: none;
+  }
+  .home-order__list a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 0.3em; }
+  .home-order__n {
+    font-family: var(--font-display); font-weight: 600; font-size: 0.8125rem; letter-spacing: 0.02em;
+    color: var(--cue-press); font-variant-numeric: tabular-nums;
+  }
+}
+
+/* ================================================================ 01 · At work (stage band) */
+.home-work__head, .home-work__rail { grid-column: 1 / -1; }
+.home-work__head .link-arrow { margin-top: calc(-1 * var(--s-2)); }
+@media (min-width: 900px) {
+  .home-work__grid { align-items: start; }
+  .home-work__head { grid-column: 1 / span 4; margin-bottom: 0; padding-top: var(--s-2); }
+  .home-work__rail { grid-column: 5 / -1; }
+  /* Editorial offset: the middle clip drops a step, like a staggered stage line-up. */
+  .home-work__rail > :nth-child(2) { margin-top: var(--s-8); }
+}
+
+/* ================================================================ 02 · The rooms
+   Phone: four swipeable cards, each led by a still. 760px+: two stills for range, then the
+   four families as a dated index. */
+.home-rooms__pair { display: none; }
+.home-rooms__index {
+  display: grid; grid-auto-flow: column; grid-auto-columns: 84%; gap: var(--s-3); align-items: stretch;
+  overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none;
+  margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); scroll-padding-inline: var(--gutter);
+}
+.home-rooms__index::-webkit-scrollbar { display: none; }
+.home-room { position: relative; scroll-snap-align: start; min-width: 0; display: flex; flex-direction: column; background: var(--paper-2); }
+.home-room__still { margin: 0; aspect-ratio: 3 / 2; overflow: hidden; }
+.home-room__still picture { display: block; height: 100%; }
+.home-room__still img { width: 100%; height: 100%; object-fit: cover; object-position: var(--pos, 50% 50%); }
+.home-room__title { padding: var(--s-4) var(--s-4) 0; font-size: 1.375rem; line-height: 1.15; letter-spacing: -0.015em; }
+/* Inline, so a two-line family name keeps its arrow on its last word; the padding keeps a 44px target. */
+.home-room__title a { padding-block: 0.7rem; color: var(--ink); text-decoration: none; }
+.home-room__title a::after {
+  content: "\2192"; display: inline-block; margin-left: 0.35em; font-family: var(--font-text); font-size: 0.8em;
+  transition: transform var(--t-fast) var(--ease-out);
+}
+.home-room__title a:hover { text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 0.2em; }
+.home-room__title a:hover::after { transform: translateX(3px); }
+.home-room__list { margin: var(--s-3) var(--s-4) var(--s-4); border-top: 1.5px solid var(--ink); }
+.home-room__list li {
+  display: grid; gap: 0.15rem; padding: 0.6rem 0; border-bottom: 1px solid var(--rule-strong);
+  font-size: var(--fs-small); line-height: 1.4;
+}
+.home-room__list li:last-child { border-bottom: 0; }
+.home-room__list li > time, .home-room__years {
+  font-family: var(--font-display); font-weight: 600; font-size: 0.8125rem; color: var(--cue-press);
+  font-variant-numeric: tabular-nums; letter-spacing: 0.02em;
+}
+/* Phones show three examples per card; the full lists are one tap away on Work. */
+.home-room__list > li:nth-child(n+4) { display: none; }
+
+@media (min-width: 760px) {
+  .home-rooms__pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--col-gap); }
+  .home-rooms__cap { display: none; }
+  .home-rooms__index {
+    grid-auto-flow: row; grid-auto-columns: auto; grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--col-gap); row-gap: 0; overflow: visible; margin: clamp(2rem, 1.4rem + 2.4vw, 3.5rem) 0 0; padding: 0; scroll-snap-type: none;
+  }
+  /* Side by side, the titles share one row (subgrid), so the lists start level under a two-line title. */
+  .home-room { display: grid; grid-row: span 2; grid-template-rows: subgrid; row-gap: 0; margin-bottom: var(--s-6); background: none; }
+  .home-room__still { display: none; }
+  .home-room__title { align-self: end; padding: 0.4rem 0; font-size: var(--fs-h3); }
+  .home-room__list { margin: var(--s-2) 0 0; }
+  .home-room__list li { border-bottom-color: var(--rule); }
+  .home-room__list li:last-child { border-bottom: 1px solid var(--rule); }
+  .home-room__list > li:nth-child(n+4) { display: grid; }
+}
+@media (min-width: 1100px) {
+  .home-rooms__index { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* ================================================================ 03 · Asked back */
+.home-again .ledger__date { white-space: nowrap; }
+.home-again__more { margin-top: var(--s-5); }
+/* Phones show four clients; the full record is one tap away. */
+.home-again .ledger__row:nth-child(n+6) { display: none; }
+@media (min-width: 760px) { .home-again .ledger__row:nth-child(n+6) { display: grid; } }
+
+/* ================================================================ 04 · Hosting in (one row of signs, not a stack) */
+.home-abroad__signs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--s-4); }
+.home-abroad .sign { grid-template-columns: 1fr; align-content: start; padding: var(--s-4) 0; }
+.home-abroad .sign__place { font-size: clamp(2rem, 1.2rem + 3.2vw, 4.25rem); }
+.home-abroad .sign__meta { text-align: left; font-size: 0.875rem; line-height: 1.4; }
+.home-abroad__what { display: block; font-weight: 500; color: var(--muted); }
+.home-abroad__more { margin-top: var(--s-4); }
+/* The closing pointers follow on the same paper, so this section needs only a short run-out. */
+.home-abroad { padding-bottom: clamp(2.5rem, 2rem + 3vw, 5rem); }
+@media (min-width: 900px) {
+  .home-abroad__signs { grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: var(--col-gap); }
+  .home-abroad .sign { padding: var(--s-5) 0 var(--s-6); }
+}
+
+/* ================================================================ 05 · Before the brief */
+.home-next__inner { display: grid; gap: var(--s-3); padding-top: var(--s-5); border-top: 1.5px solid var(--ink); }
+.home-next__list { display: grid; gap: var(--s-5); }
+.home-next__item { display: grid; gap: var(--s-2); align-content: start; }
+.home-next__title { font-size: var(--fs-h3); line-height: 1.15; }
+.home-next__line { color: var(--muted); max-width: 44ch; }
+@media (min-width: 900px) {
+  .home-next__list { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--col-gap); }
+}

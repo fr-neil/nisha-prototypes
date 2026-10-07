@@ -1,0 +1,120 @@
+/* Nisha Shetty · base: reset, type, layout primitives, focus. */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: calc(var(--header-h) + 16px); }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--text);
+  font-family: var(--font-text);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+img, picture, video, svg { display: block; max-width: 100%; height: auto; }
+img, video { background: var(--paper-2); }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+h1, h2, h3, h4, p, figure, blockquote, ol, ul, dl, dd { margin: 0; }
+ol[class], ul[class] { list-style: none; padding: 0; }
+table { border-collapse: collapse; }
+[hidden] { display: none !important; }
+
+/* Hindi / Devanagari runs: mark them lang="hi" */
+:lang(hi) { font-family: var(--font-deva); font-feature-settings: normal; letter-spacing: 0; font-size: 1.06em; line-height: 1; vertical-align: -0.04em; }
+
+/* ---------- Type ---------- */
+.display, h1, h2, h3 {
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" var(--wdth-head);
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: var(--track-display);
+  line-height: var(--lh-snug);
+  text-wrap: balance;
+}
+h1, .t-h1 { font-size: var(--fs-h1); line-height: var(--lh-tight); }
+h2, .t-h2 { font-size: var(--fs-h2); line-height: 1.06; }
+h3, .t-h3 { font-size: var(--fs-h3); letter-spacing: -0.01em; }
+.t-mega {
+  font-family: var(--font-display);
+  font-size: var(--fs-mega);
+  font-variation-settings: "wdth" var(--wdth-name);
+  font-weight: 600;
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+}
+.t-lede { font-size: var(--fs-lede); line-height: 1.45; color: var(--text); max-width: 36ch; text-wrap: pretty; }
+.t-small { font-size: var(--fs-small); line-height: 1.5; }
+.t-muted { color: var(--muted); }
+.t-label, .eyebrow {
+  font-family: var(--font-text);
+  font-size: var(--fs-label);
+  font-weight: 650;
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  line-height: 1.3;
+  color: var(--muted);
+}
+.t-num, time, .tnum { font-variant-numeric: tabular-nums lining-nums; }
+p { text-wrap: pretty; }
+.prose > * + * { margin-top: 1em; }
+.prose { max-width: var(--max-text); }
+strong, b { font-weight: 650; }
+
+a { color: var(--ink); text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+a:hover { text-decoration-thickness: 2px; }
+
+/* ---------- Focus (visible, 3px, offset) ---------- */
+:focus { outline: none; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: var(--radius); }
+.on-stage :focus-visible, .stage :focus-visible { outline-color: var(--focus-on-stage); }
+
+/* ---------- Skip link ---------- */
+.skip {
+  position: absolute; left: var(--gutter); top: -100px; z-index: 100;
+  background: var(--ink); color: var(--paper); padding: 12px 16px; font-weight: 650;
+  min-height: var(--target); display: inline-flex; align-items: center; text-decoration: none;
+}
+.skip:focus { top: 8px; }
+
+/* ---------- Layout primitives ---------- */
+.wrap { width: 100%; max-width: calc(var(--max) + 2 * var(--gutter)); margin-inline: auto; padding-inline: var(--gutter); }
+.wrap--wide { max-width: calc(1600px + 2 * var(--gutter)); }
+.grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: var(--col-gap); }
+@media (min-width: 760px) { .grid { grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); } }
+.section { padding-block: var(--section-y); }
+.section + .section { padding-top: 0; }
+.section--sunk { background: var(--paper-2); }
+.section--sunk + .section, .section + .section--sunk, .stage + .section, .section + .stage { padding-top: var(--section-y); }
+.stack > * + * { margin-top: var(--stack, var(--s-5)); }
+.cluster { display: flex; flex-wrap: wrap; gap: var(--s-3); align-items: center; }
+.rule { border: 0; border-top: 1px solid var(--rule); margin: 0; }
+
+/* The dark "house" band: for video-led sections and the footer only. */
+.stage { background: var(--stage); color: var(--on-stage); }
+.stage h1, .stage h2, .stage h3, .stage .display, .stage .t-mega { color: var(--on-stage); }
+.stage .t-muted, .stage .t-label, .stage .eyebrow { color: var(--on-stage-muted); }
+.stage a { color: var(--on-stage); }
+.stage img, .stage video { background: var(--stage-2); }
+
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* ---------- Reduced motion: every transition/animation collapses to its end state ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
