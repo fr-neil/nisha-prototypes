@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Not here · Nisha Shetty</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#140e0d">
+<link rel="icon" href="/nisha-prototypes/applause/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/nisha-prototypes/applause/assets/favicon-32.png" type="image/png" sizes="32x32">
+<style>
+@font-face { font-family: "Besley"; src: url("/nisha-prototypes/applause/assets/fonts/besley-var-latin.woff2") format("woff2"); font-weight: 400 900; font-display: swap; }
+@font-face { font-family: "Host Grotesk"; src: url("/nisha-prototypes/applause/assets/fonts/host-grotesk-var-latin.woff2") format("woff2"); font-weight: 300 800; font-display: swap; }
+:root { --house: #140e0d; --ivory: #f6f0ea; --ivory-dim: rgba(246, 240, 234, .7); --gown-lit: #f0405f; }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body {
+  min-height: 100vh; min-height: 100svh;
+  display: grid; place-items: end start;
+  padding: max(24px, env(safe-area-inset-top)) clamp(16px, 5vw, 64px) max(40px, env(safe-area-inset-bottom));
+  background: var(--house); color: var(--ivory);
+  font: 400 1.0625rem/1.5 "Host Grotesk", Arial, sans-serif;
+}
+main { max-width: 40rem; }
+.kicker { display: flex; align-items: center; gap: .6em; margin: 0; font: 600 .6875rem/1.3 "Host Grotesk", Arial, sans-serif; letter-spacing: .14em; text-transform: uppercase; color: var(--ivory-dim); }
+.dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gown-lit); }
+h1 { margin: 16px 0 0; font: 500 clamp(2.4rem, 9vw, 4.6rem)/1 "Besley", Georgia, serif; letter-spacing: -.02em; }
+h1 b { color: var(--gown-lit); font-weight: 900; }
+p.lede { margin: 18px 0 0; color: var(--ivory-dim); }
+a { color: var(--ivory); font-weight: 600; text-decoration: none; background: linear-gradient(var(--gown-lit), var(--gown-lit)) 0 100% / 100% 1.5px no-repeat; padding-bottom: 2px; }
+a:hover { color: var(--gown-lit); }
+a:focus-visible { outline: 2px solid var(--gown-lit); outline-offset: 3px; }
+.links { margin: 26px 0 0; display: flex; flex-wrap: wrap; gap: 22px; }
+</style>
+</head>
+<body>
+<main>
+  <p class="kicker"><span class="dot" aria-hidden="true"></span>Nisha Shetty · Corporate emcee</p>
+  <h1>This page has left the <b>stage</b>.</h1>
+  <p class="lede">The address may have changed. Everything is on one page.</p>
+  <p class="links"><a href="/nisha-prototypes/applause/">Back to the page</a> <a href="/nisha-prototypes/applause/#enquire">Enquire</a></p>
+</main>
+</body>
+</html>

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <title>Nisha Shetty · Website</title>
-  <meta name="description" content="Two finished website designs for Nisha Shetty, presenter, anchor and emcee.">
+  <meta name="description" content="Four website designs for Nisha Shetty, corporate emcee.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='7' width='26' height='18' rx='3' fill='%23d7142b' transform='rotate(-6 16 16)'/%3E%3C/svg%3E">
   <style>
     :root { --ink: #1b1716; --soft: #6a625e; --line: #e7e1dc; --bg: #f7f3ee; --card: #fffdfa; --accent: #c8102e; }
@@ -22,12 +22,11 @@
     a.site:hover { transform: translateY(-3px); box-shadow: 0 14px 34px rgba(27, 23, 22, .10); }
     a.site:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
     a.site img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top left; border-bottom: 1px solid var(--line); }
-    .body { padding: 20px 20px 22px; }
-    h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: 28px; line-height: 1.1; margin: 0 0 8px; }
-    .body p { margin: 0; color: var(--soft); font-size: 15px; max-width: 44ch; }
-    .go { display: inline-flex; align-items: center; min-height: 44px; margin-top: 10px; font-weight: 600; color: var(--accent); }
-    footer { margin-top: 40px; padding-top: 12px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; color: var(--soft); font-size: 14px; }
-    footer a { color: inherit; display: inline-flex; align-items: center; min-height: 44px; }
+    .body { padding: 20px 20px 22px; display: flex; flex-direction: column; flex: 1; }
+    h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: 28px; line-height: 1.1; margin: 0 0 8px; text-wrap: balance; }
+    .body p { margin: 0; color: var(--soft); font-size: 15px; max-width: 46ch; }
+    .go { display: inline-flex; align-items: center; min-height: 44px; margin-top: auto; padding-top: 10px; font-weight: 600; color: var(--accent); }
+    footer { margin-top: 40px; padding-top: 12px; border-top: 1px solid var(--line); color: var(--soft); font-size: 14px; }
     @media (prefers-reduced-motion: reduce) { a.site { transition: none; } a.site:hover { transform: none; } }
   </style>
 </head>
@@ -35,9 +34,25 @@
   <main>
     <header>
       <h1 class="name">Nisha Shetty</h1>
-      <p class="role">Presenter · Anchor · Emcee</p>
+      <p class="role">Corporate emcee · English &amp; Hindi · Mumbai</p>
     </header>
     <div class="grid">
+      <a class="site" href="please-welcome/">
+        <img src="thumbs/please-welcome.jpg" alt="Please welcome: first screen" width="960" height="600">
+        <div class="body">
+          <h2>Please welcome</h2>
+          <p>Her stage introduction, marked up like a host's script, in English and Hindi. It ends on her name, then her reel.</p>
+          <span class="go">Open site →</span>
+        </div>
+      </a>
+      <a class="site" href="applause/">
+        <img src="thumbs/applause.jpg" alt="The loudest round of applause: first screen" width="960" height="600">
+        <div class="body">
+          <h2>The loudest round of applause</h2>
+          <p>Her own opening line lights up word by word as she says it, then the room rises. Turn your sound on.</p>
+          <span class="go">Open site →</span>
+        </div>
+      </a>
       <a class="site" href="final-hold-the-mic/">
         <img src="thumbs/final-hold-the-mic.jpg" alt="Hold the Mic: first screen" width="960" height="600">
         <div class="body">
@@ -55,10 +70,7 @@
         </div>
       </a>
     </div>
-    <footer>
-      <span>© 2026 Nisha Shetty</span>
-      <a href="archive.html">Earlier explorations →</a>
-    </footer>
+    <footer>© 2026 Nisha Shetty</footer>
   </main>
 </body>
 </html>
