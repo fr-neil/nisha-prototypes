@@ -1,25 +1,24 @@
-/* Hold the Mic: the device.
-   Every .moment is a still, silent photograph until the visitor presses and holds its mic;
-   while held her real voice plays, the picture comes alive, the line traces her audio and her
-   words light up; letting go freezes it. One moment plays at a time.
-   Moments marked data-captions="plain" show standard captions (one plain line, no karaoke). */
-(function () {
+
+
+(function boot(fn) { if (window.requestAnimationFrame) requestAnimationFrame(function () { setTimeout(fn, 0); }); else fn(); })(function () {
   'use strict';
   var doc = document, root = doc.documentElement;
   root.classList.remove('no-js'); root.classList.add('js');
 
   var reduceMQ = window.matchMedia ? matchMedia('(prefers-reduced-motion: reduce)') : { matches: false };
   var INK = '#1B1815', RED = '#C8102E';
-  var BRACKETED = /\[[^\]]*\]/;          /* editorial notes are never rendered as her words */
+  var BRACKETED = /\[[^\]]*\]/;          
   var SHORT_TAP_MS = 380;
+  var TOUCH_HOLD_DELAY_MS = 120;         
+  var TOUCH_SLOP_PX = 10;                
   var FIRST_HINT_DELAY_MS = 1400, UNLOCK_HINT_MS = 3600, KEEP_HINT_MS = 2600, PULSE_MS = 1000;
   var ENV_PER_SEC = 120;
-  var JUMP_S = 2;                        /* a time jump larger than this is a seek, not playback */
-  var MIN_VISIBLE = 0.2;                /* "or play" freezes when the live moment is under 20% visible */
+  var JUMP_S = 2;                        
+  var MIN_VISIBLE = 0.2;                
   var KEY_HELD = 'ns-held', KEY_CC = 'ns-cc';
-  var SWIPE_MIN_VISIBLE = 0.5;          /* a card in a swipe row stops once it is more than half out of view */
+  var SWIPE_MIN_VISIBLE = 0.5;          
   var SETTLE_MS = 800;
-  var CC_TAIL_S = 0.5;                   /* a plain caption stays this long after its cue ends */
+  var CC_TAIL_S = 0.5;                   
   var noop = function () {};
 
   function fmt(t) { t = Math.max(0, Math.floor(t + 0.001)); return Math.floor(t / 60) + ':' + ('0' + (t % 60)).slice(-2); }
@@ -27,14 +26,13 @@
     try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; }
     return null;
   }
-  function seek(v, t) { try { v.currentTime = t; } catch (e) { /* not seekable yet: loadedmetadata seeks */ } }
+  function seek(v, t) { try { v.currentTime = t; } catch (e) {  } }
   function quiet(p) { if (p && p.catch) p.catch(noop); return p; }
 
-  /* ================= audio graph: one context, routed once on the first gesture ================= */
   var isIOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-  if (navigator.audioSession) { try { navigator.audioSession.type = 'playback'; } catch (e) { /* unsupported */ } }
+  if (navigator.audioSession) { try { navigator.audioSession.type = 'playback'; } catch (e) {  } }
   var AC = window.AudioContext || window.webkitAudioContext;
-  /* older iOS without audioSession mutes routed media while the context sleeps: skip the graph there */
+
   var canGraph = !!AC && /^https?:$/.test(location.protocol) && !(isIOS && !navigator.audioSession);
   var actx = null, analyser = null, tbuf = null;
   var moments = [], active = null, rafId = 0;
@@ -61,7 +59,6 @@
   }
   function resumeAudio() { if (actx && actx.state === 'suspended') quiet(actx.resume()); }
 
-  /* ================= the line ================= */
   function Wave(canvas, originFn) {
     this.c = canvas; this.ctx = canvas.getContext('2d'); this.origin = originFn;
     this.N = 900; this.h = new Float32Array(this.N); this.head = 0; this.count = 0;
@@ -79,7 +76,7 @@
   Wave.prototype.reset = function () { this.count = 0; this.head = 0; this.h.fill(0); this.draw(); };
   Wave.prototype.draw = function () {
     var ctx = this.ctx, w = this.w, h = this.hh, mid = h / 2, ox = this.origin(), step = w < 600 ? 2.6 : 3.2;
-    var amp = Math.min(h * 0.32, w < 600 ? 28 : 40), k, x, y, a;
+    var amp = Math.min(h * 0.32, w < 600 ? 20 : 40), k, x, y, a;
     ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
     ctx.clearRect(0, 0, w, h);
     ctx.lineJoin = 'round'; ctx.lineCap = 'round';
@@ -87,13 +84,13 @@
     if (this.full) { this.drawPrint(ctx, w, mid, amp, ox, step); ctx.globalAlpha = 1; return; }
     ctx.strokeStyle = this.color; ctx.lineWidth = this.color === RED ? 1.6 : 1;
     ctx.beginPath();
-    ctx.moveTo(ox, mid);                                   /* right of the mic: her voice travels out */
+    ctx.moveTo(ox, mid);                                   
     for (k = 0, x = ox; x <= w + step; k++, x += step) {
       a = k < this.count ? this.sample(k) : 0;
       y = mid + a * amp * (0.3 + 0.7 * Math.exp(-(x - ox) / 640));
       ctx.lineTo(x, y);
     }
-    ctx.moveTo(ox, mid);                                   /* left of the mic: a shorter echo */
+    ctx.moveTo(ox, mid);                                   
     for (k = 0, x = ox; x >= -step; k++, x -= step) {
       a = k < this.count ? this.sample(k) : 0;
       y = mid - a * amp * 0.7 * Math.exp(-(ox - x) / 260);
@@ -102,7 +99,7 @@
     ctx.stroke();
     ctx.globalAlpha = 1;
   };
-  /* reduced motion: the whole clip as a fixed voice-print; the heard part in red */
+
   Wave.prototype.drawPrint = function (ctx, w, mid, amp, ox, step) {
     var env = this.full, n = env.length, span = Math.max(1, w - ox - 8), cut = ox + span * this.progress;
     function path(x0, x1) {
@@ -118,7 +115,6 @@
     ctx.globalAlpha = this.alpha; ctx.lineWidth = 1.5; ctx.strokeStyle = this.progress > 0 ? RED : INK; path(0, Math.max(ox, cut));
   };
 
-  /* ================= hint: one pill on the page at a time ================= */
   var hintOwner = null, hintTimer = 0;
   function hint(m, kind, ms) {
     clearTimeout(hintTimer);
@@ -128,23 +124,15 @@
     if (ms) hintTimer = setTimeout(function () { hint(null); }, ms);
   }
 
-  /* ================= priming: make the first hold sound =================
-     Inside a real gesture (touchend / click anywhere but a mic), play each nearby clip for an
-     instant at zero gain, then put it back. Failures are recorded, never thrown. */
-  function nearViewport(el) {
-    var r = el.getBoundingClientRect(), vh = window.innerHeight || 800;
-    return r.bottom > -vh && r.top < vh * 2;
-  }
-  /* resolves true (primed), false (the browser still refuses sound) or null (could not try) */
   function prime(m) {
     if (m.state !== 'still' && m.state !== 'frozen') return null;
     var v = m.video, at = v.currentTime;
-    if (!m.gain && isIOS) return primeInline(m);         /* volume is read-only on iOS: no silent prime without the graph */
-    if (m.gain) m.gain.gain.value = 0; else { try { v.volume = 0; } catch (e) { /* read-only */ } }
+    if (!m.gain && isIOS) return primeInline(m);         
+    if (m.gain) m.gain.gain.value = 0; else { try { v.volume = 0; } catch (e) {  } }
     v.muted = false;
     var restore = function (ok) {
       if (m.state !== 'live') { v.pause(); seek(v, at); }
-      if (m.gain) m.gain.gain.value = 1; else { try { v.volume = 1; } catch (e) { /* read-only */ } }
+      if (m.gain) m.gain.gain.value = 1; else { try { v.volume = 1; } catch (e) {  } }
       m.primed = ok; if (ok) m.soundOk = true;
       return ok;
     };
@@ -153,10 +141,7 @@
     if (p && p.then) return p.then(function () { return restore(true); }, function () { return restore(false); });
     return Promise.resolve(restore(false));
   }
-  /* iOS without the WebAudio graph: play() with sound inside the gesture unlocks that element. It is
-     paused in the same task, before a frame of sound can be heard, and left where it was (no seek: a
-     seek racing the release's own rewind stalled playback in testing); an AbortError from that pause
-     still means the element was allowed to play. */
+
   function primeInline(m) {
     var v = m.video, p;
     v.muted = false;
@@ -166,27 +151,43 @@
     if (p && p.then) return p.then(function () { return done(true); }, function (err) { return done(!!err && err.name === 'AbortError'); });
     return Promise.resolve(done(false));
   }
-  function primeAll(except) {
-    moments.forEach(function (m) { if (m !== except && !m.primed && (m.isHero || nearViewport(m.el))) prime(m); });
-  }
-  /* every tap or click outside a mic primes the clips not yet unlocked (iOS unlocks per element) */
+
+  var conn = navigator.connection || {};
+  var leanData = !!conn.saveData || /(^|-)2g$|^3g$/.test(conn.effectiveType || '');
+  var gestureSeen = false;
   function primeOnGesture(e) {
-    if (e.target && e.target.closest && e.target.closest('.mic-btn')) return;   /* the mic has its own path */
+    gestureSeen = true;
+    if (e.target && e.target.closest && e.target.closest('.mic-btn')) return;   
     ensureGraph(); resumeAudio();
-    primeAll(null);
+    var hero = moments.filter(function (m) { return m.isHero; })[0];
+    var p = isIOS && !leanData && hero && !hero.primed && !hero.soundOk ? prime(hero) : null;
+    if (p && p.then) p.then(syncTapState, syncTapState);
+    syncTapState();
+  }
+
+  var coarse = window.matchMedia ? matchMedia('(hover: none) and (pointer: coarse)') : { matches: false };
+  function needsTap(m) {
+    if (m.soundOk) return false;
+    if (isIOS) return !m.primed;
+    var ua = navigator.userActivation;
+    return ua ? !ua.hasBeenActive : !gestureSeen;
+  }
+  function syncTapState() {
+    moments.forEach(function (m) { m.el.classList.toggle('hold-ok', !needsTap(m)); });
   }
   doc.addEventListener('touchend', primeOnGesture, true);
   doc.addEventListener('click', primeOnGesture, true);
   ['touchend', 'click', 'keydown'].forEach(function (type) { doc.addEventListener(type, resumeAudio, true); });
 
-  /* ================= a moment ================= */
   function Moment(el) {
     var self = this;
     this.el = el; this.id = el.getAttribute('data-clip'); this.isHero = el.classList.contains('hero');
     this.start = parseFloat(el.getAttribute('data-start')) || 0;
     this.len = parseFloat(el.getAttribute('data-len')) || 0;
-    this.cleanFrom = parseFloat(el.getAttribute('data-clean-from')) || 0;   /* source-edit flash before this: the still covers the video */
+    this.cleanFrom = parseFloat(el.getAttribute('data-clean-from')) || 0;   
     this.verified = el.getAttribute('data-verified') === 'true';
+
+    this.verifiedUntil = parseFloat(el.getAttribute('data-verified-until')) || Infinity;
     this.plain = el.getAttribute('data-captions') === 'plain';
     this.row = el.parentElement && el.parentElement.classList.contains('swipe') ? el.parentElement : null;
     this.endTag = el.getAttribute('data-end-tag') || 'Finished';
@@ -220,8 +221,11 @@
     if (reduceMQ.matches && this.env) this.wave.full = this.env;
     this.wave.draw();
     this.video.addEventListener('loadedmetadata', function () { if (self.state === 'still' && self.start) seek(self.video, self.start); });
+    this.video.addEventListener('waiting', function () { self.waiting = true; self.renderTime(); });
+    this.video.addEventListener('playing', function () { self.waiting = false; self.renderTime(); });
+    this.video.addEventListener('canplay', function () { self.waiting = false; });
     if (this.video.readyState >= 1 && this.start) seek(this.video, this.start);
-    /* guard: an 'ended' right after a jump of more than JUMP_S (a seek racing a preload switch) is not her end */
+
     this.video.addEventListener('ended', function () {
       if (self.state === 'live' && !(self.lastFrameT !== undefined && self.len - self.lastFrameT > JUMP_S)) self.end();
     });
@@ -229,7 +233,6 @@
     this.setState('still');
   }
 
-  /* cues come from the moment's own caption tracks (hidden, so the reel's burned-in words never double) */
   Moment.prototype.loadCues = function () {
     var self = this, trs = this.video.querySelectorAll('track'), main = null, gloss = null, i;
     for (i = 0; i < trs.length; i++) {
@@ -262,42 +265,79 @@
     return this.start;
   };
 
-  /* ---------- input: pointer press-and-hold, keyboard, "or play" ---------- */
+  Moment.prototype.warm = function () {
+    var v = this.video;
+    if (v.preload === 'auto' || !v.paused) return;
+    v.preload = 'auto';
+    if (v.readyState === 0) { try { v.load(); } catch (e) {  } }
+  };
   Moment.prototype.bind = function () {
     var self = this, btn = this.btn;
+
+    function hover(e) { if (e.pointerType === 'mouse' || e.pointerType === 'pen') self.warm(); }
+    btn.addEventListener('pointerenter', hover, { passive: true });
+    btn.addEventListener('focus', function () { self.warm(); }, { passive: true });
+    if (this.toggleBtn) this.toggleBtn.addEventListener('pointerenter', hover, { passive: true });
+
+    var touchStart = null, touchTimer = 0;
+    function cancelPending() { clearTimeout(touchTimer); touchTimer = 0; touchStart = null; }
     btn.addEventListener('pointerdown', function (e) {
       if (e.button !== undefined && e.button > 0) return;
-      e.preventDefault();
-      if (self.video.preload !== 'auto') self.video.preload = 'auto';
-      try { btn.setPointerCapture(e.pointerId); } catch (err) { /* capture unsupported */ }
       self.downAt = performance.now(); self.pointerType = e.pointerType;
-      self.hold('pointer');
+      if (e.pointerType === 'mouse') {
+        self.warm();
+        e.preventDefault();
+        try { btn.setPointerCapture(e.pointerId); } catch (err) {  }
+        self.hold('pointer');
+        return;
+      }
+      cancelPending();
+      touchStart = { x: e.clientX, y: e.clientY, id: e.pointerId, tapOnly: needsTap(self) };
+      if (touchStart.tapOnly) return;                 
+      touchTimer = setTimeout(function () {
+        touchTimer = 0;
+        if (!touchStart) return;
+        try { btn.setPointerCapture(touchStart.id); } catch (err) {  }
+        self.hold('pointer');
+      }, TOUCH_HOLD_DELAY_MS);
+    });
+    btn.addEventListener('pointermove', function (e) {
+      if (!touchStart || e.pointerType === 'mouse') return;
+      if (Math.abs(e.clientX - touchStart.x) > TOUCH_SLOP_PX || Math.abs(e.clientY - touchStart.y) > TOUCH_SLOP_PX) {
+        if (self.by !== 'pointer') cancelPending();    
+      }
     });
     function up(e) {
+      var pending = touchStart;
+      var moved = pending && e && e.clientX !== undefined && (Math.abs(e.clientX - pending.x) > TOUCH_SLOP_PX || Math.abs(e.clientY - pending.y) > TOUCH_SLOP_PX);
+      if (pending && self.by !== 'pointer') {
+        cancelPending();
+
+        if (e && e.type === 'pointerup' && !moved) { ensureGraph(); resumeAudio(); self.toggle('toggle'); }
+        return;
+      }
+      cancelPending();
       if (self.by !== 'pointer') return;
       var short = performance.now() - self.downAt < SHORT_TAP_MS, wasSilent = self.mutedRun;
       var touch = self.pointerType && self.pointerType !== 'mouse';
       self.release('pointer', false, short);
       var unlock = null;
-      /* the lift is a real gesture: unlock this clip, and every other one not yet unlocked */
-      if (touch && e && e.type === 'pointerup') { ensureGraph(); resumeAudio(); unlock = prime(self); primeAll(self); }
+
+      if (touch && e && e.type === 'pointerup') { ensureGraph(); resumeAudio(); unlock = prime(self); }
       var fromStill = self.heldFrom === 'still';
-      /* say 'Sound is on' only once the unlock has really worked (true); anything else asks for one more tap */
       function say(ok) {
-        if (active && active.state === 'live') return;      /* a new hold began meanwhile: no stale hint */
+        if (active && active.state === 'live') return;      
+        syncTapState();
         if (wasSilent) { self.pulse(); hint(self, ok === true ? (short ? 'tap' : 'unlock') : 'retry', UNLOCK_HINT_MS); }
-        else if (short && touch && fromStill) hint(self, ok === true || self.soundOk ? 'tap' : 'retry', UNLOCK_HINT_MS);
-        else if (short && fromStill) hint(self, 'keep', KEEP_HINT_MS);
+        else if (short && fromStill && !touch) hint(self, 'keep', KEEP_HINT_MS);
       }
       if (unlock && unlock.then) unlock.then(say, function () { say(false); }); else say(null);
     }
     btn.addEventListener('pointerup', up);
     btn.addEventListener('pointercancel', up);
-    btn.addEventListener('lostpointercapture', up);
+    btn.addEventListener('lostpointercapture', function (e) { if (self.by === 'pointer') up(e); });
     btn.addEventListener('contextmenu', function (e) { e.preventDefault(); });
 
-    /* keyboard: hold Space plays, keyup freezes; Enter toggles. A keyHandled flag swallows the
-       synthetic click that follows; any other detail-0 click is a screen reader: toggle. */
     function flag() { self.keyHandled = true; setTimeout(function () { self.keyHandled = false; }, 0); }
     btn.addEventListener('keydown', function (e) {
       if (e.key === ' ' || e.key === 'Spacebar') {
@@ -314,12 +354,12 @@
         self.spaceDown = false; self.release('key', false, performance.now() - self.keyAt < SHORT_TAP_MS);
       } else if (e.key === 'Enter') { e.preventDefault(); flag(); }
     });
-    /* Space held, then focus moved away: the keyup never reaches the mic, so the blur freezes it */
+
     btn.addEventListener('blur', function () {
       if (self.by === 'key') { self.spaceDown = false; self.release('key', false, false); }
     });
     btn.addEventListener('click', function (e) {
-      if (e.detail !== 0) return;                    /* pointer clicks are the hold path */
+      if (e.detail !== 0) return;                    
       if (self.keyHandled) { self.keyHandled = false; return; }
       self.toggle('toggle');
     });
@@ -332,7 +372,7 @@
 
   Moment.prototype.hold = function (by) {
     var self = this, v = this.video;
-    this.heldFrom = this.state;                       /* a tap on a frozen or playing clip keeps her place */
+    this.heldFrom = this.state;                       
     if (this.state === 'live') { this.by = by; this.syncToggle(); return; }
     if (active && active !== this) active.release(active.by, true);
     active = this;
@@ -345,12 +385,14 @@
     else if (v.currentTime < this.start) seek(v, this.start);
     this.by = by;
     this.setState('live');
-    if (navigator.vibrate && by === 'pointer') { try { navigator.vibrate(8); } catch (e) { /* blocked */ } }
+    if (!this.tracked) { this.tracked = true; track('mic_hold', { clip: this.id, by: by }); }
+    try { doc.dispatchEvent(new CustomEvent('mic:live', { detail: { clip: this.id } })); } catch (e) {  }
+    if (navigator.vibrate && by === 'pointer') { try { navigator.vibrate(8); } catch (e) {  } }
     v.muted = false;
     var p;
     try { p = v.play(); } catch (e) { p = null; }
     if (p && p.then) {
-      p.then(function () { if (!v.muted) self.soundOk = true; }, function (err) {
+      p.then(function () { if (!v.muted) { self.soundOk = true; syncTapState(); } }, function (err) {
         if (self.state !== 'live') return;
         if (err && err.name === 'NotAllowedError') { self.runSilent(); return; }
         self.by = null; self.setState(v.currentTime > self.start + 0.05 ? 'frozen' : 'still'); self.syncToggle();
@@ -360,8 +402,6 @@
     loop();
   };
 
-  /* phones: a touch press is not yet permission for sound. Run silently (the hold still does
-     something, the line follows her stored envelope); the lift unlocks sound and rewinds. */
   Moment.prototype.runSilent = function () {
     var self = this, v = this.video;
     this.mutedRun = true; v.muted = true;
@@ -374,14 +414,13 @@
     });
   };
 
-  /* a card pressed while it only peeks in from the edge of its swipe row slides fully into view */
   Moment.prototype.bringIntoRow = function () {
     var row = this.row;
-    if (row.scrollWidth <= row.clientWidth + 1) return;      /* tablet and desktop: the row is not a scroller */
+    if (row.scrollWidth <= row.clientWidth + 1) return;      
     var r = this.el.getBoundingClientRect(), rr = row.getBoundingClientRect();
     var pad = parseFloat(getComputedStyle(row).paddingLeft) || 0;
     if (r.left >= rr.left && r.right <= rr.right) return;
-    this.settleUntil = performance.now() + SETTLE_MS;       /* the slide-in is not a swipe away */
+    this.settleUntil = performance.now() + SETTLE_MS;       
     var left = row.scrollLeft + (r.left - rr.left) - pad;
     try { row.scrollTo({ left: left, behavior: reduceMQ.matches ? 'auto' : 'smooth' }); } catch (e) { row.scrollLeft = left; }
   };
@@ -390,17 +429,16 @@
     this.wave.reset(); this.cueIdx = -2; this.el.classList.remove('played');
   };
 
-  /* tap = a press shorter than SHORT_TAP_MS: nothing meaningful was heard, so the still first screen returns */
   Moment.prototype.release = function (by, force, tap) {
     if (this.state !== 'live') return;
     if (!force && by !== this.by) return;
     var v = this.video;
     v.pause();
     this.by = null;
-    if (this.mutedRun) {                             /* nothing was heard: next hold starts at her first word */
+    if (this.mutedRun) {                             
       this.mutedRun = false; v.muted = false; this.el.classList.remove('is-silent');
       seek(v, this.start); this.restart(); this.setState('still');
-    } else if ((tap && this.heldFrom === 'still') || v.currentTime < this.firstWordAt()) { /* a first tap, or let go before her first word: back to the still first screen */
+    } else if ((tap && this.heldFrom === 'still') || v.currentTime < this.firstWordAt()) { 
       seek(v, this.start); this.restart(); this.setState('still');
     } else {
       this.setState('frozen');
@@ -411,12 +449,13 @@
   };
 
   Moment.prototype.end = function () {
-    /* a silent (muted) hold that reaches the end stays live until the finger lifts, so the lift still unlocks sound */
+
     if (this.mutedRun && this.by === 'pointer') { this.video.pause(); seek(this.video, this.start); return; }
     this.video.pause(); this.by = null; this.mutedRun = false; this.video.muted = false;
     this.el.classList.remove('is-silent');
     this.setState('ended'); this.syncToggle(); this.tick(true);
     if (hintOwner === this) hint(null);
+    track('mic_finish', { clip: this.id });
   };
 
   Moment.prototype.pulse = function () {
@@ -443,6 +482,7 @@
   };
 
   Moment.prototype.syncToggle = function () {
+    this.el.classList.toggle('by-toggle', this.state === 'live' && this.by === 'toggle');
     if (!this.toggleBtn) return;
     var on = this.state === 'live';
     this.toggleBtn.textContent = on ? 'pause' : (this.state === 'frozen' ? 'or play on' : 'or play');
@@ -453,18 +493,17 @@
     var heard = Math.max(0, t - this.start), total = Math.max(0.01, this.len - this.start);
     txt = s === 'still' || s === 'ended' ? this.lenLabel : fmt(t) + ' / ' + this.lenLabel;
     if (this.timeEl && txt !== this.lastTime) { this.timeEl.textContent = txt; this.lastTime = txt; }
-    tag = s === 'live' ? 'Live · ' + fmt(t) : s === 'frozen' ? 'Frozen · ' + fmt(t) : s === 'ended' ? this.endTag : 'Still';
+    tag = s === 'live' ? (this.waiting ? 'Loading' : 'Live · ' + fmt(t)) : s === 'frozen' ? 'Frozen · ' + fmt(t) : s === 'ended' ? this.endTag : 'Still';
     if (tag !== this.lastTag) { this.tagEl.textContent = tag; this.lastTag = tag; }
     var pct = s === 'ended' || s === 'still' ? 0 : Math.min(100, heard / total * 100);
     this.prog.style.strokeDasharray = pct.toFixed(2) + ' 100';
     this.wave.progress = s === 'ended' ? 1 : s === 'still' ? 0 : Math.min(1, heard / total);
   };
 
-  /* ---------- karaoke ---------- */
   Moment.prototype.findCue = function (t) {
     var c = this.cues, idx = -1, i;
     for (i = 0; i < c.length; i++) { if (t >= c[i].s - 0.05) idx = i; }
-    if (this.state === 'ended') { while (idx >= 0 && c[idx].skip) idx--; }   /* finished: last shown line, fully lit */
+    if (this.state === 'ended') { while (idx >= 0 && c[idx].skip) idx--; }   
     return idx;
   };
   Moment.prototype.showCue = function (i) {
@@ -472,10 +511,10 @@
     if (this.plain || !this.said) { this.showPlain(c); return; }
     this.sNow.textContent = ''; this.sBefore.textContent = ''; this.words = [];
     if (this.sGloss) this.sGloss.textContent = '';
-    if (i < 0 || !c || c.skip) return;                /* an omitted stretch shows only the line and the label */
+    if (i < 0 || !c || c.skip) return;                
     for (k = i - 1; k >= 0; k--) { if (!this.cues[k].skip) { prev = this.cues[k]; break; } }
-    /* quotation marks only around verified words: a draft line is never dressed as her quote */
-    if (prev && !prev.g) this.sBefore.textContent = this.verified ? '“' + prev.t + '”' : prev.t;
+
+    if (prev && !prev.g) this.sBefore.textContent = this.verified && prev.s < this.verifiedUntil ? '“' + prev.t + '”' : prev.t;
     var parts = c.t.split(' '), total = 0, acc = 0;
     parts.forEach(function (p) { total += p.length + 1; });
     this.words = parts.map(function (p, n) {
@@ -489,7 +528,7 @@
     this.sNow.className = 'now ' + (len > 48 ? 'sz-s' : len > 30 ? 'sz-m' : 'sz-l');
     if (this.sGloss) this.sGloss.textContent = c.g || '';
   };
-  /* standard captions: the cue as one plain line (and its translation under it), no word-by-word highlight */
+
   Moment.prototype.showPlain = function (c) {
     this.words = [];
     if (!this.ccMain) return;
@@ -516,7 +555,6 @@
     if (force) this.wave.draw();
   };
 
-  /* per frame: feed the line from her real audio (or its stored envelope when silent / no WebAudio) */
   Moment.prototype.feed = function () {
     var wv = this.wave, j;
     if (wv.full) { wv.draw(); return; }
@@ -558,14 +596,16 @@
     rafId = requestAnimationFrame(f);
   }
 
-  /* ================= set up ================= */
+  function track(name, props) { if (typeof window.track === 'function') { try { window.track(name, props); } catch (e) {  } } }
+
   Array.prototype.forEach.call(doc.querySelectorAll('.moment'), function (el) { moments.push(new Moment(el)); });
   var hero = moments.filter(function (m) { return m.isHero; })[0];
 
-  if (hero && !store(KEY_HELD)) setTimeout(function () { if (!active && hero.state === 'still') hint(hero, 'first'); }, FIRST_HINT_DELAY_MS);
+  syncTapState();
+  if (coarse.addEventListener) coarse.addEventListener('change', syncTapState);
 
-  /* captions: one global setting with a control in every moment; hides the karaoke words only (draft
-     labels stay). A fixed label ('Captions') plus aria-pressed, never a changing label. */
+  if (hero && !store(KEY_HELD)) setTimeout(function () { if (!active && hero.state === 'still') { syncTapState(); hint(hero, coarse.matches && needsTap(hero) ? 'first-tap' : 'first'); } }, FIRST_HINT_DELAY_MS);
+
   var ccs = doc.querySelectorAll('.cc');
   function applyCC(off) {
     root.classList.toggle('cc-off', off);
@@ -578,24 +618,14 @@
     });
   });
 
-  /* freeze whatever is live: Esc, window blur, hidden tab */
   function releaseAll() { if (active) active.release(active.by, true); }
+  doc.addEventListener('reel:play', releaseAll);
   doc.addEventListener('keydown', function (e) { if (e.key === 'Escape' || e.key === 'Esc') releaseAll(); });
   window.addEventListener('blur', function () { if (active && active.by !== 'toggle') releaseAll(); });
   doc.addEventListener('visibilitychange', function () { if (doc.hidden) releaseAll(); });
 
   if ('IntersectionObserver' in window) {
-    /* every clip loads metadata only. On wide screens with a fast link, a clip within one viewport
-       loads in full; on phones (mobile data) it loads on the first press of its mic (bind, above) */
-    var conn = navigator.connection || {};
-    var eager = window.matchMedia('(min-width: 768px)').matches && !conn.saveData && !/2g$/.test(conn.effectiveType || '');
-    if (eager) {
-      var pre = new IntersectionObserver(function (ents) {
-        ents.forEach(function (en) { if (en.isIntersecting) { en.target.preload = 'auto'; pre.unobserve(en.target); } });
-      }, { rootMargin: '100% 0px' });
-      moments.forEach(function (m) { if (m.video.preload !== 'auto') pre.observe(m.video); });
-    }
-    /* "or play" keeps going without a hand on the mic, but not once it is scrolled away */
+
     var vis = new IntersectionObserver(function (ents) {
       ents.forEach(function (en) {
         if (!active || active.el !== en.target) return;
@@ -611,4 +641,4 @@
   function applyReduced() { moments.forEach(function (m) { m.wave.full = reduceMQ.matches ? m.env : null; m.wave.draw(); }); }
   if (reduceMQ.addEventListener) reduceMQ.addEventListener('change', applyReduced);
 
-})();
+});

@@ -1,12 +1,10 @@
-/* For producers: Copy buttons for the bios and the announcer's intro, and "Print / save as PDF".
-   The held clips run on mic.js; the menu, bar, chip index and bio switch on site.js. */
+
 (function () {
   'use strict';
   var doc = document;
   var DONE_MS = 2000;
   var ANNOUNCE_MS = 60;
 
-  /* the text a producer pastes: blanks for the announcer come out as [event name] */
   function textOf(el) {
     var clone = el.cloneNode(true);
     Array.prototype.forEach.call(clone.querySelectorAll('.fill'), function (f) { f.textContent = '[' + f.textContent + ']'; });
@@ -15,7 +13,6 @@
     return text.replace(/[ \t]+/g, ' ').replace(/‑/g, '-').trim();
   }
 
-  /* clipboard API where allowed; a hidden textarea and execCommand otherwise */
   function fallbackCopy(text) {
     var ta = doc.createElement('textarea');
     ta.value = text; ta.setAttribute('readonly', '');
@@ -41,13 +38,13 @@
     var label = btn.textContent, timer = 0;
     if (!btn.closest('.bio-switch')) btn.hidden = false;
     btn.addEventListener('click', function () {
-      var target = doc.getElementById(btn.getAttribute('data-copy'));   /* read on click: the bio switch retargets it */
+      var target = doc.getElementById(btn.getAttribute('data-copy'));   
       if (!target) return;
       copy(textOf(target)).then(function (ok) {
         clearTimeout(timer);
         btn.textContent = ok ? 'Copied' : 'Select and copy';
         btn.classList.toggle('done', ok);
-        /* clear first, so a second copy in a row is announced again */
+
         var msg = ok ? 'Copied to the clipboard.' : 'Copy is blocked here. Select the text to copy it.';
         live.textContent = '';
         setTimeout(function () { live.textContent = msg; }, ANNOUNCE_MS);
@@ -56,14 +53,12 @@
     });
   });
 
-  /* print: the browser's own dialog ("Save as PDF" lives there) */
   Array.prototype.forEach.call(doc.querySelectorAll('.print-btn'), function (btn) {
     if (typeof window.print !== 'function') return;
     btn.hidden = false;
     btn.addEventListener('click', function () { window.print(); });
   });
 
-  /* the printed sheet names where the clips can be heard */
   var here = doc.querySelector('.here-url');
   if (here) here.textContent = location.href.replace(/[#?].*$/, '').replace(/producers\.html$/, '');
 })();
